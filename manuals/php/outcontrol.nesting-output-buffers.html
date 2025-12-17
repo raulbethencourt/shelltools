@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Nesting Output Buffers</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.what-output-is-buffered.html">« What Output Is Buffered?</a></li>
+      <li style="float: right;"><a href="outcontrol.buffer-size.html">Buffer Size »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="outcontrol.user-level-output-buffers.html">User-Level Output Buffers</a></li>
+    <li>Nesting Output Buffers</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.nesting-output-buffers" class="section">
+  <h2 class="title">Nesting Output Buffers</h2>
+  <p class="para">
+   If there is an output buffer active when a new buffer is started,
+   the new buffer will be nested inside the previously active buffer.
+   The inner buffer will behave the same way regardless whether it is nested
+   but output buffered by it will not be buffered by the outer buffer.
+   Only output flushed by the inner buffer will be buffered by the outer buffer.
+  </p>
+  <p class="para">
+   Most <code class="literal">ob_<span class="replaceable">*</span></code> functions only work
+   with the active output buffer (the last one started)
+   therefore only the active buffer can be flushed, cleaned and turned off.
+   The functions that work with other buffers are
+   <span class="function"><a href="function.ob-list-handlers.html" class="function">ob_list_handlers()</a></span>
+   which returns the list of all output handlers in use
+   and <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span>
+   which can return information on the active buffer only
+   or on all buffers in use.
+  </p>
+  <p class="para">
+   Calling <span class="function"><a href="function.ob-get-level.html" class="function">ob_get_level()</a></span>
+   or <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span> will return
+   the nesting level of the active output buffer.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    The value for identical levels between <span class="function"><a href="function.ob-get-level.html" class="function">ob_get_level()</a></span>
+    and <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span> is off by one.
+    For <span class="function"><a href="function.ob-get-level.html" class="function">ob_get_level()</a></span>
+    the first level is <code class="literal">1</code>,
+    whereas for <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span>
+    the first level is <code class="literal">0</code>.
+   </p>
+  </div>
+ </div></div></div></body></html>

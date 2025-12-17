@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The __PHP_Incomplete_Class class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="sensitiveparametervalue.getvalue.html">« SensitiveParameterValue::getValue</a></li>
+      <li style="float: right;"><a href="reserved.attributes.html">Predefined Attributes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.interfaces.html">Predefined Interfaces and Classes</a></li>
+    <li>The __PHP_Incomplete_Class class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.php-incomplete-class" class="reference">
+
+ <h1 class="title">The __PHP_Incomplete_Class class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 4 &gt;=4.0.1, PHP 5, PHP 7, PHP 8)</p>
+
+  <div class="section" id="php-incomplete-class.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Created by <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span>
+    when trying to unserialize an undefined class
+    or a class that is not listed in the <code class="literal">allowed_classes</code>
+    of <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span>&#039;s <code class="parameter">options</code> array.
+   </p>
+
+   <p class="para">
+    Prior to PHP 7.2.0, using <span class="function"><a href="function.is-object.html" class="function">is_object()</a></span> on the
+    <span class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></span> class would return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.
+    As of PHP 7.2.0, <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> will be returned.
+   </p>
+  </div>
+
+  <div class="section" id="php-incomplete-class.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+   <div class="classsynopsis"><div class="classsynopsisinfo">
+    
+     <span class="modifier">class</span> <strong class="classname"><strong class="classname">__PHP_Incomplete_Class</strong></strong>
+     {</div>
+   }</div>
+
+   <p class="para">
+    This class has no default properties or methods.
+    When created by <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span>,
+    in addition to all unserialized properties and values
+    the object will have a <code class="literal">__PHP_Incomplete_Class_Name</code> property
+    which will contain the name of the unserialized class.
+   </p>
+  </div>
+
+  <div class="section" id="php-incomplete-class.examples">
+   <h2 class="title">Examples</h2>
+   <div class="example" id="php-incomplete-class.basic-example">
+    <p><strong>Example #1 Created by <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class </span><span style="color: #0000BB">MyClass<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $property </span><span style="color: #007700">= </span><span style="color: #DD0000">"myValue"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$myObject </span><span style="color: #007700">= new </span><span style="color: #0000BB">MyClass</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$foo </span><span style="color: #007700">= </span><span style="color: #0000BB">serialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$myObject</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// unserializes all objects into __PHP_Incomplete_Class objects<br /></span><span style="color: #0000BB">$disallowed </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">, [</span><span style="color: #DD0000">"allowed_classes" </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">false</span><span style="color: #007700">]);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$disallowed</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// unserializes all objects into __PHP_Incomplete_Class objects except those of MyClass2 and MyClass3<br /></span><span style="color: #0000BB">$disallowed2 </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">, [</span><span style="color: #DD0000">"allowed_classes" </span><span style="color: #007700">=&gt; [</span><span style="color: #DD0000">"MyClass2"</span><span style="color: #007700">, </span><span style="color: #DD0000">"MyClass3"</span><span style="color: #007700">]]);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$disallowed2</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// unserializes undefined class into __PHP_Incomplete_Class object<br /></span><span style="color: #0000BB">$undefinedClass </span><span style="color: #007700">= </span><span style="color: #0000BB">unserialize</span><span style="color: #007700">(</span><span style="color: #DD0000">'O:16:"MyUndefinedClass":0:{}'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$undefinedClass</span><span style="color: #007700">);</span></span></code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+
+object(__PHP_Incomplete_Class)#2 (2) {
+  [&quot;__PHP_Incomplete_Class_Name&quot;]=&gt;
+  string(7) &quot;MyClass&quot;
+  [&quot;property&quot;]=&gt;
+  string(7) &quot;myValue&quot;
+}
+object(__PHP_Incomplete_Class)#3 (2) {
+  [&quot;__PHP_Incomplete_Class_Name&quot;]=&gt;
+  string(7) &quot;MyClass&quot;
+  [&quot;property&quot;]=&gt;
+  string(7) &quot;myValue&quot;
+}
+object(__PHP_Incomplete_Class)#4 (1) {
+  [&quot;__PHP_Incomplete_Class_Name&quot;]=&gt;
+  string(16) &quot;MyUndefinedClass&quot;
+}
+
+</pre></div>
+    </div>
+   </div>
+  </div>
+
+ </div>
+
+</div>
+</div></div></body></html>

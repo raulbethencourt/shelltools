@@ -1,0 +1,1713 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Statistics</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mysqlnd.persist.html">« Persistent Connections</a></li>
+      <li style="float: right;"><a href="mysqlnd.notes.html">Notes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mysqlnd.html">Mysqlnd</a></li>
+    <li>Statistics</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mysqlnd.stats" class="chapter">
+ <h1 class="title">Statistics</h1>
+
+
+ <p class="para">
+  MySQL Native Driver contains support for gathering statistics on the
+  communication between the client and the server. The statistics
+  gathered are of two main types:
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">Client statistics</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">Connection statistics</span>
+   </li>
+  </ul>
+ </p>
+ <p class="para">
+  When using the <a href="book.mysqli.html" class="link">mysqli</a> extension,
+  these statistics can be obtained through two API calls:
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><span class="function"><a href="function.mysqli-get-client-stats.html" class="function">mysqli_get_client_stats()</a></span></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span></span>
+   </li>
+  </ul>
+ </p>
+
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <span class="simpara">
+   Statistics are aggregated among all extensions that use the MySQL Native
+   Driver.
+   For example, if the <a href="book.mysqli.html" class="link">mysqli</a>
+   extension and the PDO MySQL driver are both set-up to use MySQLnd,
+   then function calls from <a href="book.mysqli.html" class="link">mysqli</a>
+   and method calls from PDO will affect the statistics.
+  </span>
+  <span class="simpara">
+   There is no way to find out how much a certain API call of any extension
+   that has been compiled against MySQL Native Driver has impacted a certain
+   statistic.
+  </span>
+ </p></blockquote>
+
+ <div id="mysqlnd.stats.retrieve" class="section">
+  <h2 class="title">Retrieving statistics</h2>
+
+  <p class="simpara">
+   Client statistics can be retrieved by calling the
+   <span class="function"><a href="function.mysqli-get-client-stats.html" class="function">mysqli_get_client_stats()</a></span> function.
+  </p>
+
+  <p class="simpara">
+   Connection statistics can be retrieved by calling the
+   <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span> function.
+  </p>
+
+  <p class="simpara">
+   Both functions return an associative array,
+   where the name of a statistic is the key for the corresponding
+   statistical data.
+  </p>
+ </div>
+
+ <div id="mysqlnd.stats.statistics" class="section">
+  <h2 class="title">MySQL Native Driver Statistics</h2>
+  <p class="simpara">
+   Most statistics are associated to a connection, but some are associated
+   to the process in which case this will be mentioned.
+   
+  </p>
+  <p class="simpara">
+   The following statistics are produced by the MySQL Native Driver:
+  </p>
+
+  <dl>
+   <strong class="title">Network Related Statistics</strong>
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-sent"><code class="literal">bytes_sent</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of bytes sent from PHP to the MySQL server.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received"><code class="literal">bytes_received</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of bytes received from the MySQL server.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-sent"><code class="literal">packets_sent</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of packets sent by the MySQL Client Server protocol.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received"><code class="literal">packets_received</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of packets received from the MySQL Client Server protocol.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.protocol-overhead-in"><code class="literal">protocol_overhead_in</code></dt>
+    <dd>
+     <span class="simpara">
+      MySQL Client Server protocol overhead in bytes for incoming traffic.
+      Currently only the Packet Header (4 bytes) is considered as overhead.
+      <code class="code">protocol_overhead_in = packets_received * 4</code>
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.protocol-overhead-out"><code class="literal">protocol_overhead_out</code></dt>
+    <dd>
+     <span class="simpara">
+      MySQL Client Server protocol overhead in bytes for outgoing traffic.
+      Currently only the Packet Header (4 bytes) is considered as overhead.
+      <code class="code">protocol_overhead_out = packets_received * 4</code>
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-ok-packet"><code class="literal">bytes_received_ok_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size of bytes of MySQL Client Server protocol OK packets received.
+      OK packets can contain a status message.
+      The length of the status message can vary and thus the size of an OK
+      packet is not fixed.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-ok"><code class="literal">packets_received_ok</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol OK packets received.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-eof-packet"><code class="literal">bytes_received_eof_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol EOF packets received.
+      EOF can vary in size depending on the server version.
+      Also, EOF can transport an error message.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-eof"><code class="literal">packets_received_eof</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol EOF packets.
+     </span>
+     <span class="simpara">
+      Like with other packet statistics the number of packets will be
+      increased even if PHP does not receive the expected packet but,
+      for example, an error message.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-rset-header-packet"><code class="literal">bytes_received_rset_header_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol result set header
+      packets.
+      The size of the packets varies depending on the payload
+      (<code class="literal">LOAD LOCAL INFILE</code>, <code class="literal">INSERT</code>,
+      <code class="literal">UPDATE</code>, <code class="literal">SELECT</code>, error message).
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-rset-header"><code class="literal">packets_received_rset_header</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol result set header packets.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-rset-field-meta-packet"><code class="literal">bytes_received_rset_field_meta_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol result set metadata
+      (field information) packets.
+      Of course the size varies with the fields in the result set.
+      The packet may also transport an error or an EOF packet in case of
+      COM_LIST_FIELDS.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-rset-field-meta"><code class="literal">packets_received_rset_field_meta</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol result set metadata
+      (field information) packets.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-rset-row-packet"><code class="literal">bytes_received_rset_row_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol result set row data
+      packets.
+      The packet may also transport an error or an EOF packet.
+      One can compute the number of error and EOF packets by subtracting
+      <code class="literal">rows_fetched_from_server_normal</code>
+      and <code class="literal">rows_fetched_from_server_ps</code>
+      from <code class="literal">bytes_received_rset_row_packet</code>.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-rset-row"><code class="literal">packets_received_rset_row</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol result set row data packets.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-prepare-response-packet"><code class="literal">bytes_received_prepare_response_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol OK for Prepared
+      Statement Initialization packets (prepared statement init packets).
+      The packet may also transport an error.
+      The packet size depends on the MySQL version.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-prepare-response"><code class="literal">packets_received_prepare_response</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol OK for Prepared Statement
+      Initialization packets (prepared statement init packets).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-change-user-packet"><code class="literal">bytes_received_change_user_packet</code></dt>
+    <dd>
+     <span class="simpara">
+      Total size in bytes of MySQL Client Server protocol COM_CHANGE_USER packets.
+      The packet may also transport an error or EOF.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total size in bytes includes the size of the header packet
+       (4 bytes, see protocol overhead).
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-received-change-user"><code class="literal">packets_received_change_user</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol COM_CHANGE_USER packets.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.packets-sent-command"><code class="literal">packets_sent_command</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of MySQL Client Server protocol commands sent from PHP to MySQL.
+     </span>
+     <span class="simpara">
+      There is no way to know which specific commands and how many of
+      them have been sent.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-real-data_normal"><code class="literal">bytes_received_real_data_normal</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of bytes of payload fetched by the PHP client from
+      <code class="literal">mysqlnd</code> using the text protocol.
+     </span>
+     <span class="simpara">
+      This is the size of the actual data contained in result sets that do not
+      originate from prepared statements and which have been fetched by the PHP client.
+     </span>
+     <span class="simpara">
+      Note that although a full result set may have been pulled from MySQL
+      by <code class="literal">mysqlnd</code>, this statistic only counts actual data
+      pulled from <code class="literal">mysqlnd</code> by the PHP client.
+     </span>
+     <p class="para">
+      An example of a code sequence that will increase the value is as follows:
+      <div class="example-contents">
+<div class="cdata"><pre>
+$mysqli = new mysqli();
+$res = $mysqli-&gt;query(&quot;SELECT &#039;abc&#039;&quot;);
+$res-&gt;fetch_assoc();
+$res-&gt;close();
+</pre></div>
+      </div>
+
+      Every fetch operation will increase the value.
+     </p>
+     <p class="para">
+      However, the statistic will not be increased if the result set is only
+      buffered on the client, but not fetched, such as in the following example:
+      <div class="example-contents">
+<div class="cdata"><pre>
+$mysqli = new mysqli();
+$res = $mysqli-&gt;query(&quot;SELECT &#039;abc&#039;&quot;);
+$res-&gt;close();
+</pre></div>
+      </div>
+
+     </p>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bytes-received-real-data-ps"><code class="literal">bytes_received_real_data_ps</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of bytes of the payload fetched by the PHP client from
+      <code class="literal">mysqlnd</code> using the prepared statement protocol.
+     </span>
+     <span class="simpara">
+      This is the size of the actual data contained in result sets that
+      originate from prepared statements and which have been fetched by the PHP client.
+     </span>
+     <span class="simpara">
+      The value will not be increased if the result set is not subsequently read by the PHP client.
+     </span>
+     <span class="simpara">
+      Note that although a full result set may have been pulled from MySQL
+      by <code class="literal">mysqlnd</code>, this statistic only counts actual data
+      pulled from <code class="literal">mysqlnd</code> by the PHP client.
+     </span>
+     <span class="simpara">
+      See also <code class="literal">bytes_received_real_data_normal</code>.
+     </span>
+    </dd>
+   
+  </dl>
+
+  <dl>
+   <strong class="title">Result Set Related Statistics</strong>
+
+   
+    <dt id="mysqlnd.stats.statistics.result-set-queries"><code class="literal">result_set_queries</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of queries that have generated a result set.
+      Examples of queries that generate a result set:
+      <code class="literal">SELECT</code>, <code class="literal">SHOW</code>.
+     </span>
+     <span class="simpara">
+      The statistic will not be incremented if there is an error reading
+      the result set header packet from the line.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       This statistic can be used as an indirect measure for the number of
+       queries PHP has sent to MySQL.
+       This could help identifying a client that causes a high database load.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.non-result-set-queries"><code class="literal">non_result_set_queries</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of queries that did not generate a result set.
+      Examples of queries that do not generate a result set:
+      <code class="literal">INSERT</code>, <code class="literal">UPDATE</code>, <code class="literal">LOAD DATA</code>.
+     </span>
+     <span class="simpara">
+      The statistic will not be incremented if there is an error reading
+      the result set header packet from the line.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       This statistic can be used as an indirect measure for the number of
+       queries PHP has sent to MySQL.
+       This could help identifying a client that causes a high database load.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.no-index-used"><code class="literal">no_index_used</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of queries that have generated a result set but did not use an index.
+      (See also the mysqld start option <code class="literal">--log-queries-not-using-indexes</code>).
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Those queries can be reported via an exception by calling
+       <code class="code">mysqli_report(MYSQLI_REPORT_INDEX);</code>.
+       It is possible to have them be reported via a warning instead by calling
+       <code class="code">mysqli_report(MYSQLI_REPORT_INDEX ^ MYSQLI_REPORT_STRICT);</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.bad-index-used"><code class="literal">bad_index_used</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of queries that have generated a result set and did not use a good index.
+      (See also the mysqld start option <code class="literal">--log-slow-queries</code>).
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Those queries can be reported via an exception by calling
+       <code class="code">mysqli_report(MYSQLI_REPORT_INDEX);</code>.
+       It is possible to have them be reported via a warning instead by calling
+       <code class="code">mysqli_report(MYSQLI_REPORT_INDEX ^ MYSQLI_REPORT_STRICT);</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.slow-queries"><code class="literal">slow_queries</code></dt>
+    <dd>
+     <span class="simpara">
+      SQL statements that took more than <code class="literal">long_query_time</code>
+      seconds to execute and required at least
+      <code class="literal">min_examined_row_limit</code> rows to be examined.
+     </span>
+     <div class="caution"><strong class="caution">Caution</strong>
+      <p class="simpara">
+       Not reported through <span class="function"><a href="function.mysqli-report.html" class="function">mysqli_report()</a></span>.
+      </p>
+     </div>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.buffered-sets"><code class="literal">buffered_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of buffered result sets returned by normal
+      (i.e. not via a prepared statement) queries.
+     </span>
+     <p class="para">
+      Examples of API calls that will buffer result sets on the client:
+      <span class="simplelist"><span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span>, <span class="function"><a href="mysqli.store-result.html" class="function">mysqli_store_result()</a></span>, <span class="function"><a href="mysqli-stmt.get-result.html" class="function">mysqli_stmt_get_result()</a></span></span>
+     </p>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.unbuffered-sets"><code class="literal">unbuffered_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of unbuffered result sets returned by normal
+      (i.e. not via a prepared statement) queries.
+     </span>
+     <p class="para">
+      Examples of API calls that will not buffer result sets on the client:
+      <span class="simplelist"><span class="function"><a href="mysqli.use-result.html" class="function">mysqli_use_result()</a></span></span>
+     </p>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.ps-buffered-sets"><code class="literal">ps_buffered_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of buffered result sets returned by prepared statements.
+     </span>
+     <p class="para">
+      Examples of API calls that will buffer result sets on the client:
+      <span class="simplelist"><span class="function"><a href="mysqli-stmt.store-result.html" class="function">mysqli_stmt_store_result()</a></span></span>
+     </p>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.ps-unbuffered-sets"><code class="literal">ps_unbuffered_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of unbuffered result sets returned by prepared statements.
+     </span>
+     <span class="simpara">
+      By default prepared statements are unbuffered,
+      thus most prepared statements will be accounted in this statistic.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.flushed-normal-sets"><code class="literal">flushed_normal_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of result sets returned by normal
+      (i.e. not via a prepared statement) queries
+      with unread data that have been silently flushed.
+     </span>
+
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Flushing happens only with unbuffered result sets.
+      </span>
+      <span class="simpara">
+       Unbuffered result sets must be fetched completely before a new query can
+       be run on the connection otherwise MySQL will throw an error.
+       If the application does not fetch all rows from an unbuffered result set,
+       mysqlnd does implicitly fetch the result set to clear the line.
+      </span>
+      <span class="simpara">
+       See also <code class="literal">rows_skipped_normal</code>, <code class="literal">rows_skipped_ps</code>.
+      </span>
+      <p class="para">
+       Some possible causes for an implicit flush:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          Faulty client application
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          Client stopped reading after it found what it was looking for
+          but has made MySQL calculate more records than needed
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          Client application has stopped unexpectedly
+         </span>
+        </li>
+       </ul>
+      </p>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.flushed-ps-sets"><code class="literal">flushed_ps_sets</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of result sets from prepared statements
+      with unread data that have been silently flushed.
+     </span>
+
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       Flushing happens only with unbuffered result sets.
+      </span>
+      <span class="simpara">
+       Unbuffered result sets must be fetched completely before a new query can
+       be run on the connection otherwise MySQL will throw an error.
+       If the application does not fetch all rows from an unbuffered result set,
+       mysqlnd does implicitly fetch the result set to clear the line.
+      </span>
+      <span class="simpara">
+       See also <code class="literal">rows_skipped_normal</code>, <code class="literal">rows_skipped_ps</code>.
+      </span>
+      <p class="para">
+       Some possible causes for an implicit flush:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          Faulty client application
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          Client stopped reading after it found what it was looking for
+          but has made MySQL calculate more records than needed
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          Client application has stopped unexpectedly
+         </span>
+        </li>
+       </ul>
+      </p>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.ps-prepared-never-executed"><code class="literal">ps_prepared_never_executed</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of statements prepared but never executed.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.ps-prepared-once-executed"><code class="literal">ps_prepared_once_executed</code></dt>
+    <dd>
+     <span class="simpara">
+      Number of prepared statements executed only once.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-server-normal"><code class="literal">rows_fetched_from_server_normal</code></dt>
+    <dt><code class="literal">rows_fetched_from_server_ps</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of result set rows fetched from the server.
+      This includes the rows which were not read by the client but
+      had been implicitly fetched due to flushed unbuffered result sets.
+     </span>
+     <span class="simpara">
+      See also <code class="literal">packets_received_rset_row</code>.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-buffered-from-server-normal"><code class="literal">rows_buffered_from_client_normal</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of buffered rows originating from a normal query.
+     </span>
+     <span class="simpara">
+      This is the number of rows that have been fetched from MySQL and buffered on client.
+     </span>
+     <p class="para">
+      Examples of queries that will buffer results:
+      <ul class="simplelist">
+       <li><span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span></li>
+       <li><span class="function"><a href="mysqli.store-result.html" class="function">mysqli_store_result()</a></span></li>
+      </ul>
+     </p>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-buffered-from-server-ps"><code class="literal">rows_buffered_from_server_ps</code></dt>
+    <dd>
+     <span class="simpara">
+      Same as <code class="literal">rows_buffered_from_client_normal</code>
+      but for prepared statements.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-client-normal-buffered"><code class="literal">rows_fetched_from_client_normal_buffered</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of rows fetched by the client from a buffered result set
+      created by a normal query.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-client-ps-buffered"><code class="literal">rows_fetched_from_client_ps_buffered</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of rows fetched by the client from a buffered result set
+      created by a prepared statement.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-client-normal-unbuffered"><code class="literal">rows_fetched_from_client_normal_unbuffered</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of rows fetched by the client from an unbuffered result set
+      created by a normal query.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-client-ps-unbuffered"><code class="literal">rows_fetched_from_client_ps_unbuffered</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of rows fetched by the client from an unbuffered result set
+      created by a prepared statement.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.rows-fetched-from-client-ps-cursor"><code class="literal">rows_fetched_from_client_ps_cursor</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of rows fetch by the client from a cursor created by a
+      prepared statement.
+     </span>
+    </dd>
+   
+
+   
+   
+    <dt id="mysqlnd.stats.statistics.rows-skipped-normal"><code class="literal">rows_skipped_normal</code></dt>
+    <dt><code class="literal">rows_skipped_ps</code></dt>
+    <dd>
+     <span class="simpara">
+      Reserved for future use (currently not supported).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.copy-on-write"><code class="literal">copy_on_write_saved</code></dt>
+    <dt><code class="literal">copy_on_write_performed</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      With mysqlnd, variables returned by the extensions point into mysqlnd
+      internal network result buffers.
+      If the data are not changed, the fetched data is kept only once in memory.
+      However, any modification to the data will require mysqlnd to perform
+      a copy-on-write operation.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.free-result"><code class="literal">explicit_free_result</code></dt>
+    <dt><code class="literal">implicit_free_result</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a connection and process level scope statistic.
+     </span>
+     <span class="simpara">
+      Total number of freed result sets.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-null"><code class="literal">proto_text_fetched_null</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_NULL</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-null"><code class="literal">proto_binary_fetched_null</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_NULL</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-bit"><code class="literal">proto_text_fetched_bit</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_BIT</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-bit"><code class="literal">proto_binary_fetched_bit</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_BIT</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-tinyint"><code class="literal">proto_text_fetched_tinyint</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TINY</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-tinyint"><code class="literal">proto_binary_fetched_tinyint</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TINY</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-short"><code class="literal">proto_text_fetched_short</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_SHORT</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-short"><code class="literal">proto_binary_fetched_short</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_SHORT</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-int24"><code class="literal">proto_text_fetched_int24</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_INT24</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-int24"><code class="literal">proto_binary_fetched_int24</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_INT24</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-int"><code class="literal">proto_text_fetched_int</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_LONG</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-int"><code class="literal">proto_binary_fetched_int</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_LONG</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-bigint"><code class="literal">proto_text_fetched_bigint</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_LONGLONG</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-bigint"><code class="literal">proto_binary_fetched_bigint</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_LONGLONG</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-decimal"><code class="literal">proto_text_fetched_decimal</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DECIMAL</code>, or <code class="literal">MYSQL_TYPE_NEWDECIMAL</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-decimal"><code class="literal">proto_binary_fetched_decimal</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DECIMAL</code>, or <code class="literal">MYSQL_TYPE_NEWDECIMAL</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-float"><code class="literal">proto_text_fetched_float</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_FLOAT</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-float"><code class="literal">proto_binary_fetched_float</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_FLOAT</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-double"><code class="literal">proto_text_fetched_double</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DOUBLE</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-double"><code class="literal">proto_binary_fetched_double</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DOUBLE</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-date"><code class="literal">proto_text_fetched_date</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DATE</code>, or <code class="literal">MYSQL_TYPE_NEWDATE</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-date"><code class="literal">proto_binary_fetched_date</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DATE</code>, or <code class="literal">MYSQL_TYPE_NEWDATE</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-year"><code class="literal">proto_text_fetched_year</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_YEAR</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-year"><code class="literal">proto_binary_fetched_year</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_YEAR</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-time"><code class="literal">proto_text_fetched_time</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TIME</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-time"><code class="literal">proto_binary_fetched_time</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TIME</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-datetime"><code class="literal">proto_text_fetched_datetime</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DATETIME</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-datetime"><code class="literal">proto_binary_fetched_datetime</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_DATETIME</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-timestamp"><code class="literal">proto_text_fetched_timestamp</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TIMESTAMP</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-timestamp"><code class="literal">proto_binary_fetched_timestamp</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TIMESTAMP</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-string"><code class="literal">proto_text_fetched_string</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_STRING</code>, <code class="literal">MYSQL_TYPE_VARSTRING</code>, or <code class="literal">MYSQL_TYPE_VARCHAR</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-string"><code class="literal">proto_binary_fetched_string</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_STRING</code>, <code class="literal">MYSQL_TYPE_VARSTRING</code>, or <code class="literal">MYSQL_TYPE_VARCHAR</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-blob"><code class="literal">proto_text_fetched_blob</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TINY_BLOB</code>,
+      <code class="literal">MYSQL_TYPE_MEDIUM_BLOB</code>,
+      <code class="literal">MYSQL_TYPE_LONG_BLOB</code>,
+      or <code class="literal">MYSQL_TYPE_BLOB</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-blob"><code class="literal">proto_binary_fetched_blob</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_TINY_BLOB</code>,
+      <code class="literal">MYSQL_TYPE_MEDIUM_BLOB</code>,
+      <code class="literal">MYSQL_TYPE_LONG_BLOB</code>,
+      or <code class="literal">MYSQL_TYPE_BLOB</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-enum"><code class="literal">proto_text_fetched_enum</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_ENUM</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-enum"><code class="literal">proto_binary_fetched_enum</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_ENUM</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-set"><code class="literal">proto_text_fetched_set</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_SET</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-set"><code class="literal">proto_binary_fetched_set</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_SET</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-geometry"><code class="literal">proto_text_fetched_geometry</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_GEOMETRY</code>
+      fetched from a normal query (MySQL text protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-geometry"><code class="literal">proto_binary_fetched_geometry</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_GEOMETRY</code>
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-text-fetched-other"><code class="literal">proto_text_fetched_other</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of types
+      <code class="literal">MYSQL_TYPE_<span class="replaceable">*</span></code>
+      not listed previously
+      fetched from a normal query (MySQL text protocol).
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       In theory, this should always be <code class="literal">0</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.proto-binary-fetched-other"><code class="literal">proto_binary_fetched_other</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of columns of type
+      <code class="literal">MYSQL_TYPE_<span class="replaceable">*</span></code>
+      not listed previously
+      fetched from a prepared statement (MySQL binary protocol).
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       In theory, this should always be <code class="literal">0</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+  </dl>
+
+  <dl>
+   <strong class="title">Connection Related Statistics</strong>
+
+   
+    <dt id="mysqlnd.stats.statistics.connect-success"><code class="literal">connect_success</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of successful connection attempts.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       <code class="literal">connect_success</code> holds the sum of successful
+       persistent and non-persistent connection attempts.
+       Therefore, the number of successful non-persistent connection attempts
+       is <code class="literal">connect_success - pconnect_success</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.pconnect-success"><code class="literal">pconnect_success</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of successful persistent connection attempts.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.connect-failure"><code class="literal">connect_failure</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of failed connection attempts.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.reconnect"><code class="literal">reconnect</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.active-connections"><code class="literal">active_connections</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      Total number of active persistent and non-persistent connections.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       The total number of active non-persistent connections is
+       <code class="literal">active_connections - active_persistent_connections</code>.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.active-persistent-connections"><code class="literal">active_persistent_connections</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      Total number of active persistent connections.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.explicit-close"><code class="literal">explicit_close</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of explicitly closed connections.
+     </span>
+     <div class="example" id="example-1833">
+      <p><strong>Example #1 Examples of code snippets that cause an explicit close</strong></p>
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <div class="example-contents">
+<div class="cdata"><pre>
+$link = new mysqli(/* ... */);
+$link-&gt;close(/* ... */);
+</pre></div>
+        </div>
+
+       </li>
+       <li class="listitem">
+        <div class="example-contents">
+<div class="cdata"><pre>
+$link = new mysqli(/* ... */);
+$link-&gt;connect(/* ... */);
+</pre></div>
+        </div>
+
+       </li>
+      </ul>
+     </div>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.implicit-close"><code class="literal">implicit_close</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of implicitly closed connections.
+     </span>
+     <div class="example" id="example-1834">
+      <p><strong>Example #2 Examples of code snippets that cause an implicit close</strong></p>
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <div class="example-contents">
+<div class="cdata"><pre>
+$link = new mysqli(/* ... */);
+$link-&gt;real_connect(/* ... */);
+</pre></div>
+        </div>
+
+       </li>
+       <li class="listitem">
+        <div class="example-contents">
+         <code class="code">unset($link)</code>
+        </div>
+
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Persistent connection: pooled connection has been created with
+         real_connect and there may be unknown options set - close
+         implicitly to avoid returning a connection with unknown options
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         Persistent connection: ping/change_user fails and ext/mysqli
+         closes the connection
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         End of script execution: close connections that have not been
+         closed by the user
+        </span>
+       </li>
+      </ul>
+     </div>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.disconnect-close"><code class="literal">disconnect_close</code></dt>
+    <dd>
+     <span class="simpara">
+      Connection failures indicated by the C API call
+      <code class="literal">mysql_real_connect</code> during an attempt to
+      establish a connection.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.in-middle-of-command-close"><code class="literal">in_middle_of_command_close</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      A connection has been closed in the middle of a command execution
+      (outstanding result sets not fetched, after sending a query and
+      before retrieving an answer, while fetching data, while
+      transferring data with LOAD DATA).
+     </span>
+     <div class="warning"><strong class="warning">Warning</strong>
+      <p class="simpara">
+       Unless asynchronous queries are used,
+       this should only happen if the PHP application terminated unexpectedly,
+       and PHP shuts down the connection automatically.
+      </p>
+     </div>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.init-command-executed-count"><code class="literal">init_command_executed_count</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of init command executions.
+      For example: <code class="code">mysqli_options(MYSQLI_INIT_COMMAND , $value)</code>.
+     </span>
+     <span class="simpara">
+      The number of successful executions is
+      <code class="literal">init_command_executed_count - init_command_failed_count</code>.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.init-command-failed-count"><code class="literal">init_command_failed_count</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of failed init commands.
+     </span>
+    </dd>
+   
+  </dl>
+
+  <dl>
+   <strong class="title"><code class="literal">COM_*</code> Command Related Statistics</strong>
+
+   
+    <dt id="mysqlnd.stats.statistics.com"><code class="literal">com_quit</code></dt>
+    <dt><code class="literal">com_init_db</code></dt>
+    <dt><code class="literal">com_query</code></dt>
+    <dt><code class="literal">com_field_list</code></dt>
+    <dt><code class="literal">com_create_db</code></dt>
+    <dt><code class="literal">com_drop_db</code></dt>
+    <dt><code class="literal">com_refresh</code></dt>
+    <dt><code class="literal">com_shutdown</code></dt>
+    <dt><code class="literal">com_statistics</code></dt>
+    <dt><code class="literal">com_process_info</code></dt>
+    <dt><code class="literal">com_connect</code></dt>
+    <dt><code class="literal">com_process_kill</code></dt>
+    <dt><code class="literal">com_debug</code></dt>
+    <dt><code class="literal">com_ping</code></dt>
+    <dt><code class="literal">com_time</code></dt>
+    <dt><code class="literal">com_delayed_insert</code></dt>
+    <dt><code class="literal">com_change_user</code></dt>
+    <dt><code class="literal">com_binlog_dump</code></dt>
+    <dt><code class="literal">com_table_dump</code></dt>
+    <dt><code class="literal">com_connect_out</code></dt>
+    <dt><code class="literal">com_register_slave</code></dt>
+    <dt><code class="literal">com_stmt_prepare</code></dt>
+    <dt><code class="literal">com_stmt_execute</code></dt>
+    <dt><code class="literal">com_stmt_send_long_data</code></dt>
+    <dt><code class="literal">com_stmt_close</code></dt>
+    <dt><code class="literal">com_stmt_reset</code></dt>
+    <dt><code class="literal">com_stmt_set_option</code></dt>
+    <dt><code class="literal">com_stmt_fetch</code></dt>
+    <dt><code class="literal">com_daemon</code></dt>
+    <dd>
+     <span class="simpara">
+      Total number of attempts to send a certain <code class="literal">COM_*</code>
+      command from PHP to MySQL.
+     </span>
+     <span class="simpara">
+      The statistics are incremented after checking the line and immediately
+      before sending the corresponding MySQL client server protocol packet.
+     </span>
+     <div class="caution"><strong class="caution">Caution</strong>
+      <p class="simpara">
+       If MySQLnd fails to send the packet over the wire the statistics will not be decremented.
+       In case of a failure MySQLnd emits a PHP warning
+       <q class="quote">Error while sending %s packet. PID=%d.</q>
+      </p>
+     </div>
+
+     <div class="example" id="example-1835">
+      <p><strong>Example #3 Usage examples</strong></p>
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <p class="para">
+         Check if PHP sends certain commands to MySQL, for example,
+         check if a client sends <code class="literal">COM_PROCESS_KILL</code>
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         Calculate the average number of prepared statement executions
+         by comparing <code class="literal">COM_EXECUTE</code> with
+         <code class="literal">COM_PREPARE</code>
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         Check if PHP has run any non-prepared SQL statements by
+         checking if <code class="literal">COM_QUERY</code> is zero
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         Identify PHP scripts that run an excessive number of SQL
+         statements by checking <code class="literal">COM_QUERY</code> and
+         <code class="literal">COM_EXECUTE</code>
+        </p>
+       </li>
+      </ul>
+     </div>
+    </dd>
+   
+  </dl>
+
+  <dl>
+   <strong class="title">Miscellaneous Statistics</strong>
+
+   
+    <dt id="mysqlnd.stats.statistics.stmt-close"><code class="literal">explicit_stmt_close</code></dt>
+    <dt><code class="literal">implicit_stmt_close</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      Total number of closed prepared statements.
+     </span>
+     <blockquote class="note"><p><strong class="note">Note</strong>: 
+      <span class="simpara">
+       A prepared statement is always explicitly closed. The only time it&#039;s closed implicitly is when preparing it fails.
+      </span>
+     </p></blockquote>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.memory-management"><code class="literal">mem_emalloc_count</code></dt>
+    <dt><code class="literal">mem_emalloc_ammount</code></dt>
+    <dt><code class="literal">mem_ecalloc_count</code></dt>
+    <dt><code class="literal">mem_ecalloc_ammount</code></dt>
+    <dt><code class="literal">mem_realloc_count</code></dt>
+    <dt><code class="literal">mem_realloc_ammount</code></dt>
+    <dt><code class="literal">mem_efree_count</code></dt>
+    <dt><code class="literal">mem_malloc_count</code></dt>
+    <dt><code class="literal">mem_malloc_ammount</code></dt>
+    <dt><code class="literal">mem_calloc_count</code></dt>
+    <dt><code class="literal">mem_calloc_ammount</code></dt>
+    <dt><code class="literal">mem_ealloc_count</code></dt>
+    <dt><code class="literal">mem_ealloc_ammount</code></dt>
+    <dt><code class="literal">mem_free_count</code></dt>
+    <dd>
+     <span class="simpara">
+      This is a process level scope statistic.
+     </span>
+     <span class="simpara">
+      Memory management calls.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.command-buffer-too-small"><code class="literal">command_buffer_too_small</code></dt>
+    
+    <dd>
+     <span class="simpara">
+      Number of network command buffer extensions while sending commands from
+      PHP to MySQL.
+     </span>
+     <span class="simpara">
+      MySQLnd allocates an internal command/network buffer of
+      <a href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a>
+      bytes for every connection.
+     </span>
+     <span class="simpara">
+      If a MySQL Client Server protocol command,
+      e.g. <code class="literal">COM_QUERY</code> (normal query),
+      does not fit into the buffer,
+      MySQLnd will grow the buffer to what is needed for sending the command.
+      Whenever the buffer gets extended for one connection
+      <code class="literal">command_buffer_too_small</code> will be incremented by one.
+     </span>
+     <span class="simpara">
+      If MySQLnd has to grow the buffer beyond its initial size of
+      <a href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a>
+      bytes for almost every connection,
+      considerations to increase the default size should be made to avoid
+      re-allocations.
+     </span>
+    </dd>
+   
+
+   
+    <dt id="mysqlnd.stats.statistics.connection-reused"><code class="literal">connection_reused</code></dt>
+    <dd>
+     <span class="simpara">
+      The total number of times a persistent connection has been reused.
+     </span>
+    </dd>
+   
+  </dl>
+ </div>
+</div>
+</div></div></body></html>

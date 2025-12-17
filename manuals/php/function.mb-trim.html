@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Strip whitespace (or other characters) from the beginning and end of a string</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.mb-substr-count.html">« mb_substr_count</a></li>
+      <li style="float: right;"><a href="function.mb-ucfirst.html">mb_ucfirst »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.mbstring.html">Multibyte String Functions</a></li>
+    <li>Strip whitespace (or other characters) from the beginning and end of a string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.mb-trim" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_trim</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.4.0)</p><p class="refpurpose"><span class="refname">mb_trim</span> &mdash; <span class="dc-title">Strip whitespace (or other characters) from the beginning and end of a string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mb-trim-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mb_trim</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$characters</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+
+  <p class="simpara">
+   Performs a multi-byte safe <span class="function"><a href="function.trim.html" class="function">trim()</a></span> operation,
+   and returns a string with whitespace stripped from the
+   beginning and end of <code class="parameter">string</code>.
+   Without the second parameter,
+   <span class="function"><strong>mb_trim()</strong></span> will strip these characters:
+  </p>
+  
+ <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot; &quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+0020), an ordinary space.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\t&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+0009), a tab.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\n&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+000A), a new line (line feed).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\r&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+000D), a carriage return.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\0&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+0000), the NUL-byte.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\v&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+000B), a vertical tab.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\f&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+000C), a form feed.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u00A0&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+00A0), a NO-BREAK SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u1680&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+1680), a OGHAM SPACE MARK.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2000&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2000), a EN QUAD.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2001&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2001), a EM QUAD.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2002&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2002), a EN SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2003&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2003), a EM SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2004&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2004), a THREE-PER-EM SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2005&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2005), a FOUR-PER-EM SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">&quot;\u2006&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2006), a SIX-PER-EM SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u2007&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2007), a FIGURE SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u2008&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2008), a PUNCTUATION SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u2009&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2009), a THIN SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u200A&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+200A), a HAIR SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u2028&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2028), a LINE SEPARATOR.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u2029&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+2029), a PARAGRAPH SEPARATOR.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u202F&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+202F), a NARROW NO-BREAK SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u205F&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+205F), a MEDIUM MATHEMATICAL SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u3000&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+3000), a IDEOGRAPHIC SPACE.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u0085&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+0085), a NEXT LINE (NEL).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+     <code class="literal">&quot;\u180E&quot;</code> (<abbr title="Unique, Universal, and Uniform character enCoding">Unicode</abbr> U+180E), a MONGOLIAN VOWEL SEPARATOR.
+     </span>
+    </li>
+   </ul>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-trim-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">string</code></dt>
+    <dd>
+     <span class="simpara">
+      The <span class="type"><a href="language.types.string.html" class="type string">string</a></span> that will be trimmed.
+     </span>
+    </dd>
+   
+   
+    <dt><code class="parameter">characters</code></dt>
+    <dd>
+     
+ <span class="simpara">
+  Optionally, the stripped characters can also be specified using
+  the <code class="parameter">characters</code> parameter.
+  Simply list all characters that need to be stripped.
+ </span>
+
+    </dd>
+   
+   
+    <dt><code class="parameter">encoding</code></dt>
+    <dd>
+     <span class="simpara">
+      The string encoding.
+     </span>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-trim-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="simpara">
+   The trimmed string.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-trim-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="function"><a href="function.mb-ltrim.html" class="function" rel="rdfs-seeAlso">mb_ltrim()</a> - Strip whitespace (or other characters) from the beginning of a string</span></li>
+   <li><span class="function"><a href="function.mb-rtrim.html" class="function" rel="rdfs-seeAlso">mb_rtrim()</a> - Strip whitespace (or other characters) from the end of a string</span></li>
+   <li><span class="function"><a href="function.trim.html" class="function" rel="rdfs-seeAlso">trim()</a> - Strip whitespace (or other characters) from the beginning and end of a string</span></li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

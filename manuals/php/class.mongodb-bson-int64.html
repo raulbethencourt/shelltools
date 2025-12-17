@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\BSON\Int64 class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-bson-dbpointer.unserialize.html">« MongoDB\BSON\DBPointer::unserialize</a></li>
+      <li style="float: right;"><a href="mongodb-bson-int64.construct.html">MongoDB\BSON\Int64::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.bson.html">MongoDB\BSON</a></li>
+    <li>The MongoDB\BSON\Int64 class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-bson-int64" class="reference">
+
+ <h1 class="title">The MongoDB\BSON\Int64 class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.5.0)</p>
+
+
+  <div class="section" id="mongodb-bson-int64.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    BSON type for a 64-bit integer. When decoding BSON to PHP data, this class
+    is used when a 64-bit integer cannot be represented as a PHP integer on
+    32-bit platforms. These objects support overloaded
+    <a href="language.operators.arithmetic.html" class="link">arithmetic</a>,
+    <a href="language.operators.bitwise.html" class="link">bitwise</a>, and
+    <a href="language.operators.comparison.html" class="link">comparison</a> operators.
+   </p>
+   <p class="para">
+    When working with raw BSON data through the
+    <span class="classname"><a href="class.mongodb-bson-document.html" class="classname">MongoDB\BSON\Document</a></span>,
+    <span class="classname"><a href="class.mongodb-bson-packedarray.html" class="classname">MongoDB\BSON\PackedArray</a></span>, and
+    <span class="classname"><a href="class.mongodb-bson-iterator.html" class="classname">MongoDB\BSON\Iterator</a></span> classes, any 64-bit integer
+    will be returned as an instance of this class, regardless of platform and
+    whether the value can be represented as a PHP integer. This ensures that
+    values can be roundtripped without changing the type.
+   </p>
+   <p class="para">
+    During BSON encoding, objects of this class will convert back to a 64-bit
+    integer type, even when the value would fit in a 32-bit integer. This
+    allows explicitly storing values as 64-bit integers in BSON.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-bson-int64.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <span class="ooclass"><strong class="classname"></strong></span>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\BSON\Int64</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.mongodb-bson-type.html" class="interfacename">MongoDB\BSON\Type</a></span><span class="oointerface">,  <a href="class.serializable.html" class="interfacename">Serializable</a></span><span class="oointerface">,  <a href="class.jsonserializable.html" class="interfacename">JsonSerializable</a></span><span class="oointerface">,  <a href="class.stringable.html" class="interfacename">Stringable</a></span> {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-int64.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$value</code></span>)</div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-int64.jsonserialize.html" class="methodname">jsonSerialize</a></span>(): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-int64.serialize.html" class="methodname">serialize</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-int64.tostring.html" class="methodname">__toString</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-int64.unserialize.html" class="methodname">unserialize</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$data</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Version</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>PECL mongodb 1.16.0</td>
+        <td>
+         The class can now be instantiated on all platforms. Added support for
+         overloaded arithmetic, bitwise, and comparison operators.
+        </td>
+       </tr>
+
+       <tr>
+        <td>PECL mongodb 1.12.0</td>
+        <td>
+         Implements <span class="interfacename"><a href="class.stringable.html" class="interfacename">Stringable</a></span> for PHP 8.0+.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-bson-int64.construct.html">MongoDB\BSON\Int64::__construct</a> — Construct a new Int64</li><li><a href="mongodb-bson-int64.jsonserialize.html">MongoDB\BSON\Int64::jsonSerialize</a> — Returns a representation that can be converted to JSON</li><li><a href="mongodb-bson-int64.serialize.html">MongoDB\BSON\Int64::serialize</a> — Serialize an Int64</li><li><a href="mongodb-bson-int64.tostring.html">MongoDB\BSON\Int64::__toString</a> — Returns the string representation of this Int64</li><li><a href="mongodb-bson-int64.unserialize.html">MongoDB\BSON\Int64::unserialize</a> — Unserialize an Int64</li></ul>
+</div>
+</div></div></body></html>

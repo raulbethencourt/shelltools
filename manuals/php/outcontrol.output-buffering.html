@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Output Buffering</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.constants.html">« Predefined Constants</a></li>
+      <li style="float: right;"><a href="outcontrol.flushing-system-buffers.html">Flushing System Buffers »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.outcontrol.html">Output Control</a></li>
+    <li>Output Buffering</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.output-buffering" class="chapter">
+ <h1 class="title">Output Buffering</h1>
+
+ <p class="para">
+  Output buffering is the buffering (temporary storage) of output
+  before it is flushed (sent and discarded) to the browser (in a web context)
+  or to the shell (on the command line).
+  While output buffering is active no output is sent from the script,
+  instead the output is stored in an internal buffer.
+ </p>
+
+ <div class="section">
+  <h2 class="title">Buffering Affecting PHP</h2>
+  <p class="para">
+   PHP relies on the underlying software/hardware infrastructure
+   when flushing output.
+   Buffering implemented by consoles on the command line (e.g. line buffered)
+   or web servers and browser in a web context (e.g. fully buffered)
+   do affect when output is displayed to the end-user.
+   Some of these effects can be eliminated by fine-tuning server settings
+   and/or aligning buffer sizes of the various layers.
+  </p>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Output Buffering Control In PHP</h2>
+  <p class="para">
+   PHP provides a fully buffered user-level output buffer
+   with functions to start, manipulate and turn off the buffer
+   (most <a href="ref.outcontrol.html" class="link">ob_<span class="replaceable">*</span></a> functions),
+   and two functions to flush the underlying system buffers
+   (<span class="function"><a href="function.flush.html" class="function">flush()</a></span> and <span class="function"><a href="function.ob-implicit-flush.html" class="function">ob_implicit_flush()</a></span>).
+   Some of this functionality can be set and/or configured
+   using the appropriate <var class="filename">php.ini</var> settings as well.
+  </p>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Use Cases</h2>
+  <p class="para">
+   Output buffering is generally useful in situations when the buffered output
+   is modified or inspected, or it is used more than once in a request;
+   or when the controlled flushing of output is desired.
+   Specific use cases include:
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      caching the result of compute/time intensive scripts
+      for example by generating static <code class="literal">HTML</code> pages
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      re-using the generated output by displaying it, saving it to a file
+      and/or sending it by email
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      flushing the <code class="literal">head</code> of an <code class="literal">HTML</code> page
+      separate from the <code class="literal">body</code> allows browsers
+      to load external resources while the script executes
+      potentially more time consuming processes
+      (e.g. database/file access, external network connection).
+      This is only useful if the <code class="literal">HTTP</code> status code
+      cannot change after the headers are sent
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      extracting information from functions that would otherwise produce output
+      (e.g. <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>)
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      controlling the output of third-party code by modifying/using parts
+      (e.g. extracting data, replacing words/phrases,
+      adding missing <code class="literal">HTML</code> tags),
+      or discarding it entirely under certain conditions (e.g. errors)
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      polyfilling certain unavailable web server functionality
+      (e.g. compressing or encoding output)
+     </span>
+    </li>
+   </ul>
+  </p>
+ </div>
+
+</div>
+</div></div></body></html>

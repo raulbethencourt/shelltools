@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Clears flags on messages</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.imap-check.html">« imap_check</a></li>
+      <li style="float: right;"><a href="function.imap-close.html">imap_close »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.imap.html">IMAP Functions</a></li>
+    <li>Clears flags on messages</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.imap-clearflag-full" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imap_clearflag_full</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">imap_clearflag_full</span> &mdash; <span class="dc-title">Clears flags on messages</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imap-clearflag-full-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>imap_clearflag_full</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="class.imap-connection.html" class="type IMAP\Connection">IMAP\Connection</a></span> <code class="parameter">$imap</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$sequence</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$flag</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span><br>): <span class="type"><a href="language.types.value.html" class="type true">true</a></span></div>
+
+  <p class="para rdfs-comment">
+   This function causes a store to delete the specified
+   <code class="parameter">flag</code> to the flags set for the
+   messages in the specified <code class="parameter">sequence</code>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imap-clearflag-full-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    <dt>
+<code class="parameter">imap</code></dt><dd><p class="para">An <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span> instance.</p></dd>
+    
+     <dt><code class="parameter">sequence</code></dt>
+     <dd>
+      <p class="para">
+       A sequence of message numbers. You can enumerate desired messages
+       with the <code class="literal">X,Y</code> syntax, or retrieve all messages 
+       within an interval with the <code class="literal">X:Y</code> syntax
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">flag</code></dt>
+     <dd>
+      <p class="para">
+       The flags which you can unset are &quot;\\Seen&quot;, &quot;\\Answered&quot;, &quot;\\Flagged&quot;,
+       &quot;\\Deleted&quot;, and &quot;\\Draft&quot; (as defined by <a href="https://datatracker.ietf.org/doc/html/rfc2060" class="link external">&raquo;&nbsp;RFC2060</a>)
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">options</code></dt>
+     <dd>
+      <p class="para">
+       <code class="parameter">options</code> are a bit mask and may contain
+       the single option:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code><a href="imap.constants.html#constant.st-uid">ST_UID</a></code></strong> - The sequence argument contains UIDs
+          instead of sequence numbers
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imap-clearflag-full-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Always returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.imap-clearflag-full-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> if <code class="parameter">options</code> is invalid.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-clearflag-full-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.1.0</td>
+ <td>
+  The <code class="parameter">imap</code> parameter expects an <span class="classname"><a href="class.imap-connection.html" class="classname">IMAP\Connection</a></span>
+  instance now; previously, a valid <code class="literal">imap</code> <a href="language.types.resource.html" class="link">resource</a> was expected.
+ </td>
+</tr>
+
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       A <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is now thrown on invalid
+       <code class="parameter">options</code> parameter values. Previously,
+       a warning was emitted and the function returned <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.imap-clearflag-full-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.imap-setflag-full.html" class="function" rel="rdfs-seeAlso">imap_setflag_full()</a> - Sets flags on messages</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

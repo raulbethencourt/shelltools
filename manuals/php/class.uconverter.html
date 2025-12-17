@@ -1,0 +1,685 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The UConverter class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="intlpartsiterator.getbreakiterator.html">« IntlPartsIterator::getBreakIterator</a></li>
+      <li style="float: right;"><a href="uconverter.construct.html">UConverter::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.intl.html">intl</a></li>
+    <li>The UConverter class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.uconverter" class="reference">
+
+ <h1 class="title">The UConverter class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7, PHP 8, PECL &gt;= 3.0.0a1)</p>
+
+
+  <div class="section" id="uconverter.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="uconverter.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis"><div class="classsynopsisinfo">
+    
+     <span class="modifier">class</span> <strong class="classname"><strong class="classname">UConverter</strong></strong>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-unassigned"><var class="varname">REASON_UNASSIGNED</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-illegal"><var class="varname">REASON_ILLEGAL</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-irregular"><var class="varname">REASON_IRREGULAR</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-reset"><var class="varname">REASON_RESET</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-close"><var class="varname">REASON_CLOSE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.reason-clone"><var class="varname">REASON_CLONE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.unsupported-converter"><var class="varname">UNSUPPORTED_CONVERTER</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.sbcs"><var class="varname">SBCS</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.dbcs"><var class="varname">DBCS</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.mbcs"><var class="varname">MBCS</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.latin-1"><var class="varname">LATIN_1</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf8"><var class="varname">UTF8</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf16-bigendian"><var class="varname">UTF16_BigEndian</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf16-littleendian"><var class="varname">UTF16_LittleEndian</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf32-bigendian"><var class="varname">UTF32_BigEndian</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf32-littleendian"><var class="varname">UTF32_LittleEndian</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.ebcdic-stateful"><var class="varname">EBCDIC_STATEFUL</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.iso-2022"><var class="varname">ISO_2022</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-1"><var class="varname">LMBCS_1</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-2"><var class="varname">LMBCS_2</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-3"><var class="varname">LMBCS_3</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-4"><var class="varname">LMBCS_4</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-5"><var class="varname">LMBCS_5</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-6"><var class="varname">LMBCS_6</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-8"><var class="varname">LMBCS_8</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-11"><var class="varname">LMBCS_11</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-16"><var class="varname">LMBCS_16</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-17"><var class="varname">LMBCS_17</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-18"><var class="varname">LMBCS_18</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-19"><var class="varname">LMBCS_19</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.lmbcs-last"><var class="varname">LMBCS_LAST</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.hz"><var class="varname">HZ</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.scsu"><var class="varname">SCSU</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.iscii"><var class="varname">ISCII</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.us-ascii"><var class="varname">US_ASCII</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf7"><var class="varname">UTF7</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.bocu1"><var class="varname">BOCU1</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf16"><var class="varname">UTF16</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.utf32"><var class="varname">UTF32</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.cesu8"><var class="varname">CESU8</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.uconverter.html#uconverter.constants.imap-mailbox"><var class="varname">IMAP_MAILBOX</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="uconverter.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$destination_encoding</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$source_encoding</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.convert.html" class="methodname">convert</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$str</code></span>, <span class="methodparam"><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> <code class="parameter">$reverse</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong></span></span>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.fromucallback.html" class="methodname">fromUCallback</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$reason</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.array.html" class="type array">array</a></span> <code class="parameter">$source</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$codePoint</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter reference">&$error</code></span><br>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="uconverter.getaliases.html" class="methodname">getAliases</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="uconverter.getavailable.html" class="methodname">getAvailable</a></span>(): <span class="type"><a href="language.types.array.html" class="type array">array</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.getdestinationencoding.html" class="methodname">getDestinationEncoding</a></span>(): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.getdestinationtype.html" class="methodname">getDestinationType</a></span>(): <span class="type"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.geterrorcode.html" class="methodname">getErrorCode</a></span>(): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.geterrormessage.html" class="methodname">getErrorMessage</a></span>(): <span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.getsourceencoding.html" class="methodname">getSourceEncoding</a></span>(): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.getsourcetype.html" class="methodname">getSourceType</a></span>(): <span class="type"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="uconverter.getstandards.html" class="methodname">getStandards</a></span>(): <span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.array.html" class="type array">array</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.getsubstchars.html" class="methodname">getSubstChars</a></span>(): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="uconverter.reasontext.html" class="methodname">reasonText</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$reason</code></span>): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.setdestinationencoding.html" class="methodname">setDestinationEncoding</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$encoding</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.setsourceencoding.html" class="methodname">setSourceEncoding</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$encoding</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.setsubstchars.html" class="methodname">setSubstChars</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$chars</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="uconverter.toucallback.html" class="methodname">toUCallback</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$reason</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$source</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$codeUnits</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter reference">&$error</code></span><br>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="uconverter.transcode.html" class="methodname">transcode</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$str</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$toEncoding</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$fromEncoding</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.array.html" class="type array">array</a></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span><br>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+
+   }</div>
+
+
+  </div>
+  
+
+  <div class="section" id="uconverter.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+    
+     <dt id="uconverter.constants.reason-unassigned"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-unassigned">UConverter::REASON_UNASSIGNED</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.reason-illegal"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-illegal">UConverter::REASON_ILLEGAL</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.reason-irregular"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-irregular">UConverter::REASON_IRREGULAR</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.reason-reset"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-reset">UConverter::REASON_RESET</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.reason-close"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-close">UConverter::REASON_CLOSE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.reason-clone"><strong><code><a href="class.uconverter.html#uconverter.constants.reason-clone">UConverter::REASON_CLONE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.unsupported-converter"><strong><code><a href="class.uconverter.html#uconverter.constants.unsupported-converter">UConverter::UNSUPPORTED_CONVERTER</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.sbcs"><strong><code><a href="class.uconverter.html#uconverter.constants.sbcs">UConverter::SBCS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.dbcs"><strong><code><a href="class.uconverter.html#uconverter.constants.dbcs">UConverter::DBCS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.mbcs"><strong><code><a href="class.uconverter.html#uconverter.constants.mbcs">UConverter::MBCS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.latin-1"><strong><code><a href="class.uconverter.html#uconverter.constants.latin-1">UConverter::LATIN_1</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf8"><strong><code><a href="class.uconverter.html#uconverter.constants.utf8">UConverter::UTF8</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf16-bigendian"><strong><code><a href="class.uconverter.html#uconverter.constants.utf16-bigendian">UConverter::UTF16_BigEndian</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf16-littleendian"><strong><code><a href="class.uconverter.html#uconverter.constants.utf16-littleendian">UConverter::UTF16_LittleEndian</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf32-bigendian"><strong><code><a href="class.uconverter.html#uconverter.constants.utf32-bigendian">UConverter::UTF32_BigEndian</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf32-littleendian"><strong><code><a href="class.uconverter.html#uconverter.constants.utf32-littleendian">UConverter::UTF32_LittleEndian</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.ebcdic-stateful"><strong><code><a href="class.uconverter.html#uconverter.constants.ebcdic-stateful">UConverter::EBCDIC_STATEFUL</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.iso-2022"><strong><code><a href="class.uconverter.html#uconverter.constants.iso-2022">UConverter::ISO_2022</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-1"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-1">UConverter::LMBCS_1</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-2"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-2">UConverter::LMBCS_2</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-3"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-3">UConverter::LMBCS_3</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-4"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-4">UConverter::LMBCS_4</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-5"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-5">UConverter::LMBCS_5</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-6"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-6">UConverter::LMBCS_6</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-8"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-8">UConverter::LMBCS_8</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-11"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-11">UConverter::LMBCS_11</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-16"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-16">UConverter::LMBCS_16</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-17"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-17">UConverter::LMBCS_17</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-18"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-18">UConverter::LMBCS_18</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-19"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-19">UConverter::LMBCS_19</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.lmbcs-last"><strong><code><a href="class.uconverter.html#uconverter.constants.lmbcs-last">UConverter::LMBCS_LAST</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.hz"><strong><code><a href="class.uconverter.html#uconverter.constants.hz">UConverter::HZ</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.scsu"><strong><code><a href="class.uconverter.html#uconverter.constants.scsu">UConverter::SCSU</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.iscii"><strong><code><a href="class.uconverter.html#uconverter.constants.iscii">UConverter::ISCII</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.us-ascii"><strong><code><a href="class.uconverter.html#uconverter.constants.us-ascii">UConverter::US_ASCII</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf7"><strong><code><a href="class.uconverter.html#uconverter.constants.utf7">UConverter::UTF7</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.bocu1"><strong><code><a href="class.uconverter.html#uconverter.constants.bocu1">UConverter::BOCU1</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf16"><strong><code><a href="class.uconverter.html#uconverter.constants.utf16">UConverter::UTF16</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.utf32"><strong><code><a href="class.uconverter.html#uconverter.constants.utf32">UConverter::UTF32</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.cesu8"><strong><code><a href="class.uconverter.html#uconverter.constants.cesu8">UConverter::CESU8</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="uconverter.constants.imap-mailbox"><strong><code><a href="class.uconverter.html#uconverter.constants.imap-mailbox">UConverter::IMAP_MAILBOX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+   </dl>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="uconverter.construct.html">UConverter::__construct</a> — Create UConverter object</li><li><a href="uconverter.convert.html">UConverter::convert</a> — Convert string from one charset to another</li><li><a href="uconverter.fromucallback.html">UConverter::fromUCallback</a> — Default &quot;from&quot; callback function</li><li><a href="uconverter.getaliases.html">UConverter::getAliases</a> — Get the aliases of the given name</li><li><a href="uconverter.getavailable.html">UConverter::getAvailable</a> — Get the available canonical converter names</li><li><a href="uconverter.getdestinationencoding.html">UConverter::getDestinationEncoding</a> — Get the destination encoding</li><li><a href="uconverter.getdestinationtype.html">UConverter::getDestinationType</a> — Get the destination converter type</li><li><a href="uconverter.geterrorcode.html">UConverter::getErrorCode</a> — Get last error code on the object</li><li><a href="uconverter.geterrormessage.html">UConverter::getErrorMessage</a> — Get last error message on the object</li><li><a href="uconverter.getsourceencoding.html">UConverter::getSourceEncoding</a> — Get the source encoding</li><li><a href="uconverter.getsourcetype.html">UConverter::getSourceType</a> — Get the source converter type</li><li><a href="uconverter.getstandards.html">UConverter::getStandards</a> — Get standards associated to converter names</li><li><a href="uconverter.getsubstchars.html">UConverter::getSubstChars</a> — Get substitution chars</li><li><a href="uconverter.reasontext.html">UConverter::reasonText</a> — Get string representation of the callback reason</li><li><a href="uconverter.setdestinationencoding.html">UConverter::setDestinationEncoding</a> — Set the destination encoding</li><li><a href="uconverter.setsourceencoding.html">UConverter::setSourceEncoding</a> — Set the source encoding</li><li><a href="uconverter.setsubstchars.html">UConverter::setSubstChars</a> — Set the substitution chars</li><li><a href="uconverter.toucallback.html">UConverter::toUCallback</a> — Default &quot;to&quot; callback function</li><li><a href="uconverter.transcode.html">UConverter::transcode</a> — Convert a string from one character encoding to another</li></ul>
+</div>
+</div></div></body></html>

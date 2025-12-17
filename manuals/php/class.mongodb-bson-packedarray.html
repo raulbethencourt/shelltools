@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\BSON\PackedArray class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-bson-document.unserialize.html">« MongoDB\BSON\Document::unserialize</a></li>
+      <li style="float: right;"><a href="mongodb-bson-packedarray.construct.html">MongoDB\BSON\PackedArray::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.bson.html">MongoDB\BSON</a></li>
+    <li>The MongoDB\BSON\PackedArray class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-bson-packedarray" class="reference">
+
+ <h1 class="title">The MongoDB\BSON\PackedArray class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.16.0)</p>
+
+
+  <div class="section" id="mongodb-bson-packedarray.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Represents a BSON array. This class is used when reading data as raw BSON
+    and cannot be modified.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-bson-packedarray.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <span class="ooclass"><strong class="classname"></strong></span>
+
+
+    <div class="classsynopsisinfo">
+     <span class="modifier">final</span>
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\BSON\PackedArray</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.mongodb-bson-type.html" class="interfacename">MongoDB\BSON\Type</a></span><span class="oointerface">,  <a href="class.arrayaccess.html" class="interfacename">ArrayAccess</a></span><span class="oointerface">,  <a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span><span class="oointerface">,  <a href="class.serializable.html" class="interfacename">Serializable</a></span> {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">private</span> <span class="methodname"><a href="mongodb-bson-packedarray.construct.html" class="methodname">__construct</a></span>()</div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">static</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.fromjson.html" class="methodname">fromJSON</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$json</code></span>): <span class="type"><a href="class.mongodb-bson-packedarray.html" class="type MongoDB\BSON\PackedArray">MongoDB\BSON\PackedArray</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">static</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.fromphp.html" class="methodname">fromPHP</a></span>(<span class="methodparam"><span class="type"><a href="language.types.array.html" class="type array">array</a></span> <code class="parameter">$value</code></span>): <span class="type"><a href="class.mongodb-bson-packedarray.html" class="type MongoDB\BSON\PackedArray">MongoDB\BSON\PackedArray</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.get.html" class="methodname">get</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.getiterator.html" class="methodname">getIterator</a></span>(): <span class="type"><a href="class.mongodb-bson-iterator.html" class="type MongoDB\BSON\Iterator">MongoDB\BSON\Iterator</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.has.html" class="methodname">has</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$index</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.offsetexists.html" class="methodname">offsetExists</a></span>(<span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.offsetget.html" class="methodname">offsetGet</a></span>(<span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.offsetset.html" class="methodname">offsetSet</a></span>(<span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>, <span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.offsetunset.html" class="methodname">offsetUnset</a></span>(<span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.serialize.html" class="methodname">serialize</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.tocanonicalextendedjson.html" class="methodname">toCanonicalExtendedJSON</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.tophp.html" class="methodname">toPHP</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.array.html" class="type array">array</a></span></span> <code class="parameter">$typeMap</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.object.html" class="type object">object</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.torelaxedextendedjson.html" class="methodname">toRelaxedExtendedJSON</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.tostring.html" class="methodname">__toString</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-packedarray.unserialize.html" class="methodname">unserialize</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$data</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+  <div class="section">
+   <h2 class="title">Changelog</h2>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>Version</th>
+        <th>Description</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>PECL mongodb 1.17.0</td>
+        <td>
+         Implements <span class="interfacename"><a href="class.mongodb-bson-type.html" class="interfacename">MongoDB\BSON\Type</a></span>.
+        </td>
+       </tr>
+
+       <tr>
+        <td>PECL mongodb 1.17.0</td>
+        <td>
+         <span class="classname"><strong class="classname">MongoDB\BSON\PackedArray</strong></span> cannot be serialized
+         in contexts where a BSON document is expected. In earlier versions,
+         the BSON array would have been converted to a document.
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-bson-packedarray.construct.html">MongoDB\BSON\PackedArray::__construct</a> — Construct a new BSON array (unused)</li><li><a href="mongodb-bson-packedarray.fromjson.html">MongoDB\BSON\PackedArray::fromJSON</a> — Construct a new BSON array instance from a JSON string</li><li><a href="mongodb-bson-packedarray.fromphp.html">MongoDB\BSON\PackedArray::fromPHP</a> — Construct a new BSON array instance from PHP data</li><li><a href="mongodb-bson-packedarray.get.html">MongoDB\BSON\PackedArray::get</a> — Returns the value of an index in the array</li><li><a href="mongodb-bson-packedarray.getiterator.html">MongoDB\BSON\PackedArray::getIterator</a> — Returns an iterator for the BSON array</li><li><a href="mongodb-bson-packedarray.has.html">MongoDB\BSON\PackedArray::has</a> — Returns whether a index is present in the array</li><li><a href="mongodb-bson-packedarray.offsetexists.html">MongoDB\BSON\PackedArray::offsetExists</a> — Returns whether a index is present in the array</li><li><a href="mongodb-bson-packedarray.offsetget.html">MongoDB\BSON\PackedArray::offsetGet</a> — Returns the value of an index in the array</li><li><a href="mongodb-bson-packedarray.offsetset.html">MongoDB\BSON\PackedArray::offsetSet</a> — Implementation of ArrayAccess</li><li><a href="mongodb-bson-packedarray.offsetunset.html">MongoDB\BSON\PackedArray::offsetUnset</a> — Implementation of ArrayAccess</li><li><a href="mongodb-bson-packedarray.serialize.html">MongoDB\BSON\PackedArray::serialize</a> — Serialize a BSON array</li><li><a href="mongodb-bson-packedarray.tocanonicalextendedjson.html">MongoDB\BSON\PackedArray::toCanonicalExtendedJSON</a> — Returns the Canonical Extended JSON representation of the BSON array</li><li><a href="mongodb-bson-packedarray.tophp.html">MongoDB\BSON\PackedArray::toPHP</a> — Returns the PHP representation of the BSON array</li><li><a href="mongodb-bson-packedarray.torelaxedextendedjson.html">MongoDB\BSON\PackedArray::toRelaxedExtendedJSON</a> — Returns the Relaxed Extended JSON representation of the BSON array</li><li><a href="mongodb-bson-packedarray.tostring.html">MongoDB\BSON\PackedArray::__toString</a> — Returns the string representation of this BSON array</li><li><a href="mongodb-bson-packedarray.unserialize.html">MongoDB\BSON\PackedArray::unserialize</a> — Unserialize a BSON array</li></ul>
+</div>
+</div></div></body></html>

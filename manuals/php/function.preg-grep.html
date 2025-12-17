@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Return array entries that match the pattern</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.preg-filter.html">« preg_filter</a></li>
+      <li style="float: right;"><a href="function.preg-last-error.html">preg_last_error »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pcre.html">PCRE Functions</a></li>
+    <li>Return array entries that match the pattern</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.preg-grep" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">preg_grep</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">preg_grep</span> &mdash; <span class="dc-title">Return array entries that match the pattern</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.preg-grep-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>preg_grep</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$pattern</code></span>, <span class="methodparam"><span class="type"><a href="language.types.array.html" class="type array">array</a></span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Returns the array consisting of the elements of the 
+   <code class="parameter">array</code> array that match the given
+   <code class="parameter">pattern</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.preg-grep-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">pattern</code></dt>
+     <dd>
+      <p class="para">
+       The pattern to search for, as a string.
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">array</code></dt>
+     <dd>
+      <p class="para">
+       The input array.
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">flags</code></dt>
+     <dd>
+      <p class="para">
+       If set to <strong><code><a href="pcre.constants.html#constant.preg-grep-invert">PREG_GREP_INVERT</a></code></strong>, this function returns
+       the elements of the input array that do <em>not</em> match
+       the given <code class="parameter">pattern</code>.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.preg-grep-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns an array indexed using the keys from the
+   <code class="parameter">array</code> array,  or <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.preg-grep-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+If the regex pattern passed does not compile to a valid regex, an <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is emitted.
+</p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.preg-grep-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-4890">
+    <p><strong>Example #1 <span class="function"><strong>preg_grep()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// return all array elements<br />// containing floating point numbers<br /></span><span style="color: #0000BB">$fl_array </span><span style="color: #007700">= </span><span style="color: #0000BB">preg_grep</span><span style="color: #007700">(</span><span style="color: #DD0000">"/^(\d+)?\.\d+$/"</span><span style="color: #007700">, </span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+
+ <div class="refsect1 seealso" id="refsect1-function.preg-grep-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><a href="pcre.pattern.html" class="link">PCRE Patterns</a></li>
+    <li><span class="function"><a href="function.preg-quote.html" class="function" rel="rdfs-seeAlso">preg_quote()</a> - Quote regular expression characters</span></li>
+    <li><span class="function"><a href="function.preg-match-all.html" class="function" rel="rdfs-seeAlso">preg_match_all()</a> - Perform a global regular expression match</span></li>
+    <li><span class="function"><a href="function.preg-filter.html" class="function" rel="rdfs-seeAlso">preg_filter()</a> - Perform a regular expression search and replace</span></li>
+    <li><span class="function"><a href="function.preg-last-error.html" class="function" rel="rdfs-seeAlso">preg_last_error()</a> - Returns the error code of the last PCRE regex execution</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

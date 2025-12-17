@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\Driver\Monitoring\LogSubscriber interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-monitoring-commandsubscriber.commandsucceeded.html">« MongoDB\Driver\Monitoring\CommandSubscriber::commandSucceeded</a></li>
+      <li style="float: right;"><a href="mongodb-driver-monitoring-logsubscriber.log.html">MongoDB\Driver\Monitoring\LogSubscriber::log »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.monitoring.html">MongoDB\Driver\Monitoring</a></li>
+    <li>The MongoDB\Driver\Monitoring\LogSubscriber interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-driver-monitoring-logsubscriber" class="reference">
+
+ <h1 class="title">The MongoDB\Driver\Monitoring\LogSubscriber interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.17.0)</p>
+
+
+  <div class="section" id="mongodb-driver-monitoring-logsubscriber.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Classes implementing this interface may be registered as a subscriber and
+    receive log messages from the extension. This is similar to stream-based
+    debug logging (i.e. <a href="mongodb.configuration.html#ini.mongodb.debug" class="link">mongodb.debug</a>)
+    except that trace-level log messages are <em>not</em> received.
+   </p>
+   <p class="para">
+    As with stream-based logging, it is only possible to register a logger
+    globally using <span class="function"><a href="function.mongodb.driver.monitoring.addsubscriber.html" class="function">MongoDB\Driver\Monitoring\addSubscriber()</a></span>.
+    The extension is not able to distinguish log messages for individual
+    <span class="classname"><a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a></span> objects.
+   </p>
+  </div>
+
+
+  <div class="section" id="mongodb-driver-monitoring-logsubscriber.synopsis">
+   <h2 class="title">Interface synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <span class="ooclass"><strong class="classname"></strong></span>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\Driver\Monitoring\LogSubscriber</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.mongodb-driver-monitoring-subscriber.html" class="interfacename">MongoDB\Driver\Monitoring\Subscriber</a></span> {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-error"><var class="varname">LEVEL_ERROR</var></a></var><span class="initializer"> = 0</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-critical"><var class="varname">LEVEL_CRITICAL</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-warning"><var class="varname">LEVEL_WARNING</var></a></var><span class="initializer"> = 2</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-message"><var class="varname">LEVEL_MESSAGE</var></a></var><span class="initializer"> = 3</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-info"><var class="varname">LEVEL_INFO</var></a></var><span class="initializer"> = 4</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-debug"><var class="varname">LEVEL_DEBUG</var></a></var><span class="initializer"> = 5</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-driver-monitoring-logsubscriber.log.html" class="methodname">log</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$level</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$domain</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$message</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+
+  <div class="section" id="mongodb-driver-monitoring-logsubscriber.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-error"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-error">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_ERROR</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Error log level. An error condition that the extension is unable to report
+       through its API. This is the most severe log level in the extension.
+      </p>
+     </dd>
+    
+
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-critical"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-critical">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_CRITICAL</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Critical log level. An error condition with slightly less severity. This
+       constant exists for consistency with libmongoc; however, the extension is
+       unlikely to use it in practice.
+      </p>
+     </dd>
+    
+
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-warning"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-warning">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_WARNING</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Warning log level. Indicates a situation where undesirable application
+       behavior may occur.
+      </p>
+     </dd>
+    
+
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-message"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-message">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_MESSAGE</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Message or notice log level. Indicates an event that is unusual but not
+       problematic.
+      </p>
+     </dd>
+    
+
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-info"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-info">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_INFO</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Info log level. High-level information about normal driver behavior.
+      </p>
+     </dd>
+    
+
+    
+     <dt id="mongodb-driver-monitoring-logsubscriber.constants.level-debug"><strong><code><a href="class.mongodb-driver-monitoring-logsubscriber.html#mongodb-driver-monitoring-logsubscriber.constants.level-debug">MongoDB\Driver\Monitoring\LogSubscriber::LEVEL_DEBUG</a></code></strong></dt>
+     <dd>
+      <p class="para">
+       Debug log level. Detailed information that may be helpful when debugging
+       an application.
+      </p>
+     </dd>
+    
+   </dl>
+  </div>
+
+ </div>
+
+   
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-driver-monitoring-logsubscriber.log.html">MongoDB\Driver\Monitoring\LogSubscriber::log</a> — Notification method for a log message</li></ul>
+</div>
+</div></div></body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get random bytes from a source string</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="random-randomizer.getbytes.html">« Random\Randomizer::getBytes</a></li>
+      <li style="float: right;"><a href="random-randomizer.getfloat.html">Random\Randomizer::getFloat »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.random-randomizer.html">Random\Randomizer</a></li>
+    <li>Get random bytes from a source string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="random-randomizer.getbytesfromstring" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Random\Randomizer::getBytesFromString</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">Random\Randomizer::getBytesFromString</span> &mdash; <span class="dc-title">Get random bytes from a source string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-random-randomizer.getbytesfromstring-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>Random\Randomizer::getBytesFromString</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$length</code></span>): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+
+  <p class="para rdfs-comment">
+   Generates a string containing uniformly selected random bytes from the
+   input <code class="parameter">string</code> with the requested <code class="parameter">length</code>.
+  </p>
+  <p class="para">
+   The chance for a byte to be selected is proportional to its share
+   of the input <code class="parameter">string</code>. If each byte occurs
+   the same amount of times, each byte is equally likely to be selected.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-random-randomizer.getbytesfromstring-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">string</code></dt>
+     <dd>
+      <p class="para">
+       The <span class="type"><a href="language.types.string.html" class="type string">string</a></span> from which the returned bytes are selected.
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">length</code></dt>
+     <dd>
+      <p class="para">
+       The length of the random <span class="type"><a href="language.types.string.html" class="type string">string</a></span> that should be returned in bytes; must be <code class="literal">1</code> or greater.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-random-randomizer.getbytesfromstring-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   A <span class="type"><a href="language.types.string.html" class="type string">string</a></span> containing the requested number of random bytes taken from the input <code class="parameter">string</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-random-randomizer.getbytesfromstring-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     If <code class="parameter">string</code> is empty,
+     a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     If the value of <code class="parameter">length</code> is less than <code class="literal">1</code>,
+     a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> will be thrown.
+    </span>
+   </li>
+   
+ <li class="listitem">
+  <span class="simpara">
+   Any <span class="classname"><a href="class.throwable.html" class="classname">Throwable</a></span>s thrown by the <span class="methodname"><a href="random-engine.generate.html" class="methodname">Random\Engine::generate()</a></span> method
+   of the underlying <a href="class.random-randomizer.html#random-randomizer.props.engine" class="link"><code class="literal">Random\Randomizer::$engine</code></a>.
+  </span>
+ </li>
+
+  </ul>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-random-randomizer.getbytesfromstring-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-3642">
+   <p><strong>Example #1 <span class="methodname"><strong>Random\Randomizer::getBytesFromString()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$randomizer </span><span style="color: #007700">= new </span><span style="color: #0000BB">\Random\Randomizer</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(<br />    </span><span style="color: #DD0000">"%s.example.com"</span><span style="color: #007700">,<br />    </span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getBytesFromString</span><span style="color: #007700">(</span><span style="color: #DD0000">'abcdefghijklmnopqrstuvwxyz0123456789'</span><span style="color: #007700">, </span><span style="color: #0000BB">16</span><span style="color: #007700">)<br />);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">3zsw04eiubcf82jd.example.com</pre>
+</div>
+   </div>
+  </div>
+
+  <div class="example" id="example-3643">
+   <p><strong>Example #2 Generate a random code for multi-factor authentication</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">// The Secure engine is the default, but we make it explicit, because<br />// multi-factor codes are security sensitive.<br /></span><span style="color: #0000BB">$randomizer </span><span style="color: #007700">= new </span><span style="color: #0000BB">\Random\Randomizer</span><span style="color: #007700">(new </span><span style="color: #0000BB">\Random\Engine\Secure</span><span style="color: #007700">());<br /><br />echo </span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">'-'</span><span style="color: #007700">, </span><span style="color: #0000BB">str_split</span><span style="color: #007700">(</span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getBytesFromString</span><span style="color: #007700">(</span><span style="color: #DD0000">'0123456789'</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">), </span><span style="color: #0000BB">5</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">11551-80418-27047-42075</pre>
+</div>
+   </div>
+  </div>
+
+  <div class="example" id="example-3644">
+   <p><strong>Example #3 Select from a string with a non-uniform distribution</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$randomizer </span><span style="color: #007700">= new </span><span style="color: #0000BB">\Random\Randomizer</span><span style="color: #007700">();<br /><br />echo </span><span style="color: #0000BB">$randomizer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getBytesFromString</span><span style="color: #007700">(</span><span style="color: #DD0000">'aaaaabcdef'</span><span style="color: #007700">, </span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">fddacbeaaeaaacaaaaca</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-random-randomizer.getbytesfromstring-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="methodname"><a href="random-randomizer.getbytes.html" class="methodname" rel="rdfs-seeAlso">Random\Randomizer::getBytes()</a> - Get random bytes</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

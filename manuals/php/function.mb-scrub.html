@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Replace ill-formed byte sequences with the substitute character</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.mb-rtrim.html">« mb_rtrim</a></li>
+      <li style="float: right;"><a href="function.mb-send-mail.html">mb_send_mail »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.mbstring.html">Multibyte String Functions</a></li>
+    <li>Replace ill-formed byte sequences with the substitute character</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.mb-scrub" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_scrub</h1>
+  <p class="verinfo">(PHP 7 &gt;= 7.2.0, PHP 8)</p><p class="refpurpose"><span class="refname">mb_scrub</span> &mdash; <span class="dc-title">Replace ill-formed byte sequences with the substitute character</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mb-scrub-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>mb_scrub</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$string</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$encoding</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+
+  <p class="para rdfs-comment">
+   Perform a character set conversion from the specified encoding, or the default encoding if no
+   encoding was specified, to the same encoding. This has the effect of replacing any invalid
+   byte sequences with the substitute character.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-scrub-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">string</code></dt>
+    <dd>
+     <p class="para">
+      The input string.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">encoding</code></dt>
+    <dd>
+     <p class="para">
+      The encoding used to interpret <code class="parameter">string</code>.
+      If it is omitted or <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>, the
+      <a href="mbstring.configuration.html#ini.mbstring.internal-encoding" class="link">mbstring.internal_encoding setting</a>
+      will be used if set, otherwise the <a href="ini.core.html#ini.default-charset" class="link">default_charset setting</a>
+      will be used.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-scrub-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The <span class="type"><a href="language.types.string.html" class="type string">string</a></span> result with invalid byte sequences replaced.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-scrub-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+ <td>8.0.0</td>
+ <td>
+  <code class="parameter">encoding</code> is nullable now.
+ </td>
+</tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+</div></div></div></body></html>

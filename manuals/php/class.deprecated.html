@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Deprecated attribute</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="allowdynamicproperties.construct.html">« AllowDynamicProperties::__construct</a></li>
+      <li style="float: right;"><a href="deprecated.construct.html">Deprecated::__construct »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.attributes.html">Predefined Attributes</a></li>
+    <li>The Deprecated attribute</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.deprecated" class="reference">
+ <h1 class="title">The Deprecated attribute</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 8 &gt;= 8.4.0)</p>
+
+  <div class="section" id="deprecated.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="simpara">
+    This attribute is used to mark functionality as deprecated.
+    Using deprecated functionality will cause an <strong><code><a href="errorfunc.constants.html#constant.e-user-deprecated">E_USER_DEPRECATED</a></code></strong> error to be emitted.
+   </p>
+  </div>
+
+  <div class="section" id="deprecated.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+   <div class="classsynopsis"><div class="classsynopsisinfo">
+    
+     <span class="modifier">final</span>
+     <span class="modifier">class</span> <strong class="classname"><strong class="classname">Deprecated</strong></strong>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Properties */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.deprecated.html#deprecated.props.message">$<var class="varname">message</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">readonly</span>
+     <span class="type">?</span><span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span><span class="type"></span></span>
+      <var class="varname"><a href="class.deprecated.html#deprecated.props.since">$<var class="varname">since</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="deprecated.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$message</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$since</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>)</div>
+
+   }</div>
+  </div>
+
+  <div class="section" id="deprecated.props">
+   <h2 class="title">Properties</h2>
+   <dl>
+    
+     <dt id="deprecated.props.message"><var class="varname">message</var></dt>
+     <dd>
+      <p class="para">
+       An optional message explaining the reason for the deprecation and possible replacement functionality.
+       Will be included in the emitted deprecation message.
+      </p>
+     </dd>
+    
+    
+     <dt id="deprecated.props.since"><var class="varname">since</var></dt>
+     <dd>
+       <p class="para">
+        An optional string indicating since when the functionality is deprecated.
+        The contents are not validated by PHP and may contain a version number,
+        a date or any other value that is considered appropriate.
+        Will be included in the emitted deprecation message.
+       </p>
+       <p class="para">
+        Functionality that is part of PHP will use Major.Minor as the <var class="varname">since</var> value,
+        for example <code class="literal">&#039;8.4&#039;</code>.
+       </p>
+     </dd>
+    
+   </dl>
+  </div>
+
+  <div class="section">
+   <h2 class="title">Examples</h2>
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">#[</span><span style="color: #0000BB">\Deprecated</span><span style="color: #007700">(</span><span style="color: #0000BB">message</span><span style="color: #007700">: </span><span style="color: #DD0000">"use safe_replacement() instead"</span><span style="color: #007700">, </span><span style="color: #0000BB">since</span><span style="color: #007700">: </span><span style="color: #DD0000">"1.5"</span><span style="color: #007700">)]<br />function </span><span style="color: #0000BB">unsafe_function</span><span style="color: #007700">()<br />{<br />   echo </span><span style="color: #DD0000">"This is unsafe"</span><span style="color: #007700">, </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">unsafe_function</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+    <p class="para">Output of the above example in PHP 8.4 is similar to:</p>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Deprecated: Function unsafe_function() is deprecated since 1.5, use safe_replacement() instead in example.php on line 9
+This is unsafe
+</pre></div>
+    </div>
+   </div>
+  </div>
+
+  <div class="section" id="deprecated.seealso">
+   <h2 class="title">See Also</h2>
+   <ul class="simplelist">
+    <li><a href="language.attributes.html" class="link">Attributes overview</a></li>
+    <li><span class="methodname"><a href="reflectionfunctionabstract.isdeprecated.html" class="methodname">ReflectionFunctionAbstract::isDeprecated()</a></span></li>
+    <li><span class="methodname"><a href="reflectionclassconstant.isdeprecated.html" class="methodname">ReflectionClassConstant::isDeprecated()</a></span></li>
+    <li><strong><code><a href="errorfunc.constants.html#constant.e-user-deprecated">E_USER_DEPRECATED</a></code></strong></li>
+   </ul>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="deprecated.construct.html">Deprecated::__construct</a> — Construct a new Deprecated attribute instance</li></ul>
+</div>
+</div></div></body></html>

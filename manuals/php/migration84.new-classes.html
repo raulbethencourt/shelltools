@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Classes, Enums, and Interfaces</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.new-features.html">« New Features</a></li>
+      <li style="float: right;"><a href="migration84.new-functions.html">New Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>New Classes, Enums, and Interfaces</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.new-classes" class="sect1">
+ <h2 class="title">New Classes, Enums, and Interfaces</h2>
+
+ <div class="sect2" id="migration84.new-classes.core">
+  <h3 class="title">Core</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><a href="class.deprecated.html" class="classname">Deprecated</a></span></li>
+   <li><span class="classname"><a href="class.requestparsebodyexception.html" class="classname">RequestParseBodyException</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.bcmath">
+  <h3 class="title">BCMath</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">BcMath\Number</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.dba">
+  <h3 class="title">DBA</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><a href="class.dba-connection.html" class="classname">Dba\Connection</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.dom">
+  <h3 class="title">DOM</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Dom\HTMLDocument</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\XMLDocument</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Document</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\ParentNode</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\ChildNode</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Implementation</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Node</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\NodeList</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\NamedNodeMap</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\DtdNamedNodeMap</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\HTMLCollection</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\AdjacentPosition</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Element</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\HTMLElement</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Attr</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\CharacterData</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Text</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\CDATASection</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\ProcessingInstruction</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Comment</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\DocumentType</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\DocumentFragment</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Entity</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\EntityReference</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\Notation</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\TokenList</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\NamespaceInfo</strong></span></li>
+   <li><span class="classname"><strong class="classname">Dom\XPath</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.odbc">
+  <h3 class="title">ODBC</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Odbc\Connection</strong></span></li>
+   <li><span class="classname"><strong class="classname">Odbc\Result</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pcntl">
+  <h3 class="title">PCNTL</h3>
+  <ul class="simplelist">
+   
+   <li><span class="classname"><strong class="classname">Pcntl\QosClass</strong></span> (macOS only)</li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-dblib">
+  <h3 class="title">PDO_DBLIB</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\DbLib</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-firebird">
+  <h3 class="title">PDO_FIREBIRD</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\Firebird</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-mysql">
+  <h3 class="title">PDO_MYSQL</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\Mysql</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-odbc">
+  <h3 class="title">PDO_ODBC</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\Odbc</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-pgsql">
+  <h3 class="title">PDO_PGSQL</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\Pgsql</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.pdo-sqlite">
+  <h3 class="title">PDO_SQLITE</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Pdo\Sqlite</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.reflection">
+  <h3 class="title">Reflection</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">ReflectionConstant</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.soap">
+  <h3 class="title">SOAP</h3>
+  <ul class="simplelist">
+   <li><span class="classname"><strong class="classname">Soap\Url</strong></span></li>
+   <li><span class="classname"><strong class="classname">Soap\Sdl</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-classes.standard">
+  <h3 class="title">Standard</h3>
+
+  <ul class="simplelist">
+   
+   <li><span class="classname"><strong class="classname">RoundingMode</strong></span></li>
+   <li><span class="classname"><strong class="classname">StreamBucket</strong></span></li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

@@ -1,0 +1,3034 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="sockets.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="sockets.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.sockets.html">Sockets</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="sockets.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+  
+   <dt id="constant.af-unix">
+    <strong><code><a href="sockets.constants.html#constant.af-unix">AF_UNIX</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Socket address family of filesystem pathnames in the Unix Domain.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.af-inet">
+    <strong><code><a href="sockets.constants.html#constant.af-inet">AF_INET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Socket address family of IPv4 in the Internet Domain.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.af-inet6">
+    <strong><code><a href="sockets.constants.html#constant.af-inet6">AF_INET6</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Socket address family of IPv6 in the Internet Domain. Only available if compiled with IPv6 support.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.af-divert">
+    <strong><code><a href="sockets.constants.html#constant.af-divert">AF_DIVERT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (FreeBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sock-stream">
+    <strong><code><a href="sockets.constants.html#constant.sock-stream">SOCK_STREAM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sock-dgram">
+    <strong><code><a href="sockets.constants.html#constant.sock-dgram">SOCK_DGRAM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sock-raw">
+    <strong><code><a href="sockets.constants.html#constant.sock-raw">SOCK_RAW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sock-seqpacket">
+    <strong><code><a href="sockets.constants.html#constant.sock-seqpacket">SOCK_SEQPACKET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sock-rdm">
+    <strong><code><a href="sockets.constants.html#constant.sock-rdm">SOCK_RDM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-oob">
+    <strong><code><a href="sockets.constants.html#constant.msg-oob">MSG_OOB</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-waitall">
+    <strong><code><a href="sockets.constants.html#constant.msg-waitall">MSG_WAITALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-peek">
+    <strong><code><a href="sockets.constants.html#constant.msg-peek">MSG_PEEK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-dontroute">
+    <strong><code><a href="sockets.constants.html#constant.msg-dontroute">MSG_DONTROUTE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-eor">
+    <strong><code><a href="sockets.constants.html#constant.msg-eor">MSG_EOR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Not available on Windows platforms.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-eof">
+    <strong><code><a href="sockets.constants.html#constant.msg-eof">MSG_EOF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Not available on Windows platforms.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-zerocopy">
+    <strong><code><a href="sockets.constants.html#constant.msg-zerocopy">MSG_ZEROCOPY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-debug">
+    <strong><code><a href="sockets.constants.html#constant.so-debug">SO_DEBUG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-reuseaddr">
+    <strong><code><a href="sockets.constants.html#constant.so-reuseaddr">SO_REUSEADDR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-reuseport">
+    <strong><code><a href="sockets.constants.html#constant.so-reuseport">SO_REUSEPORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This constant is only available on platforms that
+     support the <strong><code><a href="sockets.constants.html#constant.so-reuseport">SO_REUSEPORT</a></code></strong> socket option: this
+     includes Linux, macOS and *BSD, but does not include Windows.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-keepalive">
+    <strong><code><a href="sockets.constants.html#constant.so-keepalive">SO_KEEPALIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-dontroute">
+    <strong><code><a href="sockets.constants.html#constant.so-dontroute">SO_DONTROUTE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-linger">
+    <strong><code><a href="sockets.constants.html#constant.so-linger">SO_LINGER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-broadcast">
+    <strong><code><a href="sockets.constants.html#constant.so-broadcast">SO_BROADCAST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-oobinline">
+    <strong><code><a href="sockets.constants.html#constant.so-oobinline">SO_OOBINLINE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-sndbuf">
+    <strong><code><a href="sockets.constants.html#constant.so-sndbuf">SO_SNDBUF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-rcvbuf">
+    <strong><code><a href="sockets.constants.html#constant.so-rcvbuf">SO_RCVBUF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-sndlowat">
+    <strong><code><a href="sockets.constants.html#constant.so-sndlowat">SO_SNDLOWAT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-rcvlowat">
+    <strong><code><a href="sockets.constants.html#constant.so-rcvlowat">SO_RCVLOWAT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-sndtimeo">
+    <strong><code><a href="sockets.constants.html#constant.so-sndtimeo">SO_SNDTIMEO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-rcvtimeo">
+    <strong><code><a href="sockets.constants.html#constant.so-rcvtimeo">SO_RCVTIMEO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-type">
+    <strong><code><a href="sockets.constants.html#constant.so-type">SO_TYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-error">
+    <strong><code><a href="sockets.constants.html#constant.so-error">SO_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-zerocopy">
+    <strong><code><a href="sockets.constants.html#constant.so-zerocopy">SO_ZEROCOPY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-nodelay">
+    <strong><code><a href="sockets.constants.html#constant.tcp-nodelay">TCP_NODELAY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Used to disable Nagle TCP algorithm.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-keepcnt">
+    <strong><code><a href="sockets.constants.html#constant.tcp-keepcnt">TCP_KEEPCNT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-keepidle">
+    <strong><code><a href="sockets.constants.html#constant.tcp-keepidle">TCP_KEEPIDLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-keepintvl">
+    <strong><code><a href="sockets.constants.html#constant.tcp-keepintvl">TCP_KEEPINTVL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-keepalive">
+    <strong><code><a href="sockets.constants.html#constant.tcp-keepalive">TCP_KEEPALIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-notsent-lowat">
+    <strong><code><a href="sockets.constants.html#constant.tcp-notsent-lowat">TCP_NOTSENT_LOWAT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-mark">
+    <strong><code><a href="sockets.constants.html#constant.so-mark">SO_MARK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-user-cookie">
+    <strong><code><a href="sockets.constants.html#constant.so-user-cookie">SO_USER_COOKIE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-rtable">
+    <strong><code><a href="sockets.constants.html#constant.so-rtable">SO_RTABLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-acceptfilter">
+    <strong><code><a href="sockets.constants.html#constant.so-acceptfilter">SO_ACCEPTFILTER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-donttrunc">
+    <strong><code><a href="sockets.constants.html#constant.so-donttrunc">SO_DONTTRUNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-wantmore">
+    <strong><code><a href="sockets.constants.html#constant.so-wantmore">SO_WANTMORE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-incoming-cpu">
+    <strong><code><a href="sockets.constants.html#constant.so-incoming-cpu">SO_INCOMING_CPU</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-meminfo">
+    <strong><code><a href="sockets.constants.html#constant.so-meminfo">SO_MEMINFO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-bpf-extensions">
+    <strong><code><a href="sockets.constants.html#constant.so-bpf-extensions">SO_BPF_EXTENSIONS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-setfib">
+    <strong><code><a href="sockets.constants.html#constant.so-setfib">SO_SETFIB</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-attach-reuseport-cbpf">
+    <strong><code><a href="sockets.constants.html#constant.so-attach-reuseport-cbpf">SO_ATTACH_REUSEPORT_CBPF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-detach-bpf">
+    <strong><code><a href="sockets.constants.html#constant.so-detach-bpf">SO_DETACH_BPF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-detach-filter">
+    <strong><code><a href="sockets.constants.html#constant.so-detach-filter">SO_DETACH_FILTER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-rerror">
+    <strong><code><a href="sockets.constants.html#constant.so-rerror">SO_RERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (NetBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-zeroize">
+    <strong><code><a href="sockets.constants.html#constant.so-zeroize">SO_ZEROIZE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (OpenBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-splice">
+    <strong><code><a href="sockets.constants.html#constant.so-splice">SO_SPLICE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (OpenBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-reuseport-lb">
+    <strong><code><a href="sockets.constants.html#constant.so-reuseport-lb">SO_REUSEPORT_LB</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (FreeBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-filter">
+    <strong><code><a href="sockets.constants.html#constant.sol-filter">SOL_FILTER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-udplite">
+    <strong><code><a href="sockets.constants.html#constant.sol-udplite">SOL_UDPLITE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.udplite-recv-cscov">
+    <strong><code><a href="sockets.constants.html#constant.udplite-recv-cscov">UDPLITE_RECV_CSCOV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.udplite-send-cscov">
+    <strong><code><a href="sockets.constants.html#constant.udplite-send-cscov">UDPLITE_SEND_CSCOV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-defer-accept">
+    <strong><code><a href="sockets.constants.html#constant.tcp-defer-accept">TCP_DEFER_ACCEPT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.1.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-congestion">
+    <strong><code><a href="sockets.constants.html#constant.tcp-congestion">TCP_CONGESTION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-quickack">
+    <strong><code><a href="sockets.constants.html#constant.tcp-quickack">TCP_QUICKACK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.tcp-repair">
+    <strong><code><a href="sockets.constants.html#constant.tcp-repair">TCP_REPAIR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-dontfrag">
+    <strong><code><a href="sockets.constants.html#constant.ip-dontfrag">IP_DONTFRAG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (FreeBSD only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-mtu-discover">
+    <strong><code><a href="sockets.constants.html#constant.ip-mtu-discover">IP_MTU_DISCOVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-do">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-do">IP_PMTUDISC_DO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-dont">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-dont">IP_PMTUDISC_DONT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-want">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-want">IP_PMTUDISC_WANT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-probe">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-probe">IP_PMTUDISC_PROBE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-interface">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-interface">IP_PMTUDISC_INTERFACE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-pmtudisc-omit">
+    <strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-omit">IP_PMTUDISC_OMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-bind-address-no-port">
+    <strong><code><a href="sockets.constants.html#constant.ip-bind-address-no-port">IP_BIND_ADDRESS_NO_PORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.3.0 (Linux only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-socket">
+    <strong><code><a href="sockets.constants.html#constant.sol-socket">SOL_SOCKET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-normal-read">
+    <strong><code><a href="sockets.constants.html#constant.php-normal-read">PHP_NORMAL_READ</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-binary-read">
+    <strong><code><a href="sockets.constants.html#constant.php-binary-read">PHP_BINARY_READ</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-tcp">
+    <strong><code><a href="sockets.constants.html#constant.sol-tcp">SOL_TCP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-udp">
+    <strong><code><a href="sockets.constants.html#constant.sol-udp">SOL_UDP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+ </dl>
+
+ <p class="simpara">
+  The following constants are defined under Windows and UNIX-like platforms.
+  Each constant is only defined if their equal is available on the platform.
+ </p>
+
+ <dl>
+  
+   <dt id="constant.socket-eintr">
+    <strong><code><a href="sockets.constants.html#constant.socket-eintr">SOCKET_EINTR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Interrupted system call.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadf">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadf">SOCKET_EBADF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Bad file descriptor number.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eacces">
+    <strong><code><a href="sockets.constants.html#constant.socket-eacces">SOCKET_EACCES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Permission denied.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-efault">
+    <strong><code><a href="sockets.constants.html#constant.socket-efault">SOCKET_EFAULT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Bad address.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-einval">
+    <strong><code><a href="sockets.constants.html#constant.socket-einval">SOCKET_EINVAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Invalid argument.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-emfile">
+    <strong><code><a href="sockets.constants.html#constant.socket-emfile">SOCKET_EMFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Too many open files.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enametoolong">
+    <strong><code><a href="sockets.constants.html#constant.socket-enametoolong">SOCKET_ENAMETOOLONG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     File name too long.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotempty">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotempty">SOCKET_ENOTEMPTY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Directory not empty.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eloop">
+    <strong><code><a href="sockets.constants.html#constant.socket-eloop">SOCKET_ELOOP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Too many symbolic links encountered.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ewouldblock">
+    <strong><code><a href="sockets.constants.html#constant.socket-ewouldblock">SOCKET_EWOULDBLOCK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Operation would block.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eremote">
+    <strong><code><a href="sockets.constants.html#constant.socket-eremote">SOCKET_EREMOTE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Object is remote.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eusers">
+    <strong><code><a href="sockets.constants.html#constant.socket-eusers">SOCKET_EUSERS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Too many users.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotsock">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotsock">SOCKET_ENOTSOCK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Socket operation on non-socket.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-edestaddrreq">
+    <strong><code><a href="sockets.constants.html#constant.socket-edestaddrreq">SOCKET_EDESTADDRREQ</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Destination address required.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-emsgsize">
+    <strong><code><a href="sockets.constants.html#constant.socket-emsgsize">SOCKET_EMSGSIZE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Message too long.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eprototype">
+    <strong><code><a href="sockets.constants.html#constant.socket-eprototype">SOCKET_EPROTOTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol wrong type for socket.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eprotonosupport">
+    <strong><code><a href="sockets.constants.html#constant.socket-eprotonosupport">SOCKET_EPROTONOSUPPORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol not supported.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-esocktnosupport">
+    <strong><code><a href="sockets.constants.html#constant.socket-esocktnosupport">SOCKET_ESOCKTNOSUPPORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Socket type not supported.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eopnotsupp">
+    <strong><code><a href="sockets.constants.html#constant.socket-eopnotsupp">SOCKET_EOPNOTSUPP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Operation not supported on transport endpoint.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-epfnosupport">
+    <strong><code><a href="sockets.constants.html#constant.socket-epfnosupport">SOCKET_EPFNOSUPPORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol family not supported.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eafnosupport">
+    <strong><code><a href="sockets.constants.html#constant.socket-eafnosupport">SOCKET_EAFNOSUPPORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Address family not supported by protocol.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eaddrnotavail">
+    <strong><code><a href="sockets.constants.html#constant.socket-eaddrnotavail">SOCKET_EADDRNOTAVAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Cannot assign requested address.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enetdown">
+    <strong><code><a href="sockets.constants.html#constant.socket-enetdown">SOCKET_ENETDOWN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Network is down.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enetunreach">
+    <strong><code><a href="sockets.constants.html#constant.socket-enetunreach">SOCKET_ENETUNREACH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Network is unreachable.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enetreset">
+    <strong><code><a href="sockets.constants.html#constant.socket-enetreset">SOCKET_ENETRESET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Network dropped connection because of reset.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-econnaborted">
+    <strong><code><a href="sockets.constants.html#constant.socket-econnaborted">SOCKET_ECONNABORTED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Software caused connection abort.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-econnreset">
+    <strong><code><a href="sockets.constants.html#constant.socket-econnreset">SOCKET_ECONNRESET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Connection reset by peer.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enobufs">
+    <strong><code><a href="sockets.constants.html#constant.socket-enobufs">SOCKET_ENOBUFS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No buffer space available.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eisconn">
+    <strong><code><a href="sockets.constants.html#constant.socket-eisconn">SOCKET_EISCONN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Transport endpoint is already connected.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotconn">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotconn">SOCKET_ENOTCONN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Transport endpoint is not connected.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eshutdown">
+    <strong><code><a href="sockets.constants.html#constant.socket-eshutdown">SOCKET_ESHUTDOWN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Cannot send after transport endpoint shutdown.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-etimedout">
+    <strong><code><a href="sockets.constants.html#constant.socket-etimedout">SOCKET_ETIMEDOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Connection timed out.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-econnrefused">
+    <strong><code><a href="sockets.constants.html#constant.socket-econnrefused">SOCKET_ECONNREFUSED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Connection refused.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ehostdown">
+    <strong><code><a href="sockets.constants.html#constant.socket-ehostdown">SOCKET_EHOSTDOWN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Host is down.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ehostunreach">
+    <strong><code><a href="sockets.constants.html#constant.socket-ehostunreach">SOCKET_EHOSTUNREACH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No route to host.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ealready">
+    <strong><code><a href="sockets.constants.html#constant.socket-ealready">SOCKET_EALREADY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Operation already in progress.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-einprogress">
+    <strong><code><a href="sockets.constants.html#constant.socket-einprogress">SOCKET_EINPROGRESS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Operation now in progress.
+    </span>
+   </dd>
+  
+ </dl>
+
+ <p class="simpara">
+  The following constants are only defined under Windows.
+ </p>
+
+ <dl>
+
+
+
+
+
+
+
+  
+   <dt id="constant.socket-enoprotoopt">
+    <strong><code><a href="sockets.constants.html#constant.socket-enoprotoopt">SOCKET_ENOPROTOOPT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+
+
+
+
+
+  
+   <dt id="constant.socket-eaddrinuse">
+    <strong><code><a href="sockets.constants.html#constant.socket-eaddrinuse">SOCKET_EADDRINUSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+
+
+
+
+
+
+
+
+
+
+  
+   <dt id="constant.socket-etoomyrefs">
+    <strong><code><a href="sockets.constants.html#constant.socket-etoomyrefs">SOCKET_ETOOMYREFS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+
+
+
+
+
+
+
+  
+   <dt id="constant.socket-eproclim">
+    <strong><code><a href="sockets.constants.html#constant.socket-eproclim">SOCKET_EPROCLIM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.socket-eduot">
+    <strong><code><a href="sockets.constants.html#constant.socket-eduot">SOCKET_EDUOT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-estale">
+    <strong><code><a href="sockets.constants.html#constant.socket-estale">SOCKET_ESTALE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.socket-ediscon">
+    <strong><code><a href="sockets.constants.html#constant.socket-ediscon">SOCKET_EDISCON</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-sysnotready">
+    <strong><code><a href="sockets.constants.html#constant.socket-sysnotready">SOCKET_SYSNOTREADY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-vernotsupported">
+    <strong><code><a href="sockets.constants.html#constant.socket-vernotsupported">SOCKET_VERNOTSUPPORTED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-notinitialised">
+    <strong><code><a href="sockets.constants.html#constant.socket-notinitialised">SOCKET_NOTINITIALISED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-host-not-found">
+    <strong><code><a href="sockets.constants.html#constant.socket-host-not-found">SOCKET_HOST_NOT_FOUND</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-try-again">
+    <strong><code><a href="sockets.constants.html#constant.socket-try-again">SOCKET_TRY_AGAIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-no-recovery">
+    <strong><code><a href="sockets.constants.html#constant.socket-no-recovery">SOCKET_NO_RECOVERY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-no-data">
+    <strong><code><a href="sockets.constants.html#constant.socket-no-data">SOCKET_NO_DATA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-no-address">
+    <strong><code><a href="sockets.constants.html#constant.socket-no-address">SOCKET_NO_ADDRESS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+ </dl>
+
+ <p class="simpara">
+  The following constants are only available on UNIX-like
+  platforms. Each constant is only defined if their equal is
+  available on the platform.
+ </p>
+
+ <dl>
+  
+   <dt id="constant.socket-eperm">
+    <strong><code><a href="sockets.constants.html#constant.socket-eperm">SOCKET_EPERM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Operation not permitted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enoent">
+    <strong><code><a href="sockets.constants.html#constant.socket-enoent">SOCKET_ENOENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No such file or directory.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eio">
+    <strong><code><a href="sockets.constants.html#constant.socket-eio">SOCKET_EIO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     I/O error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enxio">
+    <strong><code><a href="sockets.constants.html#constant.socket-enxio">SOCKET_ENXIO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No such device or address.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-e2big">
+    <strong><code><a href="sockets.constants.html#constant.socket-e2big">SOCKET_E2BIG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Arg list too long.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eagain">
+    <strong><code><a href="sockets.constants.html#constant.socket-eagain">SOCKET_EAGAIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Try again.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enomem">
+    <strong><code><a href="sockets.constants.html#constant.socket-enomem">SOCKET_ENOMEM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Out of memory.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotblk">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotblk">SOCKET_ENOTBLK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Block device required.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebusy">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebusy">SOCKET_EBUSY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Device or resource busy.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eexist">
+    <strong><code><a href="sockets.constants.html#constant.socket-eexist">SOCKET_EEXIST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     File exists.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-exdev">
+    <strong><code><a href="sockets.constants.html#constant.socket-exdev">SOCKET_EXDEV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Cross-device link.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enodev">
+    <strong><code><a href="sockets.constants.html#constant.socket-enodev">SOCKET_ENODEV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No such device.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotdir">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotdir">SOCKET_ENOTDIR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Not a directory.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eisdir">
+    <strong><code><a href="sockets.constants.html#constant.socket-eisdir">SOCKET_EISDIR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Is a directory.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enfile">
+    <strong><code><a href="sockets.constants.html#constant.socket-enfile">SOCKET_ENFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     File table overflow.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotty">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotty">SOCKET_ENOTTY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Not a typewriter.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enospc">
+    <strong><code><a href="sockets.constants.html#constant.socket-enospc">SOCKET_ENOSPC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No space left on device.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-espipe">
+    <strong><code><a href="sockets.constants.html#constant.socket-espipe">SOCKET_ESPIPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Illegal seek.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-erofs">
+    <strong><code><a href="sockets.constants.html#constant.socket-erofs">SOCKET_EROFS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Read-only file system.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-emlink">
+    <strong><code><a href="sockets.constants.html#constant.socket-emlink">SOCKET_EMLINK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Too many links.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-epipe">
+    <strong><code><a href="sockets.constants.html#constant.socket-epipe">SOCKET_EPIPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Broken pipe.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.socket-enolck">
+    <strong><code><a href="sockets.constants.html#constant.socket-enolck">SOCKET_ENOLCK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No record locks available.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enosys">
+    <strong><code><a href="sockets.constants.html#constant.socket-enosys">SOCKET_ENOSYS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Function not implemented.
+    </span>
+   </dd>
+  
+
+
+
+  
+   <dt id="constant.socket-enomsg">
+    <strong><code><a href="sockets.constants.html#constant.socket-enomsg">SOCKET_ENOMSG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No message of desired type.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eidrm">
+    <strong><code><a href="sockets.constants.html#constant.socket-eidrm">SOCKET_EIDRM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Identifier removed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-echrng">
+    <strong><code><a href="sockets.constants.html#constant.socket-echrng">SOCKET_ECHRNG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Channel number out of range.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-el2nsync">
+    <strong><code><a href="sockets.constants.html#constant.socket-el2nsync">SOCKET_EL2NSYNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Level 2 not synchronized.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-el3hlt">
+    <strong><code><a href="sockets.constants.html#constant.socket-el3hlt">SOCKET_EL3HLT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Level 3 halted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-el3rst">
+    <strong><code><a href="sockets.constants.html#constant.socket-el3rst">SOCKET_EL3RST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Level 3 reset.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-elnrng">
+    <strong><code><a href="sockets.constants.html#constant.socket-elnrng">SOCKET_ELNRNG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Link number out of range.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eunatch">
+    <strong><code><a href="sockets.constants.html#constant.socket-eunatch">SOCKET_EUNATCH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol driver not attached.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enocsi">
+    <strong><code><a href="sockets.constants.html#constant.socket-enocsi">SOCKET_ENOCSI</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No CSI structure available.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-el2hlt">
+    <strong><code><a href="sockets.constants.html#constant.socket-el2hlt">SOCKET_EL2HLT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Level 2 halted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebade">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebade">SOCKET_EBADE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Invalid exchange.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadr">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadr">SOCKET_EBADR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Invalid request descriptor.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-exfull">
+    <strong><code><a href="sockets.constants.html#constant.socket-exfull">SOCKET_EXFULL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Exchange full.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enoano">
+    <strong><code><a href="sockets.constants.html#constant.socket-enoano">SOCKET_ENOANO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No anode.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadrqc">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadrqc">SOCKET_EBADRQC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Invalid request code.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadslt">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadslt">SOCKET_EBADSLT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Invalid slot.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enostr">
+    <strong><code><a href="sockets.constants.html#constant.socket-enostr">SOCKET_ENOSTR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Device not a stream.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enodata">
+    <strong><code><a href="sockets.constants.html#constant.socket-enodata">SOCKET_ENODATA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No data available.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-etime">
+    <strong><code><a href="sockets.constants.html#constant.socket-etime">SOCKET_ETIME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Timer expired.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enosr">
+    <strong><code><a href="sockets.constants.html#constant.socket-enosr">SOCKET_ENOSR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Out of streams resources.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enonet">
+    <strong><code><a href="sockets.constants.html#constant.socket-enonet">SOCKET_ENONET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Machine is not on the network.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.socket-enolink">
+    <strong><code><a href="sockets.constants.html#constant.socket-enolink">SOCKET_ENOLINK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Link has been severed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eadv">
+    <strong><code><a href="sockets.constants.html#constant.socket-eadv">SOCKET_EADV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Advertise error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-esrmnt">
+    <strong><code><a href="sockets.constants.html#constant.socket-esrmnt">SOCKET_ESRMNT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Srmount error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ecomm">
+    <strong><code><a href="sockets.constants.html#constant.socket-ecomm">SOCKET_ECOMM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Communication error on send.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eproto">
+    <strong><code><a href="sockets.constants.html#constant.socket-eproto">SOCKET_EPROTO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-emultihop">
+    <strong><code><a href="sockets.constants.html#constant.socket-emultihop">SOCKET_EMULTIHOP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Multihop attempted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadmsg">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadmsg">SOCKET_EBADMSG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Not a data message.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enotuniq">
+    <strong><code><a href="sockets.constants.html#constant.socket-enotuniq">SOCKET_ENOTUNIQ</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Name not unique on network.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-ebadfd">
+    <strong><code><a href="sockets.constants.html#constant.socket-ebadfd">SOCKET_EBADFD</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     File descriptor in bad state.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eremchg">
+    <strong><code><a href="sockets.constants.html#constant.socket-eremchg">SOCKET_EREMCHG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Remote address changed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-erestart">
+    <strong><code><a href="sockets.constants.html#constant.socket-erestart">SOCKET_ERESTART</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Interrupted system call should be restarted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-estrpipe">
+    <strong><code><a href="sockets.constants.html#constant.socket-estrpipe">SOCKET_ESTRPIPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Streams pipe error.
+    </span>
+   </dd>
+  
+
+
+
+
+
+  
+   <dt id="constant.socket-eprotoopt">
+    <strong><code><a href="sockets.constants.html#constant.socket-eprotoopt">SOCKET_EPROTOOPT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Protocol not available.
+    </span>
+   </dd>
+  
+
+
+
+
+
+  
+   <dt id="constant.socket-addrinuse">
+    <strong><code><a href="sockets.constants.html#constant.socket-addrinuse">SOCKET_ADDRINUSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Address already in use.
+    </span>
+   </dd>
+  
+
+
+
+
+
+
+
+
+
+
+  
+   <dt id="constant.socket-etoomanyrefs">
+    <strong><code><a href="sockets.constants.html#constant.socket-etoomanyrefs">SOCKET_ETOOMANYREFS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Too many references: cannot splice.
+    </span>
+   </dd>
+  
+
+
+
+
+
+
+  
+   <dt id="constant.socket-eisnam">
+    <strong><code><a href="sockets.constants.html#constant.socket-eisnam">SOCKET_EISNAM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Is a named type file.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-eremoteio">
+    <strong><code><a href="sockets.constants.html#constant.socket-eremoteio">SOCKET_EREMOTEIO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Remote I/O error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-edquot">
+    <strong><code><a href="sockets.constants.html#constant.socket-edquot">SOCKET_EDQUOT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Quota exceeded.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-enomedium">
+    <strong><code><a href="sockets.constants.html#constant.socket-enomedium">SOCKET_ENOMEDIUM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No medium found.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.socket-emediumtype">
+    <strong><code><a href="sockets.constants.html#constant.socket-emediumtype">SOCKET_EMEDIUMTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Wrong medium type.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.scm-rights">
+    <strong><code><a href="sockets.constants.html#constant.scm-rights">SCM_RIGHTS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Send or receive a set of  open  file  descriptors  from  another process.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.scm-credentials">
+    <strong><code><a href="sockets.constants.html#constant.scm-credentials">SCM_CREDENTIALS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.scm-creds">
+    <strong><code><a href="sockets.constants.html#constant.scm-creds">SCM_CREDS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.scm-creds2">
+    <strong><code><a href="sockets.constants.html#constant.scm-creds2">SCM_CREDS2</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.local-creds">
+    <strong><code><a href="sockets.constants.html#constant.local-creds">LOCAL_CREDS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.local-creds-persistent">
+    <strong><code><a href="sockets.constants.html#constant.local-creds-persistent">LOCAL_CREDS_PERSISTENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-off">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-off">SKF_AD_OFF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-protocol">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-protocol">SKF_AD_PROTOCOL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-pkttype">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-pkttype">SKF_AD_PKTTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-ifindex">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-ifindex">SKF_AD_IFINDEX</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-nlattr">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-nlattr">SKF_AD_NLATTR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-nlattr-nest">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-nlattr-nest">SKF_AD_NLATTR_NEST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-mark">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-mark">SKF_AD_MARK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-queue">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-queue">SKF_AD_QUEUE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-hatype">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-hatype">SKF_AD_HATYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-rxhash">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-rxhash">SKF_AD_RXHASH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-cpu">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-cpu">SKF_AD_CPU</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-alu-xor-x">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-alu-xor-x">SKF_AD_ALU_XOR_X</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-vlan-tag">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-vlan-tag">SKF_AD_VLAN_TAG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-vlan-tag-present">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-vlan-tag-present">SKF_AD_VLAN_TAG_PRESENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-pay-offset">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-pay-offset">SKF_AD_PAY_OFFSET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-random">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-random">SKF_AD_RANDOM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-vlan-tpid">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-vlan-tpid">SKF_AD_VLAN_TPID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.skf-ad-max">
+    <strong><code><a href="sockets.constants.html#constant.skf-ad-max">SKF_AD_MAX</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available as of PHP 8.2.0
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-addrconfig">
+    <strong><code><a href="sockets.constants.html#constant.ai-addrconfig">AI_ADDRCONFIG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-all">
+    <strong><code><a href="sockets.constants.html#constant.ai-all">AI_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-canonidn">
+    <strong><code><a href="sockets.constants.html#constant.ai-canonidn">AI_CANONIDN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-canonname">
+    <strong><code><a href="sockets.constants.html#constant.ai-canonname">AI_CANONNAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-idn">
+    <strong><code><a href="sockets.constants.html#constant.ai-idn">AI_IDN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-numerichost">
+    <strong><code><a href="sockets.constants.html#constant.ai-numerichost">AI_NUMERICHOST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-numericserv">
+    <strong><code><a href="sockets.constants.html#constant.ai-numericserv">AI_NUMERICSERV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-passive">
+    <strong><code><a href="sockets.constants.html#constant.ai-passive">AI_PASSIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ai-v4mapped">
+    <strong><code><a href="sockets.constants.html#constant.ai-v4mapped">AI_V4MAPPED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.fil-attach">
+    <strong><code><a href="sockets.constants.html#constant.fil-attach">FIL_ATTACH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.fil-detach">
+    <strong><code><a href="sockets.constants.html#constant.fil-detach">FIL_DETACH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipproto-ip">
+    <strong><code><a href="sockets.constants.html#constant.ipproto-ip">IPPROTO_IP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipproto-ipv6">
+    <strong><code><a href="sockets.constants.html#constant.ipproto-ipv6">IPPROTO_IPV6</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-hoplimit">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-hoplimit">IPV6_HOPLIMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-multicast-hops">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-multicast-hops">IPV6_MULTICAST_HOPS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-multicast-if">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-multicast-if">IPV6_MULTICAST_IF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-multicast-loop">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-multicast-loop">IPV6_MULTICAST_LOOP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-pktinfo">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-pktinfo">IPV6_PKTINFO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-recvhoplimit">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-recvhoplimit">IPV6_RECVHOPLIMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-recvpktinfo">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-recvpktinfo">IPV6_RECVPKTINFO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-recvtclass">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-recvtclass">IPV6_RECVTCLASS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-tclass">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-tclass">IPV6_TCLASS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-unicast-hops">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-unicast-hops">IPV6_UNICAST_HOPS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ipv6-v6only">
+    <strong><code><a href="sockets.constants.html#constant.ipv6-v6only">IPV6_V6ONLY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-multicast-if">
+    <strong><code><a href="sockets.constants.html#constant.ip-multicast-if">IP_MULTICAST_IF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-multicast-loop">
+    <strong><code><a href="sockets.constants.html#constant.ip-multicast-loop">IP_MULTICAST_LOOP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ip-multicast-ttl">
+    <strong><code><a href="sockets.constants.html#constant.ip-multicast-ttl">IP_MULTICAST_TTL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-block-source">
+    <strong><code><a href="sockets.constants.html#constant.mcast-block-source">MCAST_BLOCK_SOURCE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-join-group">
+    <strong><code><a href="sockets.constants.html#constant.mcast-join-group">MCAST_JOIN_GROUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-join-source-group">
+    <strong><code><a href="sockets.constants.html#constant.mcast-join-source-group">MCAST_JOIN_SOURCE_GROUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-leave-group">
+    <strong><code><a href="sockets.constants.html#constant.mcast-leave-group">MCAST_LEAVE_GROUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-leave-source-group">
+    <strong><code><a href="sockets.constants.html#constant.mcast-leave-source-group">MCAST_LEAVE_SOURCE_GROUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.mcast-unblock-source">
+    <strong><code><a href="sockets.constants.html#constant.mcast-unblock-source">MCAST_UNBLOCK_SOURCE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-cmsg-cloexec">
+    <strong><code><a href="sockets.constants.html#constant.msg-cmsg-cloexec">MSG_CMSG_CLOEXEC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-confirm">
+    <strong><code><a href="sockets.constants.html#constant.msg-confirm">MSG_CONFIRM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-ctrunc">
+    <strong><code><a href="sockets.constants.html#constant.msg-ctrunc">MSG_CTRUNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-dontwait">
+    <strong><code><a href="sockets.constants.html#constant.msg-dontwait">MSG_DONTWAIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-errqueue">
+    <strong><code><a href="sockets.constants.html#constant.msg-errqueue">MSG_ERRQUEUE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-more">
+    <strong><code><a href="sockets.constants.html#constant.msg-more">MSG_MORE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-nosignal">
+    <strong><code><a href="sockets.constants.html#constant.msg-nosignal">MSG_NOSIGNAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-trunc">
+    <strong><code><a href="sockets.constants.html#constant.msg-trunc">MSG_TRUNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.msg-waitforone">
+    <strong><code><a href="sockets.constants.html#constant.msg-waitforone">MSG_WAITFORONE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sol-local">
+    <strong><code><a href="sockets.constants.html#constant.sol-local">SOL_LOCAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.somaxconn">
+    <strong><code><a href="sockets.constants.html#constant.somaxconn">SOMAXCONN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-bindtodevice">
+    <strong><code><a href="sockets.constants.html#constant.so-bindtodevice">SO_BINDTODEVICE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-family">
+    <strong><code><a href="sockets.constants.html#constant.so-family">SO_FAMILY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-label">
+    <strong><code><a href="sockets.constants.html#constant.so-label">SO_LABEL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-listenqlen">
+    <strong><code><a href="sockets.constants.html#constant.so-listenqlen">SO_LISTENQLEN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-listenqlimit">
+    <strong><code><a href="sockets.constants.html#constant.so-listenqlimit">SO_LISTENQLIMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-passcred">
+    <strong><code><a href="sockets.constants.html#constant.so-passcred">SO_PASSCRED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-peerlabel">
+    <strong><code><a href="sockets.constants.html#constant.so-peerlabel">SO_PEERLABEL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+ </dl>
+
+</div>
+</div></div></body></html>

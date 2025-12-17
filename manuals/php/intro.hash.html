@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="book.hash.html">« Hash</a></li>
+      <li style="float: right;"><a href="hash.setup.html">Installing/Configuring »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.hash.html">Hash</a></li>
+    <li>Introduction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intro.hash" class="preface">
+  <h1 class="title">Introduction</h1>
+  <p class="para">
+   This extension provides functions that can be used for direct or
+   incremental processing of arbitrary length messages using a variety of
+   hashing algorithms, including the generation of <abbr title="Hash-based Message Authentication Code">HMAC</abbr>
+   values and key derivations including <abbr title="HMAC Key Definition Function">HKDF</abbr> and
+   <abbr title="Password-Based Key Derivation Function 2">PBKDF2</abbr>.
+  </p>
+  <p class="para">
+   There are roughly three categories of hashing algorithms, and a complete list of
+   algorithms can be found in the documentation for <span class="function"><a href="function.hash-algos.html" class="function">hash_algos()</a></span>.
+
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      Checksum algorithms (such as <code class="literal">&quot;crc32b&quot;</code> or <code class="literal">&quot;adler32&quot;</code>):
+      These are used to calculate checksums, useful in situations such as when
+      transmission errors are to be detected. They are often very fast. These
+      algorithms often generate values that are easily &quot;guessable&quot; or can be manipulated
+      to create collisions, so they are entirely unsuitable for cryptographic use.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Non-cryptographic algorithms (such as the xxHash family):
+      These are often used to calculate hash values for hash tables, as they are
+      designed to yield a good distribution over arbitrary string inputs. They
+      are also generally fast, but also not suitable for cryptographic use.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Cryptographic algorithms (such as the SHA-2 family):
+      These are designed to yield hash values that are representative of their
+      inputs but are not guessable nor prone to collisions. Performance is often
+      a secondary concern, but modern hardware often supports special handling
+      for these algorithms that PHP tries to use when available.
+     </span>
+     <span class="simpara">
+      The Computer Security Resource Center of the <abbr>NIST</abbr> has
+      <a href="https://csrc.nist.gov/projects/hash-functions" class="link external">&raquo;&nbsp;explanation of the algorithms
+      currently approved by United States Federal Information Processing
+      Standards</a>.
+     </span>
+     <div class="caution"><strong class="caution">Caution</strong>
+      <p class="para">
+       Some of the early cryptographic algorithms, such as <code class="literal">&quot;md4&quot;</code>,
+       <code class="literal">&quot;md5&quot;</code>, and <code class="literal">&quot;sha1&quot;</code>, have been proven
+       to be prone to collision attacks and it is generally recommended to no
+       longer use these for cryptographic applications.
+      </p>
+     </div>
+    </li>
+   </ul>
+  </p>
+
+  <p class="para">
+   See also the <a href="faq.passwords.html" class="link">FAQ on Safe Password Hashing</a>
+   for information on best practices for using hash functions in handling
+   passwords.
+  </p>
+ </div></div></div></body></html>

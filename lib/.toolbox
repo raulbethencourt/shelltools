@@ -1,0 +1,782 @@
+#!/bin/bash
+# ${MYVAR#pattern}     # delete shortest match of pattern from the beginning
+# ${MYVAR##pattern}    # delete longest match of pattern from the beginning
+# ${MYVAR%pattern}     # delete shortest match of pattern from the end
+# ${MYVAR%%pattern}    # delete longest match of pattern from the end
+
+# Add library
+[ -f "$SHELLTOOLSPATH"/lib/.library ] && source "$SHELLTOOLSPATH"/lib/.library
+[ -f "$SHELLTOOLSPATH"/lib/core.sh ] && source "$SHELLTOOLSPATH"/lib/core.sh
+
+TB_EXAMPLES_TXT=()
+
+export __TOOLBOX_LOG_PREFIX=""
+export __TOOLBOX_LOG_OUTPUT=""
+export __TOOLBOX_LOG_LEVEL=0
+
+echo() {
+  toolbox_log "0" "$@" || builtin echo "$@"
+}
+
+redirect_to_log() {
+  export __TOOLBOX_LOG_PREFIX="${1:-$__TOOLBOX_LOG_PREFIX}"
+  export __TOOLBOX_LOG_OUTPUT="${2:-$__TOOLBOX_LOG_OUTPUT}"
+  export __TOOLBOX_LOG_LEVEL="${3:-$__TOOLBOX_LOG_LEVEL}"
+
+  [ -n "$__TOOLBOX_LOG_OUTPUT" ] && return 0 || return 1
+}
+
+set_log_category() {
+  redirect_to_log "$1" "$__TOOLBOX_LOG_OUTPUT"
+}
+
+make_unique() {
+  echo "$@" | awk '!a[$0]++'
+}
+
+templatize() {
+  tpFile="${1}"
+  tmpFile=$(mktemp)
+  commentPattern="${2:--- }"
+  includeIfs="${3:-1}"
+
+  [ -f "$tpFile" ] || exit 1
+
+  cp "$tpFile" "$tmpFile"
+  # TODO we must do this to avoid the while loop to fail on the last line if the file doesn't end with a \n
+  echo "___FAKE_LAST_LINE___" >>"$tmpFile"
+
+  ifStack=(0)
+  while IFS= read -er line; do
+    # is this our special last line ?
+    echo "$line" | grep "___FAKE_LAST_LINE___" >/dev/null && {
+      line="${line//___FAKE_LAST_LINE___/}"
+      [ -z "$line" ] && continue
+    }
+
+    forceIf=""
+    if [[ "${line}" == "${commentPattern}[[ IF_COMMAND"* ]]; then
+      # push command result as first element in stack
+      cmd=${line#*IF_COMMAND}
+      cmd=${cmd%]]}
+      eval $cmd
+      res=$?
+      [ $VERBOSE -gt 2 ] && echo "TEMPLATIZE : if command $cmd returned $res" >&2
+      ifStack=("$res" "${ifStack[@]}")
+      [ $includeIfs -eq 1 ] && echo "$line"
+      forceIf=1
+    elif [[ "${line}" == "${commentPattern}[[ END_IF_COMMAND"* ]]; then
+      # 'pop' the first element in stack
+      for i in "${!ifStack[@]}"; do
+        [ $i -gt 0 ] && new_array+=("${ifStack[i]}")
+      done
+      ifStack=("${new_array[@]}")
+      unset new_array
+      [ $includeIfs -eq 1 ] && echo "$line"
+      forceIf=1
+    fi
+
+    # if the current if stack is false, ignore the block
+    ifCondition=$([ -n "$forceIf" ] && echo "$forceIf" || echo "${ifStack[0]}")
+    [ -n "$ifCondition" ] && [ "$ifCondition" -ne 0 ] && continue
+
+    # escape dble quotes in line
+    line="${line//\"/\\\"}"
+    line="$(eval "echo \"$line\"")"
+    echo "$line"
+  done <"$tmpFile"
+
+  rm "$tmpFile"
+}
+
+# prints $2 times the $1 character
+printcn() {
+  c=${1:-\?}
+  l=${2:-1}
+
+  while [ $l -gt 0 ]; do
+    printf "%s" "$c"
+    l=$((l - 1))
+  done
+}
+
+toolbox_print_usage() {
+  printLevel="${1:-1}"
+  isError="${2:-0}"
+  shift 2
+  horzChar=" "
+  vertChar=" "
+  displayWidth=$(echo $(/usr/bin/tput cols))
+  displayWidth=$((displayWidth / 2 * 2))
+
+  leftMargin=5
+  tabSize=3
+  marginText=$(printcn " " $leftMargin)
+  tabText=$(printcn " " $tabSize)
+  innerWidth=$((displayWidth - 2 - leftMargin * 2))
+  centeredMargin=$((innerWidth / 2))
+  shortSpan=2
+  longSpan=$((displayWidth - 80))
+  optSpan=$((shortSpan + 2))
+  descrLeftMargin=$((optSpan + tabSize + 1))
+  descrLeftMarginText=$(printcn " " $descrLeftMargin)
+  descrSpan=$((innerWidth - descrLeftMargin - 1 - 4))
+
+  for line in "$@"; do
+    [ -n "$line" ] && echo "$line"
+    shift
+  done
+
+  [ "$isError" -gt 0 ] && echo "While executing command :" && echo "    $CURRENT_COMMAND" && echo ""s
+
+  # NOTE: Print usage
+  [ "$isError" -gt 0 ] && echo "Usage : $(basename $0) $MAIN_COMMAND" "$(print_all_options)" "$(print_all_positional)"
+  [ -n "$TB_USAGE_TXT" ] && echo -e "$TB_USAGE_TXT" | sed 's/_ABCBA_/ /g' | sed 's/\\n/\n/g'
+
+  [ "$printLevel" -lt 2 ] && return
+
+  echo ""
+
+  printf "${marginText}${vertChar}"
+  printcn "${horzChar}" ${innerWidth}
+  printf "${vertChar}\n"
+
+  nameLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
+  descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
+
+  printf "${marginText}${vertChar}\033[1mPARAMETERS\033[0m            \n"
+
+  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
+    d="${toolbox_POSITIONAL_NAME[$idx]}"
+    printf "$nameLineFormat" "$d" ""
+    d=$(echo "${toolbox_POSITIONAL_DESCR[$idx]}")
+    printf "$descrLineFormat" "" "$d"
+    echo ""
+  done
+
+  echo ""
+
+  printf "${marginText}${vertChar}\033[1mOPTIONS\033[0m            "
+  printcn "${horzChar}" $((centeredMargin - 19))
+  printf "${vertChar}\n${marginText}${vertChar}"
+  printcn "${horzChar}" ${innerWidth}
+  printf "${vertChar}\n"
+
+  optLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
+  descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
+  overflowLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
+  overflowNextLineFormat="${marginText}${vertChar}${descrLeftMarginText}    %s ${vertChar}\n"
+
+  for idx in "${toolbox_IDXES[@]}"; do
+    d=$(echo "${toolbox_DESCRS[$idx]}" | sed 's/_ABCBA_/ /g')
+    s1=${toolbox_SHORTS[$idx]}
+    s=${s1%\=}
+    if [ "$s1" != "$s" ]; then
+      value=$(print_option_values "${toolbox_LONGS[$idx]}" "" 1)
+      value="=${value} (default=${toolbox_DEFAULT[$idx]/EMPTY_VALUE//})"
+    else
+      value=""
+    fi
+
+    fullDescrLen=${#d}
+    optTxt="${toolbox_LONGS[$idx]}$value"
+    [ "$s" != "-" ] && optTxt="${s}, $optTxt"
+    if [ $fullDescrLen -gt $descrSpan ]; then
+      printf "$overflowLineFormat" "$optTxt" ""
+      printf "$overflowNextLineFormat" "${d:0:${descrSpan}}"
+      currentDescrStart=$descrSpan
+      while [ $currentDescrStart -lt $fullDescrLen ]; do
+        printf "$overflowNextLineFormat" "${d:$((currentDescrStart)):${descrSpan}}"
+        currentDescrStart=$((currentDescrStart + descrSpan))
+      done
+    else
+      printf "$optLineFormat" "$optTxt" ""
+      printf "$descrLineFormat" "" "$d"
+    fi
+    echo ""
+  done
+
+  printf "$lineFormat" ""
+  printf "$lineFormat" "-?" "" "Display this help and exits"
+
+  printf "${marginText}${vertChar}" && printcn "${horzChar}" ${innerWidth} && printf "${vertChar}\n"
+
+  # NOTE: Print examples
+  if [ "${#TB_EXAMPLES_TXT[@]}" -gt 0 ]; then
+    printf "${marginText}${vertChar}\033[1mEXAMPLES\033[0m            "
+    printcn "${horzChar}" $((centeredMargin - 19))
+    printf "${vertChar}\n${marginText}${vertChar}"
+    printcn "${horzChar}" ${innerWidth}
+    printf "${vertChar}\n"
+    # TODO: continue to make multi lines
+    for exmple in "${TB_EXAMPLES_TXT[@]}"; do
+      echo -e "${marginText}$exmple" | sed 's/_ABCBA_/ /g' | sed 's/\\n/\n/g'
+      echo ""
+    done
+  fi
+}
+
+def_options() {
+  toolbox_IDXDEF="${toolbox_IDXDEF:-0}"
+
+  prefix=$1
+  shift
+
+  for arg in "$@"; do
+    if [ "${arg:0:8}" = "--usage:" ]; then
+      TB_USAGE_TXT="${arg#*:}"
+      continue
+    fi
+    if [ "${arg:0:11}" = "--examples:" ]; then
+      TB_EXAMPLES_TXT+=("${arg#*:}")
+      continue
+    fi
+
+    currentIdx="$toolbox_IDXDEF"
+    toolbox_IDXES=(${toolbox_IDXES[@]} $toolbox_IDXDEF)
+    toolbox_IDXDEF=$((toolbox_IDXDEF + 1))
+    thislg=${arg%%:*}
+
+    for l in "${toolbox_LONGS[@]}"; do
+      [ "$thislg" = "$l" ] && echo "ERROR : same long option defined more than once : $thislg" >&2 && exit 56
+    done
+    toolbox_LONGS=("${toolbox_LONGS[@]}" "$thislg")
+
+    second=${arg#*:}
+
+    fullsh=-${second%:*}
+
+    varName=$(echo "${prefix}${thislg:2}" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+    defaultValue=$(eval "echo \${$varName}")
+    [ "$defaultValue" = "loginpath" ] && echo "$varName variable is $defaultValue !"
+    valuePattern="NO_VALUE"
+
+    is_array=0
+
+    case "$fullsh" in
+    *=*)
+      echo "$fullsh" | grep '=\[\]' >/dev/null && is_array=1
+      thissh=${fullsh%%=*}=
+      valuedef=${fullsh#*=}
+      valuePattern=${valuedef%|default=*}
+      [ "$valuePattern" != "$valuedef" ] && defaultValue=${defaultValue:-${valuedef##*|default=}} && defaultValue=${defaultValue//_ABCBA_/ }
+      [ -z "$valuedef" ] && valuePattern="*"
+      ;;
+    *)
+      thissh=$fullsh
+      [ ${#defaultValue} -eq 0 ] && defaultValue=0
+      ;;
+    esac
+
+    for s in "${toolbox_SHORTS[@]}"; do
+      { [ "$s" = "-" ] || [ "$s" = "-=" ]; } && continue
+      [ "$thissh" = "$s" ] && echo "ERROR : same short option defined more than once : $thissh" >&2 && exit 56
+    done
+
+    toolbox_SHORTS=("${toolbox_SHORTS[@]}" "$thissh")
+    toolbox_ISARRAY=("${toolbox_ISARRAY[@]}" "$is_array")
+    thisd=${second##*:}
+    toolbox_DESCRS=("${toolbox_DESCRS[@]}" "${thisd/_ABCBA_/ }")
+    toolbox_PREFIXS=("${toolbox_PREFIXS[@]}" "$prefix")
+    toolbox_PATTERN=("${toolbox_PATTERN[@]}" "$valuePattern")
+    toolbox_DEFAULT=("${toolbox_DEFAULT[@]}" "$([ -z "$defaultValue" ] && echo "EMPTY_VALUE" || echo "${defaultValue}")")
+
+    declare -g "${varName}_is_default"=1
+    option_set_value "$currentIdx" "${defaultValue}" 0
+
+  done
+}
+
+print_pos_arg_values() {
+  base=$1
+  forUsage=$2
+  idx=$((base - 1))
+  print_values "" $forUsage "$(echo ${toolbox_POSITIONAL_PATTERN[$idx]} | sed 's/_ABCBA_/ /g')"
+}
+
+def_pos_arg() {
+  toolbox_POSITIONAL_IDXDEF="${toolbox_POSITIONAL_IDXDEF:-0}"
+  toolbox_POSITIONAL_IDXES=("${toolbox_POSITIONAL_IDXES[@]}" "$toolbox_POSITIONAL_IDXDEF")
+  toolbox_POSITIONAL_NAME=("${toolbox_POSITIONAL_NAME[@]}" "$1")
+  toolbox_POSITIONAL_PATTERN=("${toolbox_POSITIONAL_PATTERN[@]}" "${2/_ABCBA_/ /}")
+  toolbox_POSITIONAL_DESCR=("${toolbox_POSITIONAL_DESCR[@]}" "$3")
+  toolbox_POSITIONAL_MANDATORY=("${toolbox_POSITIONAL_MANDATORY[@]}" "$4")
+  toolbox_POSITIONAL_IDXDEF=$((toolbox_POSITIONAL_IDXDEF + 1))
+}
+
+print_long_options() {
+  for idx in "${toolbox_IDXES[@]}"; do
+    echo "${toolbox_LONGS[$idx]}"
+  done
+}
+
+print_all_options() {
+  for idx in "${toolbox_IDXES[@]}"; do
+    sh=${toolbox_SHORTS[$idx]#\-}
+    sh=${sh%=}
+    [ -n "$sh" ] && printf "[%s] " "${toolbox_SHORTS[$idx]}"
+    [ -z "$sh" ] && printf "[%s] " "${toolbox_LONGS[$idx]}"
+  done
+}
+
+print_all_positional() {
+  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
+    printf "%s " "${toolbox_POSITIONAL_NAME[$idx]}"
+  done
+}
+
+print_values() {
+  pattern="$1"
+  forUsage="$2"
+  shift 2
+
+  for v in "$@"; do
+    [ "${v:0:2}" = "[]" ] && v="${v:2}"
+
+    if [ "${v:0:5}" = "file;" ]; then
+      [ $forUsage -gt 0 ] && echo "file" && return 0
+      echo "compopt_-o_nospace_-o_plusdirs"
+      compgen -G "${pattern}${v:5}"
+    elif [ "${v:0:5}" = "path;" ]; then
+      [ $forUsage -gt 0 ] && echo "path" && return 0
+      echo "compopt_-o_nospace_-o_plusdirs"
+      compgen -G "${pattern}"
+    elif [ "${v:0:5}" = "exec;" ]; then
+      cmd=${v:5}
+      cmd="${cmd//_ABCBA_/ }"
+      output=$(eval "$cmd")
+      [ $forUsage -eq 0 ] && echo "$output"
+      [ $forUsage -gt 0 ] && echo "$output" | tr '\n' ' '
+    elif [ "${v:0:10}" = "databases;" ]; then
+      loginPathVar=${v:10}
+      [ "${loginPathVar:0:1}" = "$" ] && loginPathVar=$(eval "eval echo ${v:10}")
+      [ $forUsage -eq 0 ] && mysql --login-path="$loginPathVar" -e 'show databases;' 2>/dev/null | grep -v "+" | grep -iv "database" | tr ' ' '\n'
+      [ $forUsage -gt 0 ] && mysql --login-path="$loginPathVar" -e 'show databases;' 2>/dev/null | grep -v "+" | grep -iv "database"
+    elif [ "${v:0:9}" = "branches;" ]; then
+      git branch --all | sed -e "s/*//" -e "s/^ *//" -e "s%remotes/origin/%%"
+    else
+      [ $forUsage -eq 0 ] && for vun in ${v//_ABCBA_/ }; do echo "$vun"; done
+      [ $forUsage -gt 0 ] && echo "${v//_ABCBA_/ }"
+    fi
+  done
+}
+
+print_option_values() {
+  optionName=$1
+  match=$2
+  outputForUsage=${3:-0}
+  for idx in "${toolbox_IDXES[@]}"; do
+    if [ "${toolbox_LONGS[$idx]}" = "$optionName" ] || [ "-${toolbox_SHORTS[$idx]:1:1}" = "$optionName" ]; then
+      [ "${toolbox_PATTERN[$idx]}" = "NO_VALUE" ] && return 247
+      print_values "$match" "$outputForUsage" "${toolbox_PATTERN[$idx]}"
+    fi
+  done
+}
+
+option_print_argument() {
+  if [ "$(option_print_value "$1")" != "" ] && [ "$(option_print_value "$1")" != "0" ]; then
+    if option_needs_value "$1"; then
+      if option_is_array "$1"; then
+        echo "PRINTING ARRAY ARGUMENTS IS NOT IMPLEMENT YET !" >&2 && EXIT 7
+      else
+        echo "$(option_print_long "$1")=$(option_print_value "$1")"
+      fi
+    else
+      count=0
+      while [ "$count" -lt "$(option_print_value "$1")" ]; do
+        printf "%s " "$(option_print_long "$1")"
+        count=$((count + 1))
+      done
+
+      printf "\n"
+    fi
+  fi
+}
+
+parse_partial_options() {
+  _parse_options_impl 0 "$@"
+}
+
+parse_options() {
+  _parse_options_impl 1 "$@"
+}
+
+_parse_options_impl() {
+  doPostProcess=$1
+  shift
+
+  TBOPTIND=0
+  # replace spaces in parameters so we're sure ²tions won't end up truncated at some point
+  for arg in "$@"; do
+    shift
+    set -- "$@" "$(printf "%s" "$arg" | sed -r 's/ /_ABCBA_/g')"
+  done
+
+  # explode multi short options (-abcd becomes -a -b -c -d)
+  c="$@"
+  d="$(echo "$c" | sed -r 's/ -([^-])([^ =])/ -\1 -\2/g')"
+  while [ "$c" != "$d" ]; do
+    trt="$d"
+    c="$d"
+    d="$(echo "$trt" | sed -r 's/ -([^-])([^ =])/ -\1 -\2/g')"
+    TBOPTIND=$((TBOPTIND - 1))
+  done
+  set -- $d
+
+  # read parameters
+  printUsage=0
+  allowUnknown=$1
+  shift
+  prefix=$1
+  shift
+
+  # custom internal behaviours
+  INT_print_env=0
+  INT_print_complete_long_options_list=0
+  INT_print_option_values=0
+  INT_print_option_name=""
+  INT_print_option_value_prefix=""
+  INT_print_pos_arg_index=""
+
+  UNHANDLED_OPTIONS=()
+  defPart=1
+  expectsValue=""
+  currentPosArgIndex=1
+  for arg in "$@"; do
+    shift
+    if [ "${arg:0:19}" = "--toolbox-print-env" ]; then
+      INT_print_env=1
+      [ "${arg:19:4}" = "-ext" ] && INT_print_env=2
+
+    elif [ "$arg" = "--toolbox-long-options" ]; then
+      INT_print_complete_long_options_list=1
+
+    elif [ "$arg" = "--toolbox-option-values" ]; then
+      INT_print_option_values=1
+    elif [ $INT_print_option_values -eq 1 ]; then
+      INT_print_option_values=2
+      INT_print_option_name=$arg
+    elif [ $INT_print_option_values -eq 2 ]; then
+      INT_print_option_values=3
+      INT_print_option_value_prefix=$arg
+
+    elif [ "$arg" = "--toolbox-pos-arg-values" ]; then
+      INT_print_pos_arg_index=$currentPosArgIndex
+
+    elif [ -n "$expectsValue" ]; then
+      TBOPTIND=$((TBOPTIND + 1))
+      option_set_value "${expectsValue}" "$arg"
+      expectsValue=""
+
+    elif [ $defPart -eq 1 ]; then
+      if [ "$arg" = "--" ]; then
+        defPart=0
+      elif [ "${arg:0:2}" = "--" ]; then
+        def_options "$prefix" "$arg"
+      else
+        echo "Invalid input ($arg)" >&2
+        exit 17
+      fi
+    elif [ "$arg" = '-?' ]; then
+      printUsage=$((printUsage + 1))
+    else
+      found=0
+
+      for idx in "${toolbox_IDXES[@]}"; do
+        short=${toolbox_SHORTS[$idx]}
+        val=0
+        argName="$arg"
+        argValue=""
+        if option_needs_value "$idx"; then
+          val=1
+          short=${short:0:-1}
+          argName="${arg%%=*}"
+          argValue="${arg#*=}"
+          # if no '=' sign is used, value should be in next argument
+          [ "$argValue" = "$arg" ] && argValue=""
+        fi
+
+        if [ "$argName" = "${toolbox_LONGS[$idx]}" ] || [ "$argName" = "${toolbox_SHORTS[$idx]}" ] || [ "$argName" = "${short}" ]; then
+          if [ $val -eq 1 ]; then
+            if [ -z "$argValue" ]; then
+              expectsValue=${toolbox_LONGS[$idx]}
+            else
+              option_set_value $idx "$argValue"
+            fi
+          else
+            option_increment_value "$argName"
+          fi
+
+          found=1
+
+          if ! [ -z "${UNHANDLED_OPTIONS}" ]; then
+            echo "Toolbox parameters must be before any other parameters" >&2
+            toolbox_print_usage 2 1 "" >&2
+            exit 6
+          fi
+
+          TBOPTIND=$((TBOPTIND + 1))
+
+          break
+        fi
+      done
+
+      if [ $found -eq 0 ]; then
+        if [ $allowUnknown -eq 0 ] && [ "${arg:0:1}" = "-" ]; then
+          echo "Unknown option : $arg" >&2
+          toolbox_print_usage 2 1 >&2
+          exit 3
+        else
+          UNHANDLED_OPTIONS=("${UNHANDLED_OPTIONS[@]}" "$arg")
+          posVarName=$(positional_print_varname $((currentPosArgIndex - 1)))
+          [ -n "$posVarName" ] && declare -g "$posVarName"="$arg"
+          currentPosArgIndex=$((currentPosArgIndex + 1))
+        fi
+      fi
+
+      if [ $found -eq 0 ]; then
+        set -- "$@" "$arg"
+      fi
+    fi
+  done
+
+  [ $INT_print_complete_long_options_list -eq 1 ] && print_long_options
+  [ $INT_print_complete_long_options_list -eq 1 ] && exit 0
+
+  [ -n "$INT_print_option_name" ] && print_option_values "$INT_print_option_name" "$INT_print_option_value_prefix" 0
+  [ -n "$INT_print_option_name" ] && exit 0
+
+  [ -n "$INT_print_pos_arg_index" ] && print_pos_arg_values ${INT_print_pos_arg_index} 0
+  [ -n "$INT_print_pos_arg_index" ] && exit 0
+
+  if [ $printUsage -gt 0 ]; then
+    toolbox_print_usage "$printUsage" 0 ""
+    exit 0
+  fi
+
+  if [ -n "$expectsValue" ]; then
+    echo $printUsage >&2
+    echo "${expectsValue} flag expects a value !" >&2
+    exit 4
+  fi
+
+  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
+    if [ "${toolbox_POSITIONAL_MANDATORY[$idx]}" -eq 1 ]; then
+      varname=$(positional_print_varname $idx)
+      value=$(eval "echo \${$varname}")
+      [ -z "$value" ] && toolbox_print_usage 2 1 "Positional argument ${toolbox_POSITIONAL_NAME[$idx]} value is missing" >&2 && exit 5
+    fi
+  done
+}
+
+not() {
+  [ $1 -eq 0 ] && echo 1 && return 0
+  [ $1 -eq 1 ] && echo 0 && return 1
+  echo "not() function can only be used with 0 or 1 as parameter" >&2
+  exit 67
+}
+
+is_default() {
+  return [ "$(eval "echo \$${1}_is_default")" -eq 1 ]
+}
+
+is_empty() {
+  [ -z $1 ] && echo 1 && return 0
+  echo 0
+  return 1
+}
+
+or_condition() {
+  while [ -n "$1" ]; do
+    [ "$1" -ne 0 ] && {
+      echo 1
+      return 0
+    }
+    shift
+  done
+
+  echo 0
+  return 1
+}
+
+print_env() {
+  level=${1:-1}
+
+  if [ $level -gt 1 ]; then
+    for src in "${toolbox_SOURCED[@]}"; do
+      echo "Sourced from $src :"
+      cat "$src"
+    done
+  fi
+
+  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
+    varname=$(positional_print_varname $idx)
+    value=$(eval "echo \${$varname}")
+    echo "$varname='$value'"
+  done
+
+  for idx in "${toolbox_IDXES[@]}"; do
+    echo "$(option_print_varname $idx)"="$(option_print_value $idx)"
+  done
+}
+
+option_get_uniqueidx() {
+  name=$1
+  [ "${name:0:1}" != "-" ] && echo "$1" && return "$1"
+
+  [ -z "$name" ] && echo "get_option_uniqueidx() needs option name as parameter" >&2 && return 1
+
+  for idx in "${toolbox_IDXES[@]}"; do
+    if [ "${toolbox_LONGS[$idx]}" = "$name" ] || [ "${toolbox_SHORTS[$idx]}" = "$name" ]; then
+      echo "$idx"
+      return $idx
+    fi
+  done
+
+  echo "option $name not found" >&2 && return 254
+}
+
+positional_print_varname() {
+  idx=$1
+  echo "${toolbox_POSITIONAL_NAME[$idx]}" | tr '[:lower:]' '[:upper:]' | tr '-' '_'
+}
+
+option_needs_value() {
+  idx=$(option_get_uniqueidx $1)
+  [ "${toolbox_SHORTS[$idx]:1:1}" = "=" ] && return 0
+  [ "${toolbox_SHORTS[$idx]:2:1}" = "=" ] && return 0 || return 1
+}
+
+option_is_array() {
+  idx=$(option_get_uniqueidx $1)
+  option_needs_value "$1" && [ "${toolbox_ISARRAY[$idx]}" -eq 1 ] && return 0
+  return 1
+}
+
+option_print_varname() {
+  idx=$(option_get_uniqueidx $1)
+  echo "${toolbox_PREFIXS[$idx]}${toolbox_LONGS[$idx]:2}" | tr '[:lower:]' '[:upper:]' | tr '-' '_'
+}
+
+option_print_long() {
+  idx=$(option_get_uniqueidx $1)
+  echo "${toolbox_LONGS[$idx]}"
+}
+
+option_print_short() {
+  idx=$(option_get_uniqueidx $1)
+  flag="${toolbox_SHORTS[$idx]:1:1}"
+  count=$(option_print_value $1)
+  [ $count -gt 0 ] && echo "-$(printcn "$flag" "$count")"
+}
+
+option_print_value() {
+  idx=$(option_get_uniqueidx $1)
+  varname=$(option_print_varname $idx)
+  if option_is_array $1; then
+    value=$(eval "echo \"\$\{${varname}\[\@\]\}\"")
+    echo "${value[@]}"
+  else
+    value=$(eval "echo \"\${$varname}\"")
+    echo "$value"
+  fi
+}
+
+option_set_value() {
+  idx="$(option_get_uniqueidx "$1")"
+  value="${2//_ABCBA_/ }"
+
+  if option_is_array "$1"; then
+    declare -ga varname="$(option_print_varname $idx)"
+    declare -n varnamename="$(option_print_varname $idx)"
+    tmp=()
+    if [ "$(eval "echo \$${varname}_is_default")" -eq 0 ]; then
+      #echo "${varnamename[@]}"
+      for v in "${varnamename[@]}"; do
+        [ -z "$v" ] && continue
+        tmp+=("$v")
+      done
+    fi
+    # avoid to add empty value
+    [ -n "$value" ] && tmp+=("$value")
+    for idx in "${!tmp[@]}"; do
+      declare -ga ${varname}[$idx]="${tmp[$idx]}"
+    done
+  else
+    varname="$(option_print_varname $idx)"
+    declare -g "$varname"="$value"
+  fi
+
+  [ "$3" != "0" ] && declare -g "${varname}_is_default"=0
+}
+
+option_increment_value() {
+  idx=$(option_get_uniqueidx $1)
+  value=$(option_print_value $idx)
+  value=$((value + 1))
+  option_set_value "$idx" "$value"
+}
+
+print_progress() {
+  BAR_FULLSIZE=${3:-18}
+  BAR_FULLSIZE=$((BAR_FULLSIZE - 8))
+  current=$1
+  full=$2
+
+  percent=$((current * 100 / full))
+  barLength=$((current * BAR_FULLSIZE / full))
+  TB_SPIN_PROGRESS=${TB_SPIN_PROGRESS:-1}
+  sp="/-\|"
+  prefix="\r"
+  suffix=""
+  spinner="${sp:TB_SPIN_PROGRESS++%${#sp}:1}"
+  percentFormat=""
+  if [ $percent -ge 100 ]; then
+    suffix="\n"
+    spinner=""
+  elif [ $percent -lt 10 ]; then
+    percentFormat="2"
+  fi
+  bar=$(printf "%${barLength}.s" " " | sed "s/ /=/g")
+  barEmpty=$(printf "%$((BAR_FULLSIZE - barLength)).s" " ")
+  printf "${prefix}[%s%s> %s %${percentFormat}d%%${suffix}" "$bar" "$barEmpty" "$spinner" "$percent"
+}
+
+__threads_create_pool() {
+  __threads_pids=()
+  __threads_stdout_fds=()
+  __threads_stderr_fds=()
+}
+
+__threads_spawn() {
+  __threads_stdout_fd=$(mktemp)
+  __threads_stderr_fd=$(mktemp)
+
+  $1 1>$__threads_stdout_fd 2>$__threads_stderr_fd &
+
+  __threads_pids+=($!)
+  __threads_stdout_fds+=($__threads_stdout_fd)
+  __threads_stderr_fds+=($__threads_stderr_fd)
+}
+
+__threads_join() {
+  for __threads_pid in ${__threads_pids[@]}; do
+    wait $__threads_pid
+  done
+
+  __threads_i=0
+
+  while [ $__threads_i -lt ${#__threads_stdout_fds[@]} ]; do
+    cat ${__threads_stdout_fds[$__threads_i]}
+    >&2 cat ${__threads_stderr_fds[$__threads_i]}
+
+    __threads_i=$((__threads_i + 1))
+  done
+}
+
+threads() {
+  __threads_action=$(echo "$1" | sed 's/--/_/' | sed 's/-/_/')
+  shift
+
+  __threads$__threads_action $@
+}

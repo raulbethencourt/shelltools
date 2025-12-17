@@ -1,0 +1,814 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The Gender\Gender class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="gender.example.admin.html">« Usage example.</a></li>
+      <li style="float: right;"><a href="gender-gender.connect.html">Gender\Gender::connect »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.gender.html">Gender</a></li>
+    <li>The Gender\Gender class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.gender" class="reference">
+
+ <h1 class="title">The Gender\Gender class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL gender &gt;= 0.6.0)</p>
+
+
+  <div class="section" id="gender.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+
+   </p>
+  </div>
+
+
+  <div class="section" id="gender.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <span class="ooclass"><strong class="classname"></strong></span>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">Gender\Gender</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-female"><var class="varname">IS_FEMALE</var></a></var><span class="initializer"> = 70</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-mostly-female"><var class="varname">IS_MOSTLY_FEMALE</var></a></var><span class="initializer"> = 102</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-male"><var class="varname">IS_MALE</var></a></var><span class="initializer"> = 77</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-mostly-male"><var class="varname">IS_MOSTLY_MALE</var></a></var><span class="initializer"> = 109</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-unisex-name"><var class="varname">IS_UNISEX_NAME</var></a></var><span class="initializer"> = 63</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.is-a-couple"><var class="varname">IS_A_COUPLE</var></a></var><span class="initializer"> = 67</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.name-not-found"><var class="varname">NAME_NOT_FOUND</var></a></var><span class="initializer"> = 32</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.error-in-name"><var class="varname">ERROR_IN_NAME</var></a></var><span class="initializer"> = 69</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.any-country"><var class="varname">ANY_COUNTRY</var></a></var><span class="initializer"> = 0</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.britain"><var class="varname">BRITAIN</var></a></var><span class="initializer"> = 1</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.ireland"><var class="varname">IRELAND</var></a></var><span class="initializer"> = 2</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.usa"><var class="varname">USA</var></a></var><span class="initializer"> = 3</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.spain"><var class="varname">SPAIN</var></a></var><span class="initializer"> = 4</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.portugal"><var class="varname">PORTUGAL</var></a></var><span class="initializer"> = 5</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.italy"><var class="varname">ITALY</var></a></var><span class="initializer"> = 6</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.malta"><var class="varname">MALTA</var></a></var><span class="initializer"> = 7</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.france"><var class="varname">FRANCE</var></a></var><span class="initializer"> = 8</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.belgium"><var class="varname">BELGIUM</var></a></var><span class="initializer"> = 9</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.luxembourg"><var class="varname">LUXEMBOURG</var></a></var><span class="initializer"> = 10</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.netherlands"><var class="varname">NETHERLANDS</var></a></var><span class="initializer"> = 11</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.germany"><var class="varname">GERMANY</var></a></var><span class="initializer"> = 12</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.east-frisia"><var class="varname">EAST_FRISIA</var></a></var><span class="initializer"> = 13</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.austria"><var class="varname">AUSTRIA</var></a></var><span class="initializer"> = 14</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.swiss"><var class="varname">SWISS</var></a></var><span class="initializer"> = 15</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.iceland"><var class="varname">ICELAND</var></a></var><span class="initializer"> = 16</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.denmark"><var class="varname">DENMARK</var></a></var><span class="initializer"> = 17</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.norway"><var class="varname">NORWAY</var></a></var><span class="initializer"> = 18</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.sweden"><var class="varname">SWEDEN</var></a></var><span class="initializer"> = 19</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.finland"><var class="varname">FINLAND</var></a></var><span class="initializer"> = 20</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.estonia"><var class="varname">ESTONIA</var></a></var><span class="initializer"> = 21</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.latvia"><var class="varname">LATVIA</var></a></var><span class="initializer"> = 22</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.lithuania"><var class="varname">LITHUANIA</var></a></var><span class="initializer"> = 23</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.poland"><var class="varname">POLAND</var></a></var><span class="initializer"> = 24</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.czech-rep"><var class="varname">CZECH_REP</var></a></var><span class="initializer"> = 25</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.slovakia"><var class="varname">SLOVAKIA</var></a></var><span class="initializer"> = 26</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.hungary"><var class="varname">HUNGARY</var></a></var><span class="initializer"> = 27</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.romania"><var class="varname">ROMANIA</var></a></var><span class="initializer"> = 28</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.bulgaria"><var class="varname">BULGARIA</var></a></var><span class="initializer"> = 29</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.bosnia"><var class="varname">BOSNIA</var></a></var><span class="initializer"> = 30</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.croatia"><var class="varname">CROATIA</var></a></var><span class="initializer"> = 31</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.kosovo"><var class="varname">KOSOVO</var></a></var><span class="initializer"> = 32</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.macedonia"><var class="varname">MACEDONIA</var></a></var><span class="initializer"> = 33</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.montenegro"><var class="varname">MONTENEGRO</var></a></var><span class="initializer"> = 34</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.serbia"><var class="varname">SERBIA</var></a></var><span class="initializer"> = 35</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.slovenia"><var class="varname">SLOVENIA</var></a></var><span class="initializer"> = 36</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.albania"><var class="varname">ALBANIA</var></a></var><span class="initializer"> = 37</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.greece"><var class="varname">GREECE</var></a></var><span class="initializer"> = 38</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.russia"><var class="varname">RUSSIA</var></a></var><span class="initializer"> = 39</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.belarus"><var class="varname">BELARUS</var></a></var><span class="initializer"> = 40</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.moldova"><var class="varname">MOLDOVA</var></a></var><span class="initializer"> = 41</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.ukraine"><var class="varname">UKRAINE</var></a></var><span class="initializer"> = 42</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.armenia"><var class="varname">ARMENIA</var></a></var><span class="initializer"> = 43</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.azerbaijan"><var class="varname">AZERBAIJAN</var></a></var><span class="initializer"> = 44</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.georgia"><var class="varname">GEORGIA</var></a></var><span class="initializer"> = 45</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.kazakh-uzbek"><var class="varname">KAZAKH_UZBEK</var></a></var><span class="initializer"> = 46</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.turkey"><var class="varname">TURKEY</var></a></var><span class="initializer"> = 47</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.arabia"><var class="varname">ARABIA</var></a></var><span class="initializer"> = 48</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.israel"><var class="varname">ISRAEL</var></a></var><span class="initializer"> = 49</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.china"><var class="varname">CHINA</var></a></var><span class="initializer"> = 50</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.india"><var class="varname">INDIA</var></a></var><span class="initializer"> = 51</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.japan"><var class="varname">JAPAN</var></a></var><span class="initializer"> = 52</span>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.gender.html#gender-gender.constants.korea"><var class="varname">KOREA</var></a></var><span class="initializer"> = 53</span>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="gender-gender.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$dsn</code><span class="initializer"> = ?</span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gender-gender.connect.html" class="methodname">connect</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$dsn</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gender-gender.country.html" class="methodname">country</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$country</code></span>): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gender-gender.get.html" class="methodname">get</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$country</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gender-gender.isnick.html" class="methodname">isNick</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name0</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name1</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$country</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="language.types.array.html" class="type array">array</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="gender-gender.similarnames.html" class="methodname">similarNames</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$country</code><span class="initializer"> = ?</span></span>): <span class="type"><a href="language.types.array.html" class="type array">array</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+
+  <div class="section" id="gender.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+
+    
+     <dt id="gender-gender.constants.is-female"><strong><code><a href="class.gender.html#gender-gender.constants.is-female">Gender\Gender::IS_FEMALE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.is-mostly-female"><strong><code><a href="class.gender.html#gender-gender.constants.is-mostly-female">Gender\Gender::IS_MOSTLY_FEMALE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.is-male"><strong><code><a href="class.gender.html#gender-gender.constants.is-male">Gender\Gender::IS_MALE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.is-mostly-male"><strong><code><a href="class.gender.html#gender-gender.constants.is-mostly-male">Gender\Gender::IS_MOSTLY_MALE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.is-unisex-name"><strong><code><a href="class.gender.html#gender-gender.constants.is-unisex-name">Gender\Gender::IS_UNISEX_NAME</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.is-a-couple"><strong><code><a href="class.gender.html#gender-gender.constants.is-a-couple">Gender\Gender::IS_A_COUPLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.name-not-found"><strong><code><a href="class.gender.html#gender-gender.constants.name-not-found">Gender\Gender::NAME_NOT_FOUND</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.error-in-name"><strong><code><a href="class.gender.html#gender-gender.constants.error-in-name">Gender\Gender::ERROR_IN_NAME</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.any-country"><strong><code><a href="class.gender.html#gender-gender.constants.any-country">Gender\Gender::ANY_COUNTRY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.britain"><strong><code><a href="class.gender.html#gender-gender.constants.britain">Gender\Gender::BRITAIN</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.ireland"><strong><code><a href="class.gender.html#gender-gender.constants.ireland">Gender\Gender::IRELAND</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.usa"><strong><code><a href="class.gender.html#gender-gender.constants.usa">Gender\Gender::USA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.spain"><strong><code><a href="class.gender.html#gender-gender.constants.spain">Gender\Gender::SPAIN</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.portugal"><strong><code><a href="class.gender.html#gender-gender.constants.portugal">Gender\Gender::PORTUGAL</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.italy"><strong><code><a href="class.gender.html#gender-gender.constants.italy">Gender\Gender::ITALY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.malta"><strong><code><a href="class.gender.html#gender-gender.constants.malta">Gender\Gender::MALTA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.france"><strong><code><a href="class.gender.html#gender-gender.constants.france">Gender\Gender::FRANCE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.belgium"><strong><code><a href="class.gender.html#gender-gender.constants.belgium">Gender\Gender::BELGIUM</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.luxembourg"><strong><code><a href="class.gender.html#gender-gender.constants.luxembourg">Gender\Gender::LUXEMBOURG</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.netherlands"><strong><code><a href="class.gender.html#gender-gender.constants.netherlands">Gender\Gender::NETHERLANDS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.germany"><strong><code><a href="class.gender.html#gender-gender.constants.germany">Gender\Gender::GERMANY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.east-frisia"><strong><code><a href="class.gender.html#gender-gender.constants.east-frisia">Gender\Gender::EAST_FRISIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.austria"><strong><code><a href="class.gender.html#gender-gender.constants.austria">Gender\Gender::AUSTRIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.swiss"><strong><code><a href="class.gender.html#gender-gender.constants.swiss">Gender\Gender::SWISS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.iceland"><strong><code><a href="class.gender.html#gender-gender.constants.iceland">Gender\Gender::ICELAND</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.denmark"><strong><code><a href="class.gender.html#gender-gender.constants.denmark">Gender\Gender::DENMARK</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.norway"><strong><code><a href="class.gender.html#gender-gender.constants.norway">Gender\Gender::NORWAY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.sweden"><strong><code><a href="class.gender.html#gender-gender.constants.sweden">Gender\Gender::SWEDEN</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.finland"><strong><code><a href="class.gender.html#gender-gender.constants.finland">Gender\Gender::FINLAND</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.estonia"><strong><code><a href="class.gender.html#gender-gender.constants.estonia">Gender\Gender::ESTONIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.latvia"><strong><code><a href="class.gender.html#gender-gender.constants.latvia">Gender\Gender::LATVIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.lithuania"><strong><code><a href="class.gender.html#gender-gender.constants.lithuania">Gender\Gender::LITHUANIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.poland"><strong><code><a href="class.gender.html#gender-gender.constants.poland">Gender\Gender::POLAND</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.czech-rep"><strong><code><a href="class.gender.html#gender-gender.constants.czech-rep">Gender\Gender::CZECH_REP</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.slovakia"><strong><code><a href="class.gender.html#gender-gender.constants.slovakia">Gender\Gender::SLOVAKIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.hungary"><strong><code><a href="class.gender.html#gender-gender.constants.hungary">Gender\Gender::HUNGARY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.romania"><strong><code><a href="class.gender.html#gender-gender.constants.romania">Gender\Gender::ROMANIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.bulgaria"><strong><code><a href="class.gender.html#gender-gender.constants.bulgaria">Gender\Gender::BULGARIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.bosnia"><strong><code><a href="class.gender.html#gender-gender.constants.bosnia">Gender\Gender::BOSNIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.croatia"><strong><code><a href="class.gender.html#gender-gender.constants.croatia">Gender\Gender::CROATIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.kosovo"><strong><code><a href="class.gender.html#gender-gender.constants.kosovo">Gender\Gender::KOSOVO</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.macedonia"><strong><code><a href="class.gender.html#gender-gender.constants.macedonia">Gender\Gender::MACEDONIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.montenegro"><strong><code><a href="class.gender.html#gender-gender.constants.montenegro">Gender\Gender::MONTENEGRO</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.serbia"><strong><code><a href="class.gender.html#gender-gender.constants.serbia">Gender\Gender::SERBIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.slovenia"><strong><code><a href="class.gender.html#gender-gender.constants.slovenia">Gender\Gender::SLOVENIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.albania"><strong><code><a href="class.gender.html#gender-gender.constants.albania">Gender\Gender::ALBANIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.greece"><strong><code><a href="class.gender.html#gender-gender.constants.greece">Gender\Gender::GREECE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.russia"><strong><code><a href="class.gender.html#gender-gender.constants.russia">Gender\Gender::RUSSIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.belarus"><strong><code><a href="class.gender.html#gender-gender.constants.belarus">Gender\Gender::BELARUS</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.moldova"><strong><code><a href="class.gender.html#gender-gender.constants.moldova">Gender\Gender::MOLDOVA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.ukraine"><strong><code><a href="class.gender.html#gender-gender.constants.ukraine">Gender\Gender::UKRAINE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.armenia"><strong><code><a href="class.gender.html#gender-gender.constants.armenia">Gender\Gender::ARMENIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.azerbaijan"><strong><code><a href="class.gender.html#gender-gender.constants.azerbaijan">Gender\Gender::AZERBAIJAN</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.georgia"><strong><code><a href="class.gender.html#gender-gender.constants.georgia">Gender\Gender::GEORGIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.kazakh-uzbek"><strong><code><a href="class.gender.html#gender-gender.constants.kazakh-uzbek">Gender\Gender::KAZAKH_UZBEK</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.turkey"><strong><code><a href="class.gender.html#gender-gender.constants.turkey">Gender\Gender::TURKEY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.arabia"><strong><code><a href="class.gender.html#gender-gender.constants.arabia">Gender\Gender::ARABIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.israel"><strong><code><a href="class.gender.html#gender-gender.constants.israel">Gender\Gender::ISRAEL</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.china"><strong><code><a href="class.gender.html#gender-gender.constants.china">Gender\Gender::CHINA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.india"><strong><code><a href="class.gender.html#gender-gender.constants.india">Gender\Gender::INDIA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.japan"><strong><code><a href="class.gender.html#gender-gender.constants.japan">Gender\Gender::JAPAN</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="gender-gender.constants.korea"><strong><code><a href="class.gender.html#gender-gender.constants.korea">Gender\Gender::KOREA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+   </dl>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="gender-gender.connect.html">Gender\Gender::connect</a> — Connect to an external name dictionary</li><li><a href="gender-gender.construct.html">Gender\Gender::__construct</a> — Construct the Gender object</li><li><a href="gender-gender.country.html">Gender\Gender::country</a> — Get textual country representation</li><li><a href="gender-gender.get.html">Gender\Gender::get</a> — Get gender of a name</li><li><a href="gender-gender.isnick.html">Gender\Gender::isNick</a> — Check if the name0 is an alias of the name1</li><li><a href="gender-gender.similarnames.html">Gender\Gender::similarNames</a> — Get similar names</li></ul>
+</div>
+</div></div></body></html>

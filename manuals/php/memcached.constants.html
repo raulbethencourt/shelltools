@@ -1,0 +1,957 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="memcached.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="memcached.expiration.html">Expiration Times »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.memcached.html">Memcached</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="memcached.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+
+  
+   <dt id="memcached.constants.opt-compression"><strong><code><a href="memcached.constants.html#memcached.constants.opt-compression">Memcached::OPT_COMPRESSION</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables or disables payload compression. When enabled,
+     item values longer than a certain threshold (currently 2000 bytes) will be
+     compressed during storage and decompressed during retrieval
+     transparently. The threshold can be configured using the
+     <a href="memcached.configuration.html#ini.memcached.compression-threshold" class="link">memcached.compression_threshold</a>
+     ini setting.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-compression-type"><strong><code><a href="memcached.constants.html#memcached.constants.opt-compression-type">Memcached::OPT_COMPRESSION_TYPE</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the compression algorithm to use, if compression is enabled.
+     The valid algorithms are <strong><code><a href="memcached.constants.html#memcached.constants.compression-fastlz">Memcached::COMPRESSION_FASTLZ</a></code></strong>,
+     <strong><code><a href="memcached.constants.html#memcached.constants.compression-zlib">Memcached::COMPRESSION_ZLIB</a></code></strong> and
+     <strong><code><a href="memcached.constants.html#memcached.constants.compression-zstd">Memcached::COMPRESSION_ZSTD</a></code></strong>.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <strong><code><a href="memcached.constants.html#memcached.constants.compression-fastlz">Memcached::COMPRESSION_FASTLZ</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.compression-fastlz"><strong><code><a href="memcached.constants.html#memcached.constants.compression-fastlz">Memcached::COMPRESSION_FASTLZ</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The FASTLZ compression algorithm.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.compression-zlib"><strong><code><a href="memcached.constants.html#memcached.constants.compression-zlib">Memcached::COMPRESSION_ZLIB</a></code></strong></dt>
+   <dd>
+    <span class="simpara">The ZLIB compression algorithm.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.compression-zstd"><strong><code><a href="memcached.constants.html#memcached.constants.compression-zstd">Memcached::COMPRESSION_ZSTD</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The ZSTD compression algorithm.
+    </span>
+    <span class="simpara">
+     Available as of Memcached 3.3.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-compression-level"><strong><code><a href="memcached.constants.html#memcached.constants.opt-compression-level">Memcached::OPT_COMPRESSION_LEVEL</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the compression level to use, if compression is enabled.
+    </span>
+    <ul class="simplelist">
+     <li><strong><code><a href="memcached.constants.html#memcached.constants.compression-fastlz">Memcached::COMPRESSION_FASTLZ</a></code></strong> does not support compression levels.</li>
+     <li><strong><code><a href="memcached.constants.html#memcached.constants.compression-zstd">Memcached::COMPRESSION_ZSTD</a></code></strong>: minimum level is <code class="literal">-22</code> and maximum level is <code class="literal">22</code>.</li>
+     <li><strong><code><a href="memcached.constants.html#memcached.constants.compression-zlib">Memcached::COMPRESSION_ZLIB</a></code></strong>: minimum level is <code class="literal">0</code> and maximum level is <code class="literal">9</code>.</li>
+    </ul>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">3</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-serializer"><strong><code><a href="memcached.constants.html#memcached.constants.opt-serializer">Memcached::OPT_SERIALIZER</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the serializer to use for serializing non-scalar values.
+     The valid serializers are <strong><code><a href="memcached.constants.html#memcached.constants.serializer-php">Memcached::SERIALIZER_PHP</a></code></strong>,
+     <strong><code><a href="memcached.constants.html#memcached.constants.serializer-igbinary">Memcached::SERIALIZER_IGBINARY</a></code></strong>,
+     <strong><code><a href="memcached.constants.html#memcached.constants.serializer-json">Memcached::SERIALIZER_JSON</a></code></strong>,
+     <strong><code><a href="memcached.constants.html#memcached.constants.serializer-json-array">Memcached::SERIALIZER_JSON_ARRAY</a></code></strong> and
+     <strong><code><a href="memcached.constants.html#memcached.constants.serializer-msgpack">Memcached::SERIALIZER_MSGPACK</a></code></strong>.
+    </span>
+    <p class="para">
+     Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <strong><code><a href="memcached.constants.html#memcached.constants.serializer-igbinary">Memcached::SERIALIZER_IGBINARY</a></code></strong> if available,
+     then <strong><code><a href="memcached.constants.html#memcached.constants.serializer-msgpack">Memcached::SERIALIZER_MSGPACK</a></code></strong> if available,
+     then <strong><code><a href="memcached.constants.html#memcached.constants.serializer-php">Memcached::SERIALIZER_PHP</a></code></strong>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.serializer-php"><strong><code><a href="memcached.constants.html#memcached.constants.serializer-php">Memcached::SERIALIZER_PHP</a></code></strong></dt>
+   <dd>
+    <p class="para">The default PHP serializer.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.serializer-igbinary"><strong><code><a href="memcached.constants.html#memcached.constants.serializer-igbinary">Memcached::SERIALIZER_IGBINARY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The <a href="book.igbinary.html" class="link">igbinary</a> serializer.
+     Instead of textual representation it stores PHP data structures in a
+     compact binary form, resulting in space and time gains.
+    </span>
+    <span class="simpara">
+     This serializer is supported only if memcached is configured with
+     <strong class="option unknown">--enable-memcached-igbinary</strong> option and the
+     <a href="intro.igbinary.html" class="link">igbinary</a> extension is loaded.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.serializer-json"><strong><code><a href="memcached.constants.html#memcached.constants.serializer-json">Memcached::SERIALIZER_JSON</a></code></strong></dt>
+   <dd>
+    <p class="para">The JSON serializer. This serializer deserializes JSON to an object.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.serializer-json-array"><strong><code><a href="memcached.constants.html#memcached.constants.serializer-json-array">Memcached::SERIALIZER_JSON_ARRAY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The JSON array serializer.
+     This serializer deserializes JSON to an associative array
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.serializer-msgpack"><strong><code><a href="memcached.constants.html#memcached.constants.serializer-msgpack">Memcached::SERIALIZER_MSGPACK</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The <a href="https://pecl.php.net/package/msgpack" class="link external">&raquo;&nbsp;MessagePack</a> serializer.
+    </span>
+    <span class="simpara">
+     This serializer is supported only if memcached is configured with
+     <strong class="option unknown">--enable-memcached-msgpack</strong> option and the
+     <code class="literal">msgpack</code> extension is loaded.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-prefix-key"><strong><code><a href="memcached.constants.html#memcached.constants.opt-prefix-key">Memcached::OPT_PREFIX_KEY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     This can be used to create a &quot;domain&quot; for your item keys. The value
+     specified here will be prefixed to each of the keys. It cannot be
+     longer than <code class="literal">128</code> characters and will reduce the
+     maximum available key size. The prefix is applied only to the item keys,
+     not to the server keys.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, default: <code class="literal">&quot;&quot;</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-hash"><strong><code><a href="memcached.constants.html#memcached.constants.opt-hash">Memcached::OPT_HASH</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the hashing algorithm used for the item keys. The valid
+     values are supplied via <strong><code><a href="memcached.constants.html#memcached.constants.hash-default">Memcached::HASH_<span class="replaceable">*</span></a></code></strong> constants.
+     Each hash algorithm has its advantages and its disadvantages. Go with the
+     default if you don&#039;t know or don&#039;t care.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <strong><code><a href="memcached.constants.html#memcached.constants.hash-default">Memcached::HASH_DEFAULT</a></code></strong></p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-default"><strong><code><a href="memcached.constants.html#memcached.constants.hash-default">Memcached::HASH_DEFAULT</a></code></strong></dt>
+   <dd>
+    <p class="para">The default (Jenkins one-at-a-time) item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-md5"><strong><code><a href="memcached.constants.html#memcached.constants.hash-md5">Memcached::HASH_MD5</a></code></strong></dt>
+   <dd>
+    <p class="para">MD5 item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-crc"><strong><code><a href="memcached.constants.html#memcached.constants.hash-crc">Memcached::HASH_CRC</a></code></strong></dt>
+   <dd>
+    <p class="para">CRC item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-fnv1-64"><strong><code><a href="memcached.constants.html#memcached.constants.hash-fnv1-64">Memcached::HASH_FNV1_64</a></code></strong></dt>
+   <dd>
+    <p class="para">FNV1_64 item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-fnv1a-64"><strong><code><a href="memcached.constants.html#memcached.constants.hash-fnv1a-64">Memcached::HASH_FNV1A_64</a></code></strong></dt>
+   <dd>
+    <p class="para">FNV1_64A item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-fnv1-32"><strong><code><a href="memcached.constants.html#memcached.constants.hash-fnv1-32">Memcached::HASH_FNV1_32</a></code></strong></dt>
+   <dd>
+    <p class="para">FNV1_32 item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-fnv1a-32"><strong><code><a href="memcached.constants.html#memcached.constants.hash-fnv1a-32">Memcached::HASH_FNV1A_32</a></code></strong></dt>
+   <dd>
+    <p class="para">FNV1_32A item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-hsieh"><strong><code><a href="memcached.constants.html#memcached.constants.hash-hsieh">Memcached::HASH_HSIEH</a></code></strong></dt>
+   <dd>
+    <p class="para">Hsieh item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.hash-murmur"><strong><code><a href="memcached.constants.html#memcached.constants.hash-murmur">Memcached::HASH_MURMUR</a></code></strong></dt>
+   <dd>
+    <p class="para">Murmur item key hashing algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-distribution"><strong><code><a href="memcached.constants.html#memcached.constants.opt-distribution">Memcached::OPT_DISTRIBUTION</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the method of distributing item keys to the servers.
+     Currently supported methods are modulo and consistent hashing. Consistent
+     hashing delivers better distribution and allows servers to be added to
+     the cluster with minimal cache losses.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <strong><code><a href="memcached.constants.html#memcached.constants.distribution-modula">Memcached::DISTRIBUTION_MODULA</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.distribution-modula"><strong><code><a href="memcached.constants.html#memcached.constants.distribution-modula">Memcached::DISTRIBUTION_MODULA</a></code></strong></dt>
+   <dd>
+    <p class="para">Modulo-based key distribution algorithm.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.distribution-consistent"><strong><code><a href="memcached.constants.html#memcached.constants.distribution-consistent">Memcached::DISTRIBUTION_CONSISTENT</a></code></strong></dt>
+   <dd>
+    <p class="para">Consistent hashing key distribution algorithm (based on libketama).</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.distribution-virtual-bucket"><strong><code><a href="memcached.constants.html#memcached.constants.distribution-virtual-bucket">Memcached::DISTRIBUTION_VIRTUAL_BUCKET</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Virtual Bucket hashing key distribution algorithm (also called vbucket).
+    </span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-libketama-compatible"><strong><code><a href="memcached.constants.html#memcached.constants.opt-libketama-compatible">Memcached::OPT_LIBKETAMA_COMPATIBLE</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     Enables or disables compatibility with libketama-like behavior. When
+     enabled, the item key hashing algorithm is set to MD5 and distribution is
+     set to be weighted consistent hashing distribution. This is useful
+     because other libketama-based clients (Python, Ruby, etc.) with the same
+     server configuration will be able to access the keys transparently.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      It is highly recommended to enable this option if you want to use
+      consistent hashing, and it may be enabled by default in future
+      releases.
+     </p>
+    </p></blockquote>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-libketama-hash"><strong><code><a href="memcached.constants.html#memcached.constants.opt-libketama-hash">Memcached::OPT_LIBKETAMA_HASH</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the hashing algorithm for host mapping.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-tcp-keepalive"><strong><code><a href="memcached.constants.html#memcached.constants.opt-tcp-keepalive">Memcached::OPT_TCP_KEEPALIVE</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables TCP keep alive.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-buffer-writes"><strong><code><a href="memcached.constants.html#memcached.constants.opt-buffer-writes">Memcached::OPT_BUFFER_WRITES</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables or disables buffered I/O. Enabling buffered I/O causes
+     storage commands to &quot;buffer&quot; instead of being sent. Any action that
+     retrieves data causes this buffer to be sent to the remote connection.
+     Quitting the connection or closing down the connection will also cause
+     the buffered data to be pushed to the remote connection.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-binary-protocol"><strong><code><a href="memcached.constants.html#memcached.constants.opt-binary-protocol">Memcached::OPT_BINARY_PROTOCOL</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enable the use of the binary protocol. Please note that you cannot
+     toggle this option on an open connection.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-no-block"><strong><code><a href="memcached.constants.html#memcached.constants.opt-no-block">Memcached::OPT_NO_BLOCK</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables or disables asynchronous I/O. This is the fastest transport
+     available for storage functions.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-noreply"><strong><code><a href="memcached.constants.html#memcached.constants.opt-noreply">Memcached::OPT_NOREPLY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables or disables ignoring the result of storage commands
+     (set, add, replace, append, prepend, delete, increment, decrement, etc.).
+     Storage commands will be sent without spending time waiting for a reply
+     (there would be no reply).
+     Retrieval commands such as <span class="methodname"><a href="memcached.get.html" class="methodname">Memcached::get()</a></span> are unaffected by this setting.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-tcp-nodelay"><strong><code><a href="memcached.constants.html#memcached.constants.opt-tcp-nodelay">Memcached::OPT_TCP_NODELAY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables or disables the no-delay feature for connecting sockets (may
+     be faster in some environments).
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-socket-send-size"><strong><code><a href="memcached.constants.html#memcached.constants.opt-socket-send-size">Memcached::OPT_SOCKET_SEND_SIZE</a></code></strong></dt>
+   <dd>
+    <span class="simpara">The maximum socket send buffer in bytes.</span>
+    <p class="para">
+     Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: varies by platform/kernel
+     configuration.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-socket-recv-size"><strong><code><a href="memcached.constants.html#memcached.constants.opt-socket-recv-size">Memcached::OPT_SOCKET_RECV_SIZE</a></code></strong></dt>
+   <dd>
+    <span class="simpara">The maximum socket receive buffer in bytes.</span>
+    <p class="para">
+     Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: varies by platform/kernel
+     configuration.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-connect-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-connect-timeout">Memcached::OPT_CONNECT_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     In non-blocking mode this set the value of the timeout during socket
+     connection, in milliseconds.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">1000</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-retry-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-retry-timeout">Memcached::OPT_RETRY_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The amount of time, in seconds, to wait until retrying a failed
+     connection attempt.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">2</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-dead-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-dead-timeout">Memcached::OPT_DEAD_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     The amount of time, in seconds, to wait until retrying dead servers.
+     <code class="literal">0</code> means no retry.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">0</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-send-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-send-timeout">Memcached::OPT_SEND_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Socket sending timeout, in microseconds. In cases where you cannot
+     use non-blocking I/O this will allow you to still have timeouts on the
+     sending of data.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">0</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-recv-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-recv-timeout">Memcached::OPT_RECV_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Socket reading timeout, in microseconds. In cases where you cannot
+     use non-blocking I/O this will allow you to still have timeouts on the
+     reading of data.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">0</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-poll-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.opt-poll-timeout">Memcached::OPT_POLL_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Timeout for connection polling, in milliseconds.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">1000</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-cache-lookups"><strong><code><a href="memcached.constants.html#memcached.constants.opt-cache-lookups">Memcached::OPT_CACHE_LOOKUPS</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Enables or disables caching of DNS lookups.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-server-failure-limit"><strong><code><a href="memcached.constants.html#memcached.constants.opt-server-failure-limit">Memcached::OPT_SERVER_FAILURE_LIMIT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the failure limit for server connection attempts.
+     The server will be removed after this many continuous connection failures.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">5</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-server-timeout-limit"><strong><code><a href="memcached.constants.html#memcached.constants.opt-server-timeout-limit">Memcached::OPT_SERVER_TIMEOUT_LIMIT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Specifies the timeout limit for server connection attempts.
+     The server will be removed after this many continuous connection timeouts.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">0</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-auto-eject-hosts"><strong><code><a href="memcached.constants.html#memcached.constants.opt-auto-eject-hosts">Memcached::OPT_AUTO_EJECT_HOSTS</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     Removes disabled servers from the list. Use together with
+     <strong><code><a href="memcached.constants.html#memcached.constants.opt-server-failure-limit">Memcached::OPT_SERVER_FAILURE_LIMIT</a></code></strong> and
+     <strong><code><a href="memcached.constants.html#memcached.constants.opt-server-timeout-limit">Memcached::OPT_SERVER_TIMEOUT_LIMIT</a></code></strong>.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="para">
+      This option is replaced by
+      <strong><code><a href="memcached.constants.html#memcached.constants.opt-remove-failed-servers">Memcached::OPT_REMOVE_FAILED_SERVERS</a></code></strong>.
+     </p>
+    </p></blockquote>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-verify-key"><strong><code><a href="memcached.constants.html#memcached.constants.opt-verify-key">Memcached::OPT_VERIFY_KEY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Enables verification of keys by memcached.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-use-udp"><strong><code><a href="memcached.constants.html#memcached.constants.opt-use-udp">Memcached::OPT_USE_UDP</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Uses UDP instead of TCP.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-number-of-replicas"><strong><code><a href="memcached.constants.html#memcached.constants.opt-number-of-replicas">Memcached::OPT_NUMBER_OF_REPLICAS</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Stores this many replicas of each item on different servers.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>, default: <code class="literal">0</code>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-randomize-replica-reads"><strong><code><a href="memcached.constants.html#memcached.constants.opt-randomize-replica-reads">Memcached::OPT_RANDOMIZE_REPLICA_READS</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Randomizes replica read server.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.opt-remove-failed-servers"><strong><code><a href="memcached.constants.html#memcached.constants.opt-remove-failed-servers">Memcached::OPT_REMOVE_FAILED_SERVERS</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Removes disabled servers from the list. Use together with
+     <strong><code><a href="memcached.constants.html#memcached.constants.opt-server-failure-limit">Memcached::OPT_SERVER_FAILURE_LIMIT</a></code></strong> and
+     <strong><code><a href="memcached.constants.html#memcached.constants.opt-server-timeout-limit">Memcached::OPT_SERVER_TIMEOUT_LIMIT</a></code></strong>.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>, default: <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-igbinary"><strong><code><a href="memcached.constants.html#memcached.constants.have-igbinary">Memcached::HAVE_IGBINARY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Indicates whether igbinary serializer support is available.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-json"><strong><code><a href="memcached.constants.html#memcached.constants.have-json">Memcached::HAVE_JSON</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Indicates whether JSON serializer support is available.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-msgpack"><strong><code><a href="memcached.constants.html#memcached.constants.have-msgpack">Memcached::HAVE_MSGPACK</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Indicates whether MessagePack serializer support is available.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-zstd"><strong><code><a href="memcached.constants.html#memcached.constants.have-zstd">Memcached::HAVE_ZSTD</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Indicates whether ZSTD compression support is available.</span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+    <p class="para">Available as of Memcached 3.3.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-encoding"><strong><code><a href="memcached.constants.html#memcached.constants.have-encoding">Memcached::HAVE_ENCODING</a></code></strong></dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether data encryption using
+     <span class="methodname"><a href="memcached.setencodingkey.html" class="methodname">Memcached::setEncodingKey()</a></span> is supported.
+    </span>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+    <p class="para">Available as of Memcached 3.1.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-session"><strong><code><a href="memcached.constants.html#memcached.constants.have-session">Memcached::HAVE_SESSION</a></code></strong></dt>
+   <dd>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.have-sasl"><strong><code><a href="memcached.constants.html#memcached.constants.have-sasl">Memcached::HAVE_SASL</a></code></strong></dt>
+   <dd>
+    <p class="para">Type: <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.</p>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.get-extended"><strong><code><a href="memcached.constants.html#memcached.constants.get-extended">Memcached::GET_EXTENDED</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     A flag for <span class="methodname"><a href="memcached.get.html" class="methodname">Memcached::get()</a></span>, <span class="methodname"><a href="memcached.getmulti.html" class="methodname">Memcached::getMulti()</a></span> and
+     <span class="methodname"><a href="memcached.getmultibykey.html" class="methodname">Memcached::getMultiByKey()</a></span> to ensure that the CAS token values
+     are returned as well.
+    </p>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.get-preserve-order"><strong><code><a href="memcached.constants.html#memcached.constants.get-preserve-order">Memcached::GET_PRESERVE_ORDER</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     A flag for <span class="methodname"><a href="memcached.getmulti.html" class="methodname">Memcached::getMulti()</a></span> and
+     <span class="methodname"><a href="memcached.getmultibykey.html" class="methodname">Memcached::getMultiByKey()</a></span> to ensure that the keys are
+     returned in the same order as they were requested in. Non-existing keys
+     get a default value of <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-success"><strong><code><a href="memcached.constants.html#memcached.constants.res-success">Memcached::RES_SUCCESS</a></code></strong></dt>
+   <dd>
+    <p class="para">The operation was successful.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-failure">Memcached::RES_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">The operation failed in some fashion.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-host-lookup-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-host-lookup-failure">Memcached::RES_HOST_LOOKUP_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">DNS lookup failed.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-unknown-read-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-unknown-read-failure">Memcached::RES_UNKNOWN_READ_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Failed to read network data.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-protocol-error"><strong><code><a href="memcached.constants.html#memcached.constants.res-protocol-error">Memcached::RES_PROTOCOL_ERROR</a></code></strong></dt>
+   <dd>
+    <p class="para">Bad command in memcached protocol.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-client-error"><strong><code><a href="memcached.constants.html#memcached.constants.res-client-error">Memcached::RES_CLIENT_ERROR</a></code></strong></dt>
+   <dd>
+    <p class="para">Error on the client side.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-server-error"><strong><code><a href="memcached.constants.html#memcached.constants.res-server-error">Memcached::RES_SERVER_ERROR</a></code></strong></dt>
+   <dd>
+    <p class="para">Error on the server side.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-write-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-write-failure">Memcached::RES_WRITE_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Failed to write network data.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-data-exists"><strong><code><a href="memcached.constants.html#memcached.constants.res-data-exists">Memcached::RES_DATA_EXISTS</a></code></strong></dt>
+   <dd>
+    <p class="para">Failed to do compare-and-swap: item you are trying to store has been
+     modified since you last fetched it.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-notstored"><strong><code><a href="memcached.constants.html#memcached.constants.res-notstored">Memcached::RES_NOTSTORED</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     Item was not stored: but not because of an error. This normally
+     means that either the condition for an &quot;add&quot; or a &quot;replace&quot; command
+     wasn&#039;t met, or that the item is in a delete queue.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-notfound"><strong><code><a href="memcached.constants.html#memcached.constants.res-notfound">Memcached::RES_NOTFOUND</a></code></strong></dt>
+   <dd>
+    <p class="para">
+     Item with this key was not found (with &quot;get&quot; operation or &quot;cas&quot;
+     operations).
+    </p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-partial-read"><strong><code><a href="memcached.constants.html#memcached.constants.res-partial-read">Memcached::RES_PARTIAL_READ</a></code></strong></dt>
+   <dd>
+    <p class="para">Partial network data read error.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-some-errors"><strong><code><a href="memcached.constants.html#memcached.constants.res-some-errors">Memcached::RES_SOME_ERRORS</a></code></strong></dt>
+   <dd>
+    <p class="para">Some errors occurred during multi-get.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-no-servers"><strong><code><a href="memcached.constants.html#memcached.constants.res-no-servers">Memcached::RES_NO_SERVERS</a></code></strong></dt>
+   <dd>
+    <p class="para">Server list is empty.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-end"><strong><code><a href="memcached.constants.html#memcached.constants.res-end">Memcached::RES_END</a></code></strong></dt>
+   <dd>
+    <p class="para">End of result set.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-errno"><strong><code><a href="memcached.constants.html#memcached.constants.res-errno">Memcached::RES_ERRNO</a></code></strong></dt>
+   <dd>
+    <p class="para">System error.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-buffered"><strong><code><a href="memcached.constants.html#memcached.constants.res-buffered">Memcached::RES_BUFFERED</a></code></strong></dt>
+   <dd>
+    <p class="para">The operation was buffered.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-timeout"><strong><code><a href="memcached.constants.html#memcached.constants.res-timeout">Memcached::RES_TIMEOUT</a></code></strong></dt>
+   <dd>
+    <p class="para">The operation timed out.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-bad-key-provided"><strong><code><a href="memcached.constants.html#memcached.constants.res-bad-key-provided">Memcached::RES_BAD_KEY_PROVIDED</a></code></strong></dt>
+   <dd>
+    <p class="para">Bad key.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-stored"><strong><code><a href="memcached.constants.html#memcached.constants.res-stored">Memcached::RES_STORED</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Item stored.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-deleted"><strong><code><a href="memcached.constants.html#memcached.constants.res-deleted">Memcached::RES_DELETED</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Item deleted.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-stat"><strong><code><a href="memcached.constants.html#memcached.constants.res-stat">Memcached::RES_STAT</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Statistics.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-item"><strong><code><a href="memcached.constants.html#memcached.constants.res-item">Memcached::RES_ITEM</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Item.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-not-supported"><strong><code><a href="memcached.constants.html#memcached.constants.res-not-supported">Memcached::RES_NOT_SUPPORTED</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Not supported.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-fetch-notfinished"><strong><code><a href="memcached.constants.html#memcached.constants.res-fetch-notfinished">Memcached::RES_FETCH_NOTFINISHED</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Fetch not finished.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-server-marked-dead"><strong><code><a href="memcached.constants.html#memcached.constants.res-server-marked-dead">Memcached::RES_SERVER_MARKED_DEAD</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Server marked dead.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-unknown-stat-key"><strong><code><a href="memcached.constants.html#memcached.constants.res-unknown-stat-key">Memcached::RES_UNKNOWN_STAT_KEY</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Unknown stat key.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-invalid-host-protocol"><strong><code><a href="memcached.constants.html#memcached.constants.res-invalid-host-protocol">Memcached::RES_INVALID_HOST_PROTOCOL</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Invalid host protocol.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-memory-allocation-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-memory-allocation-failure">Memcached::RES_MEMORY_ALLOCATION_FAILURE</a></code></strong></dt>
+   <dd>
+    <span class="simpara">Memory allocation failure.</span>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-connection-socket-create-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-connection-socket-create-failure">Memcached::RES_CONNECTION_SOCKET_CREATE_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Failed to create network socket.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-payload-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-payload-failure">Memcached::RES_PAYLOAD_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Payload failure: could not compress/decompress or serialize/unserialize the value.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-auth-problem"><strong><code><a href="memcached.constants.html#memcached.constants.res-auth-problem">Memcached::RES_AUTH_PROBLEM</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-auth-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-auth-failure">Memcached::RES_AUTH_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-auth-continue"><strong><code><a href="memcached.constants.html#memcached.constants.res-auth-continue">Memcached::RES_AUTH_CONTINUE</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-e2big"><strong><code><a href="memcached.constants.html#memcached.constants.res-e2big">Memcached::RES_E2BIG</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-key-too-big"><strong><code><a href="memcached.constants.html#memcached.constants.res-key-too-big">Memcached::RES_KEY_TOO_BIG</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-server-temporarily-disabled"><strong><code><a href="memcached.constants.html#memcached.constants.res-server-temporarily-disabled">Memcached::RES_SERVER_TEMPORARILY_DISABLED</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+  
+   <dt id="memcached.constants.res-server-memory-allocation-failure"><strong><code><a href="memcached.constants.html#memcached.constants.res-server-memory-allocation-failure">Memcached::RES_SERVER_MEMORY_ALLOCATION_FAILURE</a></code></strong></dt>
+   <dd>
+    <p class="para">Available as of Memcached 3.0.0.</p>
+   </dd>
+  
+
+ </dl>
+</div>
+</div></div></body></html>

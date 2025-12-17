@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Define or return the pause/resume capability for the current running service</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.win32-set-service-exit-mode.html">« win32_set_service_exit_mode</a></li>
+      <li style="float: right;"><a href="function.win32-set-service-status.html">win32_set_service_status »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.win32service.html">win32service Functions</a></li>
+    <li>Define or return the pause/resume capability for the current running service</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.win32-set-service-pause-resume-state" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">win32_set_service_pause_resume_state</h1>
+  <p class="verinfo">(PECL win32service &gt;=1.1.0)</p><p class="refpurpose"><span class="refname">win32_set_service_pause_resume_state</span> &mdash; <span class="dc-title">Define or return the pause/resume capability for the current running service</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.win32-set-service-pause-resume-state-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>win32_set_service_pause_resume_state</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> <code class="parameter">$state</code><span class="initializer"> = true</span></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+
+  <p class="para rdfs-comment">
+   If <code class="parameter">state</code> parameter is provided, the pause/resume capability
+is changed.
+  </p>
+
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    This function work only in &quot;cli&quot; SAPI and in the Windows service running context. On other SAPI
+    this function is disabled.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.win32-set-service-pause-resume-state-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">state</code></dt>
+    <dd>
+     <p class="para">
+      <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> for enable the service pause/resume capability. <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> for disable the service pause/resume capability.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.win32-set-service-pause-resume-state-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Return the current or old pause/resume capability state.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.win32-set-service-pause-resume-state-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Prior to version 1.0.0, if the SAPI is not <code class="literal">&quot;cli&quot;</code>, this function emits an
+   <strong><code><a href="errorfunc.constants.html#constant.e-error">E_ERROR</a></code></strong> level error.
+  </p>
+
+   <p class="para">
+    As of version 1.0.0, will throw a
+    <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> if SAPI is not
+    <code class="literal">&quot;cli&quot;</code>
+   </p>
+ </div>
+
+
+
+ <div class="refsect1 changelog" id="refsect1-function.win32-set-service-pause-resume-state-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> on invalid data in parameters,
+        previously <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> was returned.
+       </td>
+      </tr>
+
+      <tr>
+       <td>PECL win32service 1.0.0</td>
+       <td>
+        Throws a <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> on error,
+        previously a
+        <a href="win32service.constants.html#win32service.constants.errors" class="link">Win32 Error Code</a>
+        was returned.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.win32-set-service-pause-resume-state-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+    <li><span class="function"><a href="function.win32-start-service-ctrl-dispatcher.html" class="function" rel="rdfs-seeAlso">win32_start_service_ctrl_dispatcher()</a> - Registers the script with the SCM, so that it can act as the service with the given name</span></li>
+    <li><span class="function"><a href="function.win32-set-service-status.html" class="function" rel="rdfs-seeAlso">win32_set_service_status()</a> - Update the service status</span></li>
+    <li><span class="function"><a href="function.win32-set-service-exit-code.html" class="function" rel="rdfs-seeAlso">win32_set_service_exit_code()</a> - Define or return the exit code for the current running service</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

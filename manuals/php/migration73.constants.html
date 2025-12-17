@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Global Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration73.new-functions.html">« New Functions</a></li>
+      <li style="float: right;"><a href="migration73.incompatible.html">Backward Incompatible Changes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration73.html">Migrating from PHP 7.2.x to PHP 7.3.x</a></li>
+    <li>New Global Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration73.constants" class="sect1">
+ <h2 class="title">New Global Constants</h2>
+
+ <div class="sect2" id="migration73.constants.core">
+  <h3 class="title">PHP Core</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="password.constants.html#constant.password-argon2id">PASSWORD_ARGON2ID</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.curl">
+  <h3 class="title">Client URL Library</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlauth-bearer">CURLAUTH_BEARER</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlauth-gssapi">CURLAUTH_GSSAPI</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curle-weird-server-reply">CURLE_WEIRD_SERVER_REPLY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-appconnect-time-t">CURLINFO_APPCONNECT_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-connect-time-t">CURLINFO_CONNECT_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-content-length-download-t">CURLINFO_CONTENT_LENGTH_DOWNLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-content-length-upload-t">CURLINFO_CONTENT_LENGTH_UPLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-filetime-t">CURLINFO_FILETIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-http-version">CURLINFO_HTTP_VERSION</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-namelookup-time-t">CURLINFO_NAMELOOKUP_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-pretransfer-time-t">CURLINFO_PRETRANSFER_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-protocol">CURLINFO_PROTOCOL</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-proxy-ssl-verifyresult">CURLINFO_PROXY_SSL_VERIFYRESULT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-redirect-time-t">CURLINFO_REDIRECT_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-scheme">CURLINFO_SCHEME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-size-download-t">CURLINFO_SIZE_DOWNLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-size-upload-t">CURLINFO_SIZE_UPLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-speed-download-t">CURLINFO_SPEED_DOWNLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-speed-upload-t">CURLINFO_SPEED_UPLOAD_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-starttransfer-time-t">CURLINFO_STARTTRANSFER_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlinfo-total-time-t">CURLINFO_TOTAL_TIME_T</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-lock-data-connect">CURL_LOCK_DATA_CONNECT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-lock-data-psl">CURL_LOCK_DATA_PSL</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-max-read-size">CURL_MAX_READ_SIZE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-abstract-unix-socket">CURLOPT_ABSTRACT_UNIX_SOCKET</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-disallow-username-in-url">CURLOPT_DISALLOW_USERNAME_IN_URL</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-dns-shuffle-addresses">CURLOPT_DNS_SHUFFLE_ADDRESSES</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-happy-eyeballs-timeout-ms">CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-haproxyprotocol">CURLOPT_HAPROXYPROTOCOL</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-keep-sending-on-error">CURLOPT_KEEP_SENDING_ON_ERROR</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-pre-proxy">CURLOPT_PRE_PROXY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-cainfo">CURLOPT_PROXY_CAINFO</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-capath">CURLOPT_PROXY_CAPATH</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-crlfile">CURLOPT_PROXY_CRLFILE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-keypasswd">CURLOPT_PROXY_KEYPASSWD</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-pinnedpublickey">CURLOPT_PROXY_PINNEDPUBLICKEY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-sslcert">CURLOPT_PROXY_SSLCERT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-sslcerttype">CURLOPT_PROXY_SSLCERTTYPE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-ssl-cipher-list">CURLOPT_PROXY_SSL_CIPHER_LIST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-sslkey">CURLOPT_PROXY_SSLKEY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-sslkeytype">CURLOPT_PROXY_SSLKEYTYPE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-ssl-options">CURLOPT_PROXY_SSL_OPTIONS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-ssl-verifyhost">CURLOPT_PROXY_SSL_VERIFYHOST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-ssl-verifypeer">CURLOPT_PROXY_SSL_VERIFYPEER</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-sslversion">CURLOPT_PROXY_SSLVERSION</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-tls13-ciphers">CURLOPT_PROXY_TLS13_CIPHERS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-tlsauth-password">CURLOPT_PROXY_TLSAUTH_PASSWORD</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-tlsauth-type">CURLOPT_PROXY_TLSAUTH_TYPE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-proxy-tlsauth-username">CURLOPT_PROXY_TLSAUTH_USERNAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-request-target">CURLOPT_REQUEST_TARGET</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-socks5-auth">CURLOPT_SOCKS5_AUTH</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-ssh-compression">CURLOPT_SSH_COMPRESSION</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-suppress-connect-headers">CURLOPT_SUPPRESS_CONNECT_HEADERS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-timevalue-large">CURLOPT_TIMEVALUE_LARGE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlopt-tls13-ciphers">CURLOPT_TLS13_CIPHERS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlproxy-https">CURLPROXY_HTTPS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curlssh-auth-gssapi">CURLSSH_AUTH_GSSAPI</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-default">CURL_SSLVERSION_MAX_DEFAULT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-none">CURL_SSLVERSION_MAX_NONE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-tlsv1-0">CURL_SSLVERSION_MAX_TLSv1_0</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-tlsv1-1">CURL_SSLVERSION_MAX_TLSv1_1</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-tlsv1-2">CURL_SSLVERSION_MAX_TLSv1_2</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-max-tlsv1-3">CURL_SSLVERSION_MAX_TLSv1_3</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-sslversion-tlsv1-3">CURL_SSLVERSION_TLSv1_3</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-altsvc">CURL_VERSION_ALTSVC</a></code></strong> (as of PHP 7.3.6)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-asynchdns">CURL_VERSION_ASYNCHDNS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-brotli">CURL_VERSION_BROTLI</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-conv">CURL_VERSION_CONV</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-curldebug">CURL_VERSION_CURLDEBUG</a></code></strong> (as of PHP 7.3.6)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-debug">CURL_VERSION_DEBUG</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-gssapi">CURL_VERSION_GSSAPI</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-gssnegotiate">CURL_VERSION_GSSNEGOTIATE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-https-proxy">CURL_VERSION_HTTPS_PROXY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-idn">CURL_VERSION_IDN</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-largefile">CURL_VERSION_LARGEFILE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-multi-ssl">CURL_VERSION_MULTI_SSL</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-ntlm">CURL_VERSION_NTLM</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-ntlm-wb">CURL_VERSION_NTLM_WB</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-psl">CURL_VERSION_PSL</a></code></strong> (as of PHP 7.3.6)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-spnego">CURL_VERSION_SPNEGO</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-sspi">CURL_VERSION_SSPI</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="curl.constants.html#constant.curl-version-tlsauth-srp">CURL_VERSION_TLSAUTH_SRP</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.filter">
+  <h3 class="title">Data Filtering</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="filter.constants.html#constant.filter-sanitize-add-slashes">FILTER_SANITIZE_ADD_SLASHES</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.json">
+  <h3 class="title">JavaScript Object Notation</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="json.constants.html#constant.json-throw-on-error">JSON_THROW_ON_ERROR</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.ldap">
+  <h3 class="title">Lightweight Directory Access Protocol</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-assert">LDAP_CONTROL_ASSERT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-managedsait">LDAP_CONTROL_MANAGEDSAIT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-proxy-authz">LDAP_CONTROL_PROXY_AUTHZ</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-subentries">LDAP_CONTROL_SUBENTRIES</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-valuesreturnfilter">LDAP_CONTROL_VALUESRETURNFILTER</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-pre-read">LDAP_CONTROL_PRE_READ</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-post-read">LDAP_CONTROL_POST_READ</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-sortrequest">LDAP_CONTROL_SORTREQUEST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-sortresponse">LDAP_CONTROL_SORTRESPONSE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-pagedresults">LDAP_CONTROL_PAGEDRESULTS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-authzid-request">LDAP_CONTROL_AUTHZID_REQUEST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-authzid-response">LDAP_CONTROL_AUTHZID_RESPONSE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-sync">LDAP_CONTROL_SYNC</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-sync-state">LDAP_CONTROL_SYNC_STATE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-sync-done">LDAP_CONTROL_SYNC_DONE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-dontusecopy">LDAP_CONTROL_DONTUSECOPY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-passwordpolicyrequest">LDAP_CONTROL_PASSWORDPOLICYREQUEST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-passwordpolicyresponse">LDAP_CONTROL_PASSWORDPOLICYRESPONSE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-incremental-values">LDAP_CONTROL_X_INCREMENTAL_VALUES</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-domain-scope">LDAP_CONTROL_X_DOMAIN_SCOPE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-permissive-modify">LDAP_CONTROL_X_PERMISSIVE_MODIFY</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-search-options">LDAP_CONTROL_X_SEARCH_OPTIONS</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-tree-delete">LDAP_CONTROL_X_TREE_DELETE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-x-extended-dn">LDAP_CONTROL_X_EXTENDED_DN</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-vlvrequest">LDAP_CONTROL_VLVREQUEST</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ldap.constants.html#constant.ldap-control-vlvresponse">LDAP_CONTROL_VLVRESPONSE</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.mbstring">
+  <h3 class="title">Multibyte String</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="mbstring.constants.html#constant.mb-case-fold">MB_CASE_FOLD</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="mbstring.constants.html#constant.mb-case-lower-simple">MB_CASE_LOWER_SIMPLE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="mbstring.constants.html#constant.mb-case-upper-simple">MB_CASE_UPPER_SIMPLE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="mbstring.constants.html#constant.mb-case-title-simple">MB_CASE_TITLE_SIMPLE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="mbstring.constants.html#constant.mb-case-fold-simple">MB_CASE_FOLD_SIMPLE</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.openssl">
+  <h3 class="title">OpenSSL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="stream.constants.html#constant.stream-crypto-proto-sslv3">STREAM_CRYPTO_PROTO_SSLv3</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="stream.constants.html#constant.stream-crypto-proto-tlsv1-0">STREAM_CRYPTO_PROTO_TLSv1_0</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="stream.constants.html#constant.stream-crypto-proto-tlsv1-1">STREAM_CRYPTO_PROTO_TLSv1_1</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="stream.constants.html#constant.stream-crypto-proto-tlsv1-2">STREAM_CRYPTO_PROTO_TLSv1_2</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration73.constants.pgsql">
+  <h3 class="title">PostgreSQL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-schema-name">PGSQL_DIAG_SCHEMA_NAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-table-name">PGSQL_DIAG_TABLE_NAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-column-name">PGSQL_DIAG_COLUMN_NAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-datatype-name">PGSQL_DIAG_DATATYPE_NAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-constraint-name">PGSQL_DIAG_CONSTRAINT_NAME</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pgsql.constants.html#constant.pgsql-diag-severity-nonlocalized">PGSQL_DIAG_SEVERITY_NONLOCALIZED</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

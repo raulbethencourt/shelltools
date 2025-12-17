@@ -1,0 +1,741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reserved.classes.html">« Predefined Classes</a></li>
+      <li style="float: right;"><a href="reserved.other-reserved-words.html">List of other reserved words »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="reserved.html">List of Reserved Words</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reserved.constants" class="sect1">
+  <h2 class="title">Predefined Constants</h2>
+  
+
+<div class="sect2" id="reserved.constants.core">
+ <h3 class="title">Core Predefined Constants</h3>
+ <p class="simpara">
+  These constants are defined by the PHP core. This includes PHP,
+  the Zend engine, and SAPI modules.
+ </p>
+ <dl>
+  
+   <dt id="constant.php-version">
+    <strong><code><a href="reserved.constants.html#constant.php-version">PHP_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP version as a string in
+     &quot;major.minor.release[extra]&quot; notation.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-major-version">
+    <strong><code><a href="reserved.constants.html#constant.php-major-version">PHP_MAJOR_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP &quot;major&quot; version as an integer (e.g., int(5)
+     from version &quot;5.2.7-extra&quot;).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-minor-version">
+    <strong><code><a href="reserved.constants.html#constant.php-minor-version">PHP_MINOR_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP &quot;minor&quot; version as an integer (e.g., int(2)
+     from version &quot;5.2.7-extra&quot;).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-release-version">
+    <strong><code><a href="reserved.constants.html#constant.php-release-version">PHP_RELEASE_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP &quot;release&quot; version as an integer (e.g., int(7)
+     from version &quot;5.2.7-extra&quot;).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-version-id">
+    <strong><code><a href="reserved.constants.html#constant.php-version-id">PHP_VERSION_ID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP version as an integer, useful for
+     version comparisons (e.g., int(50207) from version &quot;5.2.7-extra&quot;).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-extra-version">
+    <strong><code><a href="reserved.constants.html#constant.php-extra-version">PHP_EXTRA_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The current PHP &quot;extra&quot; version as a string (e.g., &#039;-extra&#039;
+     from version &quot;5.2.7-extra&quot;). Often used by distribution
+     vendors to indicate a package version.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.zend-thread-safe">
+    <strong><code><a href="reserved.constants.html#constant.zend-thread-safe">ZEND_THREAD_SAFE</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether the current build of PHP is thread safe.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.zend-debug-build">
+    <strong><code><a href="reserved.constants.html#constant.zend-debug-build">ZEND_DEBUG_BUILD</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether the current build of PHP is a debug build.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-zts">
+    <strong><code><a href="reserved.constants.html#constant.php-zts">PHP_ZTS</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+    Alias of <strong><code><a href="reserved.constants.html#constant.zend-thread-safe">ZEND_THREAD_SAFE</a></code></strong>
+   </dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether the current build of PHP is thread safe.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-debug">
+    <strong><code><a href="reserved.constants.html#constant.php-debug">PHP_DEBUG</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+    Alias of <strong><code><a href="reserved.constants.html#constant.zend-debug-build">ZEND_DEBUG_BUILD</a></code></strong>
+   </dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether the current build of PHP is a debug build.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.debug-backtrace-provide-object">
+    <strong><code><a href="reserved.constants.html#constant.debug-backtrace-provide-object">DEBUG_BACKTRACE_PROVIDE_OBJECT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Populate the &quot;object&quot; index.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.debug-backtrace-ignore-args">
+    <strong><code><a href="reserved.constants.html#constant.debug-backtrace-ignore-args">DEBUG_BACKTRACE_IGNORE_ARGS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Don&#039;t include the argument information for functions in the stack trace.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-maxpathlen">
+    <strong><code><a href="reserved.constants.html#constant.php-maxpathlen">PHP_MAXPATHLEN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The maximum length of filenames (including path) supported
+     by this build of PHP.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-os">
+    <strong><code><a href="reserved.constants.html#constant.php-os">PHP_OS</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The operating system PHP was built for.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-os-family">
+    <strong><code><a href="reserved.constants.html#constant.php-os-family">PHP_OS_FAMILY</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The operating system family PHP was built for. One of
+     <code class="literal">&#039;Windows&#039;</code>, <code class="literal">&#039;BSD&#039;</code>,
+     <code class="literal">&#039;Darwin&#039;</code>, <code class="literal">&#039;Solaris&#039;</code>,
+     <code class="literal">&#039;Linux&#039;</code> or <code class="literal">&#039;Unknown&#039;</code>.
+     Available as of PHP 7.2.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-sapi">
+    <strong><code><a href="reserved.constants.html#constant.php-sapi">PHP_SAPI</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The Server API for this build of PHP.
+     See also <span class="function"><a href="function.php-sapi-name.html" class="function">php_sapi_name()</a></span>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-eol">
+    <strong><code><a href="reserved.constants.html#constant.php-eol">PHP_EOL</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The correct &#039;End Of Line&#039; symbol for this platform.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-int-max">
+    <strong><code><a href="reserved.constants.html#constant.php-int-max">PHP_INT_MAX</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The largest integer supported in this build of PHP. Usually int(2147483647)
+     in 32 bit systems and int(9223372036854775807) in 64 bit systems.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-int-min">
+    <strong><code><a href="reserved.constants.html#constant.php-int-min">PHP_INT_MIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The smallest integer supported in this build of PHP. Usually int(-2147483648) in 32 bit systems and
+     int(-9223372036854775808) in 64 bit systems.
+     Usually, PHP_INT_MIN === ~PHP_INT_MAX.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-int-size">
+    <strong><code><a href="reserved.constants.html#constant.php-int-size">PHP_INT_SIZE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The size of an integer in bytes in this build of PHP.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-float-dig">
+    <strong><code><a href="reserved.constants.html#constant.php-float-dig">PHP_FLOAT_DIG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Number of decimal digits that can be rounded into a float and back
+     without precision loss.
+     Available as of PHP 7.2.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-float-epsilon">
+    <strong><code><a href="reserved.constants.html#constant.php-float-epsilon">PHP_FLOAT_EPSILON</a></code></strong>
+    (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Smallest representable positive number x, so that <code class="literal">x + 1.0 !=
+     1.0</code>.
+     Available as of PHP 7.2.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-float-min">
+    <strong><code><a href="reserved.constants.html#constant.php-float-min">PHP_FLOAT_MIN</a></code></strong>
+    (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Smallest representable <em>positive</em> floating point number.
+     If you need the smallest representable <em>negative</em> floating point number, use <code class="literal">- PHP_FLOAT_MAX</code>.
+     Available as of PHP 7.2.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-float-max">
+    <strong><code><a href="reserved.constants.html#constant.php-float-max">PHP_FLOAT_MAX</a></code></strong>
+    (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Largest representable floating point number.
+     Available as of PHP 7.2.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.default-include-path">
+    <strong><code><a href="reserved.constants.html#constant.default-include-path">DEFAULT_INCLUDE_PATH</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pear-install-dir">
+    <strong><code><a href="reserved.constants.html#constant.pear-install-dir">PEAR_INSTALL_DIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pear-extension-dir">
+    <strong><code><a href="reserved.constants.html#constant.pear-extension-dir">PEAR_EXTENSION_DIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-extension-dir">
+    <strong><code><a href="reserved.constants.html#constant.php-extension-dir">PHP_EXTENSION_DIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The default directory where to look for dynamically loadable extensions
+     (unless overridden by <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a>).
+     Defaults to <strong><code><a href="reserved.constants.html#constant.php-prefix">PHP_PREFIX</a></code></strong> (or <code class="code">PHP_PREFIX . &quot;\\ext&quot;</code> on Windows).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-prefix">
+    <strong><code><a href="reserved.constants.html#constant.php-prefix">PHP_PREFIX</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The value <strong class="option configure">--prefix</strong> was set to at configure.
+     On Windows, it is the value <strong class="option configure">--with-prefix</strong>
+     was set to at configure.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-bindir">
+    <strong><code><a href="reserved.constants.html#constant.php-bindir">PHP_BINDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The value <strong class="option configure">--bindir</strong> was set to at configure.
+     On Windows, it is the value <strong class="option configure">--with-prefix</strong>
+     was set to at configure.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-sbindir">
+    <strong><code><a href="reserved.constants.html#constant.php-sbindir">PHP_SBINDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The value <strong class="option configure">--sbindir</strong> was set to at configure.
+     On Windows, it is the value <strong class="option configure">--with-prefix</strong>
+     was set to at configure. Available as of PHP 8.4.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-binary">
+    <strong><code><a href="reserved.constants.html#constant.php-binary">PHP_BINARY</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the PHP binary path during script execution.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-mandir">
+    <strong><code><a href="reserved.constants.html#constant.php-mandir">PHP_MANDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies where the manpages were installed into.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-libdir">
+    <strong><code><a href="reserved.constants.html#constant.php-libdir">PHP_LIBDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-datadir">
+    <strong><code><a href="reserved.constants.html#constant.php-datadir">PHP_DATADIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-sysconfdir">
+    <strong><code><a href="reserved.constants.html#constant.php-sysconfdir">PHP_SYSCONFDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-localstatedir">
+    <strong><code><a href="reserved.constants.html#constant.php-localstatedir">PHP_LOCALSTATEDIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-config-file-path">
+    <strong><code><a href="reserved.constants.html#constant.php-config-file-path">PHP_CONFIG_FILE_PATH</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-config-file-scan-dir">
+    <strong><code><a href="reserved.constants.html#constant.php-config-file-scan-dir">PHP_CONFIG_FILE_SCAN_DIR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-shlib-suffix">
+    <strong><code><a href="reserved.constants.html#constant.php-shlib-suffix">PHP_SHLIB_SUFFIX</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The build-platform&#039;s shared library suffix, such as &quot;so&quot; (most Unixes)
+     or &quot;dll&quot; (Windows).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-fd-setsize">
+    <strong><code><a href="reserved.constants.html#constant.php-fd-setsize">PHP_FD_SETSIZE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The maximum number of file descriptors for select system calls. Available
+     as of PHP 7.1.0.
+    </span>
+   </dd>
+  
+  
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-error">E_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-parse">E_PARSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-notice">E_NOTICE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-core-error">E_CORE_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-core-warning">E_CORE_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-compile-error">E_COMPILE_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-compile-warning">E_COMPILE_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-error">E_USER_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-warning">E_USER_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-notice">E_USER_NOTICE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-recoverable-error">E_RECOVERABLE_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-deprecated">E_DEPRECATED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-deprecated">E_USER_DEPRECATED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-all">E_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dt>
+    <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="errorfunc.constants.html" class="link">Error reporting constants</a>
+    </span>
+   </dd>
+  
+  
+   <dt>
+    <strong><code><a href="misc.constants.html#constant.compiler-halt-offset">__COMPILER_HALT_OFFSET__</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.true">
+    <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     See <a href="language.types.boolean.html" class="link">Booleans</a>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.false">
+    <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     See <a href="language.types.boolean.html" class="link">Booleans</a>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.null">
+    <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>
+    (<span class="type"><a href="language.types.null.html" class="type null">null</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     See <a href="language.types.null.html" class="link">Null</a>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-windows-event-ctrl-c">
+    <strong><code><a href="reserved.constants.html#constant.php-windows-event-ctrl-c">PHP_WINDOWS_EVENT_CTRL_C</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     A Windows
+     <kbd class="keycombo">
+      <kbd class="keycap">CTRL</kbd>
+      +<kbd class="keycap">C</kbd>
+     </kbd>
+     event.
+     Available as of PHP 7.4.0 (Windows only).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-windows-event-ctrl-break">
+    <strong><code><a href="reserved.constants.html#constant.php-windows-event-ctrl-break">PHP_WINDOWS_EVENT_CTRL_BREAK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     A Windows
+     <kbd class="keycombo">
+      <kbd class="keycap">CTRL</kbd>
+      +<kbd class="keycap">BREAK</kbd>
+     </kbd>
+     event.
+     Available as of PHP 7.4.0 (Windows only).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.php-cli-process-title">
+    <strong><code><a href="reserved.constants.html#constant.php-cli-process-title">PHP_CLI_PROCESS_TITLE</a></code></strong>
+    (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Indicates whether the setting and getting of the process title is available.
+     Available only under the CLI SAPI.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.stderr">
+    <strong><code><a href="reserved.constants.html#constant.stderr">STDERR</a></code></strong>
+    (<span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     An already opened stream to <code class="literal">stderr</code>.
+     Available only under the CLI SAPI.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.stdin">
+    <strong><code><a href="reserved.constants.html#constant.stdin">STDIN</a></code></strong>
+    (<span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     An already opened stream to <code class="literal">stdin</code>.
+     Available only under the CLI SAPI.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.stdout">
+    <strong><code><a href="reserved.constants.html#constant.stdout">STDOUT</a></code></strong>
+    (<span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     An already opened stream to <code class="literal">stdout</code>.
+     Available only under the CLI SAPI.
+    </span>
+   </dd>
+  
+ </dl>
+ <p class="para">
+  See also: <a href="language.constants.magic.html" class="link">Magic
+  constants</a>.
+ </p>
+</div>
+
+
+  
+
+
+ <div class="sect2" id="reserved.constants.standard">
+   <h3 class="title">Standard Predefined Constants</h3>
+   <p class="simpara">
+    All constants from <a href="extensions.membership.html#extensions.membership.core" class="link">core
+    extensions</a> are defined in PHP by default.
+   </p>
+ </div>
+
+
+
+ </div></div></div></body></html>

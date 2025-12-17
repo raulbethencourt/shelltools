@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>RPM version comparison</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.rpminfo.html">« rpminfo</a></li>
+      <li style="float: right;"><a href="book.xlswriter.html">XLSWriter »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.rpminfo.html">RpmInfo Functions</a></li>
+    <li>RPM version comparison</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.rpmvercmp" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">rpmvercmp</h1>
+  <p class="verinfo">(PECL rpminfo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">rpmvercmp</span> &mdash; <span class="dc-title">RPM version comparison</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.rpmvercmp-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>rpmvercmp</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$evr1</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$evr2</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$operator</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Compare two RPM package versions.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.rpmvercmp-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">evr1</code></dt>
+    <dd>
+     <p class="para">
+      First <code class="literal">epoch:version-release</code> string.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">evr2</code></dt>
+    <dd>
+     <p class="para">
+      Second <code class="literal">epoch:version-release</code> string.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">operator</code></dt>
+    <dd>
+     <p class="para">
+      An optional operator. The possible operators
+      are: <code class="literal">&lt;</code> or <code class="literal">lt</code>;
+      <code class="literal">&lt;=</code> or <code class="literal">le</code>;
+      <code class="literal">&gt;</code> or <code class="literal">gt</code>;
+      <code class="literal">&gt;=</code> or <code class="literal">ge</code>;
+      <code class="literal">==</code>, <code class="literal">=</code> or <code class="literal">eq</code>;
+      <code class="literal">!=</code>, <code class="literal">&lt;&gt;</code> or <code class="literal">ne</code>.
+     </p>
+     <p class="para">
+      This parameter is case-sensitive, values should be lowercase.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.rpmvercmp-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <code class="literal">-1</code> if <code class="parameter">evr1</code> is less than
+   <code class="parameter">evr2</code>, <code class="literal">1</code> if <code class="parameter">evr1</code> is
+   greater than <code class="parameter">evr2</code>, and <code class="literal">0</code> if they are equal.
+  </p>
+  <p class="para">
+   When using the optional <code class="parameter">operator</code> argument, the
+   function will return <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> if the relationship is the one specified
+   by the operator, <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.rpmvercmp-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>PECL rpminfo 0.7.0</td>
+      <td>
+       Optional <code class="parameter">operator</code> was added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+</div></div></div></body></html>

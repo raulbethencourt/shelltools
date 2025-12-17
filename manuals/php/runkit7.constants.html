@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="runkit7.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="ref.runkit7.html">runkit7 Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.runkit7.html">runkit7</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="runkit7.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  <dl>
+   
+    <dt id="constant.runkit7-import-functions">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-functions">RUNKIT7_IMPORT_FUNCTIONS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+    <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating
+     that normal functions should be imported from the
+     specified file.
+    </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-class-methods">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-class-methods">RUNKIT7_IMPORT_CLASS_METHODS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating
+     that class methods should be imported from the
+     specified file.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-class-consts">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-class-consts">RUNKIT7_IMPORT_CLASS_CONSTS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating
+     that class constants should be imported from the
+     specified file.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-class-props">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-class-props">RUNKIT7_IMPORT_CLASS_PROPS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating
+     that class standard properties should be imported
+     from the specified file.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-class-static-props">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-class-static-props">RUNKIT7_IMPORT_CLASS_STATIC_PROPS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating
+     that class static properties should be imported
+     from the specified file. Available since Runkit 1.0.1.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-classes">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-classes">RUNKIT7_IMPORT_CLASSES</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag representing
+     a bitwise OR of the <strong><code><a href="runkit7.constants.html#constant.runkit7-import-class-methods">RUNKIT7_IMPORT_CLASS_<span class="replaceable">*</span></a></code></strong>
+     constants.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-import-override">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-import-override">RUNKIT7_IMPORT_OVERRIDE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     <span class="function"><a href="function.runkit7-import.html" class="function">runkit7_import()</a></span> flag indicating that
+     if any of the imported functions, methods, constants,
+     or properties already exist, they should be replaced with
+     the new definitions.  If this flag is not set, then any
+     imported definitions which already exist will be discarded.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-acc-return-reference">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-acc-return-reference">RUNKIT7_ACC_RETURN_REFERENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     Include this flag to make the function or method being created or redeclared return a reference.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-acc-public">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-acc-public">RUNKIT7_ACC_PUBLIC</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     Flag for <span class="function"><a href="function.runkit7-method-add.html" class="function">runkit7_method_add()</a></span> and <span class="function"><a href="function.runkit7-method-redefine.html" class="function">runkit7_method_redefine()</a></span> to make the method public.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-acc-protected">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-acc-protected">RUNKIT7_ACC_PROTECTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     Flag for <span class="function"><a href="function.runkit7-method-add.html" class="function">runkit7_method_add()</a></span> and <span class="function"><a href="function.runkit7-method-redefine.html" class="function">runkit7_method_redefine()</a></span> to make the method protected.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-acc-private">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-acc-private">RUNKIT7_ACC_PRIVATE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     Flag for <span class="function"><a href="function.runkit7-method-add.html" class="function">runkit7_method_add()</a></span> and <span class="function"><a href="function.runkit7-method-redefine.html" class="function">runkit7_method_redefine()</a></span> to make the method private.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-acc-static">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-acc-static">RUNKIT7_ACC_STATIC</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     Flag for <span class="function"><a href="function.runkit7-method-add.html" class="function">runkit7_method_add()</a></span> and <span class="function"><a href="function.runkit7-method-redefine.html" class="function">runkit7_method_redefine()</a></span> to make the method static.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-feature-manipulation">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-feature-manipulation">RUNKIT7_FEATURE_MANIPULATION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Equal to 1 if runtime manipulation is enabled, and 0 otherwise.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-feature-superglobals">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-feature-superglobals">RUNKIT7_FEATURE_SUPERGLOBALS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Equal to 1 if custom superglobals are enabled, and 0 otherwise.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.runkit7-feature-sandbox">
+     <strong><code><a href="runkit7.constants.html#constant.runkit7-feature-sandbox">RUNKIT7_FEATURE_SANDBOX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Always 0, it&#039;s impractical to implement the sandbox feature in php 7.
+     </span>
+    </dd>
+   
+  </dl>
+ </p>
+</div>
+</div></div></body></html>

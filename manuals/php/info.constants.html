@@ -1,0 +1,641 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="info.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="ref.info.html">PHP Options/Info Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.info.html">PHP Options/Info</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="info.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are always available as part of the PHP core.
+</p>
+ <table id="constant.credits.constants" class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title">Pre-defined <span class="function"><a href="function.phpcredits.html" class="function">phpcredits()</a></span> constants</strong>
+  <tr>
+   <td id="constant.credits-group">
+    <strong><code><a href="info.constants.html#constant.credits-group">CREDITS_GROUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     A list of the core developers
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-general">
+    <strong><code><a href="info.constants.html#constant.credits-general">CREDITS_GENERAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     General credits: Language design and concept, PHP
+     authors and SAPI module.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-sapi">
+    <strong><code><a href="info.constants.html#constant.credits-sapi">CREDITS_SAPI</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     A list of the server API modules for PHP, and their authors.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-modules">
+    <strong><code><a href="info.constants.html#constant.credits-modules">CREDITS_MODULES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     A list of the extension modules for PHP, and their authors.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-docs">
+    <strong><code><a href="info.constants.html#constant.credits-docs">CREDITS_DOCS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The credits for the documentation team.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-fullpage">
+    <strong><code><a href="info.constants.html#constant.credits-fullpage">CREDITS_FULLPAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Usually used in combination with the other flags. Indicates
+     that a complete stand-alone HTML page needs to be
+     printed including the information indicated by the other
+     flags.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-qa">
+    <strong><code><a href="info.constants.html#constant.credits-qa">CREDITS_QA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The credits for the quality assurance team.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.credits-all">
+    <strong><code><a href="info.constants.html#constant.credits-all">CREDITS_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     All the credits, equivalent to using: <code class="literal">CREDITS_DOCS
+     | CREDITS_GENERAL | CREDITS_GROUP | CREDITS_MODULES | CREDITS_QA
+     | CREDITS_FULLPAGE</code>. It generates a complete stand-alone HTML
+     page with the appropriate tags. This is the default value.
+    </span>
+   </td>
+  </tr>
+ </table>
+
+ <table id="constant.info.constants" class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title"><span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> constants</strong>
+  <tr>
+   <td id="constant.info-general">
+    <strong><code><a href="info.constants.html#constant.info-general">INFO_GENERAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The configuration line, <var class="filename">php.ini</var> location, build date, Web
+     Server, System and more.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-credits">
+    <strong><code><a href="info.constants.html#constant.info-credits">INFO_CREDITS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     PHP Credits.  See also <span class="function"><a href="function.phpcredits.html" class="function">phpcredits()</a></span>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-configuration">
+    <strong><code><a href="info.constants.html#constant.info-configuration">INFO_CONFIGURATION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Current Local and Master values for PHP directives. See
+     also <span class="function"><a href="function.ini-get.html" class="function">ini_get()</a></span>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-modules">
+    <strong><code><a href="info.constants.html#constant.info-modules">INFO_MODULES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Loaded modules and their respective settings.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-environment">
+    <strong><code><a href="info.constants.html#constant.info-environment">INFO_ENVIRONMENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Environment Variable information that&#039;s also available in
+     <var class="varname"><a href="reserved.variables.environment.html" class="classname">$_ENV</a></var>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-variables">
+    <strong><code><a href="info.constants.html#constant.info-variables">INFO_VARIABLES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Shows all <a href="language.variables.predefined.html" class="link">
+     predefined variables</a> from <code class="literal">EGPCS</code> (Environment, GET,
+     POST, Cookie, Server).
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-license">
+    <strong><code><a href="info.constants.html#constant.info-license">INFO_LICENSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     PHP License information.  See also the <a href="https://www.php.net/license/" class="link external">&raquo;&nbsp;license faq</a>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.info-all">
+    <strong><code><a href="info.constants.html#constant.info-all">INFO_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Shows all of the above. This is the default value.
+    </span>
+   </td>
+  </tr>
+ </table>
+
+ <table id="constant.ini-mode" class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title">INI mode constants</strong>
+  <tr>
+   <td id="constant.ini-user">
+    <strong><code><a href="info.constants.html#constant.ini-user">INI_USER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Entry can be set in user scripts (like with <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>)
+     or in the <a href="configuration.changes.html#configuration.changes.windows" class="link">Windows registry</a>.
+     Entry can be set in <var class="filename">.user.ini</var>
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.ini-perdir">
+    <strong><code><a href="info.constants.html#constant.ini-perdir">INI_PERDIR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Entry can be set in <var class="filename">php.ini</var>, <var class="filename">.htaccess</var>, <var class="filename">httpd.conf</var> or <var class="filename">.user.ini</var>
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.ini-system">
+    <strong><code><a href="info.constants.html#constant.ini-system">INI_SYSTEM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Entry can be set in <var class="filename">php.ini</var> or <var class="filename">httpd.conf</var>
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.ini-all">
+    <strong><code><a href="info.constants.html#constant.ini-all">INI_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Entry can be set anywhere
+    </span>
+   </td>
+  </tr>
+ </table>
+
+ <p class="simpara">
+  Assert constants, these values are used to set
+  the assertion options in <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>.
+ </p>
+ <table id="constant.assert.constants" class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title"><span class="function"><a href="function.assert.html" class="function">assert()</a></span> constants</strong>
+  <tr>
+   <td id="constant.assert-active">
+    <strong><code><a href="info.constants.html#constant.assert-active">ASSERT_ACTIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Enable <span class="function"><a href="function.assert.html" class="function">assert()</a></span> evaluation.
+     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
+<em>DEPRECATED</em> as of PHP 8.3.0. Relying on this feature
+is highly discouraged.</p></div>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.assert-callback">
+    <strong><code><a href="info.constants.html#constant.assert-callback">ASSERT_CALLBACK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Callback to call on failed assertions.
+     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
+<em>DEPRECATED</em> as of PHP 8.3.0. Relying on this feature
+is highly discouraged.</p></div>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.assert-bail">
+    <strong><code><a href="info.constants.html#constant.assert-bail">ASSERT_BAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Terminate execution on failed assertions.
+     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
+<em>DEPRECATED</em> as of PHP 8.3.0. Relying on this feature
+is highly discouraged.</p></div>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.assert-exception">
+    <strong><code><a href="info.constants.html#constant.assert-exception">ASSERT_EXCEPTION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Throws an <span class="classname"><a href="class.assertionerror.html" class="classname">AssertionError</a></span> for each failed assertion
+     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
+<em>DEPRECATED</em> as of PHP 8.3.0. Relying on this feature
+is highly discouraged.</p></div>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.assert-warning">
+    <strong><code><a href="info.constants.html#constant.assert-warning">ASSERT_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Issues a PHP warning for each failed assertion
+     <div class="warning"><strong class="warning">Warning</strong><p class="simpara">This feature has been
+<em>DEPRECATED</em> as of PHP 8.3.0. Relying on this feature
+is highly discouraged.</p></div>
+    </p>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.assert-quiet-eval">
+    <strong><code><a href="info.constants.html#constant.assert-quiet-eval">ASSERT_QUIET_EVAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <p class="para">
+     Disable <code class="literal">error_reporting</code> during assertion expression evaluation.
+     <div class="warning"><strong class="warning">Warning</strong>
+<p class="simpara">This feature was <em>REMOVED</em> as of PHP 8.0.0.</p>
+</div>
+    </p>
+   </td>
+  </tr>
+ </table>
+
+ <p class="simpara">
+  The following constants are only available if the host operating
+  system is Windows, and can tell different versioning information
+  so its possible to detect various features and make use of them.
+ </p>
+ <table id="constant.windows.constants" class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title">Windows specific constants</strong>
+  <tr>
+   <td id="constant.php-windows-version-major">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-major">PHP_WINDOWS_VERSION_MAJOR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The major version of Windows, this can be either <code class="literal">4</code> (NT4/Me/98/95),
+     <code class="literal">5</code> (XP/2003 R2/2003/2000) or <code class="literal">6</code> (Vista/2008/7/8/8.1).
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-minor">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-minor">PHP_WINDOWS_VERSION_MINOR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The minor version of Windows, this can be either <code class="literal">0</code> (Vista/2008/2000/NT4/95),
+     <code class="literal">1</code> (XP), <code class="literal">2</code> (2003 R2/2003/XP x64), <code class="literal">10</code> (98)
+     or <code class="literal">90</code> (ME).
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-build">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-build">PHP_WINDOWS_VERSION_BUILD</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The Windows build number (for example, Windows Vista with SP1 applied is build 6001)
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-platform">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-platform">PHP_WINDOWS_VERSION_PLATFORM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The platform that PHP currently is running on, this value is <code class="literal">2</code> on Windows
+     Vista/XP/2000/NT4, Server 2008/2003 and on Windows ME/98/95 this value is <code class="literal">1</code>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-sp-major">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-sp-major">PHP_WINDOWS_VERSION_SP_MAJOR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The major version of the service pack installed, this value is <code class="literal">0</code>
+     if no service pack is installed. For example, Windows XP with service pack 3 installed
+     will make this value <code class="literal">3</code>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-sp-minor">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-sp-minor">PHP_WINDOWS_VERSION_SP_MINOR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The minor version of the service pack installed, this value is <code class="literal">0</code>
+     if no service pack is installed.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-suitemask">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-suitemask">PHP_WINDOWS_VERSION_SUITEMASK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The suitemask is a bitmask that can tell if various features of Windows is installed,
+     see the table below for possible bitfield values.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-version-producttype">
+    <strong><code><a href="info.constants.html#constant.php-windows-version-producttype">PHP_WINDOWS_VERSION_PRODUCTTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     This contains the value used to determine the
+     <code class="literal">PHP_WINDOWS_NT_<span class="replaceable">*</span></code>
+     constants. This value may be one of the
+     <code class="literal">PHP_WINDOWS_NT_<span class="replaceable">*</span></code> constants
+     indicating the platform type.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-nt-domain-controller">
+    <strong><code><a href="info.constants.html#constant.php-windows-nt-domain-controller">PHP_WINDOWS_NT_DOMAIN_CONTROLLER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     This is a domain controller
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-nt-server">
+    <strong><code><a href="info.constants.html#constant.php-windows-nt-server">PHP_WINDOWS_NT_SERVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     This is a server system (eg. Server 2008/2003/2000), note that if this is a
+     domain controller its reported as <strong><code><a href="info.constants.html#constant.php-windows-nt-domain-controller">PHP_WINDOWS_NT_DOMAIN_CONTROLLER</a></code></strong>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.php-windows-nt-workstation">
+    <strong><code><a href="info.constants.html#constant.php-windows-nt-workstation">PHP_WINDOWS_NT_WORKSTATION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     This is a workstation system (eg. Vista/XP/2000/NT4)
+    </span>
+   </td>
+  </tr>
+ </table>
+ <p class="simpara">
+  This table shows a list of features that can be checked for using the
+  <strong><code><a href="info.constants.html#constant.php-windows-version-suitemask">PHP_WINDOWS_VERSION_SUITEMASK</a></code></strong> bitmask.
+ </p>
+ <table class="doctable table">
+  <caption><strong>Windows suitemask bitfields</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Bits</th>
+     <th>Description</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><code class="literal">0x00000004</code></td>
+     <td>Microsoft BackOffice components are installed.</td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000400</code></td>
+     <td>Windows Server 2003, Web Edition is installed.</td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00004000</code></td>
+     <td>Windows Server 2003, Compute Cluster Edition is installed.</td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000080</code></td>
+     <td>
+      Windows Server 2008 Datacenter, Windows Server 2003, Datacenter Edition or
+      Windows 2000 Datacenter Server is installed.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000002</code></td>
+     <td>
+      Windows Server 2008 Enterprise, Windows Server 2003, Enterprise Edition,
+      Windows 2000 Advanced Server, or Windows NT Server 4.0 Enterprise Edition
+      is installed.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000040</code></td>
+     <td>Windows XP Embedded is installed.</td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000200</code></td>
+     <td>
+      Windows Vista Home Premium, Windows Vista Home Basic, or Windows XP Home
+      Edition is installed.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000100</code></td>
+     <td>
+      Remote Desktop is supported, but only one interactive session is supported.
+      This value is set unless the system is running in application server mode.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000001</code></td>
+     <td>
+      Microsoft Small Business Server was once installed on the system, but may have
+      been upgraded to another version of Windows.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000020</code></td>
+     <td>
+      Microsoft Small Business Server is installed with the restrictive client
+      license in force.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00002000</code></td>
+     <td>Windows Storage Server 2003 R2 or Windows Storage Server 2003 is installed.</td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00000010</code></td>
+     <td>
+      Terminal Services is installed. This value is always set. If this value is set but
+      <code class="literal">0x00000100</code> is not set, then the system is running in application
+      server mode.
+     </td>
+    </tr>
+
+    <tr>
+     <td><code class="literal">0x00008000</code></td>
+     <td>Windows Home Server is installed.</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+</div></div></body></html>

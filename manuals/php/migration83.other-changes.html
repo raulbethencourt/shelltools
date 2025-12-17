@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration83.deprecated.html">« Deprecated Features</a></li>
+      <li style="float: right;"><a href="migration83.windows-support.html">Windows Support »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration83.html">Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+    <li>Other Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration83.other-changes" class="sect1">
+ <h2 class="title">Other Changes</h2>
+
+ <div class="sect2" id="migration83.other-changes.core">
+  <h3 class="title">Core changes</h3>
+
+  <div class="sect3" id="migration83.other-changes.core.ffi">
+   <h4 class="title">FFI</h4>
+
+   <p class="para">
+    <span class="methodname"><a href="ffi.load.html" class="methodname">FFI::load()</a></span> is now allowed during preloading
+    when <a href="opcache.configuration.html#ini.opcache.preload-user" class="link">opcache.preload_user</a>
+    is the current system user. Previously,
+    calling <span class="methodname"><a href="ffi.load.html" class="methodname">FFI::load()</a></span> was not possible
+    during preloading if the
+    <a href="opcache.configuration.html#ini.opcache.preload-user" class="link">opcache.preload_user</a>
+    directive was set.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.core.fpm">
+   <h4 class="title">FPM</h4>
+
+   <p class="para">
+    FPM CLI test now fails if the socket path is longer than supported by the OS.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.core.opcache">
+   <h4 class="title">Opcache</h4>
+
+   <p class="para">
+    In the CLI and phpdbg SAPIs, preloading does not require the
+    <a href="opcache.configuration.html#ini.opcache.preload-user" class="link">opcache.preload_user</a>
+    directive to be set anymore when running as root.
+    In other SAPIs, this directive is required when running as root because
+    preloading is done before the SAPI switches to an unprivileged user.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.core.streams">
+   <h4 class="title">Streams</h4>
+
+   <p class="para">
+    Blocking <span class="function"><a href="function.fread.html" class="function">fread()</a></span> on a socket connection returns
+    immediately if there are any buffered data instead of waiting for more data.
+   </p>
+
+   <p class="para">
+    A memory stream no longer fails if the seek offset is past the end.
+    Instead, the memory will be increased on the next write and the data between
+    the old end and the offset is filled with zero bytes, similar to how files work.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.stat.html" class="function">stat()</a></span> access operations like
+    <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span> and similar will now use real
+    path instead of the actual stream path. This is consistent with stream
+    opening.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration83.other-changes.sapi">
+  <h3 class="title">Changes in SAPI Modules</h3>
+
+  <div class="sect3" id="migration83.other-changes.sapi.cli">
+   <h4 class="title">CLI</h4>
+
+   <p class="para">
+    The <strong><code><a href="reserved.constants.html#constant.stdout">STDOUT</a></code></strong>, <strong><code><a href="reserved.constants.html#constant.stderr">STDERR</a></code></strong> and
+    <strong><code><a href="reserved.constants.html#constant.stdin">STDIN</a></code></strong> streams are no longer closed on resource
+    destruction which is mostly when the CLI finishes.
+    It is however still possible to explicitly close those streams using
+    <span class="function"><a href="function.fclose.html" class="function">fclose()</a></span> and similar.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration83.other-changes.functions">
+  <h3 class="title">Changed Functions</h3>
+
+  <div class="sect3" id="migration83.other-changes.functions.core">
+   <h4 class="title">Core</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.gc-status.html" class="function">gc_status()</a></span> has added the following 8 fields:
+
+    <ul class="simplelist">
+     <li><code class="literal">&quot;running&quot;</code> => bool</li>
+     <li><code class="literal">&quot;protected&quot;</code> => bool</li>
+     <li><code class="literal">&quot;full&quot;</code> => bool</li>
+     <li><code class="literal">&quot;buffer_size&quot;</code> => int</li>
+     <li><code class="literal">&quot;application_time&quot;</code> => float: Total application
+     time, in seconds (including collector_time)</li>
+     <li><code class="literal">&quot;collector_time&quot;</code> => float: Time spent collecting
+     cycles, in seconds (including destructor_time and free_time)</li>
+     <li><code class="literal">&quot;destructor_time&quot;</code> => float: Time spent executing
+     destructors during cycle collection, in seconds</li>
+     <li><code class="literal">&quot;free_time&quot;</code> => float: Time spent freeing values
+     during cycle collection, in seconds</li>
+    </ul>
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.class-alias.html" class="function">class_alias()</a></span> now supports creating an alias of an
+    internal class.
+   </p>
+
+   <p class="para">
+    Setting <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a> at runtime
+    using <code class="code">ini_set(&#039;open_basedir&#039;, ...);</code> no longer accepts paths
+    containing the parent directory (<code class="literal">..</code>). Previously,
+    only paths starting with <code class="literal">..</code> were disallowed. This could
+    easily be circumvented by prepending <code class="literal">./</code> to the path.
+   </p>
+
+   <p class="para">
+    User exception handlers now catch exceptions during shutdown.
+   </p>
+
+   <p class="para">
+    The resultant HTML of <span class="function"><a href="function.highlight-string.html" class="function">highlight_string()</a></span> and
+    <span class="function"><a href="function.highlight-file.html" class="function">highlight_file()</a></span> has changed.
+    Whitespace between outer HTML tags is removed. Newlines and spaces
+    are no longer converted to HTML entities. The whole HTML is now wrapped in a
+    <code class="literal">&lt;pre&gt;</code> tag. The outer <code class="literal">&lt;span&gt;</code>
+    tag has been merged with the <code class="literal">&lt;code&gt;</code> tag.
+   </p>
+
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.calendar">
+   <h4 class="title">Calendar</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.easter-date.html" class="function">easter_date()</a></span> now supports years from 1970 to
+    2,000,000,000 on 64-bit systems, previously it only supported years in the
+    range from 1970 to 2037.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.curl">
+   <h4 class="title">Curl</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span> now supports two new constants:
+    <strong><code><a href="curl.constants.html#constant.curlinfo-capath">CURLINFO_CAPATH</a></code></strong> and
+    <strong><code><a href="curl.constants.html#constant.curlinfo-cainfo">CURLINFO_CAINFO</a></code></strong>. If option is <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>, the following
+    two additional keys are present:
+    <code class="literal">&quot;capath&quot;</code> and <code class="literal">&quot;cainfo&quot;</code>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="para">
+    Changed <span class="methodname"><a href="domcharacterdata.appenddata.html" class="methodname">DOMCharacterData::appendData()</a></span> tentative
+    return type to <span class="type"><a href="language.types.value.html" class="type true">true</a></span>.
+   </p>
+
+   <p class="para">
+    <span class="methodname"><a href="domdocument.loadhtml.html" class="methodname">DOMDocument::loadHTML()</a></span>,
+    <span class="methodname"><a href="domdocument.loadhtmlfile.html" class="methodname">DOMDocument::loadHTMLFile()</a></span>, and
+    <span class="methodname"><a href="domdocument.loadxml.html" class="methodname">DOMDocument::loadXML()</a></span> now have a tentative
+    return type of <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>. Previously, this was documented as having a return
+    type of <code class="code">DOMDocument|bool</code>, but, as of PHP 8.0.0,
+    <span class="classname"><a href="class.domdocument.html" class="classname">DOMDocument</a></span>
+    cannot be returned as it is no longer statically callable.
+   </p>
+
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.gd">
+   <h4 class="title">Gd</h4>
+
+   <p class="para">
+    The signature of <span class="function"><a href="function.imagerotate.html" class="function">imagerotate()</a></span> has changed.
+    The <code class="parameter">$ignore_transparent</code> parameter has been removed,
+    as it was ignored since PHP 5.5.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="para">
+    <span class="function"><a href="intldateformatter.settimezone.html" class="function">datefmt_set_timezone()</a></span> (and its alias
+    <span class="methodname"><a href="intldateformatter.settimezone.html" class="methodname">IntlDateformatter::setTimeZone()</a></span>)
+    now returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> on success, previously <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> was returned.
+   </p>
+
+   <p class="para">
+    <span class="methodname"><a href="intlbreakiterator.settext.html" class="methodname">IntlBreakiterator::setText()</a></span> now returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+    on failure, previously <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> was returned.
+    It now returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> on success, previously <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> was returned.
+   </p>
+
+   <p class="para">
+    <span class="methodname"><a href="intlchar.enumcharnames.html" class="methodname">IntlChar::enumCharNames()</a></span> is now returning a boolean.
+    Previously it returned <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> on success and <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+   </p>
+
+   <p class="para">
+    <span class="methodname"><a href="intldateformatter.create.html" class="methodname">IntlDateFormatter::__construct()</a></span> throws an <strong><code><a href="intl.constants.html#constant.u-illegal-argument-error">U_ILLEGAL_ARGUMENT_ERROR</a></code></strong>
+    exception when an invalid locale had been set.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.mb-strtolower.html" class="function">mb_strtolower()</a></span> and <span class="function"><a href="function.mb-convert-case.html" class="function">mb_convert_case()</a></span>
+    implement conditional casing rules for the Greek letter sigma.
+    For <span class="function"><a href="function.mb-convert-case.html" class="function">mb_convert_case()</a></span>,
+    conditional casing only applies to <strong><code><a href="mbstring.constants.html#constant.mb-case-lower">MB_CASE_LOWER</a></code></strong>
+    and <strong><code><a href="mbstring.constants.html#constant.mb-case-title">MB_CASE_TITLE</a></code></strong> modes, not to
+    <strong><code><a href="mbstring.constants.html#constant.mb-case-lower-simple">MB_CASE_LOWER_SIMPLE</a></code></strong> and
+    <strong><code><a href="mbstring.constants.html#constant.mb-case-title-simple">MB_CASE_TITLE_SIMPLE</a></code></strong>.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.mb-decode-mimeheader.html" class="function">mb_decode_mimeheader()</a></span> interprets underscores in
+    QPrint-encoded MIME encoded words as required by RFC 2047; they are
+    converted to spaces.
+    Underscores must be encoded as <code class="literal">&quot;=5F&quot;</code> in such MIME
+    encoded words.
+   </p>
+
+   <p class="para">
+    In rare cases, <span class="function"><a href="function.mb-encode-mimeheader.html" class="function">mb_encode_mimeheader()</a></span> will transfer-encode
+    its input string where it would pass it through as raw ASCII in PHP 8.2.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.mb-encode-mimeheader.html" class="function">mb_encode_mimeheader()</a></span> no longer drops NUL (zero)
+    bytes when QPrint-encoding the input string.
+    This previously caused strings in certain text encodings, especially
+    UTF-16 and UTF-32, to be corrupted by mb_encode_mimeheader.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.mb-detect-encoding.html" class="function">mb_detect_encoding()</a></span>&#039;s &quot;non-strict&quot; mode now behaves
+    as described in the documentation.
+    Previously, it would return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> if the same byte (for example, the first
+    byte) of the input string was invalid in all candidate encodings.
+    More generally, it would eliminate candidate encodings from consideration
+    when an invalid byte was seen, and if the same input byte eliminated all
+    remaining encodings still under consideration, it would return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.
+    On the other hand, if all candidate encodings but one were eliminated
+    from consideration, it would return the last remaining one without regard
+    for how many encoding errors might be encountered later in the string.
+    This is different from the behavior described in the documentation, which
+    says: &quot;If strict is set to false, the closest matching encoding will be
+    returned.&quot;
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.mysqli">
+   <h4 class="title">mysqli</h4>
+
+   <p class="para">
+    <span class="function"><a href="mysqli-result.fetch-object.html" class="function">mysqli_fetch_object()</a></span> now raises a
+    <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> instead of an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>
+    when the <code class="parameter">$constructor_args</code> argument is non empty with
+    the class not having constructor.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="mysqli.poll.html" class="function">mysqli_poll()</a></span> now raises a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+    when neither the <code class="parameter">$read</code>
+    nor the <code class="parameter">$error</code> arguments are passed.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="mysqli-result.field-seek.html" class="function">mysqli_field_seek()</a></span> and
+    <span class="methodname"><a href="mysqli-result.field-seek.html" class="methodname">mysqli_result::field_seek()</a></span> now specify the return
+    type as <span class="type"><a href="language.types.value.html" class="type true">true</a></span> instead of <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.odbc">
+   <h4 class="title">ODBC</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.odbc-autocommit.html" class="function">odbc_autocommit()</a></span> now accepts <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> for the
+    <code class="parameter">$enable</code> parameter.
+    Passing <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> has the same behaviour as passing only 1 parameter,
+    namely indicating if the autocommit feature is enabled or not.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.pgsql">
+   <h4 class="title">PGSQL</h4>
+
+   <p class="para">
+    <span class="function"><a href="function.pg-fetch-object.html" class="function">pg_fetch_object()</a></span> now raises a
+    <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> instead of an <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>
+    when the <code class="parameter">$constructor_args</code> argument is non empty with
+    the class not having constructor.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span> now raises a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+    instead of a <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> when the table specified is invalid.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span> and <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span> raises
+    a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> or a <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span>
+    instead of a <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> when the value/type of a field
+    does not match properly with a PostgreSQL&#039;s type.
+   </p>
+
+   <p class="para">
+    The <code class="parameter">$row</code> parameter of
+    <span class="function"><a href="function.pg-fetch-result.html" class="function">pg_fetch_result()</a></span>,
+    <span class="function"><a href="function.pg-field-prtlen.html" class="function">pg_field_prtlen()</a></span>, and
+    <span class="function"><a href="function.pg-field-is-null.html" class="function">pg_field_is_null()</a></span> is now nullable.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.random">
+   <h4 class="title">Random</h4>
+
+   <p class="para">
+    Changed <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span> and <span class="function"><a href="function.srand.html" class="function">srand()</a></span> to
+    not check the number of arguments to determine whether a random seed should
+    be used. Passing <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> will generate a random seed, <code class="literal">0</code>
+    will use zero as the seed. The functions are now consistent with
+    <span class="methodname"><a href="random-engine-mt19937.construct.html" class="methodname">Random\Engine\Mt19937::__construct()</a></span>.
+   </p>
+
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.reflection">
+   <h4 class="title">Reflection</h4>
+
+   <p class="para">
+    Return type of <span class="methodname"><a href="reflectionclass.getstaticproperties.html" class="methodname">ReflectionClass::getStaticProperties()</a></span>
+    is no longer nullable.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.functions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    <strong><code><a href="errorfunc.constants.html#constant.e-notice">E_NOTICE</a></code></strong>s emitted by <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span>
+    have been promoted to <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong>.
+    
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> now emits a new <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong>
+    if the input contains unconsumed bytes.
+    
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.array-pad.html" class="function">array_pad()</a></span> is now only limited by the maximum number of
+    elements an array can have. Before, it was only possible to add at most 1048576
+    elements at a time.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.strtok.html" class="function">strtok()</a></span> raises an <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> in the
+    case token is not provided when starting tokenization.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.password-hash.html" class="function">password_hash()</a></span> will now chain the underlying
+    <span class="classname"><a href="class.random-randomexception.html" class="classname">Random\RandomException</a></span>
+    as the <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>&#039;s <code class="parameter">$previous</code>
+    <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span> when salt generation fails.
+   </p>
+
+   <p class="para">
+    If using an array as the <code class="parameter">$command</code>
+    for <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span>, it must now have at least one
+    non empty element. Otherwise a <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span>
+    is thrown.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> if <code class="parameter">$command</code>
+    array is invalid command instead of resource object that produces warning later.
+    This was already the case for Windows but it is now also the case if a posix_spawn
+    implementation is in use (most Linux, BSD and MacOS platforms). There are still
+    some old platforms where this behavior is not changed as posix_spawn is not
+    supported there.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.array-sum.html" class="function">array_sum()</a></span> and <span class="function"><a href="function.array-product.html" class="function">array_product()</a></span> now
+    warn when values in the array cannot be converted to int/float.
+    Previously arrays and objects where ignored whilst every other value was
+    cast to int. Moreover, objects that define a numeric cast (e.g.
+    <a href="book.gmp.html" class="link">GMP</a>) are now casted instead of ignored.
+    
+   </p>
+
+   <p class="para">
+    The <code class="parameter">$decimals</code> of <span class="function"><a href="function.number-format.html" class="function">number_format()</a></span>
+    now properly handles negative integers.
+    Rounding with a negative value for <code class="parameter">$decimals</code> means
+    that <code class="parameter">$num</code> is rounded to <code class="parameter">$decimals</code>
+    significant digits before the decimal point.
+    Previously negative <code class="parameter">$decimals</code> were silently
+    ignored and the number got rounded to zero decimal places.
+   </p>
+
+   <p class="para">
+    A new <code class="parameter">$before_needle</code> argument has been added to
+    <span class="function"><a href="function.strrchr.html" class="function">strrchr()</a></span>. It behaves like its counterpart in the
+    <span class="function"><a href="function.strstr.html" class="function">strstr()</a></span> or <span class="function"><a href="function.stristr.html" class="function">stristr()</a></span> functions.
+   </p>
+
+   <p class="para">
+    <span class="function"><a href="function.str-getcsv.html" class="function">str_getcsv()</a></span> and <span class="function"><a href="function.fgetcsv.html" class="function">fgetcsv()</a></span> now return
+    an empty string instead of a string with a single null byte for the last field
+    which only contains an unterminated enclosure.
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration83.other-changes.extensions">
+  <h3 class="title">Other Changes to Extensions</h3>
+
+  <div class="sect3" id="migration83.other-changes.extensions.core">
+   <h4 class="title">Core</h4>
+
+   <p class="para">
+    Using the <a href="language.operators.increment.html" class="link">increment/decrement</a>
+    operators (<code class="literal">++</code>/<code class="literal">--</code>) on values of type
+    <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> now emit warnings.
+    This is because it currently has no effect, but will behave like
+    <code class="code">$bool += 1</code> in the future.
+   </p>
+
+   <p class="para">
+    Using the <a href="language.operators.increment.html" class="link">decrement</a>
+    operator (<code class="literal">--</code>) on values of type <span class="type"><a href="language.types.null.html" class="type null">null</a></span> now emit warnings.
+    This is because it currently has no effect, but will behave like
+    <code class="code">$null -= 1</code> in the future.
+   </p>
+
+   <p class="para">
+    Internal objects that implement an _IS_NUMBER cast but not a do_operator
+    handler that overrides addition and subtraction now can be incremented
+    and decrement as if one would do <code class="code">$o += 1</code> or <code class="code">$o -= 1</code>
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.extensions.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="para">
+    The DOM lifetime mechanism has been reworked such that implicitly removed
+    nodes can still be fetched. Previously this resulted in an exception.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.extensions.sqlite3">
+   <h4 class="title">SQLite3</h4>
+
+   <p class="para">
+    The <span class="classname"><a href="class.sqlite3.html" class="classname">SQLite3</a></span> class now throws
+    <span class="classname"><a href="class.sqlite3exception.html" class="classname">SQLite3Exception</a></span> (extends
+    <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>) instead of <span class="classname"><a href="class.exception.html" class="classname">Exception</a></span>.
+   </p>
+
+   <p class="para">
+    The SQLite error code is now passed in the exception error code instead of
+    being included in the error message.
+   </p>
+
+  </div>
+ </div>
+
+ <div class="sect2" id="migration83.other-changes.ini">
+  <h3 class="title">Changes to INI File Handling</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <p class="para">
+     The <code class="literal">assert.*</code> INI settings have been deprecated.
+     This comprises the following INI settings:
+     <ul class="simplelist">
+      <li><a href="info.configuration.html#ini.assert.active" class="link">assert.active</a></li>
+      <li><a href="info.configuration.html#ini.assert.bail" class="link">assert.bail</a></li>
+      <li><a href="info.configuration.html#ini.assert.callback" class="link">assert.callback</a></li>
+      <li><a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a></li>
+      <li><a href="info.configuration.html#ini.assert.warning" class="link">assert.warning</a></li>
+     </ul>
+     If the value of the setting is equal to the default value, no deprecation
+     notice is emitted.
+     The <a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a> INI setting
+     should be used instead.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     zend.max_allowed_stack_size
+    is a new INI directive to set the maximum allowed stack size.
+    Possible values are <code class="literal">0</code> (detect the process or thread maximum stack size),
+    <code class="literal">-1</code> (no limit), or a positive number of bytes.
+    The default is <code class="literal">0</code>.
+    When it is not possible to detect the process or thread maximum stack
+    size, a known system default is used.
+    Setting this value too high has the same effect as disabling the stack size limit.
+    Fibers use
+    fiber.stack_size
+    as maximum allowed stack size.
+    An <span class="classname"><a href="class.error.html" class="classname">Error</a></span> is thrown when the process call stack exceeds
+    zend.max_allowed_stack_size-zend.reserved_stack_size
+    bytes, to prevent stack-overflow-induced segmentation faults, with
+    the goal of making debugging easier.
+    The stack size increases during uncontrolled recursions involving internal functions
+    or the magic methods
+    <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a>,
+    <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a>,
+    <a href="language.oop5.magic.html#object.sleep" class="link">__sleep()</a>,
+    <a href="language.oop5.decon.html#object.destruct" class="link">__destruct()</a>.
+    This is not related to stack buffer overflows, and is not a security feature.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     zend.reserved_stack_size
+     is a new INI directive to set the reserved stack size, in bytes.
+     This is subtracted from the max allowed stack size,
+     as a buffer, when checking the stack size.
+    </p>
+   </li>
+   </ul>
+ </div>
+
+ <div class="sect2" id="migration83.other-changes.performance">
+  <h3 class="title">Performance</h3>
+
+  <div class="sect3" id="migration83.other-changes.performance.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="para">
+    Looping over a <span class="classname"><a href="class.domnodelist.html" class="classname">DOMNodeList</a></span> now uses caching. Therefore
+    requesting items no longer takes quadratic time by default.
+   </p>
+
+   <p class="para">
+    Getting text content from nodes now avoids an allocation, resulting in a
+    performance gain.
+   </p>
+
+   <p class="para">
+    <span class="methodname"><a href="domchildnode.remove.html" class="methodname">DOMChildNode::remove()</a></span> now runs in O(1) performance.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.performance.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="para">
+    The <span class="function"><a href="function.file.html" class="function">file()</a></span> flags error check is now about 7% faster.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.other-changes.performance.spl">
+   <h4 class="title">SPL</h4>
+
+   <p class="para">
+    <span class="classname"><a href="class.recursivedirectoryiterator.html" class="classname">RecursiveDirectoryIterator</a></span> now performs less I/O
+    when looping over a directory.
+   </p>
+  </div>
+ </div>
+
+</div></div></div></body></html>

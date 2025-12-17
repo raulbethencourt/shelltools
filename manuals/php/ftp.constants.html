@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="ftp.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ftp.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ftp.html">FTP</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="ftp.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+  
+   <dt id="constant.ftp-ascii">
+    <strong><code><a href="ftp.constants.html#constant.ftp-ascii">FTP_ASCII</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para"/>
+   </dd>
+  
+  
+   <dt id="constant.ftp-autoseek">
+    <strong><code><a href="ftp.constants.html#constant.ftp-autoseek">FTP_AUTOSEEK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     See <span class="function"><a href="function.ftp-set-option.html" class="function">ftp_set_option()</a></span> for information.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-autoresume">
+    <strong><code><a href="ftp.constants.html#constant.ftp-autoresume">FTP_AUTORESUME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Automatically determine resume position and start position for GET and PUT requests
+     (only works if FTP_AUTOSEEK is enabled)
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-failed">
+    <strong><code><a href="ftp.constants.html#constant.ftp-failed">FTP_FAILED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Asynchronous transfer has failed
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-finished">
+    <strong><code><a href="ftp.constants.html#constant.ftp-finished">FTP_FINISHED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Asynchronous transfer has finished
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-moredata">
+    <strong><code><a href="ftp.constants.html#constant.ftp-moredata">FTP_MOREDATA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Asynchronous transfer is still active
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-text">
+    <strong><code><a href="ftp.constants.html#constant.ftp-text">FTP_TEXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">Alias of <strong><code><a href="ftp.constants.html#constant.ftp-ascii">FTP_ASCII</a></code></strong>.</p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-binary">
+    <strong><code><a href="ftp.constants.html#constant.ftp-binary">FTP_BINARY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para"/>
+   </dd>
+  
+  
+   <dt id="constant.ftp-image">
+    <strong><code><a href="ftp.constants.html#constant.ftp-image">FTP_IMAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">Alias of <strong><code><a href="ftp.constants.html#constant.ftp-binary">FTP_BINARY</a></code></strong>.</p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-timeout-sec">
+    <strong><code><a href="ftp.constants.html#constant.ftp-timeout-sec">FTP_TIMEOUT_SEC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     See <span class="function"><a href="function.ftp-set-option.html" class="function">ftp_set_option()</a></span> for information.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.ftp-usepasvaddress">
+    <strong><code><a href="ftp.constants.html#constant.ftp-usepasvaddress">FTP_USEPASVADDRESS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     See <span class="function"><a href="function.ftp-set-option.html" class="function">ftp_set_option()</a></span> for information.
+    </p>
+   </dd>
+  
+ </dl>
+</div>
+</div></div></body></html>

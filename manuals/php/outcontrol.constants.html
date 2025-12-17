@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="outcontrol.output-buffering.html">Output Buffering »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.outcontrol.html">Output Control</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are always available as part of the PHP core.
+</p>
+ <dl id="outcontrol.constants.flags-passed-to-handler">
+  <strong class="title">Status flags passed to output handler</strong>
+  <p class="para">
+   The following flags are passed to the second (<code class="parameter">phase</code>) parameter of the output handler set by <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> as part of a bitmask:
+  </p>
+  
+   <dt id="constant.php-output-handler-start">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-start">PHP_OUTPUT_HANDLER_START</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that output buffering has begun.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-write">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-write">PHP_OUTPUT_HANDLER_WRITE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the output buffer is being flushed, and had data to output.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-flush">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flush">PHP_OUTPUT_HANDLER_FLUSH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the buffer has been flushed.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-clean">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-clean">PHP_OUTPUT_HANDLER_CLEAN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the output buffer has been cleaned.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-final">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that this is the final output buffering operation.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-cont">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cont">PHP_OUTPUT_HANDLER_CONT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the buffer has been flushed, but output buffering will
+     continue.
+    </p>
+    <p class="para">
+     This is an alias for
+     <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-write">PHP_OUTPUT_HANDLER_WRITE</a></code></strong>.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-end">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-end">PHP_OUTPUT_HANDLER_END</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that output buffering has ended.
+    </p>
+    <p class="para">
+     This is an alias for
+     <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong>.
+    </p>
+   </dd>
+  
+ </dl>
+ <dl id="outcontrol.constants.buffer-control-flags">
+  <strong class="title">Output buffer control flags</strong>
+  <p class="para">
+   The following flags can be passed to the third (<code class="parameter">flags</code>) parameter of the output handler set by <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> as a bitmask:
+  </p>
+  
+   <dt id="constant.php-output-handler-cleanable">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cleanable">PHP_OUTPUT_HANDLER_CLEANABLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Controls whether an output buffer created by
+     <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> can be cleaned
+     by <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>.
+     This flag does not control the behaviour of
+     <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span> or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-flushable">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flushable">PHP_OUTPUT_HANDLER_FLUSHABLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Controls whether an output buffer created by
+     <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> can be flushed
+     by <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>.
+     This flag does not control the behaviour of
+     <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span> or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-removable">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-removable">PHP_OUTPUT_HANDLER_REMOVABLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Controls whether an output buffer created by
+     <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> can be removed before the end of the script
+     or when calling <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>,
+     <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span> or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-stdflags">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-stdflags">PHP_OUTPUT_HANDLER_STDFLAGS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     The default set of output buffer flags; currently equivalent to
+     <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cleanable">PHP_OUTPUT_HANDLER_CLEANABLE</a></code></strong> |
+     <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flushable">PHP_OUTPUT_HANDLER_FLUSHABLE</a></code></strong> |
+     <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-removable">PHP_OUTPUT_HANDLER_REMOVABLE</a></code></strong>.
+    </p>
+   </dd>
+  
+ </dl>
+ <dl id="outcontrol.constants.flags-returned-by-handler">
+  <strong class="title">Output handler status flags</strong>
+  <p class="para">
+   The following flags are part of the <code class="literal">flags</code> bitmask
+   returned by <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span>:
+  </p>
+  
+   <dt id="constant.php-output-handler-started">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-started">PHP_OUTPUT_HANDLER_STARTED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the output handler was called.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-disabled">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the output handler is disabled.
+     This flag is set when the output handler returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+     or fails while processing the buffer.
+     Prior to PHP 8.4.0, this flag could be set when starting an output buffer.
+    </p>
+   </dd>
+  
+  
+   <dt id="constant.php-output-handler-processed">
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-processed">PHP_OUTPUT_HANDLER_PROCESSED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Indicates that the output handler successfully processed the buffer.
+     Available as of PHP 8.4.0.
+    </p>
+   </dd>
+  
+ </dl>
+</div>
+</div></div></body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction to Composer</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="install.pecl.static.html">« Compiling PECL extensions statically into PHP</a></li>
+      <li style="float: right;"><a href="configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="install.html">Installation and Configuration</a></li>
+    <li>Introduction to Composer</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="install.composer.intro" class="sect1">
+  <h2 class="title">Introduction to Composer</h2>
+  <p class="simpara">
+   <a href="https://getcomposer.org/" class="link external">&raquo;&nbsp;Composer</a> is a dependency manager for PHP that makes it possible
+   to define third-party code packages used by a project that can
+   then be easily installed and updated. It leverages the built-in
+   <a href="language.oop5.autoload.html" class="link">class autoloading features</a>
+   of PHP, repositories of PHP packages such as
+   <a href="https://packagist.org" class="link external">&raquo;&nbsp;Packagist</a>, and common project
+   layout and coding conventions.
+  </p>
+  <p class="simpara">
+   For example, if a PHP application or website needs
+   to work with <abbr class="abbrev">UUID</abbr> values,
+   <a href="https://packagist.org/packages/ramsey/uuid" class="link external">&raquo;&nbsp;Ben Ramsey&#039;s
+   <code class="literal">ramsey/uuid</code> package</a> that implements the
+   widely known and used types of UUIDs that are defined by
+   <a href="https://datatracker.ietf.org/doc/html/rfc4122" class="link external">&raquo;&nbsp;RFC 4122</a> could be used.
+  </p>
+  <p class="simpara">
+   Briefly, this is done by creating a <code class="literal">composer.json</code>
+   in the project, using Composer to install the latest version of the
+   package, and including Composer&#039;s autoload script to make it available
+   to the code. The <a href="https://getcomposer.org/doc/01-basic-usage.md" class="link external">&raquo;&nbsp;Composer
+   &quot;Basic Usage&quot; documentation</a> goes into this in more depth.
+  </p>
+  <div class="example" id="example-31">
+   <p><strong>Example #1 
+    <code class="literal">composer.json</code> that requires a single package
+   </strong></p>
+   <div class="example-contents">
+<div class="javascriptcode"><pre class="javascriptcode">{
+    &quot;require&quot;: {
+        &quot;ramsey/uuid&quot;: &quot;^4.7&quot;
+    }
+}</pre>
+</div>
+   </div>
+
+  </div>
+
+ </div></div></div></body></html>

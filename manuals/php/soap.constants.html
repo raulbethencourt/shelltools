@@ -1,0 +1,890 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="soap.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="ref.soap.html">SOAP Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.soap.html">SOAP</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="soap.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <table class="doctable table">
+  <caption><strong>SOAP constants</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Constant</th>
+     <th>Value</th>
+     <th>Description</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.soap-1-1">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-1-1">SOAP_1_1</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Specifies use of SOAP 1.1 when passed as <code class="literal">soap_version</code>
+      option to <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span> or
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-1-2">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-1-2">SOAP_1_2</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Specifies use of SOAP 1.2 when passed as <code class="literal">soap_version</code>
+      option to <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span> or
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-persistence-session">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-persistence-session">SOAP_PERSISTENCE_SESSION</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-persistence-request">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-persistence-request">SOAP_PERSISTENCE_REQUEST</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-functions-all">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-functions-all">SOAP_FUNCTIONS_ALL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>999</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-encoded">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-encoded">SOAP_ENCODED</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Specifies use of SOAP Encoding when passed as <code class="literal">use</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-literal">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-literal">SOAP_LITERAL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Specifies use of service-specific encoding when passed as <code class="literal">use</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-rpc">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-rpc">SOAP_RPC</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Specifies use of RPC-style binding when passed as <code class="literal">style</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-document">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-document">SOAP_DOCUMENT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Specifies use of document binding when passed as <code class="literal">style</code>
+      option to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-actor-next">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-actor-next">SOAP_ACTOR_NEXT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-actor-none">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-actor-none">SOAP_ACTOR_NONE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-actor-unlimatereceiver">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-actor-unlimatereceiver">SOAP_ACTOR_UNLIMATERECEIVER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>3</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-compression-accept">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-compression-accept">SOAP_COMPRESSION_ACCEPT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>32</td>
+     <td>
+      Specifies use of an &quot;Accept-Encoding&quot; header
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+      the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-compression-gzip">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-compression-gzip">SOAP_COMPRESSION_GZIP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>0</td>
+     <td>
+      Specifies use of gzip compression
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+       the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-compression-deflate">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-compression-deflate">SOAP_COMPRESSION_DEFLATE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>16</td>
+     <td>
+      Specifies use of deflate compression
+      when passed as part of
+      <a href="soapclient.construct.html#soapclient.construct.options.compression" class="link">
+       the <code class="parameter">compression</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-authentication-basic">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-authentication-basic">SOAP_AUTHENTICATION_BASIC</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>0</td>
+     <td>
+      Specifies use of HTTP Basic Authentication when passed as
+      <code class="literal">authentication</code> option to
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-authentication-digest">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-authentication-digest">SOAP_AUTHENTICATION_DIGEST</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Specifies use of HTTP Digest Authentication when passed as
+      <code class="literal">authentication</code> option to
+      <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-ssl-method-tls">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-ssl-method-tls">SOAP_SSL_METHOD_TLS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>0</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+      <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-ssl-method-sslv2">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-ssl-method-sslv2">SOAP_SSL_METHOD_SSLv2</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-ssl-method-sslv3">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-ssl-method-sslv3">SOAP_SSL_METHOD_SSLv3</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-ssl-method-sslv23">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-ssl-method-sslv23">SOAP_SSL_METHOD_SSLv23</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>3</td>
+     <td>
+      Used with the deprecated
+      <a href="soapclient.construct.html#soapclient.construct.options.ssl-method" class="link">
+       <code class="parameter">ssl_method</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.unknown-type">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.unknown-type">UNKNOWN_TYPE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>999998</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-string">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-string">XSD_STRING</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>101</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-boolean">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-boolean">XSD_BOOLEAN</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>102</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-decimal">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-decimal">XSD_DECIMAL</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>103</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-float">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-float">XSD_FLOAT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>104</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-double">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-double">XSD_DOUBLE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>105</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-duration">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-duration">XSD_DURATION</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>106</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-datetime">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-datetime">XSD_DATETIME</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>107</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-time">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-time">XSD_TIME</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>108</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-date">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-date">XSD_DATE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>109</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-gyearmonth">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-gyearmonth">XSD_GYEARMONTH</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>110</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-gyear">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-gyear">XSD_GYEAR</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>111</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-gmonthday">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-gmonthday">XSD_GMONTHDAY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>112</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-gday">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-gday">XSD_GDAY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>113</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-gmonth">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-gmonth">XSD_GMONTH</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>114</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-hexbinary">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-hexbinary">XSD_HEXBINARY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>115</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-base64binary">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-base64binary">XSD_BASE64BINARY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>116</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-anyuri">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-anyuri">XSD_ANYURI</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>117</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-qname">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-qname">XSD_QNAME</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>118</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-notation">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-notation">XSD_NOTATION</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>119</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-normalizedstring">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-normalizedstring">XSD_NORMALIZEDSTRING</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>120</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-token">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-token">XSD_TOKEN</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>121</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-language">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-language">XSD_LANGUAGE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>122</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-nmtoken">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-nmtoken">XSD_NMTOKEN</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>123</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-name">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-name">XSD_NAME</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>124</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-ncname">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-ncname">XSD_NCNAME</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>125</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-id">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-id">XSD_ID</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>126</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-idref">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-idref">XSD_IDREF</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>127</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-idrefs">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-idrefs">XSD_IDREFS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>128</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-entity">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-entity">XSD_ENTITY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>129</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-entities">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-entities">XSD_ENTITIES</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>130</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-integer">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-integer">XSD_INTEGER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>131</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-nonpositiveinteger">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-nonpositiveinteger">XSD_NONPOSITIVEINTEGER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>132</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-negativeinteger">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-negativeinteger">XSD_NEGATIVEINTEGER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>133</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-long">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-long">XSD_LONG</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>134</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-int">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-int">XSD_INT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>135</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-short">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-short">XSD_SHORT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>136</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-byte">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-byte">XSD_BYTE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>137</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-nonnegativeinteger">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-nonnegativeinteger">XSD_NONNEGATIVEINTEGER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>138</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-unsignedlong">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-unsignedlong">XSD_UNSIGNEDLONG</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>139</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-unsignedint">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-unsignedint">XSD_UNSIGNEDINT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>140</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-unsignedshort">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-unsignedshort">XSD_UNSIGNEDSHORT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>141</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-unsignedbyte">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-unsignedbyte">XSD_UNSIGNEDBYTE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>142</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-positiveinteger">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-positiveinteger">XSD_POSITIVEINTEGER</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>143</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-nmtokens">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-nmtokens">XSD_NMTOKENS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>144</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-anytype">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-anytype">XSD_ANYTYPE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>145</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-anyxml">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-anyxml">XSD_ANYXML</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>147</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.apache-map">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.apache-map">APACHE_MAP</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>200</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-enc-object">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-enc-object">SOAP_ENC_OBJECT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>301</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-enc-array">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-enc-array">SOAP_ENC_ARRAY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>300</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-1999-timeinstant">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-1999-timeinstant">XSD_1999_TIMEINSTANT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>401</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-namespace">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-namespace">XSD_NAMESPACE</a></code></strong>
+      (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+     </td>
+     <td>http://www.w3.org/2001/XMLSchema</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.xsd-1999-namespace">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.xsd-1999-namespace">XSD_1999_NAMESPACE</a></code></strong>
+      (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+     </td>
+     <td>http://www.w3.org/1999/XMLSchema</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr id="constant.soap-single-element-arrays">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-single-element-arrays">SOAP_SINGLE_ELEMENT_ARRAYS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-wait-one-way-calls">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-wait-one-way-calls">SOAP_WAIT_ONE_WAY_CALLS</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.soap-use-xsi-array-type">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.soap-use-xsi-array-type">SOAP_USE_XSI_ARRAY_TYPE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>4</td>
+     <td>
+      Used with the
+      <a href="soapclient.construct.html#soapclient.construct.options.features" class="link">
+       <code class="parameter">features</code> option</a>
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.wsdl-cache-none">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.wsdl-cache-none">WSDL_CACHE_NONE</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>0</td>
+     <td>
+      Disables the WSDL cache when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.wsdl-cache-disk">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.wsdl-cache-disk">WSDL_CACHE_DISK</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>1</td>
+     <td>
+      Specifies use of the on-disk WSDL cache only when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.wsdl-cache-memory">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.wsdl-cache-memory">WSDL_CACHE_MEMORY</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>2</td>
+     <td>
+      Specifies use of the in-memory WSDL cache only when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.wsdl-cache-both">
+     <td>
+      <strong><code><a href="soap.constants.html#constant.wsdl-cache-both">WSDL_CACHE_BOTH</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </td>
+     <td>3</td>
+     <td>
+      Specifies use of both on-disk and in-memory WSDL caches when used in the
+      <a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a>
+      configuration option or the
+      <code class="literal">wsdl_cache</code> option
+      to <span class="methodname"><a href="soapclient.construct.html" class="methodname">SoapClient::__construct()</a></span>
+      and <span class="methodname"><a href="soapserver.construct.html" class="methodname">SoapServer::__construct()</a></span>.
+     </td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+</div></div></body></html>

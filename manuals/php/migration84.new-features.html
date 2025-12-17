@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.html">« Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+      <li style="float: right;"><a href="migration84.new-classes.html">New Classes, Enums, and Interfaces »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>New Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.new-features" class="sect1">
+ <h2 class="title">New Features</h2>
+
+ 
+ <div class="sect2" id="migration84.new-features.core">
+  <h3 class="title">PHP Core</h3>
+
+  
+  <div class="sect3" id="migration84.new-features.core.property-hooks">
+   <h4 class="title">Property Hooks</h4>
+
+   <p class="simpara">
+    Object properties may now have additional logic associated with their
+    <code class="literal">get</code> and <code class="literal">set</code> operations.
+    Depending on the usage, that may or may not make the property virtual,
+    that is, it has no backing value at all.
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Person<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// A "virtual" property.  It may not be set explicitly.<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">string $fullName </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstName </span><span style="color: #007700">. </span><span style="color: #DD0000">' ' </span><span style="color: #007700">. </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastName</span><span style="color: #007700">;<br />    }<br /><br />    </span><span style="color: #FF8000">// All write operations go through this hook, and the result is what is written.<br />    // Read access happens normally.<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">string $firstName </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">ucfirst</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">));<br />    }<br /><br />    </span><span style="color: #FF8000">// All write operations go through this hook, which has to write to the backing value itself.<br />    // Read access happens normally.<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">string $lastName </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">{<br />            if (</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">) &lt; </span><span style="color: #0000BB">2</span><span style="color: #007700">) {<br />                throw new </span><span style="color: #0000BB">\InvalidArgumentException</span><span style="color: #007700">(</span><span style="color: #DD0000">'Too short'</span><span style="color: #007700">);<br />            }<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastName </span><span style="color: #007700">= </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$p </span><span style="color: #007700">= new </span><span style="color: #0000BB">Person</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstName </span><span style="color: #007700">= </span><span style="color: #DD0000">'peter'</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstName</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prints "Peter"<br /></span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">lastName </span><span style="color: #007700">= </span><span style="color: #DD0000">'Peterson'</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fullName</span><span style="color: #007700">; </span><span style="color: #FF8000">// Prints "Peter Peterson"</span></span></code></div>
+    </div>
+
+   </div>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.asymmetric-property-visibility">
+   <h4 class="title">Asymmetric Property Visibility</h4>
+
+   <p class="simpara">
+    Object properties may now have their <code class="literal">set</code> visibility
+    controlled separately from the <code class="literal">get</code> visibility.
+   </p>
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// The first visibility modifier controls the get-visibility, and the second modifier<br />    // controls the set-visibility. The get-visibility must not be narrower than set-visibility.<br />    </span><span style="color: #007700">public protected(</span><span style="color: #0000BB">set</span><span style="color: #007700">) </span><span style="color: #0000BB">string $name</span><span style="color: #007700">;<br /><br />    public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">string $name</span><span style="color: #007700">)<br />    {<br />        </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name </span><span style="color: #007700">= </span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />    }<br />}</span></span></code></div>
+    </div>
+
+   </div>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.lazy-objects">
+   <h4 class="title">Lazy Objects</h4>
+   <p class="simpara">
+    It is now possible to create objects whose initialization is deferred until
+    they are accessed. Libraries and frameworks can leverage these lazy objects
+    to defer fetching data or dependencies required for initialization.
+   </p>
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(private </span><span style="color: #0000BB">int $data</span><span style="color: #007700">)<br />    {<br />    }<br /><br />    </span><span style="color: #FF8000">// ...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">$initializer </span><span style="color: #007700">= static function (</span><span style="color: #0000BB">Example $ghost</span><span style="color: #007700">): </span><span style="color: #0000BB">void </span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// Fetch data or dependencies<br />    </span><span style="color: #0000BB">$data </span><span style="color: #007700">= ...;<br />    </span><span style="color: #FF8000">// Initialize<br />    </span><span style="color: #0000BB">$ghost</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />};<br /><br /></span><span style="color: #0000BB">$reflector </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Example</span><span style="color: #007700">::class);<br /></span><span style="color: #0000BB">$object </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newLazyGhost</span><span style="color: #007700">(</span><span style="color: #0000BB">$initializer</span><span style="color: #007700">);</span></span></code></div>
+    </div>
+
+   </div>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.deprecated-attribute">
+   <h4 class="title"><code class="code">#[\Deprecated]</code> attribute</h4>
+
+   <p class="simpara">
+    The new <span class="classname"><a href="class.deprecated.html" class="classname">Deprecated</a></span> attribute can be used to mark functions, methods,
+    and class constants as deprecated. The behavior of functionality deprecated with this
+    attribute matches the behavior of the existing deprecation mechanism for functionality
+    provided by PHP itself. The only exception is that the emitted error code is
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-deprecated">E_USER_DEPRECATED</a></code></strong> instead of <strong><code><a href="errorfunc.constants.html#constant.e-deprecated">E_DEPRECATED</a></code></strong>.
+   </p>
+
+   <p class="simpara">
+    Existing deprecations in functionality provided by PHP itself have been updated to use
+    the attribute, improving the emitted error messages by including a short explanation.
+   </p>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.rfc1867">
+   <h4 class="title">Parsing RFC1867 (multipart) requests in non-POST HTTP requests</h4>
+
+   
+   <p class="simpara">
+    Added <span class="function"><a href="function.request-parse-body.html" class="function">request_parse_body()</a></span> function that allows parsing
+    RFC1867 (multipart) requests in non-POST HTTP requests.
+   </p>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.new-chaining">
+   <h4 class="title">Chaining <a href="language.oop5.basic.html#language.oop5.basic.new" class="link"><code class="literal">new</code></a> expressions without parentheses</h4>
+
+   
+   <p class="simpara">
+    New expressions with constructor arguments are now dereferencable, meaning
+    they allow chaining method calls, property accesses, etc. without enclosing
+    the expression in parentheses.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.new-features.core.debug-weakref">
+   <h4 class="title">Improved Debugging Info for <span class="classname"><a href="class.weakreference.html" class="classname">WeakReference</a></span></h4>
+
+   
+   <p class="simpara">
+    Getting the debug info for <span class="classname"><a href="class.weakreference.html" class="classname">WeakReference</a></span> will now
+    also output the object it references, or <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> if the reference is no
+    longer valid.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.new-features.core.debug-closure">
+   <h4 class="title">Improved Debugging Info for <span class="classname"><a href="class.closure.html" class="classname">Closure</a></span></h4>
+
+   
+   <p class="simpara">
+    The output of <span class="methodname"><strong>Closure::__debugInfo()</strong></span> now includes
+    the name, file, and line of the <span class="classname"><a href="class.closure.html" class="classname">Closure</a></span>.
+   </p>
+  </div>
+
+  
+  <div class="sect3" id="migration84.new-features.core.multiple-namespaces-symbols">
+   <h4 class="title">Defining Identical Symbols in Different Namespace Blocks</h4>
+
+   
+   <p class="simpara">
+    Exiting a namespace now clears seen symbols.
+    This allows using a symbol in a namespace block, even if a previous
+    namespace block declared a symbol with the same name.
+    
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration84.new-features.curl">
+  <h3 class="title">cURL</h3>
+
+  <p class="simpara">
+   <span class="function"><a href="function.curl-version.html" class="function">curl_version()</a></span> returns an additional
+   <code class="literal">feature_list</code> value, which is an associative array
+   of all known cURL features, and whether they are supported (<strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>)
+   or not (<strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>).
+  </p>
+
+  <p class="simpara">
+   Added <strong><code><a href="curl.constants.html#constant.curl-http-version-3">CURL_HTTP_VERSION_3</a></code></strong> and
+   <strong><code><a href="curl.constants.html#constant.curl-http-version-3only">CURL_HTTP_VERSION_3ONLY</a></code></strong> constants (available
+   since libcurl 7.66 and 7.88) as available options for
+   <strong><code><a href="curl.constants.html#constant.curlopt-http-version">CURLOPT_HTTP_VERSION</a></code></strong>.
+  </p>
+
+  <p class="simpara">
+   Added <strong><code><a href="curl.constants.html#constant.curlopt-prereqfunction">CURLOPT_PREREQFUNCTION</a></code></strong> as a cURL option that
+   accepts a <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> to be called after the connection is made,
+   but before the request is sent.
+   This callable must return either <strong><code><a href="curl.constants.html#constant.curl-prereqfunc-ok">CURL_PREREQFUNC_OK</a></code></strong> or
+   <strong><code><a href="curl.constants.html#constant.curl-prereqfunc-abort">CURL_PREREQFUNC_ABORT</a></code></strong> to allow or abort the request.
+  </p>
+
+  <p class="simpara">
+   Added <strong><code><a href="curl.constants.html#constant.curlopt-server-response-timeout">CURLOPT_SERVER_RESPONSE_TIMEOUT</a></code></strong>,
+   which was formerly known as <strong><code><a href="curl.constants.html#constant.curlopt-ftp-response-timeout">CURLOPT_FTP_RESPONSE_TIMEOUT</a></code></strong>.
+   Both constants hold the same value.
+  </p>
+
+  <p class="para">
+   Added <strong><code><a href="curl.constants.html#constant.curlopt-debugfunction">CURLOPT_DEBUGFUNCTION</a></code></strong> as a cURL option that
+   accepts a <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> that gets called during the request lifetime
+   with the <span class="classname"><a href="class.curlhandle.html" class="classname">CurlHandle</a></span> object,
+   an integer containing the debug message type, and a string containing the
+   debug message.
+   The debug message type is one of the following constants:
+   <ul class="simplelist">
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-text">CURLINFO_TEXT</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-header-in">CURLINFO_HEADER_IN</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-header-out">CURLINFO_HEADER_OUT</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-data-in">CURLINFO_DATA_IN</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-data-out">CURLINFO_DATA_OUT</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-ssl-data-in">CURLINFO_SSL_DATA_IN</a></code></strong></li>
+    <li><strong><code><a href="curl.constants.html#constant.curlinfo-ssl-data-out">CURLINFO_SSL_DATA_OUT</a></code></strong></li>
+   </ul>
+   Once this option is set, <strong><code><a href="curl.constants.html#constant.curlinfo-header-out">CURLINFO_HEADER_OUT</a></code></strong>
+   must not be set because it uses the same libcurl functionality.
+  </p>
+
+  <p class="simpara">
+   The <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span> now returns an additional
+   <code class="literal">posttransfer_time_us</code> key, containing the number of
+   microseconds from the start until the last byte is sent.
+   When a redirect is followed, the time from each request is added together.
+   This value can also be retrieved by passing
+   <strong><code><a href="curl.constants.html#constant.curlinfo-posttransfer-time-t">CURLINFO_POSTTRANSFER_TIME_T</a></code></strong> to the
+   <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span> <code class="parameter">option</code> parameter.
+   This requires libcurl 8.10.0 or later.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.dom">
+  <h3 class="title">DOM</h3>
+
+  
+  
+  <p class="simpara">
+   Added the Dom namespace with new classes as counterparts
+   to the existing DOM classes (e.g. <span class="classname"><strong class="classname">Dom\Node</strong></span> is the new
+   <span class="classname"><a href="class.domnode.html" class="classname">DOMNode</a></span>).
+   These classes are compatible with HTML 5 and are WHATWG spec-compliant;
+   solving long-standing bugs in the DOM extension.
+   The old DOM classes remain available for backwards compatibility.
+  </p>
+
+  <p class="para">
+   Added the <span class="methodname"><a href="domnode.comparedocumentposition.html" class="methodname">DOMNode::compareDocumentPosition()</a></span>
+   with its associated constants:
+   <ul class="simplelist">
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-disconnected">DOMNode::DOCUMENT_POSITION_DISCONNECTED</a></code></strong></li>
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-preceding">DOMNode::DOCUMENT_POSITION_PRECEDING</a></code></strong></li>
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-following">DOMNode::DOCUMENT_POSITION_FOLLOWING</a></code></strong></li>
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-contains">DOMNode::DOCUMENT_POSITION_CONTAINS</a></code></strong></li>
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-contained-by">DOMNode::DOCUMENT_POSITION_CONTAINED_BY</a></code></strong></li>
+    <li><strong><code><a href="class.domnode.html#domnode.constants.document-position-implementation-specific">DOMNode::DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC</a></code></strong></li>
+   </ul>
+  </p>
+
+  
+  <p class="simpara">
+   It is now possible to pass any callable to
+   <span class="methodname"><a href="domxpath.registerphpfunctions.html" class="methodname">DOMXPath::registerPhpFunctions()</a></span>.
+
+   Furthermore, with <span class="methodname"><strong>DOMXPath::registerPhpFunctionNs()</strong></span>,
+   callbacks can now be registered that will use native function call syntax
+   rather than using <code class="code">php:function(&#039;name&#039;)</code>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.intl">
+  <h3 class="title">Intl</h3>
+
+  <p class="simpara">
+   Added the <strong><code>NumberFormatter::ROUND_HALFODD</code></strong> to
+   complement the existing <strong><code><a href="class.numberformatter.html#numberformatter.constants.round-halfeven">NumberFormatter::ROUND_HALFEVEN</a></code></strong>
+   functionality.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.openssl">
+  <h3 class="title">OpenSSL</h3>
+
+  <p class="simpara">
+   Added support for Curve25519 + Curve448 based keys.
+   Specifically x25519, ed25519, x448 and ed448 fields are supported in
+   <span class="function"><a href="function.openssl-pkey-new.html" class="function">openssl_pkey_new()</a></span>,
+   <span class="function"><a href="function.openssl-pkey-get-details.html" class="function">openssl_pkey_get_details()</a></span>,
+   <span class="function"><a href="function.openssl-sign.html" class="function">openssl_sign()</a></span>, and
+   <span class="function"><a href="function.openssl-verify.html" class="function">openssl_verify()</a></span> were extended to support those keys.
+  </p>
+
+  <p class="simpara">
+   Implement PASSWORD_ARGON2 password hashing.
+   Requires OpenSSL 3.2 and NTS build.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.pcre">
+  <h3 class="title">PCRE</h3>
+
+  <p class="simpara">
+   The bundled pcre2lib has been updated to version 10.44.
+   As a consequence, LoongArch JIT support has been added, spaces
+   are now allowed between braces in Perl-compatible items, and
+   variable-length lookbehind assertions are now supported.
+  </p>
+
+  <p class="simpara">
+   With pcre2lib version 10.44, the maximum length of named capture groups
+   has changed from <code class="literal">32</code> to <code class="literal">128</code>.
+  </p>
+
+  <p class="simpara">
+   Added support for the <code class="literal">r</code> (PCRE2_EXTRA_CASELESS_RESTRICT)
+   modifier, as well as the <code class="literal">(?r)</code> mode modifier.
+   When enabled along with the case-insensitive modifier (<code class="literal">i</code>),
+   the expression locks out mixing of ASCII and non-ASCII characters.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.pdo">
+  <h3 class="title">PDO</h3>
+
+  
+  <p class="simpara">
+   Added support for driver-specific subclasses.
+   This RFC adds subclasses for PDO in order to better support
+   database-specific functionalities.
+   The new classes are instantiatable either via calling the
+   <span class="methodname"><strong>PDO::connect()</strong></span> method or by instantiating an instance
+   of the driver-specific subclass directly.
+  </p>
+
+  
+  <p class="para">
+   Added support for driver specific SQL parsers.
+   The default parser supports:
+   <ul class="simplelist">
+    <li>
+     single and double-quoted literals, with doubling as escaping mechanism
+    </li>
+    <li>
+     two-dashes and non-nested C-style comments
+    </li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.pdo-mysql">
+  <h3 class="title">PDO_MYSQL</h3>
+
+  
+  <p class="para">
+   Added a custom parser supporting:
+   <ul class="simplelist">
+    <li>
+     single and double-quoted literals, with doubling and backslash as escaping
+     mechanism
+    </li>
+    <li>
+     backtick literal identifiers and with doubling as escaping mechanism
+    </li>
+    <li>
+     two dashes followed by at least 1 whitespace, non-nested C-style comments,
+     and hash-comments
+    </li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.pdo-pgsql">
+  <h3 class="title">PDO_PGSQL</h3>
+
+  
+  <p class="para">
+   Added a custom parser supporting:
+   <ul class="simplelist">
+    <li>
+     single and double-quoted literals, with doubling as escaping mechanism
+    </li>
+    <li>
+     C-style "escape" string literals (<code class="literal">E&#039;string&#039;</code>)
+    </li>
+    <li>
+     dollar-quoted string literals
+    </li>
+    <li>
+     two-dashes and C-style comments (non-nested)
+    </li>
+    <li>
+     support for <code class="literal">??</code> as escape sequence for the
+     <code class="literal">?</code> operator
+    </li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.pdo-sqlite">
+  <h3 class="title">PDO_SQLITE</h3>
+
+  
+  <p class="para">
+   Added a custom parser supporting:
+   <ul class="simplelist">
+    <li>
+     single, double-quoted, and backtick literals, with doubling as
+     escaping mechanism
+    </li>
+    <li>
+     square brackets quoting for identifiers
+    </li>
+    <li>
+     two-dashes and C-style comments (non-nested)
+    </li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.phar">
+  <h3 class="title">Phar</h3>
+
+  <p class="simpara">
+   Added support for the Unix timestamp extension for Zip archives.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.readline">
+  <h3 class="title">Readline</h3>
+
+  <p class="simpara">
+   Added ability to change the <code class="literal">.php_history</code> path through
+   the <var class="envar">PHP_HISTFILE</var> environment variable.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.reflection">
+  <h3 class="title">Reflection</h3>
+
+  <p class="simpara">
+   <span class="classname"><a href="class.reflectionattribute.html" class="classname">ReflectionAttribute</a></span> now contains a
+   <span class="property">name</span> property to improve the debugging experience.
+  </p>
+
+  <p class="simpara">
+   <span class="methodname"><a href="reflectionclassconstant.tostring.html" class="methodname">ReflectionClassConstant::__toString()</a></span> and
+   <span class="methodname"><a href="reflectionproperty.tostring.html" class="methodname">ReflectionProperty::__toString()</a></span> now returns the
+   attached doc comments.
+  </p>
+
+  
+  <p class="para">
+   Multiple new methods and constants which are related to the lazy objects
+   feature have been added:
+
+   <ul class="simplelist">
+    <li>
+     <span class="methodname"><a href="reflectionclass.newlazyghost.html" class="methodname">ReflectionClass::newLazyGhost()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.newlazyproxy.html" class="methodname">ReflectionClass::newLazyProxy()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.resetaslazyghost.html" class="methodname">ReflectionClass::resetAsLazyGhost()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.resetaslazyproxy.html" class="methodname">ReflectionClass::resetAsLazyProxy()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.isuninitializedlazyobject.html" class="methodname">ReflectionClass::isUninitializedLazyObject()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.initializelazyobject.html" class="methodname">ReflectionClass::initializeLazyObject()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.marklazyobjectasinitialized.html" class="methodname">ReflectionClass::markLazyObjectAsInitialized()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.getlazyinitializer.html" class="methodname">ReflectionClass::getLazyInitializer()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionproperty.skiplazyinitialization.html" class="methodname">ReflectionProperty::skipLazyInitialization()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionproperty.setrawvaluewithoutlazyinitialization.html" class="methodname">ReflectionProperty::setRawValueWithoutLazyInitialization()</a></span>
+    </li>
+    <li>
+     <strong><code><a href="class.reflectionclass.html#reflectionclass.constants.skip-initialization-on-serialize">ReflectionClass::SKIP_INITIALIZATION_ON_SERIALIZE</a></code></strong>
+    </li>
+    <li>
+     <strong><code><a href="class.reflectionclass.html#reflectionclass.constants.skip-destructor">ReflectionClass::SKIP_DESTRUCTOR</a></code></strong>
+    </li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.soap">
+  <h3 class="title">SOAP</h3>
+
+  <p class="simpara">
+   Added support for clark notation for namespaces in class map.
+   It is now possible to specify entries in a class map with clark notation
+   to resolve a type with a specific namespace to a specific class.
+   For example: <code class="code">&#039;{http://example.com}foo&#039; =&gt; &#039;FooClass&#039;</code>.
+  </p>
+
+  <p class="simpara">
+   Instances of <span class="interfacename"><a href="class.datetimeinterface.html" class="interfacename">DateTimeInterface</a></span> that are
+   passed to <code class="literal">xsd:datetime</code> or similar elements are now
+   serialized as such instead of being serialized as an empty string.
+  </p>
+
+  <p class="simpara">
+   Session persistence now works with a shared session module.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.standard">
+  <h3 class="title">Standard</h3>
+
+  
+  <p class="simpara">
+   
+   Added a new <span class="classname"><strong class="classname">RoundingMode</strong></span> enum with clearer naming
+   and improved discoverability compared to the
+   <strong><code><a href="math.constants.html#constant.php-round-half-up">PHP_ROUND_<span class="replaceable">*</span></a></code></strong> constants.
+   Moreover, four new rounding modes were added which are only available via
+   the new <span class="classname"><strong class="classname">RoundingMode</strong></span> enum.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.xsl">
+  <h3 class="title">XSL</h3>
+
+  <p class="simpara">
+   It is now possible to use parameters that contain both single and double
+   quotes.
+  </p>
+
+  
+  <p class="simpara">
+   It is now possible to pass any callable to
+   <span class="methodname"><a href="xsltprocessor.registerphpfunctions.html" class="methodname">XSLTProcessor::registerPhpFunctions()</a></span>.
+   
+  </p>
+
+  <p class="simpara">
+   Added <span class="property">XSLTProcessor::$maxTemplateDepth</span> and
+   <span class="property">XSLTProcessor::$maxTemplateVars</span>
+   to control the recursion depth of XSL template evaluation.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.new-features.zip">
+  <h3 class="title">Zip</h3>
+
+  <p class="simpara">
+   Added the <strong><code><a href="zip.constants.html#ziparchive.constants.er-truncated-zip">ZipArchive::ER_TRUNCATED_ZIP</a></code></strong>
+   constant, which was added in libzip 1.11.
+  </p>
+ </div>
+
+</div></div></div></body></html>

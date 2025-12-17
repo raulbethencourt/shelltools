@@ -1,0 +1,1001 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="pgsql.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="pgsql.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.pgsql.html">PostgreSQL</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="pgsql.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+
+ <dl>
+  
+   <dt id="constant.pgsql-libpq-version">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-libpq-version">PGSQL_LIBPQ_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Short libpq version that contains only numbers and dots.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-libpq-version-str">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-libpq-version-str">PGSQL_LIBPQ_VERSION_STR</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Prior to PHP 8.0.0, the long libpq version that includes compiler information.
+     As of PHP 8.0.0, the value is identical to <strong><code><a href="pgsql.constants.html#constant.pgsql-libpq-version">PGSQL_LIBPQ_VERSION</a></code></strong>,
+     and using <strong><code><a href="pgsql.constants.html#constant.pgsql-libpq-version-str">PGSQL_LIBPQ_VERSION_STR</a></code></strong> is deprecated.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-assoc">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-assoc">PGSQL_ASSOC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Passed to <span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span>. Return an associative array of field
+      names and values.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-num">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-num">PGSQL_NUM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Passed to <span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span>. Return a numerically indexed array of field
+      numbers and values.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-both">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-both">PGSQL_BOTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Passed to <span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span>. Return an array of field values
+      that is both numerically indexed (by field number) and associated (by field name).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connect-force-new">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connect-force-new">PGSQL_CONNECT_FORCE_NEW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Passed to <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span> to force the creation of a new connection,
+      rather than re-using an existing identical connection.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connect-async">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connect-async">PGSQL_CONNECT_ASYNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Passed to <span class="function"><a href="function.pg-connect.html" class="function">pg_connect()</a></span> to create an asynchronous
+      connection.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-auth-ok">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-auth-ok">PGSQL_CONNECTION_AUTH_OK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-awaiting-response">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-awaiting-response">PGSQL_CONNECTION_AWAITING_RESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-bad">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-bad">PGSQL_CONNECTION_BAD</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Returned by <span class="function"><a href="function.pg-connection-status.html" class="function">pg_connection_status()</a></span> indicating that the database
+      connection is in an invalid state.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-made">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-made">PGSQL_CONNECTION_MADE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-ok">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-ok">PGSQL_CONNECTION_OK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Returned by <span class="function"><a href="function.pg-connection-status.html" class="function">pg_connection_status()</a></span> indicating that the database
+      connection is in a valid state.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-setenv">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-setenv">PGSQL_CONNECTION_SETENV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-ssl-startup">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-ssl-startup">PGSQL_CONNECTION_SSL_STARTUP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-connection-started">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-connection-started">PGSQL_CONNECTION_STARTED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-seek-set">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-seek-set">PGSQL_SEEK_SET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-lo-seek.html" class="function">pg_lo_seek()</a></span>. Seek operation is to begin
+     from the start of the object.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-seek-cur">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-seek-cur">PGSQL_SEEK_CUR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-lo-seek.html" class="function">pg_lo_seek()</a></span>. Seek operation is to begin
+     from the current position.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-seek-end">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-seek-end">PGSQL_SEEK_END</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-lo-seek.html" class="function">pg_lo_seek()</a></span>. Seek operation is to begin
+     from the end of the object.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-empty-query">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-empty-query">PGSQL_EMPTY_QUERY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. The string sent to the server
+     was empty.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-command-ok">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-command-ok">PGSQL_COMMAND_OK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. Successful completion of a
+     command returning no data.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-tuples-ok">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-tuples-ok">PGSQL_TUPLES_OK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. Successful completion of a command
+     returning data (such as a <code class="literal">SELECT</code> or <code class="literal">SHOW</code>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-tuples-chunk">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-tuples-chunk">PGSQL_TUPLES_CHUNK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>.
+     Indicates the successful completion of a command returning data in chunked mode.
+     Returned for <code class="literal">SELECT</code> commands when
+     <span class="function"><a href="function.pg-set-chunked-rows-size.html" class="function">pg_set_chunked_rows_size()</a></span> is set.
+     The result set is divided into multiple chunks, each containing a predefined number of rows.
+     Available as of PHP 8.4.0 and libpq 17.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-copy-out">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-copy-out">PGSQL_COPY_OUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. Copy Out (from server) data
+     transfer started.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-copy-in">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-copy-in">PGSQL_COPY_IN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. Copy In (to server) data
+     transfer started.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-bad-response">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-bad-response">PGSQL_BAD_RESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. The server&#039;s response
+     was not understood.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-nonfatal-error">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-nonfatal-error">PGSQL_NONFATAL_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. A nonfatal error
+     (a notice or warning) occurred.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-fatal-error">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-fatal-error">PGSQL_FATAL_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>. A fatal error
+     occurred.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-transaction-idle">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-transaction-idle">PGSQL_TRANSACTION_IDLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-transaction-status.html" class="function">pg_transaction_status()</a></span>. Connection is
+     currently idle, not in a transaction.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-transaction-active">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-transaction-active">PGSQL_TRANSACTION_ACTIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-transaction-status.html" class="function">pg_transaction_status()</a></span>. A command
+     is in progress on the connection.  A query has been sent via the connection
+     and not yet completed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-transaction-intrans">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-transaction-intrans">PGSQL_TRANSACTION_INTRANS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-transaction-status.html" class="function">pg_transaction_status()</a></span>. The connection
+     is idle, in a transaction block.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-transaction-inerror">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-transaction-inerror">PGSQL_TRANSACTION_INERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-transaction-status.html" class="function">pg_transaction_status()</a></span>. The connection
+     is idle, in a failed transaction block.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-transaction-unknown">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-transaction-unknown">PGSQL_TRANSACTION_UNKNOWN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-transaction-status.html" class="function">pg_transaction_status()</a></span>. The connection
+     is bad.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-severity">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-severity">PGSQL_DIAG_SEVERITY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The severity; the field contents are <code class="literal">ERROR</code>,
+     <code class="literal">FATAL</code>, or <code class="literal">PANIC</code> (in an error message), or
+     <code class="literal">WARNING</code>, <code class="literal">NOTICE</code>, <code class="literal">DEBUG</code>,
+     <code class="literal">INFO</code>, or <code class="literal">LOG</code> (in a notice message), or a localized
+     translation of one of these. Always present.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-sqlstate">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-sqlstate">PGSQL_DIAG_SQLSTATE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The SQLSTATE code for the error. The SQLSTATE code identifies the type of error
+     that has occurred; it can be used by front-end applications to perform specific
+     operations (such as error handling) in response to a particular database error.
+     This field is not localizable, and is always present.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-message-primary">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-message-primary">PGSQL_DIAG_MESSAGE_PRIMARY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The primary human-readable error message (typically one line). Always present.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-message-detail">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-message-detail">PGSQL_DIAG_MESSAGE_DETAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     Detail: an optional secondary error message carrying more detail about the problem. May run to multiple lines.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-message-hint">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-message-hint">PGSQL_DIAG_MESSAGE_HINT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     Hint: an optional suggestion what to do about the problem. This is intended to differ from detail in that it
+     offers advice (potentially inappropriate) rather than hard facts. May run to multiple lines.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-statement-position">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-statement-position">PGSQL_DIAG_STATEMENT_POSITION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     A string containing a decimal integer indicating an error cursor position as an index into the original
+     statement string. The first character has index 1, and positions are measured in characters not bytes.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-internal-position">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-internal-position">PGSQL_DIAG_INTERNAL_POSITION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     This is defined the same as the <strong><code>PG_DIAG_STATEMENT_POSITION</code></strong> field, but
+     it is used when the cursor position refers to an internally generated
+     command rather than the one submitted by the client. The
+     <strong><code>PG_DIAG_INTERNAL_QUERY</code></strong> field will always appear when this
+     field appears.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-internal-query">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-internal-query">PGSQL_DIAG_INTERNAL_QUERY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The text of a failed internally-generated command. This could be, for example, a
+     SQL query issued by a PL/pgSQL function.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-context">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-context">PGSQL_DIAG_CONTEXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     An indication of the context in which the error occurred. Presently
+     this includes a call stack traceback of active procedural language
+     functions and internally-generated queries. The trace is one entry
+     per line, most recent first.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-source-file">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-source-file">PGSQL_DIAG_SOURCE_FILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The file name of the PostgreSQL source-code location where the error
+     was reported.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-source-line">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-source-line">PGSQL_DIAG_SOURCE_LINE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The line number of the PostgreSQL source-code location where the
+     error was reported.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-source-function">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-source-function">PGSQL_DIAG_SOURCE_FUNCTION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-error-field.html" class="function">pg_result_error_field()</a></span>.
+     The name of the PostgreSQL source-code function reporting the error.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-schema-name">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-schema-name">PGSQL_DIAG_SCHEMA_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available since PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-table-name">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-table-name">PGSQL_DIAG_TABLE_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available since PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-column-name">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-column-name">PGSQL_DIAG_COLUMN_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available since PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-datatype-name">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-datatype-name">PGSQL_DIAG_DATATYPE_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available since PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-constraint-name">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-constraint-name">PGSQL_DIAG_CONSTRAINT_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Available since PHP 7.3.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.pgsql-errors-terse">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-terse">PGSQL_ERRORS_TERSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-set-error-verbosity.html" class="function">pg_set_error_verbosity()</a></span>.
+     Specified that returned messages include severity, primary text,
+     and position only; this will normally fit on a single line.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-errors-default">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-default">PGSQL_ERRORS_DEFAULT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-set-error-verbosity.html" class="function">pg_set_error_verbosity()</a></span>.
+     The default mode produces messages that include the above
+     plus any detail, hint, or context fields (these may span
+     multiple lines).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-errors-verbose">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-verbose">PGSQL_ERRORS_VERBOSE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-set-error-verbosity.html" class="function">pg_set_error_verbosity()</a></span>.
+     The verbose mode includes all available fields.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-errors-sqlstate">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-sqlstate">PGSQL_ERRORS_SQLSTATE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-set-error-verbosity.html" class="function">pg_set_error_verbosity()</a></span>.
+     Includes only the error severity and the <code class="literal">SQLSTATE</code> error code.
+     If no error code is available, the output is like
+     <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-terse">PGSQL_ERRORS_TERSE</a></code></strong> mode.
+     Before PostgreSQL 11.1, the output is always the same
+     as in <strong><code><a href="pgsql.constants.html#constant.pgsql-errors-terse">PGSQL_ERRORS_TERSE</a></code></strong> mode.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.pgsql-notice-last">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-notice-last">PGSQL_NOTICE_LAST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Used by <span class="function"><a href="function.pg-last-notice.html" class="function">pg_last_notice()</a></span>.
+     Available since PHP 7.1.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-notice-all">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-notice-all">PGSQL_NOTICE_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Used by <span class="function"><a href="function.pg-last-notice.html" class="function">pg_last_notice()</a></span>.
+     Available since PHP 7.1.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-notice-clear">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-notice-clear">PGSQL_NOTICE_CLEAR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Used by <span class="function"><a href="function.pg-last-notice.html" class="function">pg_last_notice()</a></span>.
+     Available since PHP 7.1.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.pgsql-status-long">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-status-long">PGSQL_STATUS_LONG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>.  Indicates that
+     numerical result code is desired.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-status-string">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-status-string">PGSQL_STATUS_STRING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-result-status.html" class="function">pg_result_status()</a></span>.  Indicates that
+     textual result command tag is desired.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.pgsql-conv-ignore-default">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-conv-ignore-default">PGSQL_CONV_IGNORE_DEFAULT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span>.
+     Ignore default values in the table during conversion.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-conv-force-null">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-conv-force-null">PGSQL_CONV_FORCE_NULL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span>.
+     Use SQL <code class="literal">NULL</code> in place of an empty <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-conv-ignore-not-null">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-conv-ignore-not-null">PGSQL_CONV_IGNORE_NOT_NULL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span>.
+     Ignore conversion of <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> into SQL <code class="literal">NOT NULL</code> columns.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.pgsql-dml-no-conv">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-dml-no-conv">PGSQL_DML_NO_CONV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span>, <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span>,
+     <span class="function"><a href="function.pg-update.html" class="function">pg_update()</a></span> and <span class="function"><a href="function.pg-delete.html" class="function">pg_delete()</a></span>.
+     All parameters passed as is. Manual escape is required
+     if parameters contain user supplied data. Use <span class="function"><a href="function.pg-escape-string.html" class="function">pg_escape_string()</a></span>
+     for it.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-dml-exec">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-dml-exec">PGSQL_DML_EXEC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span>, <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span>,
+     <span class="function"><a href="function.pg-update.html" class="function">pg_update()</a></span> and <span class="function"><a href="function.pg-delete.html" class="function">pg_delete()</a></span>.
+     Execute query by these functions.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-dml-async">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-dml-async">PGSQL_DML_ASYNC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span>, <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span>,
+     <span class="function"><a href="function.pg-update.html" class="function">pg_update()</a></span> and <span class="function"><a href="function.pg-delete.html" class="function">pg_delete()</a></span>.
+     Execute asynchronous query by these functions.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-dml-string">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-dml-string">PGSQL_DML_STRING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span>, <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span>,
+     <span class="function"><a href="function.pg-update.html" class="function">pg_update()</a></span> and <span class="function"><a href="function.pg-delete.html" class="function">pg_delete()</a></span>.
+     Return executed query string.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-dml-escape">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-dml-escape">PGSQL_DML_ESCAPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Passed to <span class="function"><a href="function.pg-insert.html" class="function">pg_insert()</a></span>, <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span>,
+     <span class="function"><a href="function.pg-update.html" class="function">pg_update()</a></span> and <span class="function"><a href="function.pg-delete.html" class="function">pg_delete()</a></span>.
+     Apply escape to all parameters instead of calling <span class="function"><a href="function.pg-convert.html" class="function">pg_convert()</a></span>
+     internally. This option omits meta data look up. Query could be as fast as
+     <span class="function"><a href="function.pg-query.html" class="function">pg_query()</a></span> and <span class="function"><a href="function.pg-send-query.html" class="function">pg_send_query()</a></span>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-polling-failed">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-polling-failed">PGSQL_POLLING_FAILED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-connect-poll.html" class="function">pg_connect_poll()</a></span> to indicate that the
+     connection attempt failed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-polling-reading">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-polling-reading">PGSQL_POLLING_READING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-connect-poll.html" class="function">pg_connect_poll()</a></span> to indicate that the
+     connection is waiting for the PostgreSQL socket to be readable.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-polling-writing">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-polling-writing">PGSQL_POLLING_WRITING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-connect-poll.html" class="function">pg_connect_poll()</a></span> to indicate that the
+     connection is waiting for the PostgreSQL socket to be writable.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-polling-ok">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-polling-ok">PGSQL_POLLING_OK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-connect-poll.html" class="function">pg_connect_poll()</a></span> to indicate that the
+     connection is ready to be used.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-polling-active">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-polling-active">PGSQL_POLLING_ACTIVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returned by <span class="function"><a href="function.pg-connect-poll.html" class="function">pg_connect_poll()</a></span> to indicate that the
+     connection is currently active.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-diag-severity-nonlocalized">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-diag-severity-nonlocalized">PGSQL_DIAG_SEVERITY_NONLOCALIZED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    The severity; the field contents are ERROR, FATAL, or PANIC (in an error message), or WARNING, NOTICE, DEBUG, INFO, or LOG (in a notice message). This is identical to the PG_DIAG_SEVERITY field except that the contents are never localized. This is present only in versions 9.6 and later / PHP 7.3.0 and later.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-show-context-never">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-never">PGSQL_SHOW_CONTEXT_NEVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     To be used with <span class="function"><a href="function.pg-set-error-context-visibility.html" class="function">pg_set_error_context_visibility()</a></span>,
+     the context is never shown.
+     Available as of PHP 8.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-show-context-errors">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-errors">PGSQL_SHOW_CONTEXT_ERRORS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     To be used with <span class="function"><a href="function.pg-set-error-context-visibility.html" class="function">pg_set_error_context_visibility()</a></span>,
+     the context&#039;s fields are included in error messages only.
+     This is the default behaviour.
+     Available as of PHP 8.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-show-context-always">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-always">PGSQL_SHOW_CONTEXT_ALWAYS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     To be used with <span class="function"><a href="function.pg-set-error-context-visibility.html" class="function">pg_set_error_context_visibility()</a></span>,
+     the context&#039;s fields are included in error, notice and warning messages.
+     Available as of PHP 8.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.pgsql-trace-suppress-timestamps">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-trace-suppress-timestamps">PGSQL_TRACE_SUPPRESS_TIMESTAMPS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     To be used with <span class="function"><a href="function.pg-trace.html" class="function">pg_trace()</a></span>,
+     the timestamp is not included in the trace&#039;s messages.
+     Available as of PHP 8.3.0.
+    </span>
+   </dd>
+   
+  
+   <dt id="constant.pgsql-trace-regress-mode">
+    <strong><code><a href="pgsql.constants.html#constant.pgsql-trace-regress-mode">PGSQL_TRACE_REGRESS_MODE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     To be used with <span class="function"><a href="function.pg-trace.html" class="function">pg_trace()</a></span>,
+     fields such as OIDs are included in the trace&#039;s messages.
+     Available as of PHP 8.3.0.
+    </span>
+   </dd>
+   
+ </dl>
+</div>
+</div></div></body></html>

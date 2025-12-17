@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>win32service</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.variant-xor.html">« variant_xor</a></li>
+      <li style="float: right;"><a href="intro.win32service.html">Introduction »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="refs.utilspec.windows.html">Windows Only Extensions</a></li>
+    <li>win32service</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="book.win32service" class="book">
+ 
+ <h1 class="title">win32service</h1>
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+<ul class="chunklist chunklist_book"><li><a href="intro.win32service.html">Introduction</a></li><li><a href="win32service.setup.html">Installing/Configuring</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="win32service.requirements.html">Requirements</a></li><li><a href="win32service.installation.html">Installation</a></li><li><a href="win32service.security.html">Security consideration</a></li></ul></li><li><a href="win32service.constants.html">Predefined Constants</a></li><li><a href="class.win32serviceexception.html">Win32ServiceException</a> — The Win32ServiceException class</li><li><a href="class.win32service-rightinfo.html">Win32Service\RightInfo</a> — The Win32Service\RightInfo class<ul class="chunklist chunklist_book chunklist_children"><li><a href="win32service-rightinfo.construct.html">Win32Service\RightInfo::__construct</a> — Create a new RightInfo (not used)</li><li><a href="win32service-rightinfo.get-domain.html">Win32Service\RightInfo::getDomain</a> — Return the user's domain</li><li><a href="win32service-rightinfo.get-full-username.html">Win32Service\RightInfo::getFullUsername</a> — Return the domain and username</li><li><a href="win32service-rightinfo.get-rights.html">Win32Service\RightInfo::getRights</a> — Return the rights list</li><li><a href="win32service-rightinfo.get-username.html">Win32Service\RightInfo::getUsername</a> — Return the username</li><li><a href="win32service-rightinfo.is-deny-access.html">Win32Service\RightInfo::isDenyAccess</a> — Return true if the RightInfo concerns deny access to the resource</li><li><a href="win32service-rightinfo.is-grant-access.html">Win32Service\RightInfo::isGrantAccess</a> — Return true if the RightInfo concern grants access to the resource</li></ul></li><li><a href="win32service.examples.html">Examples</a></li><li><a href="ref.win32service.html">win32service Functions</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="function.win32-add-right-access-service.html">win32_add_right_access_service</a> — Add rights access for an username to the service</li><li><a href="function.win32-add-service-env-var.html">win32_add_service_env_var</a> — Add a custom environment variables on service</li><li><a href="function.win32-continue-service.html">win32_continue_service</a> — Resumes a paused service</li><li><a href="function.win32-create-service.html">win32_create_service</a> — Creates a new service entry in the SCM database</li><li><a href="function.win32-delete-service.html">win32_delete_service</a> — Deletes a service entry from the SCM database</li><li><a href="function.win32-get-last-control-message.html">win32_get_last_control_message</a> — Returns the last control message that was sent to this service</li><li><a href="function.win32-get-service-env-vars.html">win32_get_service_env_vars</a> — Read all custom environment variables on service</li><li><a href="function.win32-pause-service.html">win32_pause_service</a> — Pauses a service</li><li><a href="function.win32-query-service-status.html">win32_query_service_status</a> — Queries the status of a service</li><li><a href="function.win32-read-all-rights-access-service.html">win32_read_all_rights_access_service</a> — Read all service rights access</li><li><a href="function.win32-read-right-access-service.html">win32_read_right_access_service</a> — Read the service rights access for an username</li><li><a href="function.win32-remove-right-access-service.html">win32_remove_right_access_service</a> — Remove the service rights access for an username</li><li><a href="function.win32-remove-service-env-var.html">win32_remove_service_env_var</a> — Remove a custom environment variables on service</li><li><a href="function.win32-send-custom-control.html">win32_send_custom_control</a> — Send a custom control to the service</li><li><a href="function.win32-set-service-exit-code.html">win32_set_service_exit_code</a> — Define or return the exit code for the current running service</li><li><a href="function.win32-set-service-exit-mode.html">win32_set_service_exit_mode</a> — Define or return the exit mode for the current running service</li><li><a href="function.win32-set-service-pause-resume-state.html">win32_set_service_pause_resume_state</a> — Define or return the pause/resume capability for the current running service</li><li><a href="function.win32-set-service-status.html">win32_set_service_status</a> — Update the service status</li><li><a href="function.win32-start-service.html">win32_start_service</a> — Starts a service</li><li><a href="function.win32-start-service-ctrl-dispatcher.html">win32_start_service_ctrl_dispatcher</a> — Registers the script with the SCM, so that it can act as the service with the given name</li><li><a href="function.win32-stop-service.html">win32_stop_service</a> — Stops a service</li></ul></li></ul></div></div></div></body></html>

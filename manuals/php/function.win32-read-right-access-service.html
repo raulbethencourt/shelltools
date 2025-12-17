@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Read the service rights access for an username</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.win32-read-all-rights-access-service.html">« win32_read_all_rights_access_service</a></li>
+      <li style="float: right;"><a href="function.win32-remove-right-access-service.html">win32_remove_right_access_service »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.win32service.html">win32service Functions</a></li>
+    <li>Read the service rights access for an username</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.win32-read-right-access-service" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">win32_read_right_access_service</h1>
+  <p class="verinfo">(PECL win32service &gt;=1.1.0)</p><p class="refpurpose"><span class="refname">win32_read_right_access_service</span> &mdash; <span class="dc-title">Read the service rights access for an username</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.win32-read-right-access-service-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>win32_read_right_access_service</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$servicename</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$username</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$machine</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><a href="class.win32service-rightinfo.html" class="type Win32Service\RightInfo">Win32Service\RightInfo</a></span></div>
+
+  <p class="para rdfs-comment">
+   Read the rights access for <code class="parameter">username</code> on <code class="parameter">servicename</code>
+   service. Administrative privileges are required for this to succeed.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.win32-read-right-access-service-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">servicename</code></dt>
+     <dd>
+      <p class="para">
+       The service name to read rights access.
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">username</code></dt>
+     <dd>
+      <p class="para">
+       Read the rights access for <code class="parameter">username</code>
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">machine</code></dt>
+     <dd>
+      <p class="para">
+       The optional machine name on which you want to create a service.
+       If omitted, it will use the local machine.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.win32-read-right-access-service-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Return a <span class="classname"><a href="class.win32service-rightinfo.html" class="classname">Win32Service\RightInfo</a></span> object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.win32-read-right-access-service-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   A <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown if the
+   value of <code class="parameter">service</code> parameter is empty.
+  </p>
+  <p class="para">
+   A <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown if the
+   value of <code class="parameter">username</code> parameter is empty.
+  </p>
+  <p class="para">
+   A <span class="classname"><a href="class.win32serviceexception.html" class="classname">Win32ServiceException</a></span> is thrown on error.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.win32-read-right-access-service-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.win32-read-all-rights-access-service.html" class="function" rel="rdfs-seeAlso">win32_read_all_rights_access_service()</a> - Read all service rights access</span></li>
+    <li><span class="function"><a href="function.win32-add-right-access-service.html" class="function" rel="rdfs-seeAlso">win32_add_right_access_service()</a> - Add rights access for an username to the service</span></li>
+    <li><span class="function"><a href="function.win32-remove-right-access-service.html" class="function" rel="rdfs-seeAlso">win32_remove_right_access_service()</a> - Remove the service rights access for an username</span></li>
+    <li><a href="win32service.constants.html#win32service.constants.rights" class="link">Win32 Rights constants</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

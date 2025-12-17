@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Replace children in document</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="domdocument.relaxngvalidatesource.html">« DOMDocument::relaxNGValidateSource</a></li>
+      <li style="float: right;"><a href="domdocument.save.html">DOMDocument::save »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.domdocument.html">DOMDocument</a></li>
+    <li>Replace children in document</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="domdocument.replacechildren" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DOMDocument::replaceChildren</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">DOMDocument::replaceChildren</span> &mdash; <span class="dc-title">Replace children in document</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-domdocument.replacechildren-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DOMDocument::replaceChildren</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span>|<span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">...$nodes</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+  <p class="para rdfs-comment">
+   Replaces the children in the document with new <code class="parameter">nodes</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-domdocument.replacechildren-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">nodes</code></dt>
+     <dd>
+      <p class="para">
+       The nodes replacing the children.
+       Strings are automatically converted to text nodes.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-domdocument.replacechildren-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   No value is returned.
+  </p>
+ </div>
+
+ <div class="refsect1 errors" id="refsect1-domdocument.replacechildren-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <dl>
+   
+ <dt><strong><code><a href="dom.constants.html#constant.dom-hierarchy-request-err">DOM_HIERARCHY_REQUEST_ERR</a></code></strong></dt>
+  <dd>
+  <p class="para">
+    Raised if this node is of a type that does not allow children of the
+    type of one of the passed <code class="parameter">nodes</code>, or if the node to
+    put in is one of this node&#039;s ancestors or this node itself.
+  </p>
+ </dd>
+
+   
+ <dt><strong><code><a href="dom.constants.html#constant.dom-wrong-document-err">DOM_WRONG_DOCUMENT_ERR</a></code></strong></dt>
+  <dd>
+  <p class="para">
+    Raised if one of the passed <code class="parameter">nodes</code> was created from a different
+    document than the one that created this node.
+  </p>
+ </dd>
+
+  </dl>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-domdocument.replacechildren-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.3.0</td>
+      <td>
+       Calling this method on a node without an owner document now works.
+       Previously this threw a
+ <span class="classname"><a href="class.domexception.html" class="classname">DOMException</a></span> with code
+ <strong><code><a href="dom.constants.html#constant.dom-hierarchy-request-err">DOM_HIERARCHY_REQUEST_ERR</a></code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-domdocument.replacechildren-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="domdocument.replacechildren.example.basic">
+   <p><strong>Example #1 <span class="methodname"><strong>DOMDocument::replaceChildren()</strong></span> example</strong></p>
+   <div class="example-contents"><p>
+    Replaces the children with new nodes.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$doc </span><span style="color: #007700">= new </span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">"&lt;container&gt;&lt;hello/&gt;&lt;/container&gt;"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">replaceWith</span><span style="color: #007700">(</span><span style="color: #DD0000">"beautiful"</span><span style="color: #007700">, </span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createElement</span><span style="color: #007700">(</span><span style="color: #DD0000">"world"</span><span style="color: #007700">));<br /><br />echo </span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">&lt;?xml version=&quot;1.0&quot;?&gt;
+beautiful
+&lt;world/&gt;</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-domdocument.replacechildren-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="methodname"><a href="domparentnode.replacechildren.html" class="methodname" rel="rdfs-seeAlso">DOMParentNode::replaceChildren()</a> - Replace children in node</span></li>
+   <li><span class="methodname"><a href="domdocument.append.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::append()</a> - Appends nodes after the last child node</span></li>
+   <li><span class="methodname"><a href="domdocument.prepend.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::prepend()</a> - Prepends nodes before the first child node</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

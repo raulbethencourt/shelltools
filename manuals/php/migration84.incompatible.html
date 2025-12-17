@@ -1,0 +1,824 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Backward Incompatible Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.constants.html">« New Global Constants</a></li>
+      <li style="float: right;"><a href="migration84.deprecated.html">Deprecated Features »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>Backward Incompatible Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.incompatible" class="sect1">
+ <h2 class="title">Backward Incompatible Changes</h2>
+
+ <p class="simpara">
+  Although not explicitly stated in this section,
+  every new <a href="migration84.new-functions.html" class="link">function</a>,
+  <a href="migration84.new-classes.html" class="link">class, interface, enum</a>,
+  or <a href="migration84.constants.html" class="link">constant</a>
+  may cause a redeclaration <span class="exceptionname"><a href="class.error.html" class="exceptionname">Error</a></span> to be thrown.
+ </p>
+
+ <div class="sect2" id="migration84.incompatible.core">
+  <h3 class="title">PHP Core</h3>
+
+  
+  <div class="sect3" id="migration84.incompatible.core.exit">
+   <h4 class="title"><span class="function"><a href="function.exit.html" class="function">exit()</a></span> behavioral change</h4>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.exit.html" class="function">exit()</a></span> (and <span class="function"><a href="function.die.html" class="function">die()</a></span>) language
+    constructs now behave more like a function.
+    This means that they can now be passed like <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>s,
+    
+    are affected by the <code class="literal">strict_types</code> declare statement,
+    and now perform the usual type coercions instead of casting any non-integer
+    value to a string.
+   </p>
+
+   <p class="simpara">
+    As such, passing invalid types to <span class="function"><a href="function.exit.html" class="function">exit()</a></span> and
+    <span class="function"><a href="function.die.html" class="function">die()</a></span> now consistently result in a
+    <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span> being thrown.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.core.recursion-comparison">
+   <h4 class="title">Recursion during comparison</h4>
+
+   <p class="simpara">
+    Encountering recursion during comparison now results in an
+    <span class="exceptionname"><a href="class.error.html" class="exceptionname">Error</a></span> exception instead of a
+    <strong><code><a href="errorfunc.constants.html#constant.e-error">E_ERROR</a></code></strong> fatal error.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.core.readonly-indirect-modification">
+   <h4 class="title">Indirect Modification of readonly Properties</h4>
+
+   
+   <p class="simpara">
+    Indirect modification of readonly properties within <code class="code">__clone()</code>
+    is no longer allowed, e.g. <code class="code">$ref = &amp;$this-&gt;readonly</code>.
+    This was already forbidden for readonly initialization, and was an
+    oversight in the &quot;readonly reinitialization during cloning&quot; implementation.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.core.constant-type-change">
+   <h4 class="title">Type Change of Constants</h4>
+
+   <p class="simpara">
+    The <strong><code><a href="reserved.constants.html#constant.php-debug">PHP_DEBUG</a></code></strong> and <strong><code><a href="reserved.constants.html#constant.php-zts">PHP_ZTS</a></code></strong>
+    constants are now of type <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+    Previously they were of type <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.core.tempnam-length">
+   <h4 class="title">Temporary Filename Length</h4>
+
+   <p class="simpara">
+    The name of uploaded files and files created by the
+    <span class="function"><a href="function.tempnam.html" class="function">tempnam()</a></span> function are now 13 bytes longer.
+    The total length is still platform-dependent.
+   </p>
+  </div>
+
+  
+  <div class="sect3" id="migration84.incompatible.core.e-strict">
+   <h4 class="title">Removal of <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong> error level</h4>
+
+   <p class="simpara">
+    The <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong> error level has been removed,
+    as it was no longer in use within the PHP engine.
+    The <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong> constant has been deprecated.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.typed-constants">
+  <h3 class="title">Extension Class Constants which are now Typed</h3>
+
+  <p class="para">
+   The following extension class constants now declare a type on their
+   constants:
+   <ul class="simplelist">
+    <li><a href="book.datetime.html" class="link">Date</a></li>
+    <li><a href="book.intl.html" class="link">Intl</a></li>
+    <li><a href="book.pdo.html" class="link">PDO</a></li>
+    <li><a href="book.reflection.html" class="link">Reflection</a></li>
+    <li><a href="book.spl.html" class="link">SPL</a></li>
+    <li><a href="book.sqlite3.html" class="link">Sqlite</a></li>
+    <li><a href="book.xmlreader.html" class="link">XMLReader</a></li>
+   </ul>
+  </p>
+ </div>
+
+ 
+ <div class="sect2" id="migration84.incompatible.resource2object">
+  <h3 class="title">Resource to Object Migration</h3>
+
+  <p class="simpara">
+   Several <a href="language.types.resource.html" class="link">resource</a>s have been migrated to <span class="type"><a href="language.types.object.html" class="type object">object</a></span>s.
+   Return value checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> should be
+   replaced with checks for <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>, unless specified otherwise.
+  </p>
+
+  <div class="sect3" id="migration84.incompatible.resource2object.dba">
+   <h4 class="title">DBA</h4>
+
+   <p class="simpara">
+    The <a href="book.dba.html" class="link">DBA</a> functions now accept and return
+    <span class="classname"><a href="class.dba-connection.html" class="classname">Dba\Connection</a></span> objects instead of
+    <code class="literal">dba_connection</code> <a href="language.types.resource.html" class="link">resource</a>s.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.resource2object.odbc">
+   <h4 class="title">ODBC</h4>
+
+   <p class="simpara">
+    The <a href="book.uodbc.html" class="link">ODBC</a> functions now accept and return
+    <span class="classname"><strong class="classname">Odbc\Result</strong></span> objects instead of
+    <code class="literal">odbc_result</code> <a href="language.types.resource.html" class="link">resource</a>s.
+   </p>
+
+   <p class="simpara">
+    The <a href="book.uodbc.html" class="link">ODBC</a> functions now accept and return
+    <span class="classname"><strong class="classname">Odbc\Connection</strong></span> objects instead of
+    <code class="literal">odbc_connection</code> <a href="language.types.resource.html" class="link">resource</a>s.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.resource2object.soap">
+   <h4 class="title">SOAP</h4>
+
+   <p class="simpara">
+    The <span class="property">SoapClient::$httpurl</span> property is now a
+    <span class="classname"><strong class="classname">Soap\Url</strong></span> object rather than a
+    <code class="literal">soap_url</code> <a href="language.types.resource.html" class="link">resource</a>.
+    Checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> (i.e.
+    <code class="code">is_resource($client-&gt;httpurl)</code>) should be  replaced with checks
+    for <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> (i.e. <code class="code">$client-&gt;httpurl !== null</code>).
+   </p>
+   <p class="simpara">
+    The <span class="property">SoapClient::$sdl</span> property is now a
+    <span class="classname"><strong class="classname">Soap\Sdl</strong></span> object rather than a
+    <code class="literal">soap_sdl</code> <a href="language.types.resource.html" class="link">resource</a>.
+    Checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> (i.e.
+    <code class="code">is_resource($client-&gt;sdl)</code>) should be  replaced with checks
+    for <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> (i.e. <code class="code">$client-&gt;sdl !== null</code>).
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.new-warnings-exceptions">
+  <h3 class="title">New warnings and exceptions</h3>
+
+  <p class="simpara">
+   New warnings and exceptions have been added which are triggered on
+   programming errors, i.e. invalid values provided as arguments.
+  </p>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.curl">
+   <h4 class="title">Curl</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.curl-multi-select.html" class="function">curl_multi_select()</a></span> now throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">timeout</code> parameter is less than
+    <code class="literal">0</code> or greater than <strong><code><a href="reserved.constants.html#constant.php-int-max">PHP_INT_MAX</a></code></strong>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.gd">
+   <h4 class="title">Gd</h4>
+
+   <p class="para">
+    <span class="simplelist"><span class="function"><a href="function.imagejpeg.html" class="function">imagejpeg()</a></span>, <span class="function"><a href="function.imagewebp.html" class="function">imagewebp()</a></span>, <span class="function"><a href="function.imagepng.html" class="function">imagepng()</a></span>, <span class="function"><a href="function.imageavif.html" class="function">imageavif()</a></span></span>
+    now throw a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> when an invalid
+    <code class="parameter">quality</code> is passed.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.imageavif.html" class="function">imageavif()</a></span> will now throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if an invalid
+    <code class="parameter">speed</code> parameter value is passed.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.imagescale.html" class="function">imagescale()</a></span> will now throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">width</code> or <code class="parameter">height</code>
+    parameters underflows/overflows.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.imagescale.html" class="function">imagescale()</a></span> will now throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if an invalid
+    <code class="parameter">mode</code> parameter value is passed.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.imagefilter.html" class="function">imagefilter()</a></span> will now throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> with the
+    <strong><code><a href="image.constants.html#constant.img-filter-scatter">IMG_FILTER_SCATTER</a></code></strong> filter
+    if the <code class="parameter">sub</code> or <code class="parameter">plus</code>
+    parameters underflows/overflows.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.gettext">
+   <h4 class="title">Gettext</h4>
+
+   <p class="para">
+    <span class="simplelist"><span class="function"><a href="function.bind-textdomain-codeset.html" class="function">bind_textdomain_codeset()</a></span>, <span class="function"><a href="function.textdomain.html" class="function">textdomain()</a></span>, <span class="function"><strong>d()</strong><span class="replaceable">*</span><a href="function.gettext.html" class="function">gettext()</a></span></span>
+    now throw a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if
+    <code class="parameter">domain</code> is the empty string.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="para">
+    <span class="function"><a href="resourcebundle.get.html" class="function">resourcebundle_get()</a></span>,
+    <span class="methodname"><a href="resourcebundle.get.html" class="methodname">ResourceBundle::get()</a></span>, and accessing offsets on
+    a <span class="classname"><a href="class.resourcebundle.html" class="classname">ResourceBundle</a></span> object now throw:
+    <ul class="simplelist">
+     <li>
+      <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span> for invalid offset types
+     </li>
+     <li>
+      <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> for an empty <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </li>
+     <li>
+      <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the integer index does
+      not fit in a signed 32 bit integer
+     </li>
+    </ul>
+   </p>
+
+   <p class="simpara">
+    <span class="methodname"><a href="intldateformatter.create.html" class="methodname">IntlDateFormatter::__construct()</a></span> throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">locale</code> is invalid.
+   </p>
+
+   <p class="simpara">
+    <span class="methodname"><a href="numberformatter.create.html" class="methodname">NumberFormatter::__construct()</a></span> throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">locale</code> is invalid.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.mb-encode-numericentity.html" class="function">mb_encode_numericentity()</a></span> and
+    <span class="function"><a href="function.mb-decode-numericentity.html" class="function">mb_decode_numericentity()</a></span> now check that the
+    <code class="parameter">map</code> is only composed of <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>s,
+    if not a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> is now thrown.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.mb-http-input.html" class="function">mb_http_input()</a></span> now always throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if <code class="parameter">type</code>
+    is invalid.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.mb-http-output.html" class="function">mb_http_output()</a></span> now check that the
+    <code class="parameter">encoding</code> does not contain any null bytes,
+    if it does a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> is now thrown.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.odbc">
+   <h4 class="title">ODBC</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.odbc-fetch-row.html" class="function">odbc_fetch_row()</a></span> returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> when
+    <code class="parameter">row</code> is less than or equal to <code class="literal">0</code>.
+    A warning is now emitted in this case.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.pcntl">
+   <h4 class="title">PCNTL</h4>
+
+   <p class="para">
+    The <span class="function"><a href="function.pcntl-sigprocmask.html" class="function">pcntl_sigprocmask()</a></span>,
+    <span class="function"><a href="function.pcntl-sigwaitinfo.html" class="function">pcntl_sigwaitinfo()</a></span>, and
+    <span class="function"><a href="function.pcntl-sigtimedwait.html" class="function">pcntl_sigtimedwait()</a></span> functions now throw:
+    <ul class="simplelist">
+     <li>
+      A <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+      <code class="parameter">signals</code> array is empty
+      (except for <span class="function"><a href="function.pcntl-sigprocmask.html" class="function">pcntl_sigprocmask()</a></span> if the
+      <code class="parameter">mode</code> <strong><code><a href="pcntl.constants.html#constant.sig-setmask">SIG_SETMASK</a></code></strong>)
+     </li>
+     <li>
+      A <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span> if a value of the
+      <code class="parameter">signals</code> array is not an <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+     </li>
+     <li>
+      A <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if a value of the
+      <code class="parameter">signals</code> array is not a valid signal number
+     </li>
+    </ul>
+   </p>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.pcntl-sigprocmask.html" class="function">pcntl_sigprocmask()</a></span> function now throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">mode</code> is not one of <strong><code><a href="pcntl.constants.html#constant.sig-block">SIG_BLOCK</a></code></strong>,
+    <strong><code><a href="pcntl.constants.html#constant.sig-unblock">SIG_UNBLOCK</a></code></strong>, or <strong><code><a href="pcntl.constants.html#constant.sig-setmask">SIG_SETMASK</a></code></strong>.
+   </p>
+
+   <p class="para">
+    The <span class="function"><a href="function.pcntl-sigtimedwait.html" class="function">pcntl_sigtimedwait()</a></span> function now throw:
+    <ul class="simplelist">
+     <li>
+      A <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if
+      <code class="parameter">seconds</code> is less than <code class="literal">0</code>
+     </li>
+     <li>
+      A <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if
+      <code class="parameter">nanoseconds</code> is less than <code class="literal">0</code>
+      or greater than <code class="literal">1e9</code>
+     </li>
+     <li>
+      A <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if both
+      <code class="parameter">seconds</code> and <code class="parameter">nanoseconds</code>
+      are <code class="literal">0</code>
+     </li>
+    </ul>
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.simplexml">
+   <h4 class="title">SimpleXML</h4>
+
+   <p class="simpara">
+    Calling <span class="function"><a href="function.simplexml-import-dom.html" class="function">simplexml_import_dom()</a></span> with a non-XML object
+    now throws a <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span> instead of a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.round.html" class="function">round()</a></span> function now validates the value of the
+    <code class="parameter">mode</code> and throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> for invalid modes.
+    Previously, invalid modes would have been interpreted as
+    <strong><code><a href="math.constants.html#constant.php-round-half-up">PHP_ROUND_HALF_UP</a></code></strong>.
+   </p>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.str-getcsv.html" class="function">str_getcsv()</a></span> now throws
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>s when the
+    <code class="parameter">separator</code> and <code class="parameter">enclosure</code>
+    arguments are not one byte long, or if the <code class="parameter">escape</code>
+    argument is not one byte long nor the empty string.
+    This aligns the behaviour to be identical to the one of
+    <span class="function"><a href="function.fputcsv.html" class="function">fputcsv()</a></span> and <span class="function"><a href="function.fgetcsv.html" class="function">fgetcsv()</a></span>.
+   </p>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.php-uname.html" class="function">php_uname()</a></span> function now throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> if the
+    <code class="parameter">mode</code> is invalid.
+   </p>
+
+   <p class="simpara">
+    The <code class="literal">&quot;allowed_classes&quot;</code> option for
+    <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> now throws
+    <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span>s and
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>s if it is not an
+    <span class="type"><a href="language.types.array.html" class="type array">array</a></span> of class names.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.xmlreader">
+   <h4 class="title">XMLReader</h4>
+
+   <p class="simpara">
+    Passing an invalid character encoding to
+    <span class="methodname"><a href="xmlreader.open.html" class="methodname">XMLReader::open()</a></span> or
+    <span class="methodname"><a href="xmlreader.xml.html" class="methodname">XMLReader::XML()</a></span> now throws a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>.
+   </p>
+
+   <p class="simpara">
+    Passing a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> containing null bytes previously emitted a
+    warning and now throws a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.xmlwriter">
+   <h4 class="title">XMLWriter</h4>
+
+   <p class="simpara">
+    Passing a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> containing null bytes previously emitted a
+    warning and now throws a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.incompatible.new-warnings-exceptions.xsl">
+   <h4 class="title">XSL</h4>
+
+   <p class="simpara">
+    <span class="methodname"><a href="xsltprocessor.setparameter.html" class="methodname">XSLTProcessor::setParameter()</a></span> will now throw a
+    <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> when its arguments contain null
+    bytes. This never actually worked correctly in the first place,
+    which is why it throws an exception now.
+   </p>
+
+   <p class="simpara">
+    Calling <span class="methodname"><a href="xsltprocessor.importstylesheet.html" class="methodname">XSLTProcessor::importStyleSheet()</a></span> with a
+    non-XML object now throws a <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span>
+    instead of a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>.
+   </p>
+
+   
+   <p class="simpara">
+    Failure to call a PHP function callback during evaluation now throws
+    instead of emitting a warning.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.dom">
+  <h3 class="title">DOM</h3>
+
+  <p class="simpara">
+   Some DOM methods previously returned <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> or a
+   <span class="exceptionname"><a href="class.domexception.html" class="exceptionname">DOMException</a></span> with code
+   <strong><code><a href="dom.constants.html#constant.dom-php-err">DOM_PHP_ERR</a></code></strong> if a new node could not be allocated.
+   They now consistently throw a <span class="exceptionname"><a href="class.domexception.html" class="exceptionname">DOMException</a></span>
+   with code <strong><code><a href="dom.constants.html#constant.dom-invalid-state-err">DOM_INVALID_STATE_ERR</a></code></strong>.
+   This situation is extremely unlikely and the probability of being affected
+   is low.
+   As a result <span class="methodname"><a href="domimplementation.createdocument.html" class="methodname">DOMImplementation::createDocument()</a></span>
+   now has a tentative return type of <span class="classname"><a href="class.domdocument.html" class="classname">DOMDocument</a></span>
+   
+   instead of <code class="code">DOMDocument|false</code>.
+  </p>
+
+  <p class="simpara">
+   Previously, <span class="classname"><a href="class.domxpath.html" class="classname">DOMXPath</a></span> objects could be cloned,
+   but resulted in an unusable object.
+   This is no longer possible, and cloning a <span class="classname"><a href="class.domxpath.html" class="classname">DOMXPath</a></span>
+   object now throws an <span class="exceptionname"><a href="class.error.html" class="exceptionname">Error</a></span>.
+  </p>
+
+  
+  <p class="simpara">
+   The <span class="methodname"><strong>DOMImplementation::getFeature()</strong></span> method has been removed.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.gmp">
+  <h3 class="title">GMP</h3>
+
+  
+  <p class="simpara">
+   The <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> class is now final and cannot be extended
+   anymore.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.mbstring">
+  <h3 class="title">MBString</h3>
+
+  <p class="simpara">
+   On invalid strings (those with encoding errors),
+   <span class="function"><a href="function.mb-substr.html" class="function">mb_substr()</a></span> now interprets character indices in the same
+   manner as most other mbstring functions.
+   This means that character indices returned by <span class="function"><a href="function.mb-strpos.html" class="function">mb_strpos()</a></span>
+   can be passed to <span class="function"><a href="function.mb-substr.html" class="function">mb_substr()</a></span>.
+  </p>
+
+  <p class="simpara">
+   For SJIS-Mac (MacJapanese) strings, character indices passed to
+   <span class="function"><a href="function.mb-substr.html" class="function">mb_substr()</a></span> now refer to the indices of the Unicode
+   codepoints which are produced when the string is converted to Unicode.
+   This is significant because around 40 SJIS-Mac characters convert to a
+   sequence of multiple Unicode codepoints.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.mysqli">
+  <h3 class="title">MySQLi</h3>
+
+  <p class="simpara">
+   The unused and undocumented constant
+   <strong><code>MYSQLI_SET_CHARSET_DIR</code></strong> has been removed.
+  </p>
+
+  <p class="simpara">
+   The <strong><code><a href="mysqli.constants.html#constant.mysqli-stmt-attr-prefetch-rows">MYSQLI_STMT_ATTR_PREFETCH_ROWS</a></code></strong> constant has been
+   removed. The feature is unavailable with mysqlnd.
+  </p>
+
+  <p class="simpara">
+   The <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-for-update">MYSQLI_CURSOR_TYPE_FOR_UPDATE</a></code></strong> and
+   <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-scrollable">MYSQLI_CURSOR_TYPE_SCROLLABLE</a></code></strong> constants have been
+   removed. This functionality was never implemented,
+   neither with mysqlnd nor with libmysql.
+  </p>
+
+  <p class="simpara">
+   The unused <strong><code><a href="mysqli.constants.html#constant.mysqli-type-interval">MYSQLI_TYPE_INTERVAL</a></code></strong> constant, which is
+   currently a stub and an alias for <strong><code><a href="mysqli.constants.html#constant.mysqli-type-enum">MYSQLI_TYPE_ENUM</a></code></strong>,
+   has been removed.
+   
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.mysqlnd">
+  <h3 class="title">MySQLnd</h3>
+
+  <p class="simpara">
+   The error code reported for MySQL server wait timeouts has been changed from
+   <code class="literal">2006</code> to <code class="literal">4031</code> for MySQL server
+   versions 8.0.24 and above.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.opcache">
+  <h3 class="title">Opcache</h3>
+
+  <p class="simpara">
+   The maximum value of the
+   <a href="opcache.configuration.html#ini.opcache.interned-strings-buffer" class="link">opcache.interned_strings_buffer</a>
+   setting on 64bit architectures is now <code class="literal">32767</code>.
+   Previously it was <code class="literal">4095</code>.
+  </p>
+
+  <div class="sect3">
+   <h4 class="title">JIT</h4>
+
+   <p class="simpara">
+    The default configuration values for the JIT changed from
+    <a href="opcache.configuration.html#ini.opcache.jit" class="link"><code class="literal">opcache.jit=tracing</code></a>
+    and <a href="opcache.configuration.html#ini.opcache.jit-buffer-size" class="link"><code class="literal">opcache.jit_buffer_size=0</code></a>
+    to <a href="opcache.configuration.html#ini.opcache.jit" class="link"><code class="literal">opcache.jit=disable</code></a>
+    and <a href="opcache.configuration.html#ini.opcache.jit-buffer-size" class="link"><code class="literal">opcache.jit_buffer_size=64M</code></a>, respectively.
+   </p>
+
+   <p class="simpara">
+    This does not affect the default observable behavior,
+    as the JIT is still disabled by default.
+    However, it is now disabled through the
+    <a href="opcache.configuration.html#ini.opcache.jit" class="link">opcache.jit</a> setting,
+    rather than
+    <a href="opcache.configuration.html#ini.opcache.jit-buffer-size" class="link">opcache.jit_buffer_size</a>.
+    This may affect users who previously enabled JIT through
+    <a href="opcache.configuration.html#ini.opcache.jit-buffer-size" class="link">opcache.jit_buffer_size</a>
+    exclusively, without also specifying a JIT mode using
+    <a href="opcache.configuration.html#ini.opcache.jit" class="link">opcache.jit</a>.
+    To enable JIT compilation, set the
+    <a href="opcache.configuration.html#ini.opcache.jit" class="link">opcache.jit</a> config value accordingly.
+   </p>
+
+   <p class="simpara">
+    If <abbr>JIT</abbr> compilation is enabled, <abbr title="PHP: Hypertext Preprocessor">PHP</abbr> will now exit with a fatal error on
+    startup if the initialization of the <abbr>JIT</abbr> compiler failed for any reason.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pcntl">
+  <h3 class="title">PCNTL</h3>
+
+  <p class="simpara">
+   The <span class="function"><a href="function.pcntl-sigprocmask.html" class="function">pcntl_sigprocmask()</a></span>,
+   <span class="function"><a href="function.pcntl-sigwaitinfo.html" class="function">pcntl_sigwaitinfo()</a></span>, and
+   <span class="function"><a href="function.pcntl-sigtimedwait.html" class="function">pcntl_sigtimedwait()</a></span> functions now always
+   return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+   In some case previously it could return the value <code class="literal">-1</code>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pcre">
+  <h3 class="title">PCRE</h3>
+
+  <p class="simpara">
+   The bundled pcre2lib has been updated to version 10.44.
+   As a consequence, this means <code class="literal">{,3}</code> is now recognized
+   as a quantifier instead of as text.
+   Furthermore, the meaning of some character classes in UCP mode has changed.
+   Consult the <a href="https://github.com/PCRE2Project/pcre2/blob/master/NEWS" class="link external">&raquo;&nbsp;PCRE2 Changelog</a>
+   for a full changelog.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pdo-dblib">
+  <h3 class="title">PDO_DBLIB</h3>
+
+  <p class="simpara">
+   The <strong><code>Pdo\Dblib::ATTR_STRINGIFY_UNIQUEIDENTIFIER</code></strong> and
+   <strong><code>Pdo\Dblib::ATTR_DATETIME_CONVERT</code></strong> attributes now act as
+   boolean attributes instead of integer attributes.
+   Thus setting the attribute via <span class="methodname"><a href="pdo.setattribute.html" class="methodname">PDO::setAttribute()</a></span>
+   and retrieving it via <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span> expects
+   and or return a <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pdo-firebird">
+  <h3 class="title">PDO_FIREBIRD</h3>
+
+  <p class="simpara">
+   The <strong><code><a href="pdo.constants.html#pdo.constants.attr-autocommit">PDO::ATTR_AUTOCOMMIT</a></code></strong> attribute now act as
+   boolean attributes instead of integer attributes.
+   Thus setting the attribute via <span class="methodname"><a href="pdo.setattribute.html" class="methodname">PDO::setAttribute()</a></span>
+   and retrieving it via <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span> expects
+   and or return a <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+  </p>
+
+  <p class="simpara">
+   The extension now exposes some Firebird C++ APIs,
+   therefore building this extension now requires a C++ compiler.
+   Moreover, the extension must now be compiled against fbclient 3.0 or higher.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pdo-mysql">
+  <h3 class="title">PDO_MYSQL</h3>
+
+  <p class="simpara">
+   The <strong><code><a href="pdo.constants.html#pdo.constants.attr-autocommit">PDO::ATTR_AUTOCOMMIT</a></code></strong>,
+   <strong><code><a href="pdo.constants.html#pdo.constants.attr-emulate-prepares">PDO::ATTR_EMULATE_PREPARES</a></code></strong>, and
+   <strong><code><a href="ref.pdo-mysql.html#pdo.constants.mysql-attr-direct-query">PDO::MYSQL_ATTR_DIRECT_QUERY</a></code></strong> attributes now act as
+   boolean attributes instead of integer attributes.
+   Thus setting the attribute via <span class="methodname"><a href="pdo.setattribute.html" class="methodname">PDO::setAttribute()</a></span>
+   and retrieving it via <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span> expects
+   and or return a <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.pdo-pgsql">
+  <h3 class="title">PDO_PGSQL</h3>
+
+  <p class="simpara">
+   The DSN&#039;s credentials, when set, are given priority over their PDO
+   constructor counterparts, being closer to the documentation states.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.simplexml">
+  <h3 class="title">SimpleXML</h3>
+
+  <p class="simpara">
+   <span class="classname"><a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a></span> is not only a representation of an
+   XML element, but it is also a <span class="classname"><a href="class.recursiveiterator.html" class="classname">RecursiveIterator</a></span>.
+   Prior to PHP 8.4.0, some of its methods (e.g.
+   <span class="methodname"><a href="simplexmlelement.asxml.html" class="methodname">SimpleXMLElement::asXML()</a></span> or
+   <span class="methodname"><a href="simplexmlelement.getname.html" class="methodname">SimpleXMLElement::getName()</a></span>) and casting such
+   instances to <span class="type"><a href="language.types.string.html" class="type string">string</a></span> would implicitly reset the iterator.
+  </p>
+  <p class="para">
+   This could cause unexpected infinite loops as the iterator was rewound.
+   For example:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br />$xmlString </span><span style="color: #007700">= </span><span style="color: #DD0000">"&lt;root&gt;&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;b&gt;3&lt;/b&gt;&lt;/a&gt;&lt;/root&gt;"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$xml </span><span style="color: #007700">= </span><span style="color: #0000BB">simplexml_load_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlString</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$nodes </span><span style="color: #007700">= </span><span style="color: #0000BB">$xml</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">b</span><span style="color: #007700">;<br />foreach (</span><span style="color: #0000BB">$nodes </span><span style="color: #007700">as </span><span style="color: #0000BB">$nodeData</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"nodeData: " </span><span style="color: #007700">. </span><span style="color: #0000BB">$nodeData </span><span style="color: #007700">. </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />    </span><span style="color: #0000BB">$xml </span><span style="color: #007700">= </span><span style="color: #0000BB">$nodes</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">asXml</span><span style="color: #007700">();<br />}</span></span></code></div>
+    </div>
+
+    <p class="simpara">
+     would result in an infinite loop.
+    </p>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+nodeData: 1
+nodeData: 2
+nodeData: 2
+nodeData: 2
+nodeData: 2
+nodeData: 2
+nodeData: 2
+// ...
+</pre></div>
+    </div>
+    <p class="simpara">
+     However, this behavior has now been corrected, and a
+     <span class="classname"><a href="class.simplexmlelement.html" class="classname">SimpleXMLElement</a></span> will no longer implicitly reset
+     the iterator data, unless explicitly rewound.
+     Meaning the previous example would now result in:
+    </p>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+nodeData: 1
+nodeData: 2
+nodeData: 3
+</pre></div>
+    </div>
+   </div>
+  </p>
+  
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.soap">
+  <h3 class="title">SOAP</h3>
+
+  <p class="simpara">
+   <span class="property">SoapClient::$typemap</span> is now an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+   rather than a <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+   Checks using <span class="function"><a href="function.is-resource.html" class="function">is_resource()</a></span> (i.e.
+   <code class="code">is_resource($client-&gt;typemap)</code>) should be
+   replaced with checks for <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> (i.e. <code class="code">$client-&gt;typemap !== null</code>).
+  </p>
+
+  <p class="simpara">
+   The SOAP extension gained an optional dependency on the
+   <a href="book.session.html" class="link">session</a> extension.
+   If PHP is built without the session extension and with the
+   <strong class="option unknown">--enable-rtld-now</strong> configure flag enabled,
+   startup errors will now occur if the <a href="book.soap.html" class="link">SOAP</a>
+   extension is also used.
+   To solve this either don&#039;t use rtld-now or load the session extension.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="simpara">
+   When using <span class="function"><a href="function.strcspn.html" class="function">strcspn()</a></span> with
+   <code class="parameter">characters</code> being the empty string,
+   the length of the string is now returned instead of incorrectly stopping
+   at the first null byte.
+   
+  </p>
+
+  <p class="simpara">
+   <span class="function"><a href="function.http-build-query.html" class="function">http_build_query()</a></span> now correctly handles backed enums.
+  </p>
+
+  
+  <p class="simpara">
+   <span class="function"><a href="function.stream-bucket-make-writeable.html" class="function">stream_bucket_make_writeable()</a></span> and
+   <span class="function"><a href="function.stream-bucket-new.html" class="function">stream_bucket_new()</a></span> will now return a
+   <span class="classname"><strong class="classname">StreamBucket</strong></span> instance instead of an instance of
+   <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.tidy">
+  <h3 class="title">Tidy</h3>
+
+  <p class="simpara">
+   Failures in the constructor now throw exceptions rather than emitting
+   warnings and having a broken object.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.incompatible.xml">
+  <h3 class="title">XML</h3>
+
+  <p class="simpara">
+   The <span class="function"><strong>xml_set_()</strong><span class="replaceable">*</span><strong>_handler()</strong></span>
+   functions now declare and check for an effective
+   signature of <span class="type"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>|<span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.null.html" class="type null">null</a></span></span> for the
+   <code class="parameter">handler</code> parameters.
+   Moreover, values of type <span class="type"><a href="language.types.string.html" class="type string">string</a></span> that correspond to method names,
+   of object set with <span class="function"><a href="function.xml-set-object.html" class="function">xml_set_object()</a></span> are now checked to
+   see if the method exists on the class of the previously passed object.
+   This means that <span class="function"><a href="function.xml-set-object.html" class="function">xml_set_object()</a></span> must now always be
+   called prior to setting method names as <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>s.
+   Passing an empty string to disable the handler is still allowed,
+   but deprecated.
+  </p>
+
+  <p class="simpara">
+   However, as <span class="function"><a href="function.xml-set-object.html" class="function">xml_set_object()</a></span> and passing
+   non-<span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> strings is deprecated.
+   It is recommended to change such instances with a <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>
+   referring to the method directly.
+  </p>
+ </div>
+
+</div></div></div></body></html>

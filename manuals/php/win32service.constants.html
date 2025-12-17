@@ -1,0 +1,1324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="win32service.security.html">« Security consideration</a></li>
+      <li style="float: right;"><a href="class.win32serviceexception.html">Win32ServiceException »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.win32service.html">win32service</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="win32service.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+
+  <table id="win32service.constants.servicetype" class="doctable table">
+   <caption><strong>Win32Service Service Type Bitmasks</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-win32-own-process">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-win32-own-process">WIN32_SERVICE_WIN32_OWN_PROCESS</a></code></strong></td>
+      <td><code class="literal">0x00000010</code></td>
+      <td>
+       The service runs in its own process.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-interactive-process">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-interactive-process">WIN32_SERVICE_INTERACTIVE_PROCESS</a></code></strong></td>
+      <td><code class="literal">0x00000100</code></td>
+      <td>
+       The service can interact with the desktop. This option is not available on Windows Vista or later.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-win32-own-process-interactive">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-win32-own-process-interactive">WIN32_SERVICE_WIN32_OWN_PROCESS_INTERACTIVE</a></code></strong></td>
+      <td><code class="literal">0x00000110</code></td>
+      <td>
+       The service runs in its own process and can interact with the desktop. This option is not available on Windows Vista or later.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.servicestatus" class="doctable table">
+   <caption><strong>Win32Service Service Status Constants</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-continue-pending">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-continue-pending">WIN32_SERVICE_CONTINUE_PENDING</a></code></strong></td>
+      <td><code class="literal">0x00000005</code></td>
+      <td>
+       The service continue is pending.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-pause-pending">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-pause-pending">WIN32_SERVICE_PAUSE_PENDING</a></code></strong></td>
+      <td><code class="literal">0x00000006</code></td>
+      <td>
+       The service pause is pending.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-paused">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-paused">WIN32_SERVICE_PAUSED</a></code></strong></td>
+      <td><code class="literal">0x00000007</code></td>
+      <td>
+       The service is paused.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-running">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-running">WIN32_SERVICE_RUNNING</a></code></strong></td>
+      <td><code class="literal">0x00000004</code></td>
+      <td>
+       The service is running.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-start-pending">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-start-pending">WIN32_SERVICE_START_PENDING</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       The service is starting.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-stop-pending">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-stop-pending">WIN32_SERVICE_STOP_PENDING</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       The service is stopping.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-stopped">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-stopped">WIN32_SERVICE_STOPPED</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       The service is not running.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.servicecontrol" class="doctable table">
+   <caption><strong>Win32Service Service Control Message Constants</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-control-continue">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-continue">WIN32_SERVICE_CONTROL_CONTINUE</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       Notifies a paused service that it should resume.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-deviceevent">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-deviceevent">WIN32_SERVICE_CONTROL_DEVICEEVENT</a></code></strong></td>
+      <td><code class="literal">0x0000000B</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-hardwareprofilechange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-hardwareprofilechange">WIN32_SERVICE_CONTROL_HARDWAREPROFILECHANGE</a></code></strong></td>
+      <td><code class="literal">0x0000000C</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-interrogate">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-interrogate">WIN32_SERVICE_CONTROL_INTERROGATE</a></code></strong></td>
+      <td><code class="literal">0x00000004</code></td>
+      <td>
+       Notifies a service that it should report its current status information
+       to the service control manager.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-netbindadd">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindadd">WIN32_SERVICE_CONTROL_NETBINDADD</a></code></strong></td>
+      <td><code class="literal">0x00000007</code></td>
+      <td>
+       Notifies a network service that there is a new component for binding.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-netbinddisable">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-netbinddisable">WIN32_SERVICE_CONTROL_NETBINDDISABLE</a></code></strong></td>
+      <td><code class="literal">0x0000000A</code></td>
+      <td>
+       Notifies a network service that one of its bindings has been disabled.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-netbindenable">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindenable">WIN32_SERVICE_CONTROL_NETBINDENABLE</a></code></strong></td>
+      <td><code class="literal">0x00000009</code></td>
+      <td>
+       Notifies a network service that a disabled binding has been enabled.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-netbindremove">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindremove">WIN32_SERVICE_CONTROL_NETBINDREMOVE</a></code></strong></td>
+      <td><code class="literal">0x00000008</code></td>
+      <td>
+       Notifies a network service that a component for binding has been removed.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-paramchange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-paramchange">WIN32_SERVICE_CONTROL_PARAMCHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000006</code></td>
+      <td>
+       Notifies a service that its startup parameters have changed.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-pause">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-pause">WIN32_SERVICE_CONTROL_PAUSE</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       Notifies a service that it should pause.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-powerevent">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-powerevent">WIN32_SERVICE_CONTROL_POWEREVENT</a></code></strong></td>
+      <td><code class="literal">0x0000000D</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-preshutdown">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-preshutdown">WIN32_SERVICE_CONTROL_PRESHUTDOWN</a></code></strong></td>
+      <td><code class="literal">0x0000000F</code></td>
+      <td>
+       Notifies a service that the system will be shutting down. A service that
+       handles this notification blocks system shutdown until the service stops
+       or the preshutdown time-out interval expires. This value is not supported
+       by Windows Server 2003 and Windows XP/2000.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-sessionchange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-sessionchange">WIN32_SERVICE_CONTROL_SESSIONCHANGE</a></code></strong></td>
+      <td><code class="literal">0x0000000E</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-shutdown">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-shutdown">WIN32_SERVICE_CONTROL_SHUTDOWN</a></code></strong></td>
+      <td><code class="literal">0x00000005</code></td>
+      <td>
+       Notifies a service that the system is shutting down so the service can
+       perform cleanup tasks. If a service accepts this control code, it must
+       stop after it performs its cleanup tasks. After the SCM sends this
+       control code, it will not send other control codes to the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-control-stop">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-control-stop">WIN32_SERVICE_CONTROL_STOP</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       Notifies a service that it should stop.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.controlsaccepted" class="doctable table">
+   <caption><strong>Win32Service Service Control Message Accepted Bitmasks</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-accept-hardwareprofilechange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-hardwareprofilechange">WIN32_SERVICE_ACCEPT_HARDWAREPROFILECHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000020</code></td>
+      <td>
+        The service is notified when the computer&#039;s hardware profile has changed.
+        This enables the system to send 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-hardwareprofilechange">WIN32_SERVICE_CONTROL_HARDWAREPROFILECHANGE</a></code></strong> 
+        notifications to the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-netbindchange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-netbindchange">WIN32_SERVICE_ACCEPT_NETBINDCHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000010</code></td>
+      <td>
+        The service is a network component that can accept changes in its 
+        binding without being stopped and restarted.
+        This control code allows the service to receive 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindadd">WIN32_SERVICE_CONTROL_NETBINDADD</a></code></strong>, 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindremove">WIN32_SERVICE_CONTROL_NETBINDREMOVE</a></code></strong>, 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-netbindenable">WIN32_SERVICE_CONTROL_NETBINDENABLE</a></code></strong>, and 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-netbinddisable">WIN32_SERVICE_CONTROL_NETBINDDISABLE</a></code></strong> notifications.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-paramchange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-paramchange">WIN32_SERVICE_ACCEPT_PARAMCHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000008</code></td>
+      <td>
+        The service can reread its startup parameters without being stopped and restarted.
+        This control code allows the service to receive 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-paramchange">WIN32_SERVICE_CONTROL_PARAMCHANGE</a></code></strong> notifications.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-pause-continue">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-pause-continue">WIN32_SERVICE_ACCEPT_PAUSE_CONTINUE</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       The service can be paused and continued. This control code allows the
+       service to receive <strong><code><a href="win32service.constants.html#constant.win32-service-control-pause">WIN32_SERVICE_CONTROL_PAUSE</a></code></strong> and
+       <strong><code><a href="win32service.constants.html#constant.win32-service-control-continue">WIN32_SERVICE_CONTROL_CONTINUE</a></code></strong> notifications.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-powerevent">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-powerevent">WIN32_SERVICE_ACCEPT_POWEREVENT</a></code></strong></td>
+      <td><code class="literal">0x00000040</code></td>
+      <td>
+        The service is notified when the computer&#039;s power status has changed.
+        This enables the system to send 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-powerevent">WIN32_SERVICE_CONTROL_POWEREVENT</a></code></strong> notifications 
+        to the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-preshutdown">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-preshutdown">WIN32_SERVICE_ACCEPT_PRESHUTDOWN</a></code></strong></td>
+      <td><code class="literal">0x00000100</code></td>
+      <td>
+       The service can perform preshutdown tasks. This control code enables the
+       service to receive <strong><code><a href="win32service.constants.html#constant.win32-service-control-preshutdown">WIN32_SERVICE_CONTROL_PRESHUTDOWN</a></code></strong>
+       notifications. This value is not supported by Windows Server 2003 and
+       Windows XP/2000.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-sessionchange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-sessionchange">WIN32_SERVICE_ACCEPT_SESSIONCHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000080</code></td>
+      <td>
+        The service is notified when the computer&#039;s session status has changed.
+        This enables the system to send 
+        <strong><code><a href="win32service.constants.html#constant.win32-service-control-sessionchange">WIN32_SERVICE_CONTROL_SESSIONCHANGE</a></code></strong> notifications 
+        to the service.
+        Windows 2000:  This value is not supported
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-shutdown">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-shutdown">WIN32_SERVICE_ACCEPT_SHUTDOWN</a></code></strong></td>
+      <td><code class="literal">0x00000004</code></td>
+      <td>
+       The service is notified when system shutdown occurs. This control code
+       allows the service to receive <strong><code><a href="win32service.constants.html#constant.win32-service-control-shutdown">WIN32_SERVICE_CONTROL_SHUTDOWN</a></code></strong>
+       notifications.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-stop">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-stop">WIN32_SERVICE_ACCEPT_STOP</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       The service can be stopped. This control code allows the service to
+       receive <strong><code><a href="win32service.constants.html#constant.win32-service-control-stop">WIN32_SERVICE_CONTROL_STOP</a></code></strong> notifications.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-timechange">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-timechange">WIN32_SERVICE_ACCEPT_TIMECHANGE</a></code></strong></td>
+      <td><code class="literal">0x00000200</code></td>
+      <td>
+        The service is notified when the system time has changed.
+        This enables the system to send 
+        <strong><code>WIN32_SERVICE_CONTROL_TIMECHANGE</code></strong> notifications to the service.
+        Windows Server 2008, Windows Vista, Windows Server 2003, 
+        and Windows XP/2000:  This control code is not supported.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-accept-triggerevent">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-accept-triggerevent">WIN32_SERVICE_ACCEPT_TRIGGEREVENT</a></code></strong></td>
+      <td><code class="literal">0x00000400</code></td>
+      <td>
+        The service is notified when an event for which the service has registered occurs.
+        This enables the system to send 
+        <strong><code>WIN32_SERVICE_CONTROL_TRIGGEREVENT</code></strong> notifications to the service.
+        Windows Server 2008, Windows Vista, Windows Server 2003, 
+        and Windows XP/2000:  This control code is not supported.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.servicestarttype" class="doctable table">
+   <caption><strong>Win32Service Service Start Type Constants</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-boot-start">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-boot-start">WIN32_SERVICE_BOOT_START</a></code></strong></td>
+      <td><code class="literal">0x00000000</code></td>
+      <td>
+       A device driver started by the system loader. This value is valid only for driver services.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-system-start">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-system-start">WIN32_SERVICE_SYSTEM_START</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       A device driver started by the IoInitSystem function. This value is valid only for driver services.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-auto-start">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-auto-start">WIN32_SERVICE_AUTO_START</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       A service started automatically by the service control manager during
+       system startup.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-demand-start">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-demand-start">WIN32_SERVICE_DEMAND_START</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       A service started by the service control manager when a process calls the
+       StartService function.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-disabled">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-disabled">WIN32_SERVICE_DISABLED</a></code></strong></td>
+      <td><code class="literal">0x00000004</code></td>
+      <td>
+       A service that cannot be started. Attempts to start the service result in
+       the error code <strong><code><a href="win32service.constants.html#constant.win32-error-service-disabled">WIN32_ERROR_SERVICE_DISABLED</a></code></strong>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.errorcontrol" class="doctable table">
+   <caption><strong>Win32Service Service Error Control Constants</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-error-ignore">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-error-ignore">WIN32_SERVICE_ERROR_IGNORE</a></code></strong></td>
+      <td><code class="literal">0x00000000</code></td>
+      <td>
+       The startup program ignores the error and continues the startup operation.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-error-normal">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-error-normal">WIN32_SERVICE_ERROR_NORMAL</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       The startup program logs the error in the event log but continues the
+       startup operation.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-error-severe">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-error-severe">WIN32_SERVICE_ERROR_SEVERE</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       The startup program logs the error in the event log.
+       If the last-known-good configuration is being started, the startup 
+       operation continues. Otherwise, the system is restarted with the 
+       last-known-good configuration.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-error-critical">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-error-critical">WIN32_SERVICE_ERROR_CRITICAL</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       The startup program logs the error in the event log, if possible.
+       If the last-known-good configuration is being started, the startup 
+       operation fails. Otherwise, the system is restarted with the 
+       last-known good configuration.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.serviceflag" class="doctable table">
+   <caption><strong>Win32Service Service Flag Constants</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-runs-in-system-process">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-runs-in-system-process">WIN32_SERVICE_RUNS_IN_SYSTEM_PROCESS</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       The service runs in a system process that must always be running.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    These constants are no longer in use as of Win32Service 1.0.0.
+   </p>
+  </p></blockquote>
+  <table id="win32service.constants.errors" class="doctable table">
+   <caption><strong>Win32 Error Codes</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-error-access-denied">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-access-denied">WIN32_ERROR_ACCESS_DENIED</a></code></strong></td>
+      <td><code class="literal">0x00000005</code></td>
+      <td>
+       The handle to the SCM database does not have the appropriate access rights.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-circular-dependency">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-circular-dependency">WIN32_ERROR_CIRCULAR_DEPENDENCY</a></code></strong></td>
+      <td><code class="literal">0x00000423</code></td>
+      <td>
+       A circular service dependency was specified.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-database-does-not-exist">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-database-does-not-exist">WIN32_ERROR_DATABASE_DOES_NOT_EXIST</a></code></strong></td>
+      <td><code class="literal">0x00000429</code></td>
+      <td>
+       The specified database does not exist.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-dependent-services-running">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-dependent-services-running">WIN32_ERROR_DEPENDENT_SERVICES_RUNNING</a></code></strong></td>
+      <td><code class="literal">0x0000041B</code></td>
+      <td>
+       The service cannot be stopped because other running services are dependent
+       on it.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-duplicate-service-name">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-duplicate-service-name">WIN32_ERROR_DUPLICATE_SERVICE_NAME</a></code></strong></td>
+      <td><code class="literal">0x00000436</code></td>
+      <td>
+       The display name already exists in the service control manager database
+       either as a service name or as another display name.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-failed-service-controller-connect">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-failed-service-controller-connect">WIN32_ERROR_FAILED_SERVICE_CONTROLLER_CONNECT</a></code></strong></td>
+      <td><code class="literal">0x00000427</code></td>
+      <td>
+       This error is returned if the program is being run as a console application
+       rather than as a service. If the program will be run as a console application
+       for debugging purposes, structure it such that service-specific code is not
+       called.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-insufficient-buffer">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-insufficient-buffer">WIN32_ERROR_INSUFFICIENT_BUFFER</a></code></strong></td>
+      <td><code class="literal">0x0000007A</code></td>
+      <td>
+       The buffer is too small for the service status structure. Nothing was
+       written to the structure.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-data">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-data">WIN32_ERROR_INVALID_DATA</a></code></strong></td>
+      <td><code class="literal">0x0000000D</code></td>
+      <td>
+       The specified service status structure is invalid.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-handle">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-handle">WIN32_ERROR_INVALID_HANDLE</a></code></strong></td>
+      <td><code class="literal">0x00000006</code></td>
+      <td>
+       The handle to the specified service control manager database is invalid.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-level">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-level">WIN32_ERROR_INVALID_LEVEL</a></code></strong></td>
+      <td><code class="literal">0x0000007C</code></td>
+      <td>
+       The InfoLevel parameter contains an unsupported value.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-name">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-name">WIN32_ERROR_INVALID_NAME</a></code></strong></td>
+      <td><code class="literal">0x0000007B</code></td>
+      <td>
+       The specified service name is invalid.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-parameter">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-parameter">WIN32_ERROR_INVALID_PARAMETER</a></code></strong></td>
+      <td><code class="literal">0x00000057</code></td>
+      <td>
+       A parameter that was specified is invalid.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-service-account">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-service-account">WIN32_ERROR_INVALID_SERVICE_ACCOUNT</a></code></strong></td>
+      <td><code class="literal">0x00000421</code></td>
+      <td>
+       The user account name specified in the <code class="parameter">user</code>
+       parameter does not exist. See <span class="function"><a href="function.win32-create-service.html" class="function">win32_create_service()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-invalid-service-control">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-invalid-service-control">WIN32_ERROR_INVALID_SERVICE_CONTROL</a></code></strong></td>
+      <td><code class="literal">0x0000041C</code></td>
+      <td>
+       The requested control code is not valid, or it is unacceptable to the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-path-not-found">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-path-not-found">WIN32_ERROR_PATH_NOT_FOUND</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       The service binary file could not be found.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-already-running">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-already-running">WIN32_ERROR_SERVICE_ALREADY_RUNNING</a></code></strong></td>
+      <td><code class="literal">0x00000420</code></td>
+      <td>
+       An instance of the service is already running.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-cannot-accept-ctrl">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-cannot-accept-ctrl">WIN32_ERROR_SERVICE_CANNOT_ACCEPT_CTRL</a></code></strong></td>
+      <td><code class="literal">0x00000425</code></td>
+      <td>
+       The requested control code cannot be sent to the service because the state
+       of the service is <strong><code><a href="win32service.constants.html#constant.win32-service-stopped">WIN32_SERVICE_STOPPED</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-start-pending">WIN32_SERVICE_START_PENDING</a></code></strong>, or
+       <strong><code><a href="win32service.constants.html#constant.win32-service-stop-pending">WIN32_SERVICE_STOP_PENDING</a></code></strong>.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-database-locked">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-database-locked">WIN32_ERROR_SERVICE_DATABASE_LOCKED</a></code></strong></td>
+      <td><code class="literal">0x0000041F</code></td>
+      <td>
+       The database is locked.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-dependency-deleted">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-dependency-deleted">WIN32_ERROR_SERVICE_DEPENDENCY_DELETED</a></code></strong></td>
+      <td><code class="literal">0x00000433</code></td>
+      <td>
+       The service depends on a service that does not exist or has been marked
+       for deletion.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-dependency-fail">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-dependency-fail">WIN32_ERROR_SERVICE_DEPENDENCY_FAIL</a></code></strong></td>
+      <td><code class="literal">0x0000042C</code></td>
+      <td>
+       The service depends on another service that has failed to start.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-disabled">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-disabled">WIN32_ERROR_SERVICE_DISABLED</a></code></strong></td>
+      <td><code class="literal">0x00000422</code></td>
+      <td>
+       The service has been disabled.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-does-not-exist">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-does-not-exist">WIN32_ERROR_SERVICE_DOES_NOT_EXIST</a></code></strong></td>
+      <td><code class="literal">0x00000424</code></td>
+      <td>
+       The specified service does not exist as an installed service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-exists">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-exists">WIN32_ERROR_SERVICE_EXISTS</a></code></strong></td>
+      <td><code class="literal">0x00000431</code></td>
+      <td>
+       The specified service already exists in this database.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-logon-failed">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-logon-failed">WIN32_ERROR_SERVICE_LOGON_FAILED</a></code></strong></td>
+      <td><code class="literal">0x0000042D</code></td>
+      <td>
+       The service did not start due to a logon failure. This error occurs if
+       the service is configured to run under an account that does not have the
+       &quot;Log on as a service&quot; right.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-marked-for-delete">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-marked-for-delete">WIN32_ERROR_SERVICE_MARKED_FOR_DELETE</a></code></strong></td>
+      <td><code class="literal">0x00000430</code></td>
+      <td>
+       The specified service has already been marked for deletion.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-no-thread">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-no-thread">WIN32_ERROR_SERVICE_NO_THREAD</a></code></strong></td>
+      <td><code class="literal">0x0000041E</code></td>
+      <td>
+       A thread could not be created for the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-not-active">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-not-active">WIN32_ERROR_SERVICE_NOT_ACTIVE</a></code></strong></td>
+      <td><code class="literal">0x00000426</code></td>
+      <td>
+       The service has not been started.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-request-timeout">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-request-timeout">WIN32_ERROR_SERVICE_REQUEST_TIMEOUT</a></code></strong></td>
+      <td><code class="literal">0x0000041D</code></td>
+      <td>
+       The process for the service was started, but it did not call
+       StartServiceCtrlDispatcher, or the thread that called
+       StartServiceCtrlDispatcher may be blocked in a control handler function.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-shutdown-in-progress">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-shutdown-in-progress">WIN32_ERROR_SHUTDOWN_IN_PROGRESS</a></code></strong></td>
+      <td><code class="literal">0x0000045B</code></td>
+      <td>
+       The system is shutting down; this function cannot be called.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-error-service-specific-error">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-error-service-specific-error">WIN32_ERROR_SERVICE_SPECIFIC_ERROR</a></code></strong></td>
+      <td><code class="literal">0x0000042A</code></td>
+      <td>
+       The service has returned a service-specific error code.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-no-error">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-no-error">WIN32_NO_ERROR</a></code></strong></td>
+      <td><code class="literal">0x00000000</code></td>
+      <td>
+       No error.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.basepriorities" class="doctable table">
+   <caption><strong>Win32 Base Priority Classes</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-above-normal-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-above-normal-priority-class">WIN32_ABOVE_NORMAL_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00008000</code></td>
+      <td>
+       Process that has priority above WIN32_NORMAL_PRIORITY_CLASS but below
+       WIN32_HIGH_PRIORITY_CLASS.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-below-normal-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-below-normal-priority-class">WIN32_BELOW_NORMAL_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00004000</code></td>
+      <td>
+       Process that has priority above WIN32_IDLE_PRIORITY_CLASS but below
+       WIN32_NORMAL_PRIORITY_CLASS.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-high-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-high-priority-class">WIN32_HIGH_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00000080</code></td>
+      <td>
+       Process that performs time-critical tasks that must be executed
+       immediately. The threads of the process preempt the threads of normal or
+       idle priority class processes. An example is the Task List, which must
+       respond quickly when called by the user, regardless of the load on the
+       operating system. Use extreme care when using the high-priority class,
+       because a high-priority class application can use nearly all available
+       CPU time.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-idle-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-idle-priority-class">WIN32_IDLE_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00000040</code></td>
+      <td>
+       Process whose threads run only when the system is idle. The threads of the
+       process are preempted by the threads of any process running in a higher
+       priority class. An example is a screen saver. The idle-priority class is
+       inherited by child processes.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-normal-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-normal-priority-class">WIN32_NORMAL_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00000020</code></td>
+      <td>
+       Process with no special scheduling needs.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-realtime-priority-class">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-realtime-priority-class">WIN32_REALTIME_PRIORITY_CLASS</a></code></strong></td>
+      <td><code class="literal">0x00000100</code></td>
+      <td>
+       Process that has the highest possible priority. The threads of the
+       process preempt the threads of all other processes, including operating
+       system processes performing important tasks. For example, a real-time
+       process that executes for more than a very brief interval can cause disk
+       caches not to flush or cause the mouse to be unresponsive.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.recovery-action" class="doctable table">
+   <caption><strong>Win32 Recovery action</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-sc-action-none">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-sc-action-none">WIN32_SC_ACTION_NONE</a></code></strong></td>
+      <td><code class="literal">0x00000000</code></td>
+      <td>
+       No action.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-sc-action-restart">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-sc-action-restart">WIN32_SC_ACTION_RESTART</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+       Restart the service.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-sc-action-reboot">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-sc-action-reboot">WIN32_SC_ACTION_REBOOT</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+       Restart the server.
+      </td>
+     </tr>
+
+     <tr id="constant.win32-sc-action-run-command">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-sc-action-run-command">WIN32_SC_ACTION_RUN_COMMAND</a></code></strong></td>
+      <td><code class="literal">0x00000003</code></td>
+      <td>
+       Run a command.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.serviceinfos" class="doctable table">
+   <caption><strong>Win32 Service informations</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-info-service">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-service">WIN32_INFO_SERVICE</a></code></strong></td>
+      <td>&quot;service&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-display">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-display">WIN32_INFO_DISPLAY</a></code></strong></td>
+      <td>&quot;display&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-user">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-user">WIN32_INFO_USER</a></code></strong></td>
+      <td>&quot;user&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-password">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-password">WIN32_INFO_PASSWORD</a></code></strong></td>
+      <td>&quot;password&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-path">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-path">WIN32_INFO_PATH</a></code></strong></td>
+      <td>&quot;path&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-params">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-params">WIN32_INFO_PARAMS</a></code></strong></td>
+      <td>&quot;params&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-description">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-description">WIN32_INFO_DESCRIPTION</a></code></strong></td>
+      <td>&quot;description&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-info-start-type">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-info-start-type">WIN32_INFO_START_TYPE</a></code></strong></td>
+      <td>&quot;start_type&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-load-order">
+      <td><strong><code>WIN32_INFO_LOAD_ORDER</code></strong></td>
+      <td>&quot;load_order&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-svc-type">
+      <td><strong><code>WIN32_INFO_SVC_TYPE</code></strong></td>
+      <td>&quot;svc_type&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-error-control">
+      <td><strong><code>WIN32_INFO_ERROR_CONTROL</code></strong></td>
+      <td>&quot;error_control&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-delayed-start">
+      <td><strong><code>WIN32_INFO_DELAYED_START</code></strong></td>
+      <td>&quot;delayed_start&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-base-priority">
+      <td><strong><code>WIN32_INFO_BASE_PRIORITY</code></strong></td>
+      <td>&quot;base_priority&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-dependencies">
+      <td><strong><code>WIN32_INFO_DEPENDENCIES</code></strong></td>
+      <td>&quot;dependencies&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-delay">
+      <td><strong><code>WIN32_INFO_RECOVERY_DELAY</code></strong></td>
+      <td>&quot;recovery_delay&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-action-1">
+      <td><strong><code>WIN32_INFO_RECOVERY_ACTION_1</code></strong></td>
+      <td>&quot;recovery_action_1&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-action-2">
+      <td><strong><code>WIN32_INFO_RECOVERY_ACTION_2</code></strong></td>
+      <td>&quot;recovery_action_2&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-action-3">
+      <td><strong><code>WIN32_INFO_RECOVERY_ACTION_3</code></strong></td>
+      <td>&quot;recovery_action_3&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-reset-period">
+      <td><strong><code>WIN32_INFO_RECOVERY_RESET_PERIOD</code></strong></td>
+      <td>&quot;recovery_reset_period&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-enabled">
+      <td><strong><code>WIN32_INFO_RECOVERY_ENABLED</code></strong></td>
+      <td>&quot;recovery_enabled&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-reboot-msg">
+      <td><strong><code>WIN32_INFO_RECOVERY_REBOOT_MSG</code></strong></td>
+      <td>&quot;recovery_reboot_msg&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.info-recovery-command">
+      <td><strong><code>WIN32_INFO_RECOVERY_COMMAND</code></strong></td>
+      <td>&quot;recovery_command&quot;</td>
+      <td>
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+
+  <table id="win32service.constants.rights" class="doctable table">
+   <caption><strong>Win32 Service rights</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Constant</th>
+      <th>Value</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.win32-service-all-access">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-all-access">WIN32_SERVICE_ALL_ACCESS</a></code></strong></td>
+      <td><code class="literal">0x000F003F</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-change-config">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-change-config">WIN32_SERVICE_CHANGE_CONFIG</a></code></strong></td>
+      <td><code class="literal">0x00000002</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-enumerate-dependents">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-enumerate-dependents">WIN32_SERVICE_ENUMERATE_DEPENDENTS</a></code></strong></td>
+      <td><code class="literal">0x00000008</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-interrogate">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-interrogate">WIN32_SERVICE_INTERROGATE</a></code></strong></td>
+      <td><code class="literal">0x00000080</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-pause-continue">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-pause-continue">WIN32_SERVICE_PAUSE_CONTINUE</a></code></strong></td>
+      <td><code class="literal">0x00000040</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-query-config">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-query-config">WIN32_SERVICE_QUERY_CONFIG</a></code></strong></td>
+      <td><code class="literal">0x00000001</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-query-status">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-query-status">WIN32_SERVICE_QUERY_STATUS</a></code></strong></td>
+      <td><code class="literal">0x00000004</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-start">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-start">WIN32_SERVICE_START</a></code></strong></td>
+      <td><code class="literal">0x00000010</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-stop">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-stop">WIN32_SERVICE_STOP</a></code></strong></td>
+      <td><code class="literal">0x00000020</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-service-user-defined-control">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-service-user-defined-control">WIN32_SERVICE_USER_DEFINED_CONTROL</a></code></strong></td>
+      <td><code class="literal">0x00000100</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-access-system-security">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-access-system-security">WIN32_ACCESS_SYSTEM_SECURITY</a></code></strong></td>
+      <td><code class="literal">0x00001000</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-delete">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-delete">WIN32_DELETE</a></code></strong></td>
+      <td><code class="literal">0x00010000</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-read-control">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-read-control">WIN32_READ_CONTROL</a></code></strong></td>
+      <td><code class="literal">0x00020000</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-write-dac">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-write-dac">WIN32_WRITE_DAC</a></code></strong></td>
+      <td><code class="literal">0x00040000</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-write-owner">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-write-owner">WIN32_WRITE_OWNER</a></code></strong></td>
+      <td><code class="literal">0x00080000</code></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-generic-read">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-generic-read">WIN32_GENERIC_READ</a></code></strong></td>
+      <td>Include rights:
+       <strong><code>WIN32_STANDARD_RIGHTS_READ</code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-query-config">WIN32_SERVICE_QUERY_CONFIG</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-query-status">WIN32_SERVICE_QUERY_STATUS</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-interrogate">WIN32_SERVICE_INTERROGATE</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-enumerate-dependents">WIN32_SERVICE_ENUMERATE_DEPENDENTS</a></code></strong>
+      </td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-generic-write">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-generic-write">WIN32_GENERIC_WRITE</a></code></strong></td>
+      <td>Include rights:
+       <strong><code>WIN32_STANDARD_RIGHTS_WRITE</code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-change-config">WIN32_SERVICE_CHANGE_CONFIG</a></code></strong>
+      </td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.win32-generic-execute">
+      <td><strong><code><a href="win32service.constants.html#constant.win32-generic-execute">WIN32_GENERIC_EXECUTE</a></code></strong></td>
+      <td>Include rights:
+       <strong><code>WIN32_STANDARD_RIGHTS_EXECUTE</code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-start">WIN32_SERVICE_START</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-stop">WIN32_SERVICE_STOP</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-pause-continue">WIN32_SERVICE_PAUSE_CONTINUE</a></code></strong>,
+       <strong><code><a href="win32service.constants.html#constant.win32-service-user-defined-control">WIN32_SERVICE_USER_DEFINED_CONTROL</a></code></strong>
+      </td>
+      <td>
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+</div>
+</div></div></body></html>

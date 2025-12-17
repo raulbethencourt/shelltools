@@ -1,0 +1,427 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="svn.installation.html">« Installation</a></li>
+      <li style="float: right;"><a href="ref.svn.html">SVN Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.svn.html">SVN</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="svn.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+  
+   <dt id="constant.svn-revision-head">
+    <strong><code><a href="svn.constants.html#constant.svn-revision-head">SVN_REVISION_HEAD</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Magic number (-1) specifying the HEAD revision
+    </span>
+   </dd>
+  
+ </dl>
+ <dl id="svn.constants.auth">
+  <strong class="title">Constants usable with <span class="function"><a href="function.svn-auth-set-parameter.html" class="function">svn_auth_set_parameter()</a></span></strong>
+  
+   <dt id="constant.svn-auth-param-default-username">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-default-username">SVN_AUTH_PARAM_DEFAULT_USERNAME</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Property for default username to use when performing basic authentication
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-auth-param-default-password">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-default-password">SVN_AUTH_PARAM_DEFAULT_PASSWORD</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Property for default password to use when performing basic authentication
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-auth-param-non-interactive">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-non-interactive">SVN_AUTH_PARAM_NON_INTERACTIVE</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-dont-store-passwords">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-dont-store-passwords">SVN_AUTH_PARAM_DONT_STORE_PASSWORDS</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-no-auth-cache">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-no-auth-cache">SVN_AUTH_PARAM_NO_AUTH_CACHE</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-ssl-server-failures">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-ssl-server-failures">SVN_AUTH_PARAM_SSL_SERVER_FAILURES</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-ssl-server-cert-info">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-ssl-server-cert-info">SVN_AUTH_PARAM_SSL_SERVER_CERT_INFO</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-config">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-config">SVN_AUTH_PARAM_CONFIG</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-server-group">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-server-group">SVN_AUTH_PARAM_SERVER_GROUP</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.svn-auth-param-config-dir">
+    <strong><code><a href="svn.constants.html#constant.svn-auth-param-config-dir">SVN_AUTH_PARAM_CONFIG_DIR</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd><span class="simpara"/></dd>
+  
+  
+   <dt id="constant.php-svn-auth-param-ignore-ssl-verify-errors">
+    <strong><code><a href="svn.constants.html#constant.php-svn-auth-param-ignore-ssl-verify-errors">PHP_SVN_AUTH_PARAM_IGNORE_SSL_VERIFY_ERRORS</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+      Custom property for ignoring SSL cert verification errors
+    </span>
+   </dd>
+  
+ </dl>
+ <dl>
+  <strong class="title">Filesystem constants</strong>
+  
+   <dt id="constant.svn-fs-config-fs-type">
+    <strong><code><a href="svn.constants.html#constant.svn-fs-config-fs-type">SVN_FS_CONFIG_FS_TYPE</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Configuration key that determines filesystem type
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-fs-type-bdb">
+    <strong><code><a href="svn.constants.html#constant.svn-fs-type-bdb">SVN_FS_TYPE_BDB</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Filesystem is Berkeley-DB implementation
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-fs-type-fsfs">
+    <strong><code><a href="svn.constants.html#constant.svn-fs-type-fsfs">SVN_FS_TYPE_FSFS</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Filesystem is native-filesystem implementation
+    </span>
+   </dd>
+  
+ </dl>
+ <dl>
+  <strong class="title">Reserved property constants</strong>
+  
+   <dt id="constant.svn-prop-revision-date">
+    <strong><code><a href="svn.constants.html#constant.svn-prop-revision-date">SVN_PROP_REVISION_DATE</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     svn:date
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-prop-revision-orig-date">
+    <strong><code><a href="svn.constants.html#constant.svn-prop-revision-orig-date">SVN_PROP_REVISION_ORIG_DATE</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     svn:original-date
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-prop-revision-author">
+    <strong><code><a href="svn.constants.html#constant.svn-prop-revision-author">SVN_PROP_REVISION_AUTHOR</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     svn:author
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-prop-revision-log">
+    <strong><code><a href="svn.constants.html#constant.svn-prop-revision-log">SVN_PROP_REVISION_LOG</a></code></strong> 
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     svn:log
+    </span>
+   </dd>
+  
+ </dl>
+ <dl id="svn.constants.status">
+  <strong class="title">Working copy status constants</strong>
+  
+   <dt id="constant.svn-wc-status-none">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-none">SVN_WC_STATUS_NONE</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Status does not exist
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-unversioned">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-unversioned">SVN_WC_STATUS_UNVERSIONED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item is not versioned in working copy
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-normal">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-normal">SVN_WC_STATUS_NORMAL</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item exists, nothing else is happening
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-added">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-added">SVN_WC_STATUS_ADDED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item is scheduled for addition
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-missing">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-missing">SVN_WC_STATUS_MISSING</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item is versioned but missing from the working copy
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-deleted">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-deleted">SVN_WC_STATUS_DELETED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item is scheduled for deletion
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-replaced">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-replaced">SVN_WC_STATUS_REPLACED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item was deleted and then re-added
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-modified">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-modified">SVN_WC_STATUS_MODIFIED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item (text or properties) was modified
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-merged">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-merged">SVN_WC_STATUS_MERGED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item&#039;s local modifications were merged with repository modifications
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-conflicted">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-conflicted">SVN_WC_STATUS_CONFLICTED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item&#039;s local modifications conflicted with repository modifications
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-ignored">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-ignored">SVN_WC_STATUS_IGNORED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Item is unversioned but configured to be ignored
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-obstructed">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-obstructed">SVN_WC_STATUS_OBSTRUCTED</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Unversioned item is in the way of a versioned resource
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-external">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-external">SVN_WC_STATUS_EXTERNAL</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Unversioned path that is populated using svn:externals
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-wc-status-incomplete">
+    <strong><code><a href="svn.constants.html#constant.svn-wc-status-incomplete">SVN_WC_STATUS_INCOMPLETE</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Directory does not contain complete entries list
+    </span>
+   </dd>
+  
+ </dl>
+ <dl id="svn.constants.type">
+  <strong class="title">Node type constants</strong>
+  
+   <dt id="constant.svn-node-none">
+    <strong><code><a href="svn.constants.html#constant.svn-node-none">SVN_NODE_NONE</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Absent
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-node-file">
+    <strong><code><a href="svn.constants.html#constant.svn-node-file">SVN_NODE_FILE</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     File
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-node-dir">
+    <strong><code><a href="svn.constants.html#constant.svn-node-dir">SVN_NODE_DIR</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Directory
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.svn-node-unknown">
+    <strong><code><a href="svn.constants.html#constant.svn-node-unknown">SVN_NODE_UNKNOWN</a></code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Something Subversion cannot identify
+    </span>
+   </dd>
+  
+ </dl>
+</div>
+</div></div></body></html>

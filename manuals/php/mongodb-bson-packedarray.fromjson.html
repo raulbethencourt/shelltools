@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Construct a new BSON array instance from a JSON string</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-bson-packedarray.construct.html">« MongoDB\BSON\PackedArray::__construct</a></li>
+      <li style="float: right;"><a href="mongodb-bson-packedarray.fromphp.html">MongoDB\BSON\PackedArray::fromPHP »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-bson-packedarray.html">MongoDB\BSON\PackedArray</a></li>
+    <li>Construct a new BSON array instance from a JSON string</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-bson-packedarray.fromjson" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\BSON\PackedArray::fromJSON</h1>
+  <p class="verinfo">(mongodb &gt;=1.20.0)</p><p class="refpurpose"><span class="refname">MongoDB\BSON\PackedArray::fromJSON</span> &mdash; <span class="dc-title">Construct a new BSON array instance from a JSON string</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-bson-packedarray.fromjson-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">static</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\PackedArray::fromJSON</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$json</code></span>): <span class="type"><a href="class.mongodb-bson-packedarray.html" class="type MongoDB\BSON\PackedArray">MongoDB\BSON\PackedArray</a></span></div>
+
+  <p class="para rdfs-comment">
+   Converts an
+   <a href="https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;extended JSON</a>
+   string to its BSON representation.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-bson-packedarray.fromjson-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">json</code> (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)</dt>
+    <dd>
+     <p class="para">
+      JSON value to be converted.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-bson-packedarray.fromjson-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a href="class.mongodb-bson-packedarray.html" class="classname">MongoDB\BSON\PackedArray</a></span> instance.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-bson-packedarray.fromjson-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li>Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+   <li>
+    Throws
+    <span class="classname"><a href="class.mongodb-driver-exception-unexpectedvalueexception.html" class="classname">MongoDB\Driver\Exception\UnexpectedValueException</a></span> if
+    the JSON value cannot be converted to a BSON array (e.g. due to a syntax
+    error).
+   </li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-bson-packedarray.fromjson-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-1409">
+   <p><strong>Example #1 <span class="methodname"><strong>MongoDB\BSON\PackedArray::fromJSON()</strong></span> example</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br />$json </span><span style="color: #007700">= </span><span style="color: #DD0000">'[ "foo", { "$numberInt" : "123" }, { "$numberLong" : "4294967295" }, { "$oid" : "56315a7c6118fd1b920270b1" } ]'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$packedArray </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB\BSON\PackedArray</span><span style="color: #007700">::</span><span style="color: #0000BB">fromJSON</span><span style="color: #007700">(</span><span style="color: #0000BB">$json</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$packedArray</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+    <div class="examplescode"><pre class="examplescode">object(MongoDB\BSON\PackedArray)#1 (2) {
+  [&quot;data&quot;]=&gt;
+  string(68) &quot;MQAAAAIwAAQAAABmb28AEDEAewAAABIyAP////8AAAAABzMAVjFafGEY/RuSAnCxAA==&quot;
+  [&quot;value&quot;]=&gt;
+  array(4) {
+    [0]=&gt;
+    string(3) &quot;foo&quot;
+    [1]=&gt;
+    int(123)
+    [2]=&gt;
+    int(4294967295)
+    [3]=&gt;
+    object(MongoDB\BSON\ObjectId)#2 (1) {
+      [&quot;oid&quot;]=&gt;
+      string(24) &quot;56315a7c6118fd1b920270b1&quot;
+    }
+  }
+}</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-bson-packedarray.fromjson-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="methodname"><a href="mongodb-bson-packedarray.fromphp.html" class="methodname" rel="rdfs-seeAlso">MongoDB\BSON\PackedArray::fromPHP()</a> - Construct a new BSON array instance from PHP data</span></li>
+   <li><a href="https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/" class="link external">&raquo;&nbsp;MongoDB Extended JSON</a></li>
+   <li><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON Types</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Output Handlers</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.operations-on-buffers.html">« Operations Allowed On Buffers</a></li>
+      <li style="float: right;"><a href="outcontrol.working-with-output-handlers.html">Working With Output Handlers »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="outcontrol.user-level-output-buffers.html">User-Level Output Buffers</a></li>
+    <li>Output Handlers</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.output-handlers" class="section">
+  <h2 class="title">Output Handlers</h2>
+  <p class="para">
+   Output handlers are <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>s associated with output buffers
+   that are invoked by calling <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>,
+   <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>,
+   <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>, <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>,
+   <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span> or during PHP&#039;s shutdown process.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    The shutdown process will flush the return value of the handler.
+   </span>
+  </p></blockquote>
+  <p class="para">
+   If omitted or <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> when starting the output buffer
+   the internal <code class="literal">&quot;default output handler&quot;</code> will be used
+   which returns the unmodified contents of the buffer when invoked.
+   Output handlers can be used to return a modified version
+   of the buffer&#039;s contents and/or have side-effects (e.g. send headers).
+  </p>
+  <p class="para">
+   PHP comes with two internal output handlers:
+   <code class="literal">&quot;default output handler&quot;</code>
+   and <code class="literal">&quot;URL-Rewriter&quot;</code> (which is integrated into
+   its own output buffer and only up to two instances of it can be started).
+  </p>
+  <p class="para">
+   The bundled extensions include four additional output handlers:
+   <span class="function"><a href="function.mb-output-handler.html" class="function">mb_output_handler()</a></span>, <span class="function"><a href="function.ob-gzhandler.html" class="function">ob_gzhandler()</a></span>,
+   <span class="function"><a href="function.ob-iconv-handler.html" class="function">ob_iconv_handler()</a></span>, <span class="function"><a href="function.ob-tidyhandler.html" class="function">ob_tidyhandler()</a></span>.
+  </p>
+ </div></div></div></body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Global Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration83.new-functions.html">« New Functions</a></li>
+      <li style="float: right;"><a href="migration83.incompatible.html">Backward Incompatible Changes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration83.html">Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+    <li>New Global Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration83.constants" class="sect1">
+ <h2 class="title">New Global Constants</h2>
+
+ <div class="sect2" id="migration83.constants.curl">
+  <h3 class="title">cURL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlinfo-capath">CURLINFO_CAPATH</a></code></strong> (libcurl &gt;= 7.84.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlinfo-cainfo">CURLINFO_CAINFO</a></code></strong> (libcurl &gt;= 7.84.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-mime-options">CURLOPT_MIME_OPTIONS</a></code></strong> (libcurl &gt;= 7.81.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlmimeopt-formescape">CURLMIMEOPT_FORMESCAPE</a></code></strong> (libcurl &gt;= 7.81.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-ws-options">CURLOPT_WS_OPTIONS</a></code></strong> (libcurl &gt;= 7.86.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlws-raw-mode">CURLWS_RAW_MODE</a></code></strong> (libcurl &gt;= 7.86.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-ssh-hostkeyfunction">CURLOPT_SSH_HOSTKEYFUNCTION</a></code></strong> (libcurl &gt;= 7.84.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-protocols-str">CURLOPT_PROTOCOLS_STR</a></code></strong> (libcurl &gt;= 7.85.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-redir-protocols-str">CURLOPT_REDIR_PROTOCOLS_STR</a></code></strong> (libcurl &gt;= 7.85.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-ca-cache-timeout">CURLOPT_CA_CACHE_TIMEOUT</a></code></strong> (libcurl &gt;= 7.87.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlopt-quick-exit">CURLOPT_QUICK_EXIT</a></code></strong> (libcurl &gt;= 7.87.0)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlkhmatch-ok">CURLKHMATCH_OK</a></code></strong> (libcurl &gt;= 7.19.6)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlkhmatch-mismatch">CURLKHMATCH_MISMATCH</a></code></strong> (libcurl &gt;= 7.19.6)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlkhmatch-missing">CURLKHMATCH_MISSING</a></code></strong> (libcurl &gt;= 7.19.6)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="curl.constants.html#constant.curlkhmatch-last">CURLKHMATCH_LAST</a></code></strong> (libcurl &gt;= 7.19.6)
+    </span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.intl">
+  <h3 class="title">Intl</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code>MIXED_NUMBERS</code></strong>
+    (<span class="classname"><a href="class.spoofchecker.html" class="classname">Spoofchecker</a></span>)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code>HIDDEN_OVERLAY</code></strong>
+    (<span class="classname"><a href="class.spoofchecker.html" class="classname">Spoofchecker</a></span>)</span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.openssl">
+  <h3 class="title">OpenSSL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="openssl.cms.flags.html#constant.openssl-cms-oldmimetype">OPENSSL_CMS_OLDMIMETYPE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="openssl.pkcs7.flags.html#constant.pkcs7-nooldmimetype">PKCS7_NOOLDMIMETYPE</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.pcntl">
+  <h3 class="title">PCNTL</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="pcntl.constants.html#constant.siginfo">SIGINFO</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.pdo-odbc">
+  <h3 class="title">PDO_ODBC</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="ref.pdo-odbc.html#constant.pdo-odbc-type">PDO_ODBC_TYPE</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.posix">
+  <h3 class="title">Posix</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.sysconf.html#constant.posix-sc-arg-max">POSIX_SC_ARG_MAX</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.sysconf.html#constant.posix-sc-pagesize">POSIX_SC_PAGESIZE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.sysconf.html#constant.posix-sc-nprocessors-conf">POSIX_SC_NPROCESSORS_CONF</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.sysconf.html#constant.posix-sc-nprocessors-onln">POSIX_SC_NPROCESSORS_ONLN</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-link-max">POSIX_PC_LINK_MAX</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-max-canon">POSIX_PC_MAX_CANON</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-max-input">POSIX_PC_MAX_INPUT</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-name-max">POSIX_PC_NAME_MAX</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-path-max">POSIX_PC_PATH_MAX</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-pipe-buf">POSIX_PC_PIPE_BUF</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-chown-restricted">POSIX_PC_CHOWN_RESTRICTED</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-no-trunc">POSIX_PC_NO_TRUNC</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-alloc-size-min">POSIX_PC_ALLOC_SIZE_MIN</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-symlink-max">POSIX_PC_SYMLINK_MAX</a></code></strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.sockets">
+  <h3 class="title">Sockets</h3>
+
+  <p class="para">
+   The following socket options are now defined if they are supported:
+  </p>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-attach-reuseport-cbpf">SO_ATTACH_REUSEPORT_CBPF</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-detach-bpf">SO_DETACH_BPF</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-detach-filter">SO_DETACH_FILTER</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.tcp-quickack">TCP_QUICKACK</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-dontfrag">IP_DONTFRAG</a></code></strong> (FreeBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-mtu-discover">IP_MTU_DISCOVER</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-do">IP_PMTUDISC_DO</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-dont">IP_PMTUDISC_DONT</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-want">IP_PMTUDISC_WANT</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-probe">IP_PMTUDISC_PROBE</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-interface">IP_PMTUDISC_INTERFACE</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-pmtudisc-omit">IP_PMTUDISC_OMIT</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.af-divert">AF_DIVERT</a></code></strong> (FreeBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.sol-udplite">SOL_UDPLITE</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.udplite-recv-cscov">UDPLITE_RECV_CSCOV</a></code></strong></span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.udplite-send-cscov">UDPLITE_SEND_CSCOV</a></code></strong></span>
+   </li>
+
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-rerror">SO_RERROR</a></code></strong> (NetBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-zeroize">SO_ZEROIZE</a></code></strong> (OpenBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-splice">SO_SPLICE</a></code></strong> (OpenBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.tcp-repair">TCP_REPAIR</a></code></strong> (Linux)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.so-reuseport-lb">SO_REUSEPORT_LB</a></code></strong> (FreeBSD)</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara"><strong><code><a href="sockets.constants.html#constant.ip-bind-address-no-port">IP_BIND_ADDRESS_NO_PORT</a></code></strong> (Linux)</span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration83.constants.zip">
+  <h3 class="title">Zip</h3>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.er-data-length">ZipArchive::ER_DATA_LENGTH</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.er-not-allowed">ZipArchive::ER_NOT_ALLOWED</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.afl-rdonly">ZipArchive::AFL_RDONLY</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.afl-is-torrentzip">ZipArchive::AFL_IS_TORRENTZIP</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.afl-want-torrentzip">ZipArchive::AFL_WANT_TORRENTZIP</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.afl-create-or-keep-file-for-empty-archive">ZipArchive::AFL_CREATE_OR_KEEP_FILE_FOR_EMPTY_ARCHIVE</a></code></strong>
+     (libzip &gt;= 1.10)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.fl-open-file-now">ZipArchive::FL_OPEN_FILE_NOW</a></code></strong>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.length-to-end">ZipArchive::LENGTH_TO_END</a></code></strong> as default value for
+     <span class="function"><a href="ziparchive.addfile.html" class="function">ZipArchive::addFile()</a></span> and
+     <span class="function"><a href="ziparchive.replacefile.html" class="function">ZipArchive::replaceFile()</a></span>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code><a href="zip.constants.html#ziparchive.constants.length-unchecked">ZipArchive::LENGTH_UNCHECKED</a></code></strong> (libzip &gt;= 1.10)
+    </span>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

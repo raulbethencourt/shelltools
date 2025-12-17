@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Introduction</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="book.filter.html">« Filter</a></li>
+      <li style="float: right;"><a href="filter.setup.html">Installing/Configuring »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.filter.html">Filter</a></li>
+    <li>Introduction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intro.filter" class="preface">
+  <h1 class="title">Introduction</h1>
+  <p class="simpara">
+   This extension provides filters which can be used to validate or sanitize data.
+   This is especially useful when the data source contains unknown (or foreign) data,
+   like user supplied input.
+   For example, this data may come from an <abbr title="Hyper Text Markup Language">HTML</abbr> form.
+  </p>
+  <p class="simpara">
+   There are two main types of filtering:
+   <em>validation</em> and <em>sanitization</em>.
+  </p>
+  <p class="simpara">
+   A validation filter is used to check if the data meets certain criteria.
+   These filters are identified by the
+   <strong><code><a href="filter.constants.html#constant.filter-validate-bool">FILTER_VALIDATE_<span class="replaceable">*</span></a></code></strong>
+   constants.
+   For example, the <strong><code><a href="filter.constants.html#constant.filter-validate-email">FILTER_VALIDATE_EMAIL</a></code></strong> filter
+   can be used to determine if the data is a valid email address.
+   However, it will never alter the input data.
+  </p>
+  <p class="simpara">
+   Sanitization on the other hand will &quot;clean up&quot; the data,
+   therefore it may alter the input data by adding or removing characters.
+   These filters are identified by the
+   <strong><code><a href="filter.constants.html#constant.filter-sanitize-string">FILTER_SANITIZE_<span class="replaceable">*</span></a></code></strong>
+   constants.
+   For example, the <strong><code><a href="filter.constants.html#constant.filter-sanitize-email">FILTER_SANITIZE_EMAIL</a></code></strong> filter will
+   remove characters that are inappropriate for an email address to contain.
+   However, the sanitized data is not validated to check if it is a valid
+   email address.
+  </p>
+  <p class="simpara">
+   Most filters support optional <em>flags</em> that can tweak
+   the behavior of the filter.
+   These flags are identified by the
+   <strong><code><a href="filter.constants.html#constant.filter-flag-none">FILTER_FLAG_<span class="replaceable">*</span></a></code></strong>
+   constants.
+   For example, using the <strong><code><a href="filter.constants.html#constant.filter-flag-path-required">FILTER_FLAG_PATH_REQUIRED</a></code></strong> with
+   the <strong><code><a href="filter.constants.html#constant.filter-validate-url">FILTER_VALIDATE_URL</a></code></strong> validation filter
+   requires that the <abbr title="Uniform Resource Locator">URL</abbr> has a path
+   (e.g. <code class="literal">/foo</code> in <code class="literal">https://example.org/foo</code>).
+  </p>
+ </div></div></div></body></html>

@@ -1,0 +1,649 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="ibase.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="ref.ibase.html">Firebird/InterBase Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ibase.html">Firebird/InterBase</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="ibase.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <p class="para">
+  The following constants can be passed to <span class="function"><a href="function.ibase-trans.html" class="function">ibase_trans()</a></span>
+  to specify transaction behaviour.
+  <table class="doctable table">
+   <caption><strong>Firebird/InterBase transaction flags</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Constant</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>IBASE_DEFAULT</td>
+       <td>
+       The default transaction settings are to be used. This default is
+       determined by the client library, which defines it as
+       IBASE_WRITE|IBASE_CONCURRENCY|IBASE_WAIT in most cases.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_READ</td>
+       <td>Starts a read-only transaction.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_WRITE</td>
+       <td>Starts a read-write transaction.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_CONSISTENCY</td>
+       <td>Starts a transaction with the isolation level set to
+       &#039;consistency&#039;, which means the transaction cannot read from tables
+       that are being modified by other concurrent transactions.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_CONCURRENCY</td>
+       <td>Starts a transaction with the isolation level set to
+       &#039;concurrency&#039; (or &#039;snapshot&#039;), which means the transaction 
+       has access to all tables, but cannot see changes that were committed
+       by other transactions after the transaction was started.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_COMMITTED</td>
+       <td>Starts a transaction with the isolation level set to
+       &#039;read committed&#039;. This flag should be combined with either
+       <strong><code>IBASE_REC_VERSION</code></strong> or 
+       <strong><code>IBASE_REC_NO_VERSION</code></strong>. This isolation level
+       allows access to changes that were committed after the transaction
+       was started. If <strong><code>IBASE_REC_NO_VERSION</code></strong> was
+       specified, only the latest version of a row can be read. If 
+       <strong><code>IBASE_REC_VERSION</code></strong> was specified, a row can
+       even be read when a modification to it is pending in a concurrent
+       transaction.
+      </td>
+      </tr>
+
+      <tr>
+       <td>IBASE_WAIT</td>
+       <td>Indicated that a transaction should wait and retry when a
+       conflict occurs.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_NOWAIT</td>
+       <td>Indicated that a transaction should fail immediately when a
+       conflict occurs.</td>
+      </tr>
+
+     </tbody>
+    
+  </table>
+
+ </p>
+ 
+ <p class="para">
+  The following constants can be passed to <span class="function"><a href="function.ibase-fetch-row.html" class="function">ibase_fetch_row()</a></span>,
+  <span class="function"><a href="function.ibase-fetch-assoc.html" class="function">ibase_fetch_assoc()</a></span> or <span class="function"><a href="function.ibase-fetch-object.html" class="function">ibase_fetch_object()</a></span>
+  to specify fetch behaviour.
+  <table class="doctable table">
+   <caption><strong>Firebird/InterBase fetch flags</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Constant</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>IBASE_FETCH_BLOBS</td>
+       <td>Also available as <strong><code>IBASE_TEXT</code></strong>for backward
+       compatibility. Causes BLOB contents to be fetched inline, instead of 
+       being fetched as BLOB identifiers.</td>
+      </tr>
+
+      <tr>
+       <td>IBASE_FETCH_ARRAYS</td>
+       <td>Causes arrays to be fetched inline. Otherwise, array
+       identifiers are returned. Array identifiers can only be used as
+       arguments to INSERT operations, as no functions to handle array
+       identifiers are currently available.
+       </td>
+      </tr>
+
+      <tr>
+       <td>IBASE_UNIXTIME</td>
+       <td>Causes date and time fields not to be returned as strings,
+       but as UNIX timestamps (the number of seconds since the epoch, which
+       is 1-Jan-1970 0:00 UTC). Might be problematic if used with dates
+       before 1970 on some systems.
+       </td>
+      </tr>
+
+     </tbody>
+    
+  </table>
+
+ </p>
+ <p class="para">
+  The following constants are used to pass requests and options to the service
+  API functions (<span class="function"><a href="function.ibase-server-info.html" class="function">ibase_server_info()</a></span>, <span class="function"><a href="function.ibase-db-info.html" class="function">ibase_db_info()</a></span>,
+  <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>, <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+  and <span class="function"><a href="function.ibase-maintain-db.html" class="function">ibase_maintain_db()</a></span>). Please refer to
+  the Firebird/InterBase manuals for the meaning of these options.
+  <dl>
+   
+    <dt id="constant.ibase-bkp-ignore-checksums">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-ignore-checksums">IBASE_BKP_IGNORE_CHECKSUMS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-ignore-limbo">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-ignore-limbo">IBASE_BKP_IGNORE_LIMBO</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-metadata-only">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-metadata-only">IBASE_BKP_METADATA_ONLY</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-no-garbage-collect">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-no-garbage-collect">IBASE_BKP_NO_GARBAGE_COLLECT</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-old-descriptions">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-old-descriptions">IBASE_BKP_OLD_DESCRIPTIONS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-non-transportable">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-non-transportable">IBASE_BKP_NON_TRANSPORTABLE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-bkp-convert">
+      <strong><code><a href="ibase.constants.html#constant.ibase-bkp-convert">IBASE_BKP_CONVERT</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      Options to <span class="function"><a href="function.ibase-backup.html" class="function">ibase_backup()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-deactivate-idx">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-deactivate-idx">IBASE_RES_DEACTIVATE_IDX</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-no-shadow">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-no-shadow">IBASE_RES_NO_SHADOW</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-no-validity">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-no-validity">IBASE_RES_NO_VALIDITY</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-one-at-a-time">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-one-at-a-time">IBASE_RES_ONE_AT_A_TIME</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-replace">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-replace">IBASE_RES_REPLACE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-create">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-create">IBASE_RES_CREATE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-res-use-all-space">
+      <strong><code><a href="ibase.constants.html#constant.ibase-res-use-all-space">IBASE_RES_USE_ALL_SPACE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      Options to <span class="function"><a href="function.ibase-restore.html" class="function">ibase_restore()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-page-buffers">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-page-buffers">IBASE_PRP_PAGE_BUFFERS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-sweep-interval">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-sweep-interval">IBASE_PRP_SWEEP_INTERVAL</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-shutdown-db">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-shutdown-db">IBASE_PRP_SHUTDOWN_DB</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-deny-new-transactions">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-deny-new-transactions">IBASE_PRP_DENY_NEW_TRANSACTIONS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-deny-new-attachments">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-deny-new-attachments">IBASE_PRP_DENY_NEW_ATTACHMENTS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-reserve-space">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-reserve-space">IBASE_PRP_RESERVE_SPACE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-res-use-full">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-res-use-full">IBASE_PRP_RES_USE_FULL</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-res">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-res">IBASE_PRP_RES</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-write-mode">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-write-mode">IBASE_PRP_WRITE_MODE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-wm-async">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-wm-async">IBASE_PRP_WM_ASYNC</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-wm-sync">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-wm-sync">IBASE_PRP_WM_SYNC</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-access-mode">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-access-mode">IBASE_PRP_ACCESS_MODE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-am-readonly">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-am-readonly">IBASE_PRP_AM_READONLY</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-am-readwrite">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-am-readwrite">IBASE_PRP_AM_READWRITE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-set-sql-dialect">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-set-sql-dialect">IBASE_PRP_SET_SQL_DIALECT</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-activate">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-activate">IBASE_PRP_ACTIVATE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-prp-db-online">
+      <strong><code><a href="ibase.constants.html#constant.ibase-prp-db-online">IBASE_PRP_DB_ONLINE</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-check-db">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-check-db">IBASE_RPR_CHECK_DB</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-ignore-checksum">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-ignore-checksum">IBASE_RPR_IGNORE_CHECKSUM</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-kill-shadows">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-kill-shadows">IBASE_RPR_KILL_SHADOWS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-mend-db">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-mend-db">IBASE_RPR_MEND_DB</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-validate-db">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-validate-db">IBASE_RPR_VALIDATE_DB</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-full">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-full">IBASE_RPR_FULL</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-rpr-sweep-db">
+      <strong><code><a href="ibase.constants.html#constant.ibase-rpr-sweep-db">IBASE_RPR_SWEEP_DB</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-maintain-db.html" class="function">ibase_maintain_db()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-sts-data-pages">
+      <strong><code><a href="ibase.constants.html#constant.ibase-sts-data-pages">IBASE_STS_DATA_PAGES</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-sts-db-log">
+      <strong><code><a href="ibase.constants.html#constant.ibase-sts-db-log">IBASE_STS_DB_LOG</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-sts-hdr-pages">
+      <strong><code><a href="ibase.constants.html#constant.ibase-sts-hdr-pages">IBASE_STS_HDR_PAGES</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-sts-idx-pages">
+      <strong><code><a href="ibase.constants.html#constant.ibase-sts-idx-pages">IBASE_STS_IDX_PAGES</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-sts-sys-relations">
+      <strong><code><a href="ibase.constants.html#constant.ibase-sts-sys-relations">IBASE_STS_SYS_RELATIONS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-db-info.html" class="function">ibase_db_info()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-server-version">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-server-version">IBASE_SVC_SERVER_VERSION</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-server-info.html" class="function">ibase_server_info()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-implementation">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-implementation">IBASE_SVC_IMPLEMENTATION</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-server-info.html" class="function">ibase_server_info()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-get-env">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-get-env">IBASE_SVC_GET_ENV</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-server-info.html" class="function">ibase_server_info()</a></span>
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-get-env-lock">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-get-env-lock">IBASE_SVC_GET_ENV_LOCK</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-get-env-msg">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-get-env-msg">IBASE_SVC_GET_ENV_MSG</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-user-dbpath">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-user-dbpath">IBASE_SVC_USER_DBPATH</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-svr-db-info">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-svr-db-info">IBASE_SVC_SVR_DB_INFO</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+      </span>
+    </dd>
+   
+   
+    <dt id="constant.ibase-svc-get-users">
+      <strong><code><a href="ibase.constants.html#constant.ibase-svc-get-users">IBASE_SVC_GET_USERS</a></code></strong>
+    </dt>
+    <dd>
+      <span class="simpara">
+       Options to <span class="function"><a href="function.ibase-server-info.html" class="function">ibase_server_info()</a></span>
+      </span>
+    </dd>
+   
+  </dl>
+  </p>         
+</div>
+</div></div></body></html>

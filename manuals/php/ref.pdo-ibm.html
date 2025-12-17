@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>IBM Functions (PDO_IBM)</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="ref.pdo-firebird.connection.html">« PDO_FIREBIRD DSN</a></li>
+      <li style="float: right;"><a href="ref.pdo-ibm.connection.html">PDO_IBM DSN »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="pdo.drivers.html">PDO Drivers</a></li>
+    <li>IBM Functions (PDO_IBM)</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="ref.pdo-ibm" class="reference">
+ 
+  <h1 class="title">IBM Functions (PDO_IBM)</h1>
+  
+  <div class="partintro">
+
+   <div class="section" id="pdo-ibm.intro">
+    <h2 class="title">Introduction</h2>
+    <p class="para">
+     PDO_IBM is a driver that implements the <a href="intro.pdo.html" class="link">PHP Data
+     Objects (PDO)</a> interface to enable access from PHP to IBM databases.
+    </p>
+   </div>
+
+   
+   
+
+<div class="section" id="ref.pdo-ibm.installation">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  To build the PDO_IBM extension, the DB2 Client v9.1 or later must be 
+  installed on the same system as PHP. The DB2 Client can be downloaded 
+  from the IBM <a href="http://www.ibm.com/software/data/db2/ad" class="link external">&raquo;&nbsp;Application Development 
+  Site</a>.
+ </p>
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <strong>Note</strong><br />
+   <p class="para">
+    The DB2 Client v9.1 or later supports direct access to DB2 for Linux, 
+    UNIX, and Windows v8 and v9.1 servers.
+   </p>
+   <p class="para">
+    The DB2 Client v9.1 also supports access to DB2 UDB for i5 and DB2 UDB 
+    for z/OS servers using the separately purchased <a href="http://www.ibm.com/software/data/db2/db2connect" class="link external">&raquo;&nbsp;DB2 
+    Connect product</a>.
+   </p>
+ </p></blockquote>
+ <p class="para">
+  PDO_IBM is a <a href="https://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a> extension, so follow the instructions in
+  <a href="install.pecl.html" class="xref">Installation of PECL extensions</a> to install the PDO_IBM extension.
+  Issue the <strong class="command">configure</strong> command to point to the location of the
+  DB2 Client header files and libraries as follows:
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+bash$ ./configure --with-pdo-ibm=/path/to/sqllib[,shared]
+</pre></div>
+  </div>
+  The <strong class="command">configure</strong> command defaults to the value of the 
+  <var class="envar">DB2DIR</var> environment variable.
+ </p>
+</div>
+
+
+
+   
+   
+
+<div class="section" id="pdo-ibm.configuration">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>PDO_IBM Configuration Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Changeable</th>
+      <th>Changelog</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="ref.pdo-ibm.html#ini.pdo-ibm.i5-dbcs-alloc" class="link">pdo_ibm.i5_dbcs_alloc</a></td>
+      <td>&quot;0&quot;</td>
+      <td><strong><code><a href="info.constants.html#constant.ini-system">INI_SYSTEM</a></code></strong></td>
+      <td>Added in PDO_IBM 1.5.0</td>
+     </tr>
+
+     <tr>
+      <td><a href="ref.pdo-ibm.html#ini.pdo-ibm.i5-override-ccsid" class="link">pdo_ibm.i5_override_ccsid</a></td>
+      <td>&quot;0&quot;</td>
+      <td><strong><code><a href="info.constants.html#constant.ini-system">INI_SYSTEM</a></code></strong></td>
+      <td>Added in PDO_IBM 1.5.0</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  For further details and definitions of the
+INI_* modes, see the <a href="configuration.changes.modes.html" class="xref">Where a configuration setting may be set</a>.
+</p>
+
+<p class="para">Here&#039;s a short explanation of
+the configuration directives.</p>
+
+ <p class="para">
+  <dl>
+   
+    <dt id="ini.pdo-ibm.i5-dbcs-alloc">
+     <code class="parameter">pdo_ibm.i5_dbcs_alloc</code>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+    </dt>
+    <dd>
+     <p class="para">
+      This options affects the internal buffer allocation strategy on IBM i.
+      By default, this option is 0. When this option is set, buffers are
+      allocated with a much larger size, in case the database is misleading
+      about character size when converting between encodings. This option uses
+      six times as much memory for buffers (to account for the largest possible
+      UTF-8 sequences), but may be needed if truncated data is returned.
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <p class="para">
+         0 - Minimum size buffers are allocated.
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         1 - Larger size buffers are allocated.
+        </p>
+       </li>
+      </ul>
+     </p>
+    </dd>
+   
+   
+    <dt id="ini.pdo-ibm.i5-override-ccsid">
+     <code class="parameter">pdo_ibm.i5_override_ccsid</code>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+    </dt>
+    <dd>
+     <p class="para">
+      The ASCII CCSID to use for conversion from EBCDIC on IBM i. Setting this
+      to 1208 will use UTF-8. By default, this is 0, which will select the
+      default ASCII job CCSID.
+     </p>
+     <p class="para">
+      To learn more about CCSIDs on IBM i, consult the
+      <a href="https://www.ibm.com/docs/en/i/7.5?topic=information-ccsid-reference" class="link external">&raquo;&nbsp;IBM documentation</a>.
+     </p>
+    </dd>
+   
+  </dl>
+ </p>
+</div>
+
+
+
+
+  </div>
+
+  
+
+ <h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="ref.pdo-ibm.connection.html">PDO_IBM DSN</a> — Connecting to IBM databases</li></ul>
+</div>
+</div></div></body></html>

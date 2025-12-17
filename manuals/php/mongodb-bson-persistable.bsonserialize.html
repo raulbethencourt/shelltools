@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Provides an array or document to serialize as BSON</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.mongodb-bson-persistable.html">« MongoDB\BSON\Persistable</a></li>
+      <li style="float: right;"><a href="class.mongodb-bson-serializable.html">MongoDB\BSON\Serializable »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-bson-persistable.html">MongoDB\BSON\Persistable</a></li>
+    <li>Provides an array or document to serialize as BSON</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-bson-persistable.bsonserialize" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\BSON\Persistable::bsonSerialize</h1>
+  <p class="verinfo">(mongodb &gt;=1.0.0)</p><p class="refpurpose"><span class="refname">MongoDB\BSON\Persistable::bsonSerialize</span> &mdash; <span class="dc-title">Provides an array or document to serialize as BSON</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-bson-persistable.bsonserialize-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\Persistable::bsonSerialize</strong></span>(): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="class.stdclass.html" class="type stdClass">stdClass</a></span>|<span class="type"><a href="class.mongodb-bson-document.html" class="type MongoDB\BSON\Document">MongoDB\BSON\Document</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Called during serialization of the object to BSON. The method must return an
+   <span class="type"><a href="language.types.array.html" class="type array">array</a></span>, <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>, or
+   <span class="classname"><a href="class.mongodb-bson-document.html" class="classname">MongoDB\BSON\Document</a></span>.
+  </p>
+  <p class="para">
+   The return value will always be serialized as a BSON document. The serialized
+   document will include a field containing the class name of the object. For
+   this reason, it is not possible to return a
+   <span class="classname"><a href="class.mongodb-bson-packedarray.html" class="classname">MongoDB\BSON\PackedArray</a></span> instance in this method.
+  </p>
+  <p class="para">
+   Users are encouraged to include an <span class="property">_id</span> property (e.g. a
+   <span class="classname"><a href="class.mongodb-bson-objectid.html" class="classname">MongoDB\BSON\ObjectId</a></span> initialized in the constructor)
+   when returning data for a BSON root document. In the absence of an
+   <span class="property">_id</span> property, the extension or server will generate a
+   <span class="classname"><a href="class.mongodb-bson-objectid.html" class="classname">MongoDB\BSON\ObjectId</a></span> for insert or upsert
+   operations, respectively.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-bson-persistable.bsonserialize-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-bson-persistable.bsonserialize-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   An <span class="type"><a href="language.types.array.html" class="type array">array</a></span>, <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>, or <span class="classname"><a href="class.mongodb-bson-document.html" class="classname">MongoDB\BSON\Document</a></span>
+   to be serialized as a BSON document.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-bson-persistable.bsonserialize-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL mongodb 1.17.0</td>
+       <td>
+        <p class="para">
+         This method may now also return <span class="classname"><a href="class.mongodb-bson-document.html" class="classname">MongoDB\BSON\Document</a></span>
+         instances in addition to <span class="type"><a href="language.types.array.html" class="type array">array</a></span> and <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>.
+        </p>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-bson-persistable.bsonserialize-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="function"><a href="mongodb-bson-serializable.bsonserialize.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\Serializable::bsonSerialize()</a> - Provides an array or document to serialize as BSON</span></li>
+   <li><span class="function"><a href="mongodb-bson-unserializable.bsonunserialize.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\Unserializable::bsonUnserialize()</a> - Constructs the object from a BSON array or document</span></li>
+   <li><span class="interfacename"><a href="class.mongodb-bson-persistable.html" class="interfacename">MongoDB\BSON\Persistable</a></span></li>
+   <li><a href="mongodb.persistence.html" class="xref">Persisting Data</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

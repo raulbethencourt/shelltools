@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Creates a new lazy ghost instance</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reflectionclass.newinstancewithoutconstructor.html">« ReflectionClass::newInstanceWithoutConstructor</a></li>
+      <li style="float: right;"><a href="reflectionclass.newlazyproxy.html">ReflectionClass::newLazyProxy »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>Creates a new lazy ghost instance</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionclass.newlazyghost" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::newLazyGhost</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.4.0)</p><p class="refpurpose"><span class="refname">ReflectionClass::newLazyGhost</span> &mdash; <span class="dc-title">Creates a new lazy ghost instance</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.newlazyghost-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::newLazyGhost</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$initializer</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>): <span class="type"><a href="language.types.object.html" class="type object">object</a></span></div>
+
+  <p class="simpara">
+   Creates a new lazy ghost instance of the class, attaching the
+   <code class="parameter">initializer</code> to it. The constructor is not called, and
+   properties are not set to their default value. However, the object will
+   be automatically initialized by invoking the
+   <code class="parameter">initializer</code> the first time its state is observed or
+   modified. See
+   <a href="language.oop5.lazy-objects.html#language.oop5.lazy-objects.initialization-triggers" class="link">Initialization
+   Triggers</a> and <a href="language.oop5.lazy-objects.html#language.oop5.lazy-objects.initialization-sequence" class="link">
+   Initialization Sequence</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.newlazyghost-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">initializer</code></dt>
+    <dd>
+     <span class="simpara">
+      The initializer is a callback with the following signature:
+     </span>
+     <p class="para">
+      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">initializer</span></span>(<span class="methodparam"><span class="type"><a href="language.types.object.html" class="type object">object</a></span> <code class="parameter">$object</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+      <dl>
+       
+        <dt><code class="parameter">object</code></dt>
+        <dd>
+         <span class="simpara">
+          The <code class="parameter">object</code> being initialized. At this point,
+          the object is no longer marked as lazy, and accessing it does not
+          trigger initialization again.
+         </span>
+        </dd>
+       
+      </dl>
+     </p>
+     <span class="simpara">
+      The <code class="parameter">initializer</code> function must return <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> or no
+      value.
+     </span>
+    </dd>
+   
+   
+    <dt id="reflectionclass.newlazyghost.parameters.options"><code class="parameter">options</code></dt>
+    <dd>
+     <p class="para">
+      <code class="parameter">options</code> can be a combination of the following
+      flags:
+      <dl>
+       
+        <dt>
+         <strong><code><a href="class.reflectionclass.html#reflectionclass.constants.skip-initialization-on-serialize">ReflectionClass::SKIP_INITIALIZATION_ON_SERIALIZE</a></code></strong>
+        </dt>
+        <dd>
+         <span class="simpara">
+          By default, serializing a lazy object triggers its
+          initialization. Setting this flag prevents initialization, allowing
+          lazy objects to be serialized without being initialized.
+         </span>
+        </dd>
+       
+      </dl>
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.newlazyghost-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="simpara">
+   Returns a lazy ghost instance. If the object has no properties, or if all its
+   properties are static or virtual, a normal (non-lazy) instance is returned.
+   See also
+   <a href="language.oop5.lazy-objects.html#language.oop5.lazy-objects.lifecycle" class="link">Lifecycle of Lazy
+   Objects</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-reflectionclass.newlazyghost-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="simpara">
+   An <span class="classname"><a href="class.error.html" class="classname">Error</a></span> if the class is internal or extends an
+   internal class except <span class="classname"><a href="class.stdclass.html" class="classname">stdClass</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclass.newlazyghost-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-5363">
+   <p><strong>Example #1 Basic usage</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example </span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(public </span><span style="color: #0000BB">int $prop</span><span style="color: #007700">) {<br />        echo </span><span style="color: #0000BB">__METHOD__</span><span style="color: #007700">, </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$reflector </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Example</span><span style="color: #007700">::class);<br /></span><span style="color: #0000BB">$object </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newLazyGhost</span><span style="color: #007700">(function (</span><span style="color: #0000BB">Example $object</span><span style="color: #007700">) {<br />     </span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />});<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object </span><span style="color: #007700">instanceof </span><span style="color: #0000BB">Example</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">// Triggers initialization, and fetches the property after that<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">lazy ghost object(Example)#3 (0) {
+  [&quot;prop&quot;]=&gt;
+  uninitialized(int)
+}
+bool(true)
+Example::__construct
+int(1)</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclass.newlazyghost-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><a href="language.oop5.lazy-objects.html" class="link">Lazy objects</a></li>
+   <li><span class="methodname"><a href="reflectionclass.newlazyproxy.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::newLazyProxy()</a> - Creates a new lazy proxy instance</span></li>
+   <li><span class="methodname"><a href="reflectionclass.newinstancewithoutconstructor.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::newInstanceWithoutConstructor()</a> - Creates a new class instance without invoking the constructor</span></li>
+   <li><span class="methodname"><a href="reflectionclass.resetaslazyghost.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::resetAsLazyGhost()</a> - Resets an object and marks it as lazy</span></li>
+   <li><span class="methodname"><a href="reflectionclass.marklazyobjectasinitialized.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::markLazyObjectAsInitialized()</a> - Marks a lazy object as initialized without calling the initializer or factory</span></li>
+   <li><span class="methodname"><a href="reflectionclass.initializelazyobject.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::initializeLazyObject()</a> - Forces initialization of a lazy object</span></li>
+   <li><span class="methodname"><a href="reflectionclass.isuninitializedlazyobject.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::isUninitializedLazyObject()</a> - Checks if an object is lazy and uninitialized</span></li>
+   <li><span class="methodname"><a href="reflectionproperty.setrawvaluewithoutlazyinitialization.html" class="methodname" rel="rdfs-seeAlso">ReflectionProperty::setRawValueWithoutLazyInitialization()</a> - Set raw property value without triggering lazy initialization</span></li>
+   <li><span class="methodname"><a href="reflectionproperty.skiplazyinitialization.html" class="methodname" rel="rdfs-seeAlso">ReflectionProperty::skipLazyInitialization()</a> - Marks property as non-lazy</span></li>
+   <li><span class="methodname"><a href="reflectionproperty.islazy.html" class="methodname" rel="rdfs-seeAlso">ReflectionProperty::isLazy()</a> - Checks whether a property is lazy</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

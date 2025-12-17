@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Property Hooks</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.oop5.properties.html">« Properties</a></li>
+      <li style="float: right;"><a href="language.oop5.constants.html">Class Constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">Classes and Objects</a></li>
+    <li>Property Hooks</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.oop5.property-hooks" class="sect1">
+ <h2 class="title">Property Hooks</h2>
+
+ <p class="simpara">
+  Property hooks, also known as &quot;property accessors&quot; in some other languages,
+  are a way to intercept and override the read and write behavior of a property.
+  This functionality serves two purposes:
+ </p>
+ <ol type="1">
+  <li class="listitem">
+   <span class="simpara">
+    It allows for properties to be used directly, without get- and set- methods,
+    while leaving the option open to add additional behavior in the future.
+    That renders most boilerplate get/set methods unnecessary,
+    even without using hooks.
+   </span>
+  </li>
+  <li class="listitem">
+   <span class="simpara">
+    It allows for properties that describe an object without needing to store
+    a value directly.
+   </span>
+  </li>
+ </ol>
+ <p class="simpara">
+  There are two hooks available on non-static properties: <code class="literal">get</code> and <code class="literal">set</code>.
+  They allow overriding the read and write behavior of a property, respectively.
+  Hooks are available for both typed and untyped properties.
+ </p>
+ <p class="simpara">
+  A property may be &quot;backed&quot; or &quot;virtual&quot;.
+  A backed property is one that actually stores a value.
+  Any property that has no hooks is backed.
+  A virtual property is one that has hooks and those hooks do not interact with the property itself.
+  In this case, the hooks are effectively the same as methods,
+  and the object does not use any space to store a value for that property.
+ </p>
+ <p class="simpara">
+  Property hooks are incompatible with <code class="literal">readonly</code> properties.
+  If there is a need to restrict access to a <code class="literal">get</code> or <code class="literal">set</code>
+  operation in addition to altering its behavior, use
+  <a href="language.oop5.visibility.html#language.oop5.visibility-members-aviz" class="link">asymmetric property visibility</a>.
+ </p>
+ <div class="sect2">
+  <h3 class="title">Basic Hook Syntax</h3>
+  <p class="simpara">
+   The general syntax for declaring a hook is as follows.
+  </p>
+  <div class="example" id="example-225">
+   <p><strong>Example #1 Property hooks (full version)</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    private </span><span style="color: #0000BB">bool $modified </span><span style="color: #007700">= </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br />    public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value' </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">{<br />            if (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified</span><span style="color: #007700">) {<br />                return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">. </span><span style="color: #DD0000">' (modified)'</span><span style="color: #007700">;<br />            }<br />            return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br />        }<br />        </span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">string $value</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">= </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$example </span><span style="color: #007700">= new </span><span style="color: #0000BB">Example</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$example</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'changed'</span><span style="color: #007700">;<br />print </span><span style="color: #0000BB">$example</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   The <var class="varname">$foo</var> property ends in <code class="literal">{}</code>, rather than a semicolon.
+   That indicates the presence of hooks.
+   Both a <code class="literal">get</code> and <code class="literal">set</code> hook are defined,
+   although it is allowed to define only one or the other.
+   Both hooks have a body, denoted by <code class="literal">{}</code>, that may contain arbitrary code.
+  </p>
+  <p class="simpara">
+   The <code class="literal">set</code> hook additionally allows specifying the type and name of an incoming value,
+   using the same syntax as a method.
+   The type must be either the same as the type of the property,
+   or <a href="language.oop5.variance.html#language.oop5.variance.contravariance" class="link">contravariant</a> (wider) to it.
+   For instance, a property of type <span class="type"><a href="language.types.string.html" class="type string">string</a></span> could have a
+   <code class="literal">set</code> hook that accepts <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="class.stringable.html" class="type Stringable">Stringable</a></span></span>,
+   but not one that only accepts <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+  </p>
+  <p class="simpara">
+   At least one of the hooks references <code class="code">$this-&gt;foo</code>, the property itself.
+   That means the property wll be &quot;backed.&quot;
+   When calling <code class="code">$example-&gt;foo = &#039;changed&#039;</code>,
+   the provided string will be first cast to lowercase, then saved to the backing value.
+   When reading from the property, the previously saved value may conditionally be appended
+   with additional text.
+  </p>
+  <p class="simpara">
+   There are a number of shorthand syntax variants as well to handle common cases.
+  </p>
+  <p class="simpara">
+   If the <code class="literal">get</code> hook is a single expression,
+   then the <code class="literal">{}</code> may be omitted and replaced with an arrow expression.
+  </p>
+  <div class="example" id="example-226">
+   <p><strong>Example #2 Property get expression</strong></p>
+   <div class="example-contents"><p>
+    This example is equivalent to the previous.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    private </span><span style="color: #0000BB">bool $modified </span><span style="color: #007700">= </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br />    public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value' </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">. (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">? </span><span style="color: #DD0000">' (modified)' </span><span style="color: #007700">: </span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br />        </span><span style="color: #0000BB">set</span><span style="color: #007700">(</span><span style="color: #0000BB">string $value</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">= </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   If the <code class="literal">set</code> hook&#039;s parameter type is the same as the property type (which is typical),
+   it may be omitted.  In that case, the value to set is automatically given the name <var class="varname">$value</var>.
+  </p>
+  <div class="example" id="example-227">
+   <p><strong>Example #3 Property set defaults</strong></p>
+   <div class="example-contents"><p>
+    This example is equivalent to the previous.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    private </span><span style="color: #0000BB">bool $modified </span><span style="color: #007700">= </span><span style="color: #0000BB">false</span><span style="color: #007700">;<br /><br />    public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value' </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">. (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">? </span><span style="color: #DD0000">' (modified)' </span><span style="color: #007700">: </span><span style="color: #DD0000">''</span><span style="color: #007700">);<br /><br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">{<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">= </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   If the <code class="literal">set</code> hook is only setting a modified version of the passed in value,
+   then it may also be simplified to an arrow expression.
+   The value the expression evaluates to will be set on the backing value.
+  </p>
+  <div class="example" id="example-228">
+   <p><strong>Example #4 Property set expression</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value' </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">. (</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">modified </span><span style="color: #007700">? </span><span style="color: #DD0000">' (modified)' </span><span style="color: #007700">: </span><span style="color: #DD0000">''</span><span style="color: #007700">);<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   This example is not quite equivalent to the previous,
+   as it does not also modify <code class="code">$this-&gt;modified</code>.
+   If multiple statements are needed in the set hook body, use the braces version.
+  </p>
+  <p class="simpara">
+   A property may implement zero, one, or both hooks as the situation requires.
+   All shorthand versions are mutually-independent.
+   That is, using a short-get with a long-set,
+   or a short-set with an explicit type, or so on is all valid.
+  </p>
+  <p class="simpara">
+   On a backed property, omitting a <code class="literal">get</code> or<code class="literal">set</code>
+   hook means the default read or write behavior will be used.
+  </p>
+ </div>
+ <div class="sect2" id="language.oop5.property-hooks.virtual">
+  <h3 class="title">Virtual properties</h3>
+  <p class="simpara">
+   Virtual properties are properties that have no backing value.
+   A property is virtual if neither its <code class="literal">get</code>
+   nor <code class="literal">set</code> hook references the property itself using exact syntax.
+   That is, a property named <code class="code">$foo</code> whose hook contains <code class="code">$this-&gt;foo</code> will be backed.
+   But the following is not a backed property, and will error:
+  </p>
+  <div class="example" id="example-229">
+   <p><strong>Example #5 Invalid virtual property</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">{<br />            </span><span style="color: #0000BB">$temp </span><span style="color: #007700">= </span><span style="color: #0000BB">__PROPERTY__</span><span style="color: #007700">;<br />            return </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$temp</span><span style="color: #007700">; </span><span style="color: #FF8000">// Doesn't refer to $this-&gt;foo, so it doesn't count.<br />        </span><span style="color: #007700">}<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   For virtual properties, if a hook is omitted then that operation does
+   not exist and trying to use it will produce an error.
+   Virtual properties take up no memory space in an object.
+   Virtual properties are suited for &quot;derived&quot; properties,
+   such as those that are the combination of two other properties.
+  </p>
+  <div class="example" id="example-230">
+   <p><strong>Example #6 Virtual property</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">readonly class </span><span style="color: #0000BB">Rectangle<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// A virtual property.<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">int $area </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">h </span><span style="color: #007700">* </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">w</span><span style="color: #007700">;<br />    }<br /><br />    public function </span><span style="color: #0000BB">__construct</span><span style="color: #007700">(public </span><span style="color: #0000BB">int $h</span><span style="color: #007700">, public </span><span style="color: #0000BB">int $w</span><span style="color: #007700">) {}<br />}<br /><br /></span><span style="color: #0000BB">$s </span><span style="color: #007700">= new </span><span style="color: #0000BB">Rectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">, </span><span style="color: #0000BB">5</span><span style="color: #007700">);<br />print </span><span style="color: #0000BB">$s</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">area</span><span style="color: #007700">; </span><span style="color: #FF8000">// prints 20<br /></span><span style="color: #0000BB">$s</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">area </span><span style="color: #007700">= </span><span style="color: #0000BB">30</span><span style="color: #007700">; </span><span style="color: #FF8000">// Error, as there is no set operation defined.<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   Defining both a <code class="literal">get</code> and <code class="literal">set</code> hook on a virtual property is also allowed.
+  </p>
+ </div>
+ <div class="sect2">
+  <h3 class="title">Scoping</h3>
+  <p class="simpara">
+   All hooks operate in the scope of the object being modified.
+   That means they have access to all public, private, or protected methods of the object,
+   as well as any public, private, or protected properties,
+   including properties that may have their own property hooks.
+   Accessing another property from within a hook does not bypass the hooks defined on that property.
+  </p>
+  <p class="simpara">
+   The most notable implication of this is that non-trivial hooks may sub-call
+   to an arbitrarily complex method if they wish.
+  </p>
+  <div class="example" id="example-231">
+   <p><strong>Example #7 Calling a method from a hook</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Person </span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $phone </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sanitizePhone</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />    }<br /><br />    private function </span><span style="color: #0000BB">sanitizePhone</span><span style="color: #007700">(</span><span style="color: #0000BB">string $value</span><span style="color: #007700">): </span><span style="color: #0000BB">string </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">ltrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #DD0000">'+'</span><span style="color: #007700">);<br />        </span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #0000BB">ltrim</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br /><br />        if (!</span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/\d\d\d\-\d\d\d\-\d\d\d\d/'</span><span style="color: #007700">, </span><span style="color: #0000BB">$value</span><span style="color: #007700">)) {<br />            throw new </span><span style="color: #0000BB">\InvalidArgumentException</span><span style="color: #007700">();<br />        }<br />        return </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+ </div>
+ <div class="sect2">
+  <h3 class="title">References</h3>
+  <p class="simpara">
+   Because the presence of hooks intercept the read and write process for properties,
+   they cause issues when acquiring a reference to a property or with indirect
+   modification, such as <code class="code">$this-&gt;arrayProp[&#039;key&#039;] = &#039;value&#039;;</code>.
+   That is because any attempted modification of the value by reference would bypass a set hook,
+   if one is defined.
+  </p>
+  <p class="simpara">
+   In the rare case that getting a reference to a property that has hooks defined is necessary,
+   the <code class="literal">get</code> hook may be prefixed with <code class="literal">&amp;</code>
+   to cause it to return by reference.
+   Defining both <code class="literal">get</code> and <code class="literal">&amp;get</code> on the
+   same property is a syntax error.
+  </p>
+  <p class="simpara">
+   Defining both <code class="literal">&amp;get</code> and <code class="literal">set</code> hooks on a backed property is not allowed.
+   As noted above, writing to the value returned by reference would bypass the <code class="literal">set</code> hook.
+   On virtual properties, there is no necessary common value shared between the two hooks, so defining both is allowed.
+  </p>
+  <p class="simpara">
+   Writing to an index of an array property also involves an implicit reference.
+   For that reason, writing to a backed array property with hooks defined is
+   allowed if and only if it defines only a <code class="literal">&amp;get</code> hook.
+   On a virtual property, writing to the array returned from either
+   <code class="literal">get</code> or <code class="literal">&amp;get</code> is legal,
+   but whether that has any impact on the object depends on the hook implementation.
+  </p>
+  <p class="simpara">
+   Overwriting the entire array property is fine, and behaves the same as any other property.
+   Only working with elements of the array require special care.
+  </p>
+ </div>
+ <div class="sect2">
+  <h3 class="title">Inheritance</h3>
+  <div class="sect3">
+   <h4 class="title">Final hooks</h4>
+   <p class="simpara">
+    Hooks may also be declared <a href="language.oop5.final.html" class="link">final</a>,
+    in which case they may not be overridden.
+   </p>
+   <div class="example" id="example-232">
+    <p><strong>Example #8 Final hooks</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">User<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $username </span><span style="color: #007700">{<br />        final </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />    }<br />}<br /><br />class </span><span style="color: #0000BB">Manager </span><span style="color: #007700">extends </span><span style="color: #0000BB">User<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $username </span><span style="color: #007700">{<br />        </span><span style="color: #FF8000">// This is allowed<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">username</span><span style="color: #007700">);<br /><br />        </span><span style="color: #FF8000">// But this is NOT allowed, because set is final in the parent.<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+   <p class="simpara">
+    A property may also be declared <a href="language.oop5.final.html" class="link">final</a>.
+    A final property may not be redeclared by a child class in any way,
+    which precludes altering hooks or widening its access.
+   </p>
+   <p class="simpara">
+    Declaring hooks final on a property that is declared final is redundant,
+    and will be silently ignored.
+    This is the same behavior as final methods.
+   </p>
+   <p class="simpara">
+    A child class may define or redefine individual hooks on a property
+    by redefining the property and just the hooks it wishes to override.
+    A child class may also add hooks to a property that had none.
+    This is essentially the same as if the hooks were methods.
+   </p>
+   <div class="example" id="example-233">
+    <p><strong>Example #9 Hook inheritance</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Point<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">int $x</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">int $y</span><span style="color: #007700">;<br />}<br /><br />class </span><span style="color: #0000BB">PositivePoint </span><span style="color: #007700">extends </span><span style="color: #0000BB">Point<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">int $x </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">{<br />            if (</span><span style="color: #0000BB">$value </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />                throw new </span><span style="color: #0000BB">\InvalidArgumentException</span><span style="color: #007700">(</span><span style="color: #DD0000">'Too small'</span><span style="color: #007700">);<br />            }<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">x </span><span style="color: #007700">= </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+   <p class="simpara">
+    Each hook overrides parent implementations independently of each other.
+    If a child class adds hooks, any default value set on the property is removed, and must be redeclared.
+    That is the same consistent with how inheritance works on hook-less properties.
+   </p>
+  </div>
+  <div class="sect3">
+   <h4 class="title">Accessing parent hooks</h4>
+   <p class="simpara">
+    A hook in a child class may access the parent class&#039;s property using the
+    <code class="code">parent::$prop</code> keyword, followed by the desired hook.
+    For example, <code class="code">parent::$propName::get()</code>.
+    It may be read as &quot;access the <var class="varname">prop</var> defined on the parent class,
+    and then run its get operation&quot; (or set operation, as appropriate).
+   </p>
+   <p class="simpara">
+    If not accessed this way, the parent class&#039;s hook is ignored.
+    This behavior is consistent with how all methods work.
+    This also offers a way to access the parent class&#039;s storage, if any.
+    If there is no hook on the parent property,
+    its default get/set behavior will be used.
+    Hooks may not access any other hook except their own parent on their own property.
+   </p>
+   <p class="simpara">
+    The example above could be rewritten more efficiently as follows.
+   </p>
+   <div class="example" id="example-234">
+    <p><strong>Example #10 Parent hook access (set)</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Point<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">int $x</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">int $y</span><span style="color: #007700">;<br />}<br /><br />class </span><span style="color: #0000BB">PositivePoint </span><span style="color: #007700">extends </span><span style="color: #0000BB">Point<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">int $x </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">{<br />            if (</span><span style="color: #0000BB">$value </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">0</span><span style="color: #007700">) {<br />                throw new </span><span style="color: #0000BB">\InvalidArgumentException</span><span style="color: #007700">(</span><span style="color: #DD0000">'Too small'</span><span style="color: #007700">);<br />            }<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">x </span><span style="color: #007700">= </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+   <p class="simpara">
+    An example of overriding only a get hook could be:
+   </p>
+   <div class="example" id="example-235">
+    <p><strong>Example #11 Parent hook access (get)</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Strings<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $val</span><span style="color: #007700">;<br />}<br /><br />class </span><span style="color: #0000BB">CaseFoldingStrings </span><span style="color: #007700">extends </span><span style="color: #0000BB">Strings<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">bool $uppercase </span><span style="color: #007700">= </span><span style="color: #0000BB">true</span><span style="color: #007700">;<br /><br />    public </span><span style="color: #0000BB">string $val </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">uppercase<br />            </span><span style="color: #007700">? </span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">$val</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">())<br />            : </span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">parent</span><span style="color: #007700">::</span><span style="color: #0000BB">$val</span><span style="color: #007700">::</span><span style="color: #0000BB">get</span><span style="color: #007700">());<br />    }<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </div>
+ </div>
+ <div class="sect2">
+  <h3 class="title">Serialization</h3>
+  <p class="simpara">
+   PHP has a number of different ways in which an object may be serialized,
+   either for public consumption or for debugging purposes.
+   The behavior of hooks varies depending on the use case.
+   In some cases, the raw backing value of a property will be used,
+   bypassing any hooks.
+   In others, the property will be read or written &quot;through&quot; the hook,
+   just like any other normal read/write action.
+  </p>
+  <ul class="simplelist">
+   <li><span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span>: Use raw value</li>
+   <li><span class="function"><a href="function.serialize.html" class="function">serialize()</a></span>: Use raw value</li>
+   <li><span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span>: Use raw value</li>
+   <li><a href="language.oop5.magic.html#object.serialize" class="link">__serialize()</a>/<a href="language.oop5.magic.html#object.unserialize" class="link">__unserialize()</a>: Custom logic, uses get/set hook</li>
+   <li>Array casting: Use raw value</li>
+   <li><span class="function"><a href="function.var-export.html" class="function">var_export()</a></span>: Use get hook</li>
+   <li><span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>: Use get hook</li>
+   <li><span class="interfacename"><a href="class.jsonserializable.html" class="interfacename">JsonSerializable</a></span>: Custom logic, uses get hook</li>
+   <li><span class="function"><a href="function.get-object-vars.html" class="function">get_object_vars()</a></span>: Use get hook</li>
+   <li><span class="function"><a href="function.get-mangled-object-vars.html" class="function">get_mangled_object_vars()</a></span>: Use raw value</li>
+  </ul>
+ </div>
+</div></div></div></body></html>

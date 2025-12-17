@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Class Abstraction</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="language.oop5.static.html">« Static Keyword</a></li>
+      <li style="float: right;"><a href="language.oop5.interfaces.html">Object Interfaces »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="language.oop5.html">Classes and Objects</a></li>
+    <li>Class Abstraction</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="language.oop5.abstract" class="sect1">
+  <h2 class="title">Class Abstraction</h2>
+
+  <p class="para">
+   PHP has abstract classes, methods, and properties.
+   Classes defined as abstract cannot be instantiated, and any class that
+   contains at least one abstract method or property must also be abstract.
+   Methods defined as abstract simply declare the method&#039;s signature and whether it is public or protected;
+   they cannot define the implementation. Properties defined as abstract
+   may declare a requirement for <code class="literal">get</code> or <code class="literal">set</code>
+   behavior, and may provide an implementation for one, but not both, operations.
+  </p>
+
+  <p class="para">
+   When inheriting from an abstract class, all methods marked abstract in
+   the parent&#039;s class declaration must be defined by the child class,
+   and follow the usual
+   <a href="language.oop5.inheritance.html" class="link">inheritance</a> and
+   <a href="language.oop5.basic.html#language.oop.lsp" class="link">signature compatibility</a> rules.
+  </p>
+
+  <p class="simpara">
+   As of PHP 8.4, an abstract class may declare an abstract property, either public or protected.
+   A protected abstract property may be satisfied by a property that is readable/writeable from either
+   protected or public scope.
+  </p>
+  <p class="simpara">
+   An abstract property may be satisfied either by a standard property or by a property
+   with defined <a href="language.oop5.property-hooks.html" class="link">hooks</a>, corresponding to the required operation.
+  </p>
+
+  <div class="example" id="example-266">
+   <p><strong>Example #1 Abstract method example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract class </span><span style="color: #0000BB">AbstractClass<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// Force extending class to define this method<br />    </span><span style="color: #007700">abstract protected function </span><span style="color: #0000BB">getValue</span><span style="color: #007700">();<br />    abstract protected function </span><span style="color: #0000BB">prefixValue</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">);<br /><br />    </span><span style="color: #FF8000">// Common method<br />    </span><span style="color: #007700">public function </span><span style="color: #0000BB">printOut</span><span style="color: #007700">()<br />    {<br />        print </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getValue</span><span style="color: #007700">() . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />    }<br />}<br /><br />class </span><span style="color: #0000BB">ConcreteClass1 </span><span style="color: #007700">extends </span><span style="color: #0000BB">AbstractClass<br /></span><span style="color: #007700">{<br />    protected function </span><span style="color: #0000BB">getValue</span><span style="color: #007700">()<br />    {<br />        return </span><span style="color: #DD0000">"ConcreteClass1"</span><span style="color: #007700">;<br />    }<br /><br />    public function </span><span style="color: #0000BB">prefixValue</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">)<br />    {<br />        return </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">}</span><span style="color: #DD0000">ConcreteClass1"</span><span style="color: #007700">;<br />    }<br />}<br /><br />class </span><span style="color: #0000BB">ConcreteClass2 </span><span style="color: #007700">extends </span><span style="color: #0000BB">AbstractClass<br /></span><span style="color: #007700">{<br />    public function </span><span style="color: #0000BB">getValue</span><span style="color: #007700">()<br />    {<br />        return </span><span style="color: #DD0000">"ConcreteClass2"</span><span style="color: #007700">;<br />    }<br /><br />    public function </span><span style="color: #0000BB">prefixValue</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">)<br />    {<br />        return </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">}</span><span style="color: #DD0000">ConcreteClass2"</span><span style="color: #007700">;<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$class1 </span><span style="color: #007700">= new </span><span style="color: #0000BB">ConcreteClass1</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$class1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">printOut</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$class1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prefixValue</span><span style="color: #007700">(</span><span style="color: #DD0000">'FOO_'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$class2 </span><span style="color: #007700">= new </span><span style="color: #0000BB">ConcreteClass2</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$class2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">printOut</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$class2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prefixValue</span><span style="color: #007700">(</span><span style="color: #DD0000">'FOO_'</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+ConcreteClass1
+FOO_ConcreteClass1
+ConcreteClass2
+FOO_ConcreteClass2
+</pre></div>
+   </div>
+  </div>
+
+  <div class="example" id="example-267">
+   <p><strong>Example #2 Abstract method example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract class </span><span style="color: #0000BB">AbstractClass<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// An abstract method only needs to define the required arguments<br />    </span><span style="color: #007700">abstract protected function </span><span style="color: #0000BB">prefixName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}<br /><br />class </span><span style="color: #0000BB">ConcreteClass </span><span style="color: #007700">extends </span><span style="color: #0000BB">AbstractClass<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// A child class may define optional parameters which are not present in the parent's signature<br />    </span><span style="color: #007700">public function </span><span style="color: #0000BB">prefixName</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">, </span><span style="color: #0000BB">$separator </span><span style="color: #007700">= </span><span style="color: #DD0000">"."</span><span style="color: #007700">)<br />    {<br />        if (</span><span style="color: #0000BB">$name </span><span style="color: #007700">== </span><span style="color: #DD0000">"Pacman"</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">$prefix </span><span style="color: #007700">= </span><span style="color: #DD0000">"Mr"</span><span style="color: #007700">;<br />        } elseif (</span><span style="color: #0000BB">$name </span><span style="color: #007700">== </span><span style="color: #DD0000">"Pacwoman"</span><span style="color: #007700">) {<br />            </span><span style="color: #0000BB">$prefix </span><span style="color: #007700">= </span><span style="color: #DD0000">"Mrs"</span><span style="color: #007700">;<br />        } else {<br />            </span><span style="color: #0000BB">$prefix </span><span style="color: #007700">= </span><span style="color: #DD0000">""</span><span style="color: #007700">;<br />        }<br /><br />        return </span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$prefix</span><span style="color: #007700">}{</span><span style="color: #0000BB">$separator</span><span style="color: #007700">}</span><span style="color: #DD0000"> </span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />    }<br />}<br /><br /></span><span style="color: #0000BB">$class </span><span style="color: #007700">= new </span><span style="color: #0000BB">ConcreteClass</span><span style="color: #007700">();<br />echo </span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prefixName</span><span style="color: #007700">(</span><span style="color: #DD0000">"Pacman"</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">$class</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prefixName</span><span style="color: #007700">(</span><span style="color: #DD0000">"Pacwoman"</span><span style="color: #007700">), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Mr. Pacman
+Mrs. Pacwoman
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-268">
+   <p><strong>Example #3 Abstract property example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract class </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// Extending classes must have a publicly-gettable property<br />    </span><span style="color: #007700">abstract public </span><span style="color: #0000BB">string $readable </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get</span><span style="color: #007700">;<br />    }<br /><br />    </span><span style="color: #FF8000">// Extending classes must have a protected- or public-writeable property<br />    </span><span style="color: #007700">abstract protected </span><span style="color: #0000BB">string $writeable </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set</span><span style="color: #007700">;<br />    }<br /><br />    </span><span style="color: #FF8000">// Extending classes must have a protected or public symmetric property<br />    </span><span style="color: #007700">abstract protected </span><span style="color: #0000BB">string $both </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get</span><span style="color: #007700">;<br />        </span><span style="color: #0000BB">set</span><span style="color: #007700">;<br />    }<br />}<br /><br />class </span><span style="color: #0000BB">C </span><span style="color: #007700">extends </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// This satisfies the requirement and also makes it settable, which is valid<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">string $readable</span><span style="color: #007700">;<br /><br />    </span><span style="color: #FF8000">// This would NOT satisfy the requirement, as it is not publicly readable<br />    </span><span style="color: #007700">protected </span><span style="color: #0000BB">string $readable</span><span style="color: #007700">;<br /><br />    </span><span style="color: #FF8000">// This satisfies the requirement exactly, so is sufficient.<br />    // It may only be written to, and only from protected scope<br />    </span><span style="color: #007700">protected </span><span style="color: #0000BB">string $writeable </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />    }<br /><br />    </span><span style="color: #FF8000">// This expands the visibility from protected to public, which is fine<br />    </span><span style="color: #007700">public </span><span style="color: #0000BB">string $both</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+  <p class="simpara">
+   An abstract property on an abstract class may provide implementations for any hook,
+   but must have either <code class="literal">get</code> or <code class="literal">set</code> declared but not defined (as in the example above).
+  </p>
+  <div class="example" id="example-269">
+   <p><strong>Example #4 Abstract property example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">abstract class </span><span style="color: #0000BB">A<br /></span><span style="color: #007700">{<br />    </span><span style="color: #FF8000">// This provides a default (but overridable) set implementation,<br />    // and requires child classes to provide a get implementation<br />    </span><span style="color: #007700">abstract public </span><span style="color: #0000BB">string $foo </span><span style="color: #007700">{<br />        </span><span style="color: #0000BB">get</span><span style="color: #007700">;<br /><br />        </span><span style="color: #0000BB">set </span><span style="color: #007700">{<br />            </span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo </span><span style="color: #007700">= </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />        }<br />    }<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+ </div></div></div></body></html>

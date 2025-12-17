@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>posix_pathconf constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="posix.constants.setrlimit.html">« posix_setrlimit constants</a></li>
+      <li style="float: right;"><a href="posix.constants.sysconf.html">posix_sysconf constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="posix.constants.html">Predefined Constants</a></li>
+    <li>posix_pathconf constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="posix.constants.pathconf" class="section">
+  <h2 class="title"><span class="function"><a href="function.posix-pathconf.html" class="function">posix_pathconf()</a></span> constants</h2>
+  <dl>
+   
+    <dt id="constant.posix-pc-link-max">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-link-max">POSIX_PC_LINK_MAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of links a given file or directory can have.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-max-canon">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-max-canon">POSIX_PC_MAX_CANON</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of bytes in a terminal canonical input buffer
+      (pathname being then a character special file).
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-max-input">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-max-input">POSIX_PC_MAX_INPUT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of bytes of a terminal input queue
+      (pathname being then a character special file).
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-name-max">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-name-max">POSIX_PC_NAME_MAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of characters for a file name alone, not its path.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-path-max">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-path-max">POSIX_PC_PATH_MAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of characters for a full path name.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-pipe-buf">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-pipe-buf">POSIX_PC_PIPE_BUF</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of bytes that can be written to a pipe in one operation.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-chown-restricted">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-chown-restricted">POSIX_PC_CHOWN_RESTRICTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      If privileges are required to be allow <span class="function"><a href="function.chown.html" class="function">chown()</a></span> to work.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-no-trunc">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-no-trunc">POSIX_PC_NO_TRUNC</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      If a file name (or files under a directory) is longer than <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-name-max">POSIX_PC_NAME_MAX</a></code></strong>.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-alloc-size-min">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-alloc-size-min">POSIX_PC_ALLOC_SIZE_MIN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The minimum number of bytes of storage allocated for any portion of a file.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-alloc-symlink-max">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-alloc-symlink-max">POSIX_PC_ALLOC_SYMLINK_MAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of symbolic links a given file or directory can have.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.posix-pc-symlink-max">
+     <strong><code><a href="posix.constants.pathconf.html#constant.posix-pc-symlink-max">POSIX_PC_SYMLINK_MAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of bytes in a symbolic link.
+      Available as of PHP 8.3.0.
+     </span>
+    </dd>
+   
+  </dl>
+ </div></div></div></body></html>

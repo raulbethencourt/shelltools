@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Clean (erase) the contents of the active output buffer and turn it off</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.ob-clean.html">« ob_clean</a></li>
+      <li style="float: right;"><a href="function.ob-end-flush.html">ob_end_flush »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.outcontrol.html">Output Control Functions</a></li>
+    <li>Clean (erase) the contents of the active output buffer and turn it off</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.ob-end-clean" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ob_end_clean</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">ob_end_clean</span> &mdash; <span class="dc-title">Clean (erase) the contents of the active output buffer and turn it off</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.ob-end-clean-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>ob_end_clean</strong></span>(): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+
+  <p class="para rdfs-comment">
+   This function calls the output handler
+   (with the <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-clean">PHP_OUTPUT_HANDLER_CLEAN</a></code></strong> and
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong> flags),
+   discards it&#039;s return value,
+   discards the contents of the active output buffer
+   and turns off the active output buffer.
+  </p>
+  <p class="para">
+   <span class="function"><strong>ob_end_clean()</strong></span> will fail
+   without an active output buffer started with the
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-removable">PHP_OUTPUT_HANDLER_REMOVABLE</a></code></strong> flag.
+  </p>
+  <p class="para">
+   <span class="function"><strong>ob_end_clean()</strong></span>
+   will discard the contents of the active output buffer
+   even if it was started without the
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cleanable">PHP_OUTPUT_HANDLER_CLEANABLE</a></code></strong> flag.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ob-end-clean-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ob-end-clean-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> on success or <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.ob-end-clean-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If the function fails it generates an <strong><code><a href="errorfunc.constants.html#constant.e-notice">E_NOTICE</a></code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ob-end-clean-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   The following example shows an easy way to get rid of
+   the contents of the active output buffer:
+  </p>
+  <p class="para">
+   <div class="example" id="example-561">
+    <p><strong>Example #1 <span class="function"><strong>ob_end_clean()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />ob_start</span><span style="color: #007700">();<br />echo </span><span style="color: #DD0000">'Text that won\'t get displayed.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">ob_end_clean</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ob-end-clean-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.ob-start.html" class="function" rel="rdfs-seeAlso">ob_start()</a> - Turn on output buffering</span></li>
+    <li><span class="function"><a href="function.ob-get-contents.html" class="function" rel="rdfs-seeAlso">ob_get_contents()</a> - Return the contents of the output buffer</span></li>
+    <li><span class="function"><a href="function.ob-clean.html" class="function" rel="rdfs-seeAlso">ob_clean()</a> - Clean (erase) the contents of the active output buffer</span></li>
+    <li><span class="function"><a href="function.ob-get-clean.html" class="function" rel="rdfs-seeAlso">ob_get_clean()</a> - Get the contents of the active output buffer and turn it off</span></li>
+    <li><span class="function"><a href="function.ob-end-flush.html" class="function" rel="rdfs-seeAlso">ob_end_flush()</a> - Flush (send) the return value of the active output handler
+   and turn the active output buffer off</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

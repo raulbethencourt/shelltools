@@ -1,0 +1,483 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Deprecated Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.incompatible.html">« Backward Incompatible Changes</a></li>
+      <li style="float: right;"><a href="migration84.removed-extensions.html">Removed Extensions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>Deprecated Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.deprecated" class="sect1">
+ <h2 class="title">Deprecated Features</h2>
+
+ <div class="sect2" id="migration84.deprecated.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration84.deprecated.core.implicitly-nullable-parameter">
+   
+   <h4 class="title">Implicitly nullable parameter</h4>
+
+   <p class="simpara">
+    A parameter&#039;s type is implicitly widened to accept <span class="type"><a href="language.types.null.html" class="type null">null</a></span>
+    if the default value for it is <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>.
+   </p>
+
+   <p class="para">
+    The following code:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">T1 $a </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+    should be converted to:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">T1</span><span style="color: #007700">|</span><span style="color: #0000BB">null $a </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+    or
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(?</span><span style="color: #0000BB">T1 $a </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+   </p>
+
+   <p class="para">
+    However, if such a parameter declaration is followed by a mandatory
+    parameter:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">T1 $a</span><span style="color: #007700">, </span><span style="color: #0000BB">T2 $b </span><span style="color: #007700">= </span><span style="color: #0000BB">null</span><span style="color: #007700">, </span><span style="color: #0000BB">T3 $c</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+    It must be converted to:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">T1 $a</span><span style="color: #007700">, </span><span style="color: #0000BB">T2</span><span style="color: #007700">|</span><span style="color: #0000BB">null $b</span><span style="color: #007700">, </span><span style="color: #0000BB">T3 $c</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+    or
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">T1 $a</span><span style="color: #007700">, ?</span><span style="color: #0000BB">T2 $b</span><span style="color: #007700">, </span><span style="color: #0000BB">T3 $c</span><span style="color: #007700">) {}</span></span></code></div>
+     </div>
+
+    </div>
+    as optional parameter before required ones are deprecated.
+   </p>
+  </div>
+
+  <div class="sect3">
+   
+   <h4 class="title">Raising zero to the power of negative number</h4>
+
+   <p class="simpara">
+    Raising a number to the power of a negative number is equivalent to taking
+    the reciprocal of the number raised to the positive opposite of the power.
+    That is, <code class="literal">10<sup class="superscript">-2</sup></code> is the same as
+    <code class="literal">1 / 10<sup class="superscript">2</sup></code>.
+    Therefore raising <code class="literal">0</code> to the power of a negative number
+    corresponds to dividing by <code class="literal">0</code>, i.e.
+    <code class="literal">0<sup class="superscript">-2</sup></code> is the same as
+    <code class="literal">1 / 0<sup class="superscript">2</sup></code>, or
+    <code class="literal">1 / 0</code>. Thus, this behavior has been deprecated.
+   </p>
+
+   <p class="simpara">
+    This affects the exponentiation operator <code class="literal">**</code>
+    and the <span class="function"><a href="function.pow.html" class="function">pow()</a></span> function.
+   </p>
+
+   <p class="simpara">
+    If the IEEE 754 semantics are desired one should use the new
+    <span class="function"><a href="function.fpow.html" class="function">fpow()</a></span> function.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.deprecated.core.underscore-class-name">
+   
+   <h4 class="title">Using underscore <code class="literal">_</code> as class name</h4>
+
+   <p class="para">
+    Naming a class <code class="literal">_</code> is now deprecated:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">_ </span><span style="color: #007700">{}</span></span></code></div>
+     </div>
+
+    </div>
+   </p>
+
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <p class="para">
+     Classes whose names start with an underscore are <em>not</em>
+     deprecated:
+     <div class="informalexample">
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">_MyClass </span><span style="color: #007700">{}</span></span></code></div>
+      </div>
+
+     </div>
+    </p>
+   </p></blockquote>
+  </div>
+
+  <div class="sect3">
+   
+   <h4 class="title">
+    Using <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span> with
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-error">E_USER_ERROR</a></code></strong>
+   </h4>
+
+   <p class="simpara">
+    Calling <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span> with
+    <code class="parameter">error_level</code> being equal to
+    <strong><code><a href="errorfunc.constants.html#constant.e-user-error">E_USER_ERROR</a></code></strong> is now deprecated.
+   </p>
+
+   <p class="simpara">
+    Such usages should be replaced by either throwing an exception,
+    or calling <span class="function"><a href="function.exit.html" class="function">exit()</a></span>, whichever is more appropriate.
+   </p>
+  </div>
+
+  <div class="sect3">
+   
+   <h4 class="title">
+    The <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong> constant
+   </h4>
+
+   <p class="simpara">
+    Because the <strong><code><a href="errorfunc.constants.html#constant.e-strict">E_STRICT</a></code></strong> error level was removed,
+    this constant is now deprecated.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.curl">
+  <h3 class="title">cURL</h3>
+
+  <p class="simpara">
+   The <strong><code><a href="curl.constants.html#constant.curlopt-binarytransfer">CURLOPT_BINARYTRANSFER</a></code></strong> constant is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.date">
+  <h3 class="title">Date</h3>
+
+  <p class="simpara">
+   The <code class="code"> DatePeriod::__construct(string $isostr, int $options = 0)</code>
+   signature has been deprecated.
+   Use <span class="methodname"><a href="dateperiod.createfromiso8601string.html" class="methodname">DatePeriod::createFromISO8601String()</a></span> instead.
+  </p>
+
+  
+  <p class="simpara">
+   The <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-timestamp">SUNFUNCS_RET_TIMESTAMP</a></code></strong>,
+   <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-string">SUNFUNCS_RET_STRING</a></code></strong>,
+   and <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-double">SUNFUNCS_RET_DOUBLE</a></code></strong> constants are now deprecated.
+   This follows from the deprecation of the <span class="function"><a href="function.date-sunset.html" class="function">date_sunset()</a></span> and
+   <span class="function"><a href="function.date-sunrise.html" class="function">date_sunrise()</a></span> functions in PHP 8.1.0.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.dba">
+  <h3 class="title">DBA</h3>
+
+  
+  <p class="simpara">
+   Passing <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> or <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> to <span class="function"><a href="function.dba-key-split.html" class="function">dba_key_split()</a></span> is now
+   deprecated.
+   It would always return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> in those cases.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.dom">
+  <h3 class="title">DOM</h3>
+
+  
+  <p class="simpara">
+   The <strong><code><a href="dom.constants.html#constant.dom-php-err">DOM_PHP_ERR</a></code></strong> constant is now deprecated.
+  </p>
+
+  
+  <p class="para">
+   The following properties have been formally deprecated:
+   <ul class="simplelist">
+    <li><span class="property">DOMDocument::$actualEncoding</span></li>
+    <li><span class="property">DOMDocument::$config</span></li>
+    <li><span class="property">DOMEntity::$actualEncoding</span></li>
+    <li><span class="property">DOMEntity::$encoding</span></li>
+    <li><span class="property">DOMEntity::$version</span></li>
+   </ul>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.hash">
+  <h3 class="title">Hash</h3>
+
+  
+  <p class="simpara">
+   Passing invalid options to hash functions is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.intl">
+  <h3 class="title">Intl</h3>
+
+  <p class="simpara">
+   Calling <span class="function"><strong>intlcal_set()</strong></span> or
+   <span class="methodname"><a href="intlcalendar.set.html" class="methodname">IntlCalendar::set()</a></span>
+   with more than two arguments is deprecated.
+   Use either <span class="methodname"><a href="intlcalendar.setdate.html" class="methodname">IntlCalendar::setDate()</a></span> or
+   <span class="methodname"><a href="intlcalendar.setdatetime.html" class="methodname">IntlCalendar::setDateTime()</a></span> instead.
+  </p>
+
+  <p class="simpara">
+   Calling <span class="function"><strong>intlgregcal_create_instance()</strong></span> or
+   <span class="methodname"><a href="intlgregoriancalendar.construct.html" class="methodname">IntlGregorianCalendar::__construct()</a></span>
+   with more than two arguments is deprecated.
+   Use either <span class="methodname"><a href="intlgregoriancalendar.createfromdate.html" class="methodname">IntlGregorianCalendar::createFromDate()</a></span> or
+   <span class="methodname"><a href="intlgregoriancalendar.createfromdatetime.html" class="methodname">IntlGregorianCalendar::createFromDateTime()</a></span> instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.ldap">
+  <h3 class="title">LDAP</h3>
+
+  <p class="simpara">
+   Calling <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span>
+   with more than two arguments is deprecated.
+   Use <span class="function"><a href="function.ldap-connect-wallet.html" class="function">ldap_connect_wallet()</a></span> instead.
+  </p>
+
+  <p class="simpara">
+   Calling <span class="function"><a href="function.ldap-exop.html" class="function">ldap_exop()</a></span>
+   with more than four arguments is deprecated.
+   Use <span class="function"><a href="function.ldap-exop-sync.html" class="function">ldap_exop_sync()</a></span> instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.mysqli">
+  <h3 class="title">MySQLi</h3>
+
+  
+  <p class="simpara">
+   The <span class="function"><a href="mysqli.ping.html" class="function">mysqli_ping()</a></span> function and
+   <span class="methodname"><a href="mysqli.ping.html" class="methodname">mysqli::ping()</a></span> method
+   are now deprecated as the reconnect feature was removed in PHP 8.2.0.
+  </p>
+
+  
+  <p class="simpara">
+   The <span class="function"><a href="mysqli.kill.html" class="function">mysqli_kill()</a></span> function and
+   <span class="methodname"><a href="mysqli.kill.html" class="methodname">mysqli::kill()</a></span> method
+   are now deprecated.
+   If this functionality is needed a SQL <code class="literal">KILL</code> command
+   can be used instead.
+  </p>
+
+  
+  <p class="simpara">
+   The <span class="function"><a href="mysqli.refresh.html" class="function">mysqli_refresh()</a></span> function and
+   <span class="methodname"><a href="mysqli.refresh.html" class="methodname">mysqli::refresh()</a></span> method
+   are now deprecated.
+   If this functionality is needed a SQL <code class="literal">FLUSH</code> command
+   can be used instead.
+   All <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-grant">MYSQLI_REFRESH_<span class="replaceable">*</span></a></code></strong>
+   constants have been deprecated as well.
+  </p>
+
+  
+  <p class="simpara">
+   Passing the <code class="parameter">mode</code> parameter to
+   <span class="function"><a href="mysqli.store-result.html" class="function">mysqli_store_result()</a></span> explicitly has been deprecated.
+   As the <strong><code><a href="mysqli.constants.html#constant.mysqli-store-result-copy-data">MYSQLI_STORE_RESULT_COPY_DATA</a></code></strong> constant was
+   only used in conjunction with this function it has also been deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.pdo-pgsql">
+  <h3 class="title">PDO_PGSQL</h3>
+
+  <p class="simpara">
+   Using escaped question marks (<code class="literal">??</code>) inside
+   dollar-quoted strings is deprecated.
+   Because PDO_PGSQL now has its own SQL parser with dollar-quoted strings
+   support, it is no longer necessary to escape question marks inside them.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.pgsql">
+  <h3 class="title">PGSQL</h3>
+
+  <p class="simpara">
+   The 2 arguments signature of <span class="function"><a href="function.pg-fetch-result.html" class="function">pg_fetch_result()</a></span>,
+   <span class="function"><a href="function.pg-field-prtlen.html" class="function">pg_field_prtlen()</a></span>, and
+   <span class="function"><a href="function.pg-field-is-null.html" class="function">pg_field_is_null()</a></span> is now deprecated.
+   Use the 3 arguments signature with <code class="parameter">row</code> set to
+   <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.random">
+  <h3 class="title">Random</h3>
+
+  
+  <p class="simpara">
+   <span class="function"><a href="function.lcg-value.html" class="function">lcg_value()</a></span> is now deprecated,
+   as the function is broken in multiple ways.
+   Use <span class="methodname"><a href="random-randomizer.getfloat.html" class="methodname">Random\Randomizer::getFloat()</a></span> instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.reflection">
+  <h3 class="title">Reflection</h3>
+
+  <p class="simpara">
+   Calling <span class="methodname"><a href="reflectionmethod.construct.html" class="methodname">ReflectionMethod::__construct()</a></span>
+   with one arguments is deprecated.
+   Use <span class="methodname"><a href="reflectionmethod.createfrommethodname.html" class="methodname">ReflectionMethod::createFromMethodName()</a></span> instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.session">
+  <h3 class="title">Session</h3>
+
+  <p class="simpara">
+   Calling <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span>
+   with more than two arguments is deprecated.
+   Use the two arguments signature instead.
+  </p>
+
+  
+  <p class="simpara">
+   Changing the value of the
+   <a href="session.configuration.html#ini.session.sid-length" class="link"><code class="literal">session.sid_length</code></a> and
+   <a href="session.configuration.html#ini.session.sid-bits-per-character" class="link"><code class="literal">session.sid_bits_per_character</code></a>
+   INI settings is deprecated.
+   Update the session storage backend to accept 32 character hexadecimal
+   session IDs and stop changing these two INI settings instead.
+  </p>
+
+  
+  <p class="simpara">
+   Changing the value of the
+   <a href="session.configuration.html#ini.session.use-only-cookies" class="link"><code class="literal">session.use_only_cookies</code></a>,
+   <a href="session.configuration.html#ini.session.use-trans-sid" class="link"><code class="literal">session.use_trans_sid</code></a>,
+   <a href="session.configuration.html#ini.session.trans-sid-tags" class="link"><code class="literal">session.trans_sid_tags</code></a>,
+   <a href="session.configuration.html#ini.session.trans-sid-hosts" class="link"><code class="literal">session.trans_sid_hosts</code></a>, and
+   <a href="session.configuration.html#ini.session.referer-check" class="link"><code class="literal">session.referer_check</code></a>
+   INI settings is deprecated.
+   The <strong><code><a href="session.constants.html#constant.sid">SID</a></code></strong> constant is also deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.soap">
+  <h3 class="title">SOAP</h3>
+
+  
+  <p class="simpara">
+   Passing an <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> to
+   <span class="methodname"><a href="soapserver.addfunction.html" class="methodname">SoapServer::addFunction()</a></span> is now deprecated.
+   If all PHP functions need to be provided flatten the array returned by
+   <span class="function"><a href="function.get-defined-functions.html" class="function">get_defined_functions()</a></span>.
+  </p>
+
+  
+  <p class="simpara">
+   The <strong><code><a href="soap.constants.html#constant.soap-functions-all">SOAP_FUNCTIONS_ALL</a></code></strong> constant is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.spl">
+  <h3 class="title">SPL</h3>
+
+  <p class="simpara">
+   The <span class="methodname"><a href="splfixedarray.wakeup.html" class="methodname">SplFixedArray::__wakeup()</a></span> method is now
+   deprecated, as it implements
+   <span class="methodname"><a href="splfixedarray.serialize.html" class="methodname">SplFixedArray::__serialize()</a></span> and
+   <span class="methodname"><a href="splfixedarray.unserialize.html" class="methodname">SplFixedArray::__unserialize()</a></span>
+   which need to be overwritten instead.
+  </p>
+
+  
+  <p class="simpara">
+   Using the default value for the <code class="parameter">escape</code> parameter for the
+   <span class="methodname"><a href="splfileobject.setcsvcontrol.html" class="methodname">SplFileObject::setCsvControl()</a></span>,
+   <span class="methodname"><a href="splfileobject.fputcsv.html" class="methodname">SplFileObject::fputcsv()</a></span>, and
+   <span class="methodname"><a href="splfileobject.fgetcsv.html" class="methodname">SplFileObject::fgetcsv()</a></span> is now deprecated.
+   
+   It must be passed explicitly either positionally or via named arguments.
+   This does not apply to <span class="methodname"><a href="splfileobject.fputcsv.html" class="methodname">SplFileObject::fputcsv()</a></span>
+   and <span class="methodname"><a href="splfileobject.fgetcsv.html" class="methodname">SplFileObject::fgetcsv()</a></span> if
+   <span class="methodname"><a href="splfileobject.setcsvcontrol.html" class="methodname">SplFileObject::setCsvControl()</a></span> was used to set a
+   new default value.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="simpara">
+   Calling <span class="function"><a href="function.stream-context-set-option.html" class="function">stream_context_set_option()</a></span>
+   with two arguments is deprecated.
+   Use <span class="function"><a href="function.stream-context-set-options.html" class="function">stream_context_set_options()</a></span> instead.
+  </p>
+
+  
+  <p class="simpara">
+   Unserializing strings using the uppercase <code class="literal">S</code> tag
+   with <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> is deprecated.
+  </p>
+
+  
+  <p class="simpara">
+   Using the default value for the <code class="parameter">escape</code> parameter for the
+   <span class="function"><a href="function.fputcsv.html" class="function">fputcsv()</a></span>,
+   <span class="function"><a href="function.fgetcsv.html" class="function">fgetcsv()</a></span>, and
+   <span class="function"><a href="function.str-getcsv.html" class="function">str_getcsv()</a></span>  is now deprecated.
+   
+   It must be passed explicitly either positionally or via named arguments.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration84.deprecated.core.xml">
+  <h3 class="title">XML</h3>
+
+  
+  <p class="simpara">
+   The <span class="function"><a href="function.xml-set-object.html" class="function">xml_set_object()</a></span> function has been deprecated.
+  </p>
+
+  
+  <p class="simpara">
+   Passing non-<span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> strings to the
+   <span class="function"><strong>xml_set_()</strong><span class="replaceable">*</span></span>
+   functions is now deprecated.
+  </p>
+ </div>
+
+</div></div></div></body></html>

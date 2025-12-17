@@ -1,0 +1,705 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="oci8.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="oci8.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.oci8.html">OCI8</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="oci8.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <table class="doctable table">
+   <caption><strong>OCI8 Function and Method Modes</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Constant</th>
+         <th>Description</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-assoc">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-assoc">OCI_ASSOC</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> and
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> to get results as an associative
+           array.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-both">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-both">OCI_BOTH</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> and
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> to get results as an
+           array with both associative and number indices.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-commit-on-success">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-commit-on-success">OCI_COMMIT_ON_SUCCESS</a></code></strong></td>
+         <td>
+           Statement execution mode for <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>
+           call. Automatically commit changes when the statement has
+           succeeded.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-cred-ext">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-cred-ext">OCI_CRED_EXT</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> for using
+           Oracles&#039; External or OS authentication.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-default">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-default">OCI_DEFAULT</a></code></strong></td>
+         <td>
+           See <strong><code><a href="oci8.constants.html#constant.oci-no-auto-commit">OCI_NO_AUTO_COMMIT</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-describe-only">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-describe-only">OCI_DESCRIBE_ONLY</a></code></strong></td>
+         <td>
+           Statement execution mode
+           for <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>.  Use this mode if you
+           want meta data such as the column names but don&#039;t want to
+           fetch rows from the query.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-exact-fetch">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-exact-fetch">OCI_EXACT_FETCH</a></code></strong></td>
+         <td>
+           Obsolete. Statement fetch mode. Used when the application
+           knows in advance exactly how many rows it will be fetching.
+           This mode turns prefetching off for Oracle release 8 or
+           later mode. The cursor is canceled after the desired rows
+           are fetched which may result in reduced server-side
+           resource usage.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-fetchstatement-by-column">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-fetchstatement-by-column">OCI_FETCHSTATEMENT_BY_COLUMN</a></code></strong></td>
+         <td>
+           Default mode of <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-fetchstatement-by-row">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-fetchstatement-by-row">OCI_FETCHSTATEMENT_BY_ROW</a></code></strong></td>
+         <td>
+           Alternative mode of <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.ocilob-buffer-free">
+         <td><strong><code>OCI_LOB_BUFFER_FREE</code></strong></td>
+         <td>
+           Used with <a href="ocilob.flush.html" class="xref">OCILob::flush</a> to free
+           buffers used.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-no-auto-commit">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-no-auto-commit">OCI_NO_AUTO_COMMIT</a></code></strong></td>
+         <td>
+           Statement execution mode
+           for <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>. The transaction is not
+           automatically committed when using this mode.  For
+           readability in new code, use this value instead of the
+           older, equivalent <strong><code><a href="oci8.constants.html#constant.oci-default">OCI_DEFAULT</a></code></strong> constant.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-num">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-num">OCI_NUM</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> and
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> to get results as an
+           enumerated array.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-return-lobs">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-return-lobs">OCI_RETURN_LOBS</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> to get the
+           data value of the LOB instead of the descriptor.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-return-nulls">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-return-nulls">OCI_RETURN_NULLS</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> to get empty
+           array elements if the row items value is <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-cur">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-seek-cur">OCI_SEEK_CUR</a></code></strong></td>
+         <td>
+           Used with <a href="ocilob.seek.html" class="xref">OCILob::seek</a> to set the seek position.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-end">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-seek-end">OCI_SEEK_END</a></code></strong></td>
+         <td>
+           Used with <a href="ocilob.seek.html" class="xref">OCILob::seek</a> to set the seek position.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-set">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-seek-set">OCI_SEEK_SET</a></code></strong></td>
+         <td>
+           Used with <a href="ocilob.seek.html" class="xref">OCILob::seek</a> to set the seek position.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysdate">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-sysdate">OCI_SYSDATE</a></code></strong></td>
+         <td>
+           Obsolete.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysdba">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-sysdba">OCI_SYSDBA</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> to connect with
+           the SYSDBA privilege. The <var class="filename">php.ini</var> setting
+           <a href="oci8.configuration.html#ini.oci8.privileged-connect" class="link">oci8.privileged_connect</a>
+           should be enabled to use this.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysoper">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-sysoper">OCI_SYSOPER</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> to connect with
+           the SYSOPER privilege. The <var class="filename">php.ini</var> setting
+           <a href="oci8.configuration.html#ini.oci8.privileged-connect" class="link">oci8.privileged_connect</a>
+           should be enabled to use this.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-temp-blob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-temp-blob">OCI_TEMP_BLOB</a></code></strong></td>
+         <td>
+           Used with <a href="ocilob.writetemporary.html" class="xref">OCILob::writeTemporary</a>
+           to indicate that a temporary BLOB should be created.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-temp-clob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-temp-clob">OCI_TEMP_CLOB</a></code></strong></td>
+         <td>
+           Used with <a href="ocilob.writetemporary.html" class="xref">OCILob::writeTemporary</a>
+           to indicate that a temporary CLOB should be created.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+ <table class="doctable table">
+   <caption><strong>OCI8 Bind and Define Types</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Constant</th>
+         <th>Description</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-b-bfile">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-bfile">OCI_B_BFILE</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           BFILEs.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-bin">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-bin">OCI_B_BIN</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> to bind RAW values.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-blob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-blob">OCI_B_BLOB</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when
+           binding BLOBs.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-bol">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-bol">OCI_B_BOL</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> to bind a PL/SQL BOOLEAN
+           variable.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-cfilee">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-cfilee">OCI_B_CFILEE</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           CFILEs.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-clob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-clob">OCI_B_CLOB</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           CLOBs.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-cursor">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-cursor">OCI_B_CURSOR</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           cursors, previously allocated
+           with <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-int">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-int">OCI_B_INT</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           INTEGER.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-nty">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-nty">OCI_B_NTY</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           named data types.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-num">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-num">OCI_B_NUM</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           NUMBER.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-rowid">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-b-rowid">OCI_B_ROWID</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> when binding
+           ROWIDs.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-afc">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-afc">SQLT_AFC</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           CHAR.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-avc">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-avc">SQLT_AVC</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           VARCHAR2.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bdouble">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-bdouble">SQLT_BDOUBLE</a></code></strong></td>
+         <td>
+           Not supported.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bfilee">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-bfilee">SQLT_BFILEE</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-bfile">OCI_B_BFILE</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bfloat">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-bfloat">SQLT_BFLOAT</a></code></strong></td>
+         <td>
+           Not supported.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bin">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-bin">SQLT_BIN</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-bin">OCI_B_BIN</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-blob">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-blob">SQLT_BLOB</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-blob">OCI_B_BLOB</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bol">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-bol">SQLT_BOL</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-bol">OCI_B_BOL</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-cfilee">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-cfilee">SQLT_CFILEE</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-cfilee">OCI_B_CFILEE</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-chr">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-chr">SQLT_CHR</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           VARCHAR2.
+           Also used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-clob">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-clob">SQLT_CLOB</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-clob">OCI_B_CLOB</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-flt">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-flt">SQLT_FLT</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           FLOAT.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-int">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-int">SQLT_INT</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-int">OCI_B_INT</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lbi">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-lbi">SQLT_LBI</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> to bind LONG RAW values.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lng">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-lng">SQLT_LNG</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> to bind LONG values.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lvc">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-lvc">SQLT_LVC</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           LONG VARCHAR.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-nty">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-nty">SQLT_NTY</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-nty">OCI_B_NTY</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-num">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-num">SQLT_NUM</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-num">OCI_B_NUM</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-odt">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-odt">SQLT_ODT</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           LONG.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-rdd">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-rdd">SQLT_RDD</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-rowid">OCI_B_ROWID</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-rset">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-rset">SQLT_RSET</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-b-cursor">OCI_B_CURSOR</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-str">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-str">SQLT_STR</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           STRING.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-uin">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-uin">SQLT_UIN</a></code></strong></td>
+         <td>
+           Not supported.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-vcs">
+         <td><strong><code><a href="oci8.constants.html#constant.sqlt-vcs">SQLT_VCS</a></code></strong></td>
+         <td>
+           Used with <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> to bind arrays of
+           VARCHAR.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+ <table class="doctable table">
+   <caption><strong>OCI8 Descriptor Types</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Constant</th>
+         <th>Description</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-dtype-file">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-dtype-file">OCI_DTYPE_FILE</a></code></strong></td>
+         <td>
+           This flag tells <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> to
+           initialize a new FILE descriptor.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-dtype-lob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-dtype-lob">OCI_DTYPE_LOB</a></code></strong></td>
+         <td>
+           This flag tells <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> to
+           initialize a new LOB descriptor.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-dtype-rowid">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-dtype-rowid">OCI_DTYPE_ROWID</a></code></strong></td>
+         <td>
+           This flag tells <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> to
+           initialize a new ROWID descriptor.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-file">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-d-file">OCI_D_FILE</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-dtype-file">OCI_DTYPE_FILE</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-lob">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-d-lob">OCI_D_LOB</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-dtype-lob">OCI_DTYPE_LOB</a></code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-rowid">
+         <td><strong><code><a href="oci8.constants.html#constant.oci-d-rowid">OCI_D_ROWID</a></code></strong></td>
+         <td>
+           The same as <strong><code><a href="oci8.constants.html#constant.oci-dtype-rowid">OCI_DTYPE_ROWID</a></code></strong>.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+ <table class="doctable table">
+       <tr>
+        <th>Constants</th>
+        <th>Description</th>
+       </tr>
+  <strong class="title">OCI8 Transparent Application Failover (TAF) Constants</strong>
+  <tr>
+   <td id="constant.oci-fo-abort">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-abort">OCI_FO_ABORT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Failover was unsuccessful and there is no option of retrying.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-begin">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-begin">OCI_FO_BEGIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Failover has detected a lost connection and failover is starting.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-end">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-end">OCI_FO_END</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Failover completed successfully.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-error">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-error">OCI_FO_ERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     Failover was unsuccessful but it gives the application the opportunity
+     to handle the error and return <strong><code><a href="oci8.constants.html#constant.oci-fo-retry">OCI_FO_RETRY</a></code></strong> to retry failover.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-none">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-none">OCI_FO_NONE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The user has not requested a failover type.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-reauth">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-reauth">OCI_FO_REAUTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     An Oracle user has been re-authenticated.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-retry">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-retry">OCI_FO_RETRY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The failover should be attempted again by Oracle.
+     In case of an error while failing over to a new
+     connection, TAF is able to retry the failover.
+     Typically, the application code should sleep for
+     a while before returning <strong><code><a href="oci8.constants.html#constant.oci-fo-retry">OCI_FO_RETRY</a></code></strong>.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-select">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-select">OCI_FO_SELECT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The user has requested SELECT failover as well.
+     It allows users with open cursors to continue fetching from them after failure.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-session">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-session">OCI_FO_SESSION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The user has requested only session failover.
+     For example, if a user&#039;s connection is lost,
+     then a new session is automatically created for the user on the backup.
+     This type of failover does not attempt to recover SELECTs.
+    </span>
+   </td>
+  </tr>
+  <tr>
+   <td id="constant.oci-fo-txnal">
+    <strong><code><a href="oci8.constants.html#constant.oci-fo-txnal">OCI_FO_TXNAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </td>
+   <td>
+    <span class="simpara">
+     The user has requested a transaction failover.
+    </span>
+   </td>
+  </tr>
+ </table>
+</div>
+</div></div></body></html>

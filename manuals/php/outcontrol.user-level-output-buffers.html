@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>User-Level Output Buffers</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.flushing-system-buffers.html">« Flushing System Buffers</a></li>
+      <li style="float: right;"><a href="outcontrol.what-output-is-buffered.html">What Output Is Buffered? »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.outcontrol.html">Output Control</a></li>
+    <li>User-Level Output Buffers</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.user-level-output-buffers" class="chapter">
+ <h1 class="title">User-Level Output Buffers</h1>
+<h2>Table of Contents</h2><ul class="chunklist chunklist_chapter"><li><a href="outcontrol.what-output-is-buffered.html">What Output Is Buffered?</a></li><li><a href="outcontrol.nesting-output-buffers.html">Nesting Output Buffers</a></li><li><a href="outcontrol.buffer-size.html">Buffer Size</a></li><li><a href="outcontrol.operations-on-buffers.html">Operations Allowed On Buffers</a></li><li><a href="outcontrol.output-handlers.html">Output Handlers</a></li><li><a href="outcontrol.working-with-output-handlers.html">Working With Output Handlers</a></li><li><a href="outcontrol.flags-passed-to-output-handlers.html">Flags Passed To Output Handlers</a></li><li><a href="outcontrol.output-handler-return-values.html">Output Handler Return Values</a></li></ul>
+
+ <p class="para">
+  User-level output buffers can be started, manipulated
+  and terminated from PHP code.
+  Each of these buffers includes an output buffer
+  and an associated output handler function.
+ </p>
+
+ 
+
+ <div class="section">
+  <h2 class="title">Turning Output Buffering On</h2>
+  <p class="para">
+   Output buffering can be turned on by using
+   the <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> function or by setting
+   the <a href="outcontrol.configuration.html#ini.output-buffering" class="link">output_buffering</a>
+   and <a href="outcontrol.configuration.html#ini.output-handler" class="link">output_handler</a>
+   <var class="filename">php.ini</var> settings.
+   While both can create output buffers,
+   <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> is more flexible
+   as it accepts user-defined functions as output handlers
+   and the operations allowed on the buffer (flush, clean, remove)
+   can be set as well.
+   Buffers started with <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> will be active
+   from the line the function was called,
+   while those started with
+   <a href="outcontrol.configuration.html#ini.output-buffering" class="link">output_buffering</a>
+   will be buffering output from the first line of the script.
+  </p>
+  <p class="para">
+   PHP is also shipped with a built-in <code class="literal">&quot;URL-Rewriter&quot;</code>
+   output handler which starts its own output buffer and only allows
+   up to two instances of it running at any time
+   (one for user-level URL-rewriting
+   and one for transparent session id support).
+   These buffers can be started by calling
+   the <span class="function"><a href="function.output-add-rewrite-var.html" class="function">output_add_rewrite_var()</a></span> function
+   and/or by enabling the
+   <a href="session.configuration.html#ini.session.use-trans-sid" class="link">session.use_trans_sid</a>
+   <var class="filename">php.ini</var> setting.
+  </p>
+  <p class="para">
+   The bundled <code class="literal">zlib</code> extension has its own
+   output buffer which can be enabled by using the
+   <a href="zlib.configuration.html#ini.zlib.output-compression" class="link">zlib.output_compression</a>
+   <var class="filename">php.ini</var> setting.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    While <code class="literal">&quot;URL-Rewriter&quot;</code> is special
+    in that it only allows up to two instances of it running at any one time,
+    all user-level output buffers use the same underlying buffers
+    used by <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span>
+    with their functionality implemented by a custom output handler function.
+    As such, all of their functionality can be emulated by userland code.
+   </span>
+  </p></blockquote>
+ </div>
+
+ 
+
+ 
+
+ 
+
+ <div class="section">
+  <h2 class="title">Flushing, Accessing And Cleaning Buffer Contents</h2>
+  <p class="para">
+   Flushing sends and discards the contents of the active buffer.
+   Output buffers get flushed when the size of the output
+   exceeds the size of the buffer; the script ends or
+   <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>
+   or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span> is called.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    Calling <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>
+    or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span> will turn off the active buffer.
+   </p>
+  </div>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    Flushing buffers will flush the return value of the output handler
+    which can differ from the contents of the buffer.
+    For example, using <span class="function"><a href="function.ob-gzhandler.html" class="function">ob_gzhandler()</a></span> will compress
+    the output and flush the compressed output.
+   </p>
+  </div>
+  <p class="para">
+   The contents of the active buffer can be retrieved by calling
+   <span class="function"><a href="function.ob-get-contents.html" class="function">ob_get_contents()</a></span>, <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>
+   or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>.
+  </p>
+  <p class="para">
+   If only the length of the buffer&#039;s contents are needed,
+   <span class="function"><a href="function.ob-get-length.html" class="function">ob_get_length()</a></span> or <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span>
+   will return the length of the contents in bytes.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    Calling <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>
+    or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span> will turn off the active buffer
+    after returning the its contents.
+   </p>
+  </div>
+  <p class="para">
+   The contents of the active buffer can be cleaned by calling
+   <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>, <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>
+   or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    Calling <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>
+    or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span> will turn off the active buffer.
+   </p>
+  </div>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Turning Buffers Off</h2>
+  <p class="para">
+   Output buffers can be turned off by calling
+   <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>,
+   <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span> or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>.
+  </p>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="simpara">
+    Output buffers started without the
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-removable">PHP_OUTPUT_HANDLER_REMOVABLE</a></code></strong> flag
+    cannot be turned off and may generate an <strong><code><a href="errorfunc.constants.html#constant.e-notice">E_NOTICE</a></code></strong>.
+   </p>
+  </div>
+  <p class="para">
+   Every output buffer that has not been closed by the end of the script
+   or when <span class="function"><a href="function.exit.html" class="function">exit()</a></span> is called will be flushed
+   and turned off by PHP&#039;s shutdown process.
+   The buffers will be flushed and turned off in reverse order
+   of their starting up.
+   The last buffered started will be first,
+   the first buffer started will be last to be flushed and turned off.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="simpara">
+    If flushing of the buffer&#039;s contents is not desired,
+    a custom output handler should be used to prevent flushing during shutdown.
+   </p>
+  </div>
+ </div>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ <div class="section">
+  <h2 class="title">Exceptions Thrown In Output Handlers</h2>
+  <p class="para">
+   If an uncaught exception is thrown in an output handler
+   the program terminates and the handler is invoked
+   by the shutdown process after which
+   the <code class="literal">&quot;Uncaught Exception&quot;</code> error message is flushed.
+  </p>
+  <p class="para">
+   If the uncaught exception is thrown in a handler
+   invoked by <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>,
+   <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span> or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>,
+   the contents of the buffer are flushed before the error message.
+  </p>
+  <p class="para">
+   If an uncaught exception is thrown in an output handler during shutdown,
+   the handler is terminated and neither the contents of the buffer
+   nor the error message is flushed.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    If a handler throws an exception
+    its <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong> status flag is set.
+   </span>
+  </p></blockquote>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Errors Raised In Output Handlers</h2>
+  <p class="para">
+   If a non-fatal error is raised in an output handler
+   the program continues execution.
+  </p>
+  <p class="para">
+   If the non-fatal error is raised in a handler invoked by
+   <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>
+   or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>,
+   the buffer flushes certain data depending on the return value of the handler.
+   If the handler returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> the buffer and the error message are flushed.
+   If the returns anything else the handler return value is flushed
+   but not the error message.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    If a handler returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+    its <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong> status flag is set.
+   </span>
+  </p></blockquote>
+  <p class="para">
+   If a fatal error is raised in an output handler
+   the program terminates and the handler is invoked
+   by the shutdown process after which the error message is flushed.
+  </p>
+  <p class="para">
+   If the fatal error is raised in a handler
+   invoked by <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>,
+   <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span> or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>,
+   the contents of the buffers are flushed before the error message.
+  </p>
+  <p class="para">
+   If a fatal error is raised in an output handler during shutdown
+   the program terminates without flushing the buffer or the error message.
+  </p>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Output In Output Handlers</h2>
+  <p class="para">
+   In specific circumstances, output produced in the handler is flushed
+   along with the contents of the buffer.
+   This output is not appended to the buffer and is not part of the string
+   returned by <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>.
+  </p>
+  <p class="para">
+   During flush operations (calling <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>,
+   <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>, <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>
+   and during shutdown)
+   if the return value of a handler is <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+   the contents of the buffer are flushed followed by the output.
+   If the handler is not invoked during shutdown
+   the handler throwing an exception or <span class="function"><a href="function.exit.html" class="function">exit()</a></span> being called
+   results in the same behavior.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    If a handler returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+    its <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong> status flag is set.
+   </span>
+  </p></blockquote>
+ </div>
+
+ <div class="section">
+  <h2 class="title">Output Handler Status Flags</h2>
+  <p class="para">
+   The
+   <a href="outcontrol.constants.html#outcontrol.constants.flags-returned-by-handler" class="link">
+    handler status flags
+   </a> of the buffer&#039;s <code class="literal">flags</code> bitmask
+   are set every time to the output handler is invoked
+   and are part of the <code class="literal">flags</code> returned by
+   <span class="function"><a href="function.ob-get-status.html" class="function">ob_get_status()</a></span>.
+   If the handler successfully executes and does not return <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>,
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-started">PHP_OUTPUT_HANDLER_STARTED</a></code></strong> and
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-processed">PHP_OUTPUT_HANDLER_PROCESSED</a></code></strong> is set.
+   If the handler returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> or throws an exception while executing,
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-started">PHP_OUTPUT_HANDLER_STARTED</a></code></strong> and
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong> is set.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    If the <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-disabled">PHP_OUTPUT_HANDLER_DISABLED</a></code></strong> of a handler is set,
+    the handler will not be invoked by calling
+    <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>, <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>,
+    <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>, <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>,
+    <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>,
+    <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>
+    or during PHP&#039;s shutdown process.
+    Prior to PHP 8.4.0, this flag had no effect when calling <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>
+    or <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>.
+   </span>
+  </p></blockquote>
+ </div>
+
+</div>
+</div></div></body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Marks a lazy object as initialized without calling the initializer or factory</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="reflectionclass.isuserdefined.html">« ReflectionClass::isUserDefined</a></li>
+      <li style="float: right;"><a href="reflectionclass.newinstance.html">ReflectionClass::newInstance »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.reflectionclass.html">ReflectionClass</a></li>
+    <li>Marks a lazy object as initialized without calling the initializer or factory</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="reflectionclass.marklazyobjectasinitialized" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionClass::markLazyObjectAsInitialized</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.4.0)</p><p class="refpurpose"><span class="refname">ReflectionClass::markLazyObjectAsInitialized</span> &mdash; <span class="dc-title">Marks a lazy object as initialized without calling the initializer or factory</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionclass.marklazyobjectasinitialized-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionClass::markLazyObjectAsInitialized</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.object.html" class="type object">object</a></span> <code class="parameter">$object</code></span>): <span class="type"><a href="language.types.object.html" class="type object">object</a></span></div>
+
+  <p class="simpara">
+   Marks a lazy object as initialized without calling the initializer or
+   factory. This has no effect if <code class="parameter">object</code> is not lazy or
+   is already initialized.
+  </p>
+  <p class="simpara">
+   The effect of calling this method is the same as described for Ghost Objects
+   (regardless of the laziness strategy of <code class="parameter">object</code>) in
+   <a href="language.oop5.lazy-objects.html#language.oop5.lazy-objects.initialization-sequence" class="link">initialization
+   sequence</a>, except that the initializer is not called.
+   After that, the object is indistinguishable from an object that was never
+   lazy and was created with
+   <span class="methodname"><a href="reflectionclass.newinstancewithoutconstructor.html" class="methodname">ReflectionClass::newInstanceWithoutConstructor()</a></span>,
+   except for the value of properties that were already initialized with
+   <span class="methodname"><a href="reflectionproperty.setrawvaluewithoutlazyinitialization.html" class="methodname">ReflectionProperty::setRawValueWithoutLazyInitialization()</a></span>
+   or <span class="methodname"><a href="reflectionproperty.skiplazyinitialization.html" class="methodname">ReflectionProperty::skipLazyInitialization()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionclass.marklazyobjectasinitialized-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">object</code></dt>
+    <dd>
+     <span class="simpara">
+      The object to mark as initialized.
+     </span>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionclass.marklazyobjectasinitialized-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="simpara">
+   Returns <code class="parameter">object</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionclass.marklazyobjectasinitialized-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-5360">
+   <p><strong>Example #1 Marking an uninitialized lazy object as initialized</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $prop1</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">string $prop2</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">string $prop3 </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflector </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Example</span><span style="color: #007700">::class);<br /><br /></span><span style="color: #0000BB">$object </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newLazyGhost</span><span style="color: #007700">(function (</span><span style="color: #0000BB">$object</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"Initializer called\n"</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop1 </span><span style="color: #007700">= </span><span style="color: #DD0000">'initialized'</span><span style="color: #007700">;<br />});<br /><br /></span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'prop1'</span><span style="color: #007700">)<br />          -&gt;</span><span style="color: #0000BB">setRawValueWithoutLazyInitialization</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">, </span><span style="color: #DD0000">'prop1 value'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">markLazyObjectAsInitialized</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">lazy ghost object(Example)#3 (1) {
+  [&quot;prop1&quot;]=&gt;
+  string(11) &quot;prop1 value&quot;
+  [&quot;prop2&quot;]=&gt;
+  uninitialized(string)
+  [&quot;prop3&quot;]=&gt;
+  uninitialized(string)
+}
+object(Example)#3 (2) {
+  [&quot;prop1&quot;]=&gt;
+  string(11) &quot;prop1 value&quot;
+  [&quot;prop2&quot;]=&gt;
+  uninitialized(string)
+  [&quot;prop3&quot;]=&gt;
+  string(13) &quot;default value&quot;
+}</pre>
+</div>
+   </div>
+  </div>
+  <div class="example" id="example-5361">
+   <p><strong>Example #2 Marking an initialized object as initialized</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class </span><span style="color: #0000BB">Example<br /></span><span style="color: #007700">{<br />    public </span><span style="color: #0000BB">string $prop1</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">string $prop2</span><span style="color: #007700">;<br />    public </span><span style="color: #0000BB">string $prop3 </span><span style="color: #007700">= </span><span style="color: #DD0000">'default value'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$reflector </span><span style="color: #007700">= new </span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #0000BB">Example</span><span style="color: #007700">::class);<br /><br /></span><span style="color: #0000BB">$object </span><span style="color: #007700">= </span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newLazyGhost</span><span style="color: #007700">(function (</span><span style="color: #0000BB">$object</span><span style="color: #007700">) {<br />    echo </span><span style="color: #DD0000">"Initializer called\n"</span><span style="color: #007700">;<br />    </span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop1 </span><span style="color: #007700">= </span><span style="color: #DD0000">'initialized'</span><span style="color: #007700">;<br />});<br /><br /></span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getProperty</span><span style="color: #007700">(</span><span style="color: #DD0000">'prop1'</span><span style="color: #007700">)<br />          -&gt;</span><span style="color: #0000BB">setRawValueWithoutLazyInitialization</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">, </span><span style="color: #DD0000">'prop1 value'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$reflector</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">markLazyObjectAsInitialized</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$object</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">Initializer called
+string(13) &quot;default value&quot;
+object(Example)#3 (2) {
+  [&quot;prop1&quot;]=&gt;
+  string(11) &quot;initialized&quot;
+  [&quot;prop2&quot;]=&gt;
+  uninitialized(string)
+  [&quot;prop3&quot;]=&gt;
+  string(13) &quot;default value&quot;
+}
+object(Example)#3 (2) {
+  [&quot;prop1&quot;]=&gt;
+  string(11) &quot;initialized&quot;
+  [&quot;prop2&quot;]=&gt;
+  uninitialized(string)
+  [&quot;prop3&quot;]=&gt;
+  string(13) &quot;default value&quot;
+}</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionclass.marklazyobjectasinitialized-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><a href="language.oop5.lazy-objects.html" class="link">Lazy objects</a></li>
+   <li><span class="methodname"><a href="reflectionclass.newlazyghost.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::newLazyGhost()</a> - Creates a new lazy ghost instance</span></li>
+   <li><span class="methodname"><a href="reflectionclass.initializelazyobject.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::initializeLazyObject()</a> - Forces initialization of a lazy object</span></li>
+   <li><span class="methodname"><a href="reflectionclass.isuninitializedlazyobject.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::isUninitializedLazyObject()</a> - Checks if an object is lazy and uninitialized</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

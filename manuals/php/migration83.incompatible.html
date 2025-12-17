@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Backward Incompatible Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration83.constants.html">« New Global Constants</a></li>
+      <li style="float: right;"><a href="migration83.deprecated.html">Deprecated Features »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration83.html">Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+    <li>Backward Incompatible Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration83.incompatible" class="sect1">
+ <h2 class="title">Backward Incompatible Changes</h2>
+
+ <div class="sect2" id="migration83.incompatible.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration83.incompatible.core.overflowing-call-stack">
+
+   <h4 class="title">Programs that were very close to overflowing the call stack</h4>
+   <p class="para">
+    Programs that were very close to overflowing the call stack may now throw an
+    <span class="classname"><a href="class.error.html" class="classname">Error</a></span> when using more than
+    zend.max_allowed_stack_size-zend.reserved_stack_size bytes of stack
+    (fiber.stack_size-zend.reserved_stack_size for fibers).
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.proc-get-status-multiple-times">
+   <h4 class="title">Executing proc_get_status() multiple times</h4>
+   <p class="para">
+    Executing <span class="function"><a href="function.proc-get-status.html" class="function">proc_get_status()</a></span> multiple times will now always
+    return the right value on POSIX systems. Previously, only the first call
+    of the function returned the right value. Executing
+    <span class="function"><a href="function.proc-close.html" class="function">proc_close()</a></span> after <span class="function"><a href="function.proc-get-status.html" class="function">proc_get_status()</a></span>
+    will now also return the right exit code. Previously this would return
+    <code class="literal">-1</code>.
+    Internally, this works by caching the result on POSIX systems.
+    If the previous behaviour is required, it is possible to check the
+    <code class="literal">&quot;cached&quot;</code> key in the array returned by
+    <span class="function"><a href="function.proc-get-status.html" class="function">proc_get_status()</a></span> to check whether the result was cached.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.zend-max-execution-timers">
+   <h4 class="title">Zend Max Execution Timers</h4>
+   <p class="para">
+    Zend Max Execution Timers is now enabled by default for ZTS builds on
+    Linux.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.traits-with-static-properties">
+   <h4 class="title">Uses of traits with static properties</h4>
+   <p class="para">
+    Uses of traits with static properties will now redeclare static properties
+    inherited from the parent class. This will create a separate static
+    property storage for the current class. This is analogous to adding the
+    static property to the class directly without traits.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.negative-index-to-empty-array">
+   <h4 class="title">Assigning a negative index to an empty array</h4>
+   <p class="para">
+    Assigning a negative index <var class="varname">$n</var> to an empty array will now make sure that the
+    next index is <code class="code">$n+1</code> instead of <code class="literal">0</code>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.class-constant-visibility-check">
+   <h4 class="title">Class constant visibility variance check</h4>
+   <p class="para">
+    Class constant visibility variance is now correctly checked when inherited
+    from interfaces.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.incompatible.core.weakmap-entries-maps-to-itself">
+   <h4 class="title">WeakMap entries whose key maps to itself</h4>
+   <p class="para">
+    <span class="classname"><a href="class.weakmap.html" class="classname">WeakMap</a></span> entries whose key maps to itself (possibly
+    transitively) may now be removed during cycle collection if the key is not
+    reachable except by iterating over the WeakMap (reachability via iteration is
+    considered weak).
+    Previously, such entries would never be automatically removed.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.date">
+  <h3 class="title">Date</h3>
+
+  <p class="para">
+   The DateTime extension has introduced Date extension specific exceptions
+   and errors under the <span class="classname"><a href="class.dateerror.html" class="classname">DateError</a></span> and
+   <span class="classname"><a href="class.dateexception.html" class="classname">DateException</a></span> hierarchies, instead of warnings and
+   generic exceptions. This improves error handling, at the expense
+   of having to check for errors and exceptions.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.dom">
+  <h3 class="title">DOM</h3>
+
+  <p class="para">
+   Calling <span class="methodname"><a href="domchildnode.after.html" class="methodname">DOMChildNode::after()</a></span>,
+   <span class="methodname"><a href="domchildnode.before.html" class="methodname">DOMChildNode::before()</a></span>,
+   <span class="methodname"><a href="domchildnode.replacewith.html" class="methodname">DOMChildNode::replaceWith()</a></span>
+   on a node that has no parent is now a no-op instead of a hierarchy
+   exception, which is the behaviour demanded by the DOM specification.
+  </p>
+
+  <p class="para">
+   Using the <span class="classname"><a href="class.domparentnode.html" class="classname">DOMParentNode</a></span>
+   and <span class="classname"><a href="class.domchildnode.html" class="classname">DOMChildNode</a></span> methods without a document now
+   works instead of throwing a <strong><code><a href="dom.constants.html#constant.dom-hierarchy-request-err">DOM_HIERARCHY_REQUEST_ERR</a></code></strong>
+   <span class="classname"><a href="class.domexception.html" class="classname">DOMException</a></span>.
+   This is in line with the behaviour demanded by the DOM specification.
+  </p>
+
+  <p class="para">
+   Calling <span class="methodname"><a href="domdocument.createattributens.html" class="methodname">DOMDocument::createAttributeNS()</a></span> without specifying
+   a prefix would incorrectly create a default namespace, placing the element
+   inside the namespace instead of the attribute. This bug is now fixed.
+  </p>
+
+  <p class="para">
+   <span class="methodname"><a href="domdocument.createattributens.html" class="methodname">DOMDocument::createAttributeNS()</a></span> would previously
+   incorrectly throw a <strong><code>DOM_NAMESPACE_ERRNAMESPACE_ERR</code></strong>
+   <span class="classname"><a href="class.domexception.html" class="classname">DOMException</a></span> when the prefix was already used for a
+   different URI. It now correctly chooses a different prefix when there&#039;s a
+   prefix name conflict.
+  </p>
+
+  <p class="para">
+   New methods and properties were added to some DOM classes.
+   If a userland class inherits from these classes and declare a method or property
+   with the same name, the declarations must be compatible. Otherwise, a typical
+   compile error about incompatible declarations will be thrown.
+   See the <a href="migration83.new-features.html#migration83.new-features.dom" class="link">list of new features</a>
+   and <a href="migration83.new-functions.html#migration83.new-functions.dom" class="link">new functions</a> for
+   a list of the newly implemented methods and properties.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.ffi">
+  <h3 class="title">FFI</h3>
+
+  <p class="para">
+   C functions that have a return type of <span class="type"><span class="type"><a href="language.types.void.html" class="type void">void</a></span></span> now return <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> instead of
+   returning the following object <code class="literal">object(FFI\CData:void) { }</code>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.opcache">
+  <h3 class="title">Opcache</h3>
+
+  <p class="para">
+   The <a href="opcache.configuration.html#ini.opcache.consistency-checks" class="link">opcache.consistency_checks</a>
+   INI directive was removed. This feature was broken with the tracing JIT,
+   as well as with inheritance cache, and has been disabled without a way to
+   enable it since PHP 8.1.18 and PHP 8.2.5.
+   Both the tracing JIT and inheritance cache may modify shm after the script
+   has been persisted by invalidating its checksum. The attempted fix skipped
+   over the modifiable pointers but was rejected due to complexity. For this
+   reason, it was decided to remove the feature instead.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.phar">
+  <h3 class="title">Phar</h3>
+
+  <p class="para">
+   The type of <span class="classname"><a href="class.phar.html" class="classname">Phar</a></span> class constants are now declared.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="para">
+   The <span class="function"><a href="function.range.html" class="function">range()</a></span> function has had various changes:
+   <ul class="simplelist">
+    <li>A <span class="classname"><a href="class.typeerror.html" class="classname">TypeError</a></span> is now thrown when passing <span class="type"><a href="language.types.object.html" class="type object">object</a></span>s,
+    <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>s, or <span class="type"><a href="language.types.array.html" class="type array">array</a></span>s as the boundary inputs.</li>
+    <li>A more descriptive <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is thrown when
+    passing <code class="literal">0</code> for <code class="parameter">$step</code>.</li>
+    <li>A <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is now thrown when using a
+    negative <code class="parameter">$step</code> for increasing ranges.</li>
+    <li>If <code class="parameter">$step</code> is a float that can be interpreted
+    as an int, it is now done so.</li>
+    <li>A <span class="classname"><a href="class.valueerror.html" class="classname">ValueError</a></span> is now thrown if any argument
+    is infinity or NAN.</li>
+    <li>An <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is now emitted if
+    <code class="parameter">$start</code> or <code class="parameter">$end</code> is the empty
+    string. The value continues to be cast to the value <code class="literal">0</code>.</li>
+    <li>An <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is now emitted if
+    <code class="parameter">$start</code> or <code class="parameter">$end</code> has more than
+    one byte, only if it is a non-numeric string.</li>
+    <li>An <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is now emitted if
+    <code class="parameter">$start</code> or <code class="parameter">$end</code> is cast to an
+    integer because the other boundary input is a number.
+    (e.g. <code class="code">range(5, &#039;z&#039;);</code>).</li>
+    <li>An <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is now emitted if
+    <code class="parameter">$step</code> is a float when trying to generate a range of
+    characters, except if both boundary inputs are numeric strings (e.g.
+    <code class="code">range(&#039;5&#039;, &#039;9&#039;, 0.5);</code> does not produce a warning).</li>
+    <li><span class="function"><a href="function.range.html" class="function">range()</a></span> now produce a list of characters if one
+    of the boundary inputs is a string digit instead of casting the other input
+    to int (e.g. <code class="code">range(&#039;9&#039;, &#039;A&#039;);</code>).</li>
+   </ul>
+
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />range</span><span style="color: #007700">(</span><span style="color: #DD0000">'9'</span><span style="color: #007700">, </span><span style="color: #DD0000">'A'</span><span style="color: #007700">);  </span><span style="color: #FF8000">// ["9", ":", ";", "&lt;", "=", "&gt;", "?", "@", "A"], as of PHP 8.3.0<br /></span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #DD0000">'9'</span><span style="color: #007700">, </span><span style="color: #DD0000">'A'</span><span style="color: #007700">);  </span><span style="color: #FF8000">// [9, 8, 7, 6, 5, 4, 3, 2, 1, 0], prior to PHP 8.3.0<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.number-format.html" class="function">number_format()</a></span> now handles negative
+   <code class="parameter">$decimals</code> values by rounding
+   <code class="parameter">$num</code> to <code class="code">abs($decimals)</code> digits before the
+   decimal point. Previously, negative <code class="parameter">$decimals</code> values
+   were ignored.
+  </p>
+
+  <p class="para">
+   The <span class="function"><a href="function.file.html" class="function">file()</a></span> flags error check now catches all invalid flags.
+   Notably <strong><code><a href="filesystem.constants.html#constant.file-append">FILE_APPEND</a></code></strong> was previously silently accepted.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.incompatible.SNMP">
+  <h3 class="title">SNMP</h3>
+
+  <p class="para">
+   The type of <span class="classname"><a href="class.snmp.html" class="classname">SNMP</a></span> class constants are now declared.
+  </p>
+ </div>
+
+</div></div></div></body></html>

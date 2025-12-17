@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Deprecated Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration83.incompatible.html">« Backward Incompatible Changes</a></li>
+      <li style="float: right;"><a href="migration83.other-changes.html">Other Changes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration83.html">Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+    <li>Deprecated Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration83.deprecated" class="sect1">
+ <h2 class="title">Deprecated Features</h2>
+
+ <div class="sect2" id="migration83.deprecated.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration83.deprecated.core.saner-inc-dec-operators">
+   <h4 class="title">Saner Increment/Decrement operators</h4>
+
+   <p class="para">
+    Using the <a href="language.operators.increment.html" class="link">increment</a>
+    operator (<code class="literal">++</code>) on empty, non-numeric,
+    or non-alphanumeric strings is now deprecated.
+    Moreover, incrementing non-numeric strings is soft deprecated.
+    That means no <strong><code><a href="errorfunc.constants.html#constant.e-deprecated">E_DEPRECATED</a></code></strong> diagnostic is emitted,
+    but this feature should not be used when producing new code.
+    The new <span class="function"><a href="function.str-increment.html" class="function">str_increment()</a></span> function should be used instead.
+   </p>
+
+   <p class="para">
+    Using the <a href="language.operators.increment.html" class="link">decrement</a>
+    operator (<code class="literal">--</code>) on empty or non-numeric strings is now deprecated.
+   </p>
+   
+  </div>
+
+  <div class="sect3" id="migration83.deprecated.core.get-class">
+   <h4 class="title">get_class()/get_parent_class() call without arguments</h4>
+
+   <p class="para">
+    Calling <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span> and <span class="function"><a href="function.get-parent-class.html" class="function">get_parent_class()</a></span>
+    without arguments is now deprecated.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.core.dba">
+  <h3 class="title">DBA</h3>
+
+  <p class="para">
+   Calling <span class="function"><a href="function.dba-fetch.html" class="function">dba_fetch()</a></span> with <code class="parameter">$dba</code> as
+   the 3rd argument is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.ffi">
+  <h3 class="title">FFI</h3>
+
+  <p class="para">
+   Calling <span class="methodname"><a href="ffi.cast.html" class="methodname">FFI::cast()</a></span>, <span class="methodname"><a href="ffi.new.html" class="methodname">FFI::new()</a></span>,
+   and <span class="methodname"><a href="ffi.type.html" class="methodname">FFI::type()</a></span> statically is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.intl">
+  <h3 class="title">Intl</h3>
+
+  <p class="para">
+   The <strong><code>U_MULTIPLE_DECIMAL_SEP*E*RATORS</code></strong>
+   constant had been deprecated, using the
+   <strong><code>U_MULTIPLE_DECIMAL_SEP*A*RATORS</code></strong>
+   constant instead is recommended.
+  </p>
+  <p class="para">
+   The <strong><code><a href="class.numberformatter.html#numberformatter.constants.type-currency">NumberFormatter::TYPE_CURRENCY</a></code></strong> constant has been deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.ldap">
+  <h3 class="title">LDAP</h3>
+
+  <p class="para">
+   Calling <span class="function"><a href="function.ldap-connect.html" class="function">ldap_connect()</a></span> with separate
+   <code class="parameter">$hostname</code> and <code class="parameter">$port</code> is
+   deprecated.
+   
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.mbstring">
+  <h3 class="title">MBString</h3>
+
+  <p class="para">
+   Passing a negative <code class="parameter">$width</code> to
+   <span class="function"><a href="function.mb-strimwidth.html" class="function">mb_strimwidth()</a></span> is now deprecated.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.phar">
+  <h3 class="title">Phar</h3>
+
+  <p class="para">
+   Calling <span class="methodname"><a href="phar.setstub.html" class="methodname">Phar::setStub()</a></span> with a
+   <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> and a <code class="parameter">$length</code>
+   is now deprecated. Such calls should be replaced by:
+   <code class="code">$phar-&gt;setStub(stream_get_contents($resource));</code>
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.random">
+  <h3 class="title">Random</h3>
+
+  <p class="para">
+   The <strong><code><a href="random.constants.html#constant.mt-rand-php">MT_RAND_PHP</a></code></strong> Mt19937 variant is deprecated.
+   
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.reflection">
+  <h3 class="title">Reflection</h3>
+
+  <p class="para">
+   Calling <span class="methodname"><a href="reflectionproperty.setvalue.html" class="methodname">ReflectionProperty::setValue()</a></span> with only one
+   parameter is deprecated.
+   To set static properties, pass <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> as the first parameter.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.standard">
+  <h3 class="title">Standard</h3>
+
+  <p class="para">
+   The <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> function is now deprecated.
+  </p>
+  <p class="para">
+   The <strong><code><a href="info.constants.html#constant.assert-active">ASSERT_ACTIVE</a></code></strong>, <strong><code><a href="info.constants.html#constant.assert-bail">ASSERT_BAIL</a></code></strong>,
+   <strong><code><a href="info.constants.html#constant.assert-callback">ASSERT_CALLBACK</a></code></strong>, <strong><code><a href="info.constants.html#constant.assert-exception">ASSERT_EXCEPTION</a></code></strong>,
+   and <strong><code><a href="info.constants.html#constant.assert-warning">ASSERT_WARNING</a></code></strong> constants have been deprecated.
+  </p>
+
+  <p class="para">
+   The <code class="literal">assert.*</code> INI settings have been deprecated.
+   See the
+   <a href="migration83.other-changes.html#migration83.other-changes.ini" class="link">Changes to INI File Handling</a>
+   page for further details.
+  </p>
+  
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.sqlite3">
+  <h3 class="title">SQLite3</h3>
+
+  <p class="para">
+   Using exceptions is now preferred, warnings will be removed in the future.
+   Calling <code class="code">SQLite3::enableExceptions(false)</code> will trigger a
+   deprecation warning in this version.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.deprecated.zip">
+  <h3 class="title">Zip</h3>
+
+  <p class="para">
+   The <strong><code><a href="zip.constants.html#ziparchive.constants.fl-recompress">ZipArchive::FL_RECOMPRESS</a></code></strong> constant is deprecated
+   and will be removed in a future version of libzip.
+  </p>
+ </div>
+
+</div></div></div></body></html>

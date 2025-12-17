@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installing from source on Unix and macOS systems</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="install.unix.openbsd.html">« Installing from packages or ports on OpenBSD</a></li>
+      <li style="float: right;"><a href="install.unix.commandline.html">CGI and command line setups »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="install.unix.html">Installation on Unix systems</a></li>
+    <li>Installing from source on Unix and macOS systems</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="install.unix.source" class="sect1">
+ <h2 class="title">Installing from source on Unix and macOS systems</h2>
+ <p class="para">
+  Prerequisite software for compiling:
+  <ul class="simplelist">
+   <li>
+    <a href="https://www.gnu.org/software/make/make.html" class="link external">&raquo;&nbsp;GNU <strong class="command">make</strong></a>
+   </li>
+   <li>
+    A C compiler (as of PHP 8.0.0, C99 compatibility is required; as of PHP 8.4.0, C11 compatibility is required)
+   </li>
+   <li>
+    A web server
+   </li>
+   <li>
+    Any module specific components (such as <abbr title="Graphics Draw">GD</abbr>,
+    <abbr title="Portable Document Format">PDF</abbr> libs, etc.)
+   </li>
+  </ul>
+ </p>
+
+ <p class="para">
+  When building directly from Git sources or after custom modifications,
+  these additional tools may be necessary:
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="https://www.gnu.org/software/autoconf/autoconf.html" class="link external">&raquo;&nbsp;autoconf</a>:
+    </span>
+    <ul class="simplelist">
+     <li>
+      PHP 7.3 and later: 2.68+
+     </li>
+     <li>
+      PHP 7.2: 2.64+
+     </li>
+     <li>
+      PHP 7.1 and earlier: 2.59+
+     </li>
+    </ul>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="https://re2c.org/" class="link external">&raquo;&nbsp;re2c</a>:
+    </span>
+    <ul class="simplelist">
+     <li>
+      PHP 8.3 and later: 1.0.3+
+     </li>
+     <li>
+      PHP 8.2 and earlier: 0.13.4+
+     </li>
+    </ul>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="http://www.gnu.org/software/bison/bison.html" class="link external">&raquo;&nbsp;bison</a>:
+    </span>
+    <ul class="simplelist">
+     <li>
+      PHP 7.4 and later: 3.0.0+
+     </li>
+     <li>
+      PHP 7.3 and earlier: 2.4+ (including Bison 3.x)
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </p>
+
+ <p class="simpara">
+  The initial PHP setup and configuration process is controlled by the
+  use of the command line options of the <strong class="command">configure</strong>
+  script. A list of available options along with short explanations can
+  be shown by running <strong class="command">./configure --help</strong>.
+  This manual documents the different options separately.
+  The <a href="configure.about.html" class="link">core options can be found in the
+  appendix</a>, while the different extension specific options are
+  described on the reference pages.
+ </p>
+
+ <p class="simpara">
+  After the configuration script was been run, PHP can be built using
+  the <strong class="command">make</strong> command.
+  The <a href="faq.installation.html" class="link">Installation section of the
+  frequently asked questions</a> has further information about how
+  to handle build problems.
+ </p>
+
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <span class="simpara">
+   Some Unix systems (such as OpenBSD and SELinux) may disallow mapping
+   pages both writable and executable for security reasons, what is called
+   <a href="https://en.wikibooks.org/wiki/Grsecurity/Appendix/Grsecurity_and_PaX_Configuration_Options#Restrict_mprotect()" class="link external">&raquo;&nbsp;PaX MPROTECT</a>
+   or <a href="https://en.wikipedia.org/wiki/W^X" class="link external">&raquo;&nbsp;W^X violation
+   protection</a>.
+   This kind of memory mapping is necessary for PCRE&#039;s JIT support, so
+   either PHP has to be built <a href="pcre.installation.html" class="link">without
+   PCRE&#039;s JIT support</a>, or the binary has to be whitelisted by
+   any means provided by the system.
+  </span>
+ </p></blockquote>
+
+ <blockquote class="note"><p><strong class="note">Note</strong>: 
+  <span class="simpara">
+   Cross-compiling for ARM with the Android toolchain is currently not supported.
+  </span>
+ </p></blockquote>
+</div></div></div></body></html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Insert adjacent element</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="domelement.hasattributens.html">« DOMElement::hasAttributeNS</a></li>
+      <li style="float: right;"><a href="domelement.insertadjacenttext.html">DOMElement::insertAdjacentText »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.domelement.html">DOMElement</a></li>
+    <li>Insert adjacent element</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="domelement.insertadjacentelement" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DOMElement::insertAdjacentElement</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">DOMElement::insertAdjacentElement</span> &mdash; <span class="dc-title">Insert adjacent element</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-domelement.insertadjacentelement-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>DOMElement::insertAdjacentElement</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$where</code></span>, <span class="methodparam"><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span> <code class="parameter">$element</code></span>): <span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="class.domelement.html" class="type DOMElement">DOMElement</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Inserts an element at a relative position given by <code class="parameter">where</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-domelement.insertadjacentelement-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">where</code></dt>
+     <dd>
+      <p class="para">
+       <ul class="simplelist">
+        <li><code class="literal">beforebegin</code> - Insert before the target element.</li>
+        <li><code class="literal">afterbegin</code> - Insert as the first child of the target element.</li>
+        <li><code class="literal">beforeend</code> - Insert as the last child of the target element.</li>
+        <li><code class="literal">afterend</code> - Insert after the target element.</li>
+       </ul>
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">element</code></dt>
+     <dd>
+      <p class="para">
+       The element to insert.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-domelement.insertadjacentelement-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Return <span class="classname"><a href="class.domelement.html" class="classname">DOMElement</a></span> or <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-domelement.insertadjacentelement-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-5631">
+   <p><strong>Example #1 <span class="methodname"><strong>DOMElement::insertAdjacentElement()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br />$dom </span><span style="color: #007700">= new </span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$dom</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadXML</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;?xml version="1.0"?&gt;&lt;container&gt;&lt;p&gt;foo&lt;/p&gt;&lt;/container&gt;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$container </span><span style="color: #007700">= </span><span style="color: #0000BB">$dom</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">documentElement</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$p </span><span style="color: #007700">= </span><span style="color: #0000BB">$container</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">firstElementChild</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$p</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insertAdjacentElement</span><span style="color: #007700">(</span><span style="color: #DD0000">'beforebegin'</span><span style="color: #007700">, </span><span style="color: #0000BB">$dom</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">createElement</span><span style="color: #007700">(</span><span style="color: #DD0000">'A'</span><span style="color: #007700">));<br />echo </span><span style="color: #0000BB">$dom</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveXML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;container&gt;&lt;A/&gt;&lt;p&gt;foo&lt;/p&gt;&lt;/container&gt;</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-domelement.insertadjacentelement-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="methodname"><a href="domelement.insertadjacenttext.html" class="methodname" rel="rdfs-seeAlso">DOMElement::insertAdjacentText()</a> - Insert adjacent text</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

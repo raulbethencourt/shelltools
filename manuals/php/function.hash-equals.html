@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Timing attack safe string comparison</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.hash-copy.html">« hash_copy</a></li>
+      <li style="float: right;"><a href="function.hash-file.html">hash_file »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.hash.html">Hash Functions</a></li>
+    <li>Timing attack safe string comparison</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.hash-equals" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">hash_equals</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">hash_equals</span> &mdash; <span class="dc-title">Timing attack safe string comparison</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.hash-equals-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>hash_equals</strong></span>(<span class="methodparam"><span class="attribute"><a href="class.sensitiveparameter.html">#[\SensitiveParameter]</a> </span><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$known_string</code></span>, <span class="methodparam"><span class="attribute"><a href="class.sensitiveparameter.html">#[\SensitiveParameter]</a> </span><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$user_string</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+
+  <p class="para rdfs-comment">
+   Checks whether two strings are equal without leaking information about the
+   contents of <code class="parameter">known_string</code> via the execution time.
+  </p>
+  <p class="para">
+   This function can be used to mitigate timing attacks. Performing a regular
+   comparison with <code class="code">===</code> will take more or less time to execute
+   depending on whether the two values are different or not and at which
+   position the first difference can be found, thus leaking information about
+   the contents of the secret <code class="parameter">known_string</code>.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+   <p class="para">
+    It is important to provide the user-supplied string as the second
+    parameter, rather than the first.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.hash-equals-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">known_string</code></dt>
+    <dd>
+     <p class="para">
+       The known <span class="type"><a href="language.types.string.html" class="type string">string</a></span> that must be kept secret.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">user_string</code></dt>
+    <dd>
+     <p class="para">
+      The user-supplied <span class="type"><a href="language.types.string.html" class="type string">string</a></span> to compare against.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.hash-equals-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+    Returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> when the two strings are equal, <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> otherwise.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.hash-equals-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="foobar.examples.basic">
+    <p><strong>Example #1 <span class="function"><strong>hash_equals()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$secretKey </span><span style="color: #007700">= </span><span style="color: #DD0000">'8uRhAeH89naXfFXKGOEj'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">// Value and signature are provided by the user, e.g. within the URL<br />// and retrieved using $_GET.<br /></span><span style="color: #0000BB">$value </span><span style="color: #007700">= </span><span style="color: #DD0000">'username=rasmuslerdorf'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$signature </span><span style="color: #007700">= </span><span style="color: #DD0000">'8c35009d3b50caf7f5d2c1e031842e6b7823a1bb781d33c5237cd27b57b5f327'</span><span style="color: #007700">;<br /><br />if (</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">hash_hmac</span><span style="color: #007700">(</span><span style="color: #DD0000">'sha256'</span><span style="color: #007700">, </span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #0000BB">$secretKey</span><span style="color: #007700">), </span><span style="color: #0000BB">$signature</span><span style="color: #007700">)) {<br />    echo </span><span style="color: #DD0000">"The value is correctly signed."</span><span style="color: #007700">, </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />} else {<br />    echo </span><span style="color: #DD0000">"The value was tampered with."</span><span style="color: #007700">, </span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">The value is correctly signed.</pre>
+</div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.hash-equals-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Both arguments must be of the same length to be compared successfully.
+    When arguments of differing length are supplied, <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> is returned immediately and
+    the length of the known string may be leaked in case of a timing attack.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.hash-equals-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.hash-hmac.html" class="function" rel="rdfs-seeAlso">hash_hmac()</a> - Generate a keyed hash value using the HMAC method</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

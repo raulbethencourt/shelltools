@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Incrementally inflate encoded data</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.gzwrite.html">« gzwrite</a></li>
+      <li style="float: right;"><a href="function.inflate-get-read-len.html">inflate_get_read_len »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.zlib.html">Zlib Functions</a></li>
+    <li>Incrementally inflate encoded data</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.inflate-add" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">inflate_add</h1>
+  <p class="verinfo">(PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">inflate_add</span> &mdash; <span class="dc-title">Incrementally inflate encoded data</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.inflate-add-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>inflate_add</strong></span>(<span class="methodparam"><span class="type"><a href="class.inflatecontext.html" class="type InflateContext">InflateContext</a></span> <code class="parameter">$context</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$data</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flush_mode</code><span class="initializer"> = <strong><code><a href="zlib.constants.html#constant.zlib-sync-flush">ZLIB_SYNC_FLUSH</a></code></strong></span></span>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Incrementally inflates encoded data in the specified <code class="parameter">context</code>.
+  </p>
+  <p class="para">
+   Limitation: header information from GZIP compressed data are not made
+   available.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.inflate-add-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">context</code></dt>
+    <dd>
+     <p class="para">
+      A context created with <span class="function"><a href="function.inflate-init.html" class="function">inflate_init()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">data</code></dt>
+    <dd>
+     <p class="para">
+      A chunk of compressed data.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">flush_mode</code></dt>
+    <dd>
+     <p class="para">
+      One of <strong><code><a href="zlib.constants.html#constant.zlib-block">ZLIB_BLOCK</a></code></strong>,
+      <strong><code><a href="zlib.constants.html#constant.zlib-no-flush">ZLIB_NO_FLUSH</a></code></strong>,
+      <strong><code><a href="zlib.constants.html#constant.zlib-partial-flush">ZLIB_PARTIAL_FLUSH</a></code></strong>,
+      <strong><code><a href="zlib.constants.html#constant.zlib-sync-flush">ZLIB_SYNC_FLUSH</a></code></strong> (default),
+      <strong><code><a href="zlib.constants.html#constant.zlib-full-flush">ZLIB_FULL_FLUSH</a></code></strong>, <strong><code><a href="zlib.constants.html#constant.zlib-finish">ZLIB_FINISH</a></code></strong>.
+      Normally you will want to set <strong><code><a href="zlib.constants.html#constant.zlib-no-flush">ZLIB_NO_FLUSH</a></code></strong> to
+      maximize compression, and <strong><code><a href="zlib.constants.html#constant.zlib-finish">ZLIB_FINISH</a></code></strong> to terminate
+      with the last chunk of data. See the <a href="http://www.zlib.net/manual.html" class="link external">&raquo;&nbsp;zlib manual</a> for a
+      detailed description of these constants.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.inflate-add-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a chunk of uncompressed data,  or <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.inflate-add-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If invalid parameters are given, inflating the data requires a preset
+   dictionary, but none is specified, the compressed stream is corrupt or has an
+   invalid checksum, an error of level <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is
+   generated.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.inflate-add-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">context</code> expects an <span class="classname"><a href="class.inflatecontext.html" class="classname">InflateContext</a></span>
+       instance now; previously, a <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> was expected.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.inflate-add-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="function"><a href="function.inflate-init.html" class="function" rel="rdfs-seeAlso">inflate_init()</a> - Initialize an incremental inflate context</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Create a new IntlGregorianCalendar instance from date and time</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="intlgregoriancalendar.createfromdate.html">« IntlGregorianCalendar::createFromDate</a></li>
+      <li style="float: right;"><a href="intlgregoriancalendar.getgregorianchange.html">IntlGregorianCalendar::getGregorianChange »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.intlgregoriancalendar.html">IntlGregorianCalendar</a></li>
+    <li>Create a new IntlGregorianCalendar instance from date and time</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intlgregoriancalendar.createfromdatetime" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">IntlGregorianCalendar::createFromDateTime</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">IntlGregorianCalendar::createFromDateTime</span> &mdash; <span class="dc-title">Create a new IntlGregorianCalendar instance from date and time</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-intlgregoriancalendar.createfromdatetime-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><strong>IntlGregorianCalendar::createFromDateTime</strong></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$year</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$month</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$dayOfMonth</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$hour</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$minute</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></span> <code class="parameter">$second</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span><br>): <span class="type">static</span></div>
+
+  <p class="para rdfs-comment">
+   Creates a new <span class="classname"><a href="class.intlgregoriancalendar.html" class="classname">IntlGregorianCalendar</a></span> instance from date and time.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-intlgregoriancalendar.createfromdatetime-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">year</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_YEAR</code></strong>.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">month</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_MONTH</code></strong>.
+      The month sequence is zero-based, i.e., January is represented by 0,
+      February by 1, …, December is 11 and Undecember (if the calendar has
+      it) is 12.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">dayOfMonth</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_DAY_OF_MONTH</code></strong>.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">hour</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_HOUR_OF_DAY</code></strong>.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">minute</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_MINUTE</code></strong>.
+     </p>
+    </dd>
+   
+   
+    <dt><code class="parameter">second</code></dt>
+    <dd>
+     <p class="para">
+      The new value for <strong><code>IntlGregorianCalendar::FIELD_SECOND</code></strong>.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-intlgregoriancalendar.createfromdatetime-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a new <span class="classname"><a href="class.intlgregoriancalendar.html" class="classname">IntlGregorianCalendar</a></span> instance.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-intlgregoriancalendar.createfromdatetime-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-2522">
+    <p><strong>Example #1 <span class="methodname"><strong>IntlGregorianCalendar::createFromDateTime()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br />$intlCalendar </span><span style="color: #007700">= </span><span style="color: #0000BB">IntlGregorianCalendar</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromDateTime</span><span style="color: #007700">(</span><span style="color: #0000BB">2023</span><span style="color: #007700">, </span><span style="color: #0000BB">11</span><span style="color: #007700">, </span><span style="color: #0000BB">23</span><span style="color: #007700">, </span><span style="color: #0000BB">12</span><span style="color: #007700">, </span><span style="color: #0000BB">00</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$intlCalendar</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output
+something similar to:</p></div>
+    <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">object(IntlGregorianCalendar)#1 (5) {
+  [&quot;valid&quot;]=&gt;
+  bool(true)
+  [&quot;type&quot;]=&gt;
+  string(9) &quot;gregorian&quot;
+  [&quot;timeZone&quot;]=&gt;
+  array(4) {
+    [&quot;valid&quot;]=&gt;
+    bool(true)
+    [&quot;id&quot;]=&gt;
+    string(16) &quot;Europe/Amsterdam&quot;
+    [&quot;rawOffset&quot;]=&gt;
+    int(3600000)
+    [&quot;currentOffset&quot;]=&gt;
+    int(3600000)
+  }
+  [&quot;locale&quot;]=&gt;
+  string(11) &quot;en_US_POSIX&quot;
+  [&quot;fields&quot;]=&gt;
+  array(23) {
+    [&quot;era&quot;]=&gt;
+    int(1)
+    [&quot;year&quot;]=&gt;
+    int(2023)
+    [&quot;month&quot;]=&gt;
+    int(11)
+    [&quot;week of year&quot;]=&gt;
+    int(51)
+    [&quot;week of month&quot;]=&gt;
+    int(4)
+    [&quot;day of year&quot;]=&gt;
+    int(357)
+    [&quot;day of month&quot;]=&gt;
+    int(23)
+    [&quot;day of week&quot;]=&gt;
+    int(7)
+    [&quot;day of week in month&quot;]=&gt;
+    int(4)
+    [&quot;AM/PM&quot;]=&gt;
+    int(1)
+    [&quot;hour&quot;]=&gt;
+    int(0)
+    [&quot;hour of day&quot;]=&gt;
+    int(12)
+    [&quot;minute&quot;]=&gt;
+    int(0)
+    [&quot;second&quot;]=&gt;
+    int(0)
+    [&quot;millisecond&quot;]=&gt;
+    int(0)
+    [&quot;zone offset&quot;]=&gt;
+    int(3600000)
+    [&quot;DST offset&quot;]=&gt;
+    int(0)
+    [&quot;year for week of year&quot;]=&gt;
+    int(2023)
+    [&quot;localized day of week&quot;]=&gt;
+    int(7)
+    [&quot;extended year&quot;]=&gt;
+    int(2023)
+    [&quot;julian day&quot;]=&gt;
+    int(2460302)
+    [&quot;milliseconds in day&quot;]=&gt;
+    int(43200000)
+    [&quot;is leap month&quot;]=&gt;
+    int(0)
+  }
+}</pre>
+</div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-intlgregoriancalendar.createfromdatetime-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="methodname"><a href="intlgregoriancalendar.createfromdate.html" class="methodname" rel="rdfs-seeAlso">IntlGregorianCalendar::createFromDate()</a> - Create a new IntlGregorianCalendar instance from date</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

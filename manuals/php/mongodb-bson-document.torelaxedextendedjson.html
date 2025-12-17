@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the Relaxed Extended JSON representation of the BSON document</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-bson-document.tophp.html">« MongoDB\BSON\Document::toPHP</a></li>
+      <li style="float: right;"><a href="mongodb-bson-document.tostring.html">MongoDB\BSON\Document::__toString »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-bson-document.html">MongoDB\BSON\Document</a></li>
+    <li>Returns the Relaxed Extended JSON representation of the BSON document</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-bson-document.torelaxedextendedjson" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\BSON\Document::toRelaxedExtendedJSON</h1>
+  <p class="verinfo">(mongodb &gt;=1.16.0)</p><p class="refpurpose"><span class="refname">MongoDB\BSON\Document::toRelaxedExtendedJSON</span> &mdash; <span class="dc-title">Returns the Relaxed Extended JSON representation of the BSON document</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-bson-document.torelaxedextendedjson-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\BSON\Document::toRelaxedExtendedJSON</strong></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+
+  <p class="para rdfs-comment">
+   Converts the BSON document to its
+   <a href="https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md#relaxed-extended-json-example" class="link external">&raquo;&nbsp;Relaxed Extended JSON</a>
+   representation. The relaxed format prefers use of JSON type primitives at the
+   expense of type fidelity and is most suited for producing output that can be
+   easily consumed by web APIs and humans.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-bson-document.torelaxedextendedjson-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">This function has no parameters.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-bson-document.torelaxedextendedjson-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a string containing the
+   <a href="https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md#relaxed-extended-json-example" class="link external">&raquo;&nbsp;Relaxed Extended JSON</a>
+   representation of the BSON document.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mongodb-bson-document.torelaxedextendedjson-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-1408">
+   <p><strong>Example #1 <span class="methodname"><strong>MongoDB\BSON\Document::toRelaxedExtendedJSON()</strong></span> example</strong></p>
+   <div class="example-contents">
+    <div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br />$documents </span><span style="color: #007700">= [<br />    [ </span><span style="color: #DD0000">'null' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">null </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'boolean' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">true </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'string' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'int32' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">123 </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'int64' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">4294967295 </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'double' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1.0 </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'nan' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">NAN </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'pos_inf' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">INF </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'neg_inf' </span><span style="color: #007700">=&gt; -</span><span style="color: #0000BB">INF </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'array' </span><span style="color: #007700">=&gt; [ </span><span style="color: #DD0000">'foo'</span><span style="color: #007700">, </span><span style="color: #DD0000">'bar' </span><span style="color: #007700">]],<br />    [ </span><span style="color: #DD0000">'document' </span><span style="color: #007700">=&gt; [ </span><span style="color: #DD0000">'foo' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'bar' </span><span style="color: #007700">]],<br />    [ </span><span style="color: #DD0000">'oid' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\ObjectId</span><span style="color: #007700">(</span><span style="color: #DD0000">'56315a7c6118fd1b920270b1'</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'dec128' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Decimal128</span><span style="color: #007700">(</span><span style="color: #DD0000">'1234.5678'</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'binary' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Binary</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">, </span><span style="color: #0000BB">MongoDB\BSON\Binary</span><span style="color: #007700">::</span><span style="color: #0000BB">TYPE_GENERIC</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'date' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\UTCDateTime</span><span style="color: #007700">(</span><span style="color: #0000BB">1445990400000</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'timestamp' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Timestamp</span><span style="color: #007700">(</span><span style="color: #0000BB">1234</span><span style="color: #007700">, </span><span style="color: #0000BB">5678</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'regex' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Regex</span><span style="color: #007700">(</span><span style="color: #DD0000">'pattern'</span><span style="color: #007700">, </span><span style="color: #DD0000">'i'</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'code' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function() { return 1; }'</span><span style="color: #007700">) ],<br />    [ </span><span style="color: #DD0000">'code_ws' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\Javascript</span><span style="color: #007700">(</span><span style="color: #DD0000">'function() { return a; }'</span><span style="color: #007700">, [</span><span style="color: #DD0000">'a' </span><span style="color: #007700">=&gt; </span><span style="color: #0000BB">1</span><span style="color: #007700">]) ],<br />    [ </span><span style="color: #DD0000">'minkey' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\MinKey </span><span style="color: #007700">],<br />    [ </span><span style="color: #DD0000">'maxkey' </span><span style="color: #007700">=&gt; new </span><span style="color: #0000BB">MongoDB\BSON\MaxKey </span><span style="color: #007700">],<br />];<br /><br />foreach (</span><span style="color: #0000BB">$documents </span><span style="color: #007700">as </span><span style="color: #0000BB">$document</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">$bson </span><span style="color: #007700">= </span><span style="color: #0000BB">MongoDB\BSON\Document</span><span style="color: #007700">::</span><span style="color: #0000BB">fromPHP</span><span style="color: #007700">(</span><span style="color: #0000BB">$document</span><span style="color: #007700">);<br />    echo </span><span style="color: #0000BB">$bson</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">toRelaxedExtendedJSON</span><span style="color: #007700">(), </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+    <div class="examplescode"><pre class="examplescode">{ &quot;null&quot; : null }
+{ &quot;boolean&quot; : true }
+{ &quot;string&quot; : &quot;foo&quot; }
+{ &quot;int32&quot; : 123 }
+{ &quot;int64&quot; : 4294967295 }
+{ &quot;double&quot; : 1.0 }
+{ &quot;nan&quot; : { &quot;$numberDouble&quot; : &quot;NaN&quot; } }
+{ &quot;pos_inf&quot; : { &quot;$numberDouble&quot; : &quot;Infinity&quot; } }
+{ &quot;neg_inf&quot; : { &quot;$numberDouble&quot; : &quot;-Infinity&quot; } }
+{ &quot;array&quot; : [ &quot;foo&quot;, &quot;bar&quot; ] }
+{ &quot;document&quot; : { &quot;foo&quot; : &quot;bar&quot; } }
+{ &quot;oid&quot; : { &quot;$oid&quot; : &quot;56315a7c6118fd1b920270b1&quot; } }
+{ &quot;dec128&quot; : { &quot;$numberDecimal&quot; : &quot;1234.5678&quot; } }
+{ &quot;binary&quot; : { &quot;$binary&quot; : { &quot;base64&quot;: &quot;Zm9v&quot;, &quot;subType&quot; : &quot;00&quot; } } }
+{ &quot;date&quot; : { &quot;$date&quot; : &quot;2015-10-28T00:00:00Z&quot; } }
+{ &quot;timestamp&quot; : { &quot;$timestamp&quot; : { &quot;t&quot; : 5678, &quot;i&quot; : 1234 } } }
+{ &quot;regex&quot; : { &quot;$regularExpression&quot; : { &quot;pattern&quot; : &quot;pattern&quot;, &quot;options&quot; : &quot;i&quot; } } }
+{ &quot;code&quot; : { &quot;$code&quot; : &quot;function() { return 1; }&quot; } }
+{ &quot;code_ws&quot; : { &quot;$code&quot; : &quot;function() { return a; }&quot;, &quot;$scope&quot; : { &quot;a&quot; : 1 } } }
+{ &quot;minkey&quot; : { &quot;$minKey&quot; : 1 } }
+{ &quot;maxkey&quot; : { &quot;$maxKey&quot; : 1 } }</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-bson-document.torelaxedextendedjson-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="methodname"><a href="mongodb-bson-document.fromjson.html" class="methodname" rel="rdfs-seeAlso">MongoDB\BSON\Document::fromJSON()</a> - Construct a new document instance from a JSON string</span></li>
+   <li><span class="methodname"><a href="mongodb-bson-document.tocanonicalextendedjson.html" class="methodname" rel="rdfs-seeAlso">MongoDB\BSON\Document::toCanonicalExtendedJSON()</a> - Returns the Canonical Extended JSON representation of the BSON document</span></li>
+   <li><span class="function"><a href="function.mongodb.bson-torelaxedextendedjson.html" class="function" rel="rdfs-seeAlso">MongoDB\BSON\toRelaxedExtendedJSON()</a> - Returns the Relaxed Extended JSON representation of a BSON value</span></li>
+   <li><a href="https://github.com/mongodb/specifications/blob/master/source/extended-json/extended-json.md" class="link external">&raquo;&nbsp;Extended JSON Specification</a></li>
+   <li><a href="https://www.mongodb.com/docs/manual/reference/bson-types/" class="link external">&raquo;&nbsp;BSON Types</a></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

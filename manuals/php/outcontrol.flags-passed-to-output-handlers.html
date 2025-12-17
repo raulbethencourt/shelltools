@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Flags Passed To Output Handlers</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="outcontrol.working-with-output-handlers.html">« Working With Output Handlers</a></li>
+      <li style="float: right;"><a href="outcontrol.output-handler-return-values.html">Output Handler Return Values »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="outcontrol.user-level-output-buffers.html">User-Level Output Buffers</a></li>
+    <li>Flags Passed To Output Handlers</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="outcontrol.flags-passed-to-output-handlers" class="section">
+  <h2 class="title">Flags Passed To Output Handlers</h2>
+  <p class="para">
+   The bitmask passed to the second <code class="parameter">phase</code> parameter
+   of the output handler provides information on the invocation of the handler.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    The bitmask can include more than one flag
+    and the bitwise <code class="literal">&amp;</code> operator should be used
+    to check whether a flag is set.
+   </span>
+  </p></blockquote>
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="simpara">
+    The value of <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-write">PHP_OUTPUT_HANDLER_WRITE</a></code></strong> and its alias
+    <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cont">PHP_OUTPUT_HANDLER_CONT</a></code></strong> is <code class="literal">0</code>
+    therefore whether it is set can only be determined
+    by using an
+    <a href="language.operators.comparison.html" class="link">equality operator</a>
+    (<code class="literal">==</code> or <code class="literal">===</code>).
+   </p>
+  </div>
+  <p class="para">
+   The following flags are set in a specific phase of the handler&#039;s lifecycle:
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-start">PHP_OUTPUT_HANDLER_START</a></code></strong> is set
+   when a handler is invoked for the first time.
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong>
+   or its alias <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-end">PHP_OUTPUT_HANDLER_END</a></code></strong>
+   is set when a handler is invoked for the last time,
+   i.e. it is being turned off. This flag is also set
+   when buffers are being turned off by PHP&#039;s shutdown process.
+  </p>
+  <p class="para">
+   The following flags are set by a specific invocation of the handler:
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flush">PHP_OUTPUT_HANDLER_FLUSH</a></code></strong> is set
+   when the handler is invoked by calling <span class="function"><a href="function.ob-flush.html" class="function">ob_flush()</a></span>.
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-write">PHP_OUTPUT_HANDLER_WRITE</a></code></strong>
+   or its alias <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-cont">PHP_OUTPUT_HANDLER_CONT</a></code></strong>
+   is set when the size of its contents equals or exceeds the size of the buffer
+   and the handler is invoked while the buffer is being automatically flushed.
+   <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flush">PHP_OUTPUT_HANDLER_FLUSH</a></code></strong> is set
+   when the handler is invoked by calling <span class="function"><a href="function.ob-clean.html" class="function">ob_clean()</a></span>,
+   <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span> or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>.
+   When <span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span> or <span class="function"><a href="function.ob-get-clean.html" class="function">ob_get_clean()</a></span>
+   is called, <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong> is set as well.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    When <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span> or <span class="function"><a href="function.ob-get-flush.html" class="function">ob_get_flush()</a></span>
+    is called, <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-final">PHP_OUTPUT_HANDLER_FINAL</a></code></strong> is set
+    but <strong><code><a href="outcontrol.constants.html#constant.php-output-handler-flush">PHP_OUTPUT_HANDLER_FLUSH</a></code></strong> is not.
+   </span>
+  </p></blockquote>
+ </div></div></div></body></html>

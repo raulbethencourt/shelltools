@@ -1,0 +1,799 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="imap.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ref.imap.html">IMAP Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.imap.html">IMAP</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="imap.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+  
+   <dt id="constant.nil">
+    <strong><code><a href="imap.constants.html#constant.nil">NIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Deprecated as of PHP 8.1.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-debug">
+    <strong><code><a href="imap.constants.html#constant.op-debug">OP_DEBUG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-readonly">
+    <strong><code><a href="imap.constants.html#constant.op-readonly">OP_READONLY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Open mailbox read-only
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-anonymous">
+    <strong><code><a href="imap.constants.html#constant.op-anonymous">OP_ANONYMOUS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Don&#039;t use or update a <var class="filename">.newsrc</var> for news 
+     (NNTP only)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-shortcache">
+    <strong><code><a href="imap.constants.html#constant.op-shortcache">OP_SHORTCACHE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-silent">
+    <strong><code><a href="imap.constants.html#constant.op-silent">OP_SILENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-prototype">
+    <strong><code><a href="imap.constants.html#constant.op-prototype">OP_PROTOTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-halfopen">
+    <strong><code><a href="imap.constants.html#constant.op-halfopen">OP_HALFOPEN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For <abbr title="Internet Message Access Protocol">IMAP</abbr> and <abbr title="Network News Transfer Protocol">NNTP</abbr>
+     names, open a connection but don&#039;t open a mailbox.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-expunge">
+    <strong><code><a href="imap.constants.html#constant.op-expunge">OP_EXPUNGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.op-secure">
+    <strong><code><a href="imap.constants.html#constant.op-secure">OP_SECURE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.cl-expunge">
+    <strong><code><a href="imap.constants.html#constant.cl-expunge">CL_EXPUNGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     silently expunge the mailbox before closing when
+     calling <span class="function"><a href="function.imap-close.html" class="function">imap_close()</a></span>
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ft-uid">
+    <strong><code><a href="imap.constants.html#constant.ft-uid">FT_UID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The parameter is a UID
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ft-peek">
+    <strong><code><a href="imap.constants.html#constant.ft-peek">FT_PEEK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Do not set the \Seen flag if not already set
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ft-not">
+    <strong><code><a href="imap.constants.html#constant.ft-not">FT_NOT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ft-internal">
+    <strong><code><a href="imap.constants.html#constant.ft-internal">FT_INTERNAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The return string is in internal format, will not canonicalize to CRLF.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ft-prefetchtext">
+    <strong><code><a href="imap.constants.html#constant.ft-prefetchtext">FT_PREFETCHTEXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.st-uid">
+    <strong><code><a href="imap.constants.html#constant.st-uid">ST_UID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The sequence argument contains UIDs instead of sequence numbers
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.st-silent">
+    <strong><code><a href="imap.constants.html#constant.st-silent">ST_SILENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.st-set">
+    <strong><code><a href="imap.constants.html#constant.st-set">ST_SET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.cp-uid">
+    <strong><code><a href="imap.constants.html#constant.cp-uid">CP_UID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     the sequence numbers contain UIDS
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.cp-move">
+    <strong><code><a href="imap.constants.html#constant.cp-move">CP_MOVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Delete the messages from the current mailbox after copying
+     with <span class="function"><a href="function.imap-mail-copy.html" class="function">imap_mail_copy()</a></span>
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.se-uid">
+    <strong><code><a href="imap.constants.html#constant.se-uid">SE_UID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return UIDs instead of sequence numbers
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.se-free">
+    <strong><code><a href="imap.constants.html#constant.se-free">SE_FREE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.se-noprefetch">
+    <strong><code><a href="imap.constants.html#constant.se-noprefetch">SE_NOPREFETCH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Don&#039;t prefetch searched messages
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-free">
+    <strong><code><a href="imap.constants.html#constant.so-free">SO_FREE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.so-noserver">
+    <strong><code><a href="imap.constants.html#constant.so-noserver">SO_NOSERVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-messages">
+    <strong><code><a href="imap.constants.html#constant.sa-messages">SA_MESSAGES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-recent">
+    <strong><code><a href="imap.constants.html#constant.sa-recent">SA_RECENT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-unseen">
+    <strong><code><a href="imap.constants.html#constant.sa-unseen">SA_UNSEEN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-uidnext">
+    <strong><code><a href="imap.constants.html#constant.sa-uidnext">SA_UIDNEXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-uidvalidity">
+    <strong><code><a href="imap.constants.html#constant.sa-uidvalidity">SA_UIDVALIDITY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sa-all">
+    <strong><code><a href="imap.constants.html#constant.sa-all">SA_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-noinferiors">
+    <strong><code><a href="imap.constants.html#constant.latt-noinferiors">LATT_NOINFERIORS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This mailbox has no &quot;children&quot; (there are no
+     mailboxes below this one).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-noselect">
+    <strong><code><a href="imap.constants.html#constant.latt-noselect">LATT_NOSELECT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This is only a container, not a mailbox - you
+     cannot open it.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-marked">
+    <strong><code><a href="imap.constants.html#constant.latt-marked">LATT_MARKED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This mailbox is marked. Only used by UW-IMAPD.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-unmarked">
+    <strong><code><a href="imap.constants.html#constant.latt-unmarked">LATT_UNMARKED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This mailbox is not marked. Only used by
+     UW-IMAPD.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-referral">
+    <strong><code><a href="imap.constants.html#constant.latt-referral">LATT_REFERRAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This container has a referral to a remote mailbox.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-haschildren">
+    <strong><code><a href="imap.constants.html#constant.latt-haschildren">LATT_HASCHILDREN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This mailbox has selectable inferiors.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.latt-hasnochildren">
+    <strong><code><a href="imap.constants.html#constant.latt-hasnochildren">LATT_HASNOCHILDREN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This mailbox has no selectable inferiors.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortdate">
+    <strong><code><a href="imap.constants.html#constant.sortdate">SORTDATE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     message Date
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortarrival">
+    <strong><code><a href="imap.constants.html#constant.sortarrival">SORTARRIVAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     arrival date
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortfrom">
+    <strong><code><a href="imap.constants.html#constant.sortfrom">SORTFROM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     mailbox in first From address
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortsubject">
+    <strong><code><a href="imap.constants.html#constant.sortsubject">SORTSUBJECT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     message subject
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortto">
+    <strong><code><a href="imap.constants.html#constant.sortto">SORTTO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     mailbox in first To address
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortcc">
+    <strong><code><a href="imap.constants.html#constant.sortcc">SORTCC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     mailbox in first cc address
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sortsize">
+    <strong><code><a href="imap.constants.html#constant.sortsize">SORTSIZE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sort criteria for <span class="function"><a href="function.imap-sort.html" class="function">imap_sort()</a></span>:
+     size of message in octets
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typetext">
+    <strong><code><a href="imap.constants.html#constant.typetext">TYPETEXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: unformatted text
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typemultipart">
+    <strong><code><a href="imap.constants.html#constant.typemultipart">TYPEMULTIPART</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: multiple part
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typemessage">
+    <strong><code><a href="imap.constants.html#constant.typemessage">TYPEMESSAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: encapsulated message
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typeapplication">
+    <strong><code><a href="imap.constants.html#constant.typeapplication">TYPEAPPLICATION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: application data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typeaudio">
+    <strong><code><a href="imap.constants.html#constant.typeaudio">TYPEAUDIO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: audio
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typeimage">
+    <strong><code><a href="imap.constants.html#constant.typeimage">TYPEIMAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: static image
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typevideo">
+    <strong><code><a href="imap.constants.html#constant.typevideo">TYPEVIDEO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: video
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typemodel">
+    <strong><code><a href="imap.constants.html#constant.typemodel">TYPEMODEL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: model
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.typeother">
+    <strong><code><a href="imap.constants.html#constant.typeother">TYPEOTHER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Primary body type: unknown
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.enc7bit">
+    <strong><code><a href="imap.constants.html#constant.enc7bit">ENC7BIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: 7 bit SMTP semantic data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.enc8bit">
+    <strong><code><a href="imap.constants.html#constant.enc8bit">ENC8BIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: 8 bit SMTP semantic data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.encbinary">
+    <strong><code><a href="imap.constants.html#constant.encbinary">ENCBINARY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: 8 bit binary data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.encbase64">
+    <strong><code><a href="imap.constants.html#constant.encbase64">ENCBASE64</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: base-64 encoded data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.encquotedprintable">
+    <strong><code><a href="imap.constants.html#constant.encquotedprintable">ENCQUOTEDPRINTABLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: human-readable 8-as-7 bit data
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.encother">
+    <strong><code><a href="imap.constants.html#constant.encother">ENCOTHER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Body encoding: unknown
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-opentimeout">
+    <strong><code><a href="imap.constants.html#constant.imap-opentimeout">IMAP_OPENTIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-readtimeout">
+    <strong><code><a href="imap.constants.html#constant.imap-readtimeout">IMAP_READTIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-writetimeout">
+    <strong><code><a href="imap.constants.html#constant.imap-writetimeout">IMAP_WRITETIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-closetimeout">
+    <strong><code><a href="imap.constants.html#constant.imap-closetimeout">IMAP_CLOSETIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-gc-elt">
+    <strong><code><a href="imap.constants.html#constant.imap-gc-elt">IMAP_GC_ELT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Garbage collector, clear message cache elements.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-gc-env">
+    <strong><code><a href="imap.constants.html#constant.imap-gc-env">IMAP_GC_ENV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Garbage collector, clear envelopes and bodies.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.imap-gc-texts">
+    <strong><code><a href="imap.constants.html#constant.imap-gc-texts">IMAP_GC_TEXTS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Garbage collector, clear texts.
+    </span>
+   </dd>
+  
+ </dl>
+</div>
+</div></div></body></html>

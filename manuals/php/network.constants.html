@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="network.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ref.network.html">Network Functions »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.network.html">Network</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="network.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are always available as part of the PHP core.
+</p>
+
+ <dl>
+  <strong class="title">
+   Available <code class="parameter">flags</code> for
+   <span class="function"><a href="function.openlog.html" class="function">openlog()</a></span>
+  </strong>
+
+  
+   <dt id="constant.log-cons">
+    <strong><code><a href="network.constants.html#constant.log-cons">LOG_CONS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     If there is an error while sending data to the system logger,
+     write directly to the system console.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-ndelay">
+    <strong><code><a href="network.constants.html#constant.log-ndelay">LOG_NDELAY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Open the connection to the logger immediately.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-odelay">
+    <strong><code><a href="network.constants.html#constant.log-odelay">LOG_ODELAY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Delay opening the connection until the first message is logged.
+     This is the default behaviour.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-nowait">
+    <strong><code><a href="network.constants.html#constant.log-nowait">LOG_NOWAIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-perror">
+    <strong><code><a href="network.constants.html#constant.log-perror">LOG_PERROR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Additionally log messages to <strong><code><a href="reserved.constants.html#constant.stderr">STDERR</a></code></strong>.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-pid">
+    <strong><code><a href="network.constants.html#constant.log-pid">LOG_PID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Include the PID with each log message.
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl>
+  <strong class="title">
+   Available <code class="parameter">facility</code> for
+   <span class="function"><a href="function.openlog.html" class="function">openlog()</a></span>
+  </strong>
+
+  
+   <dt id="constant.log-auth">
+    <strong><code><a href="network.constants.html#constant.log-auth">LOG_AUTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For security/authorization messages.
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      Use <strong><code><a href="network.constants.html#constant.log-authpriv">LOG_AUTHPRIV</a></code></strong> instead when available.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="constant.log-authpriv">
+    <strong><code><a href="network.constants.html#constant.log-authpriv">LOG_AUTHPRIV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For private security/authorization messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-cron">
+    <strong><code><a href="network.constants.html#constant.log-cron">LOG_CRON</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For clock daemon messages.
+     For example <strong class="command">cron</strong> or <strong class="command">at</strong>.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-daemon">
+    <strong><code><a href="network.constants.html#constant.log-daemon">LOG_DAEMON</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For system daemon messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-kern">
+    <strong><code><a href="network.constants.html#constant.log-kern">LOG_KERN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For kernel messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local0">
+    <strong><code><a href="network.constants.html#constant.log-local0">LOG_LOCAL0</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local1">
+    <strong><code><a href="network.constants.html#constant.log-local1">LOG_LOCAL1</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local2">
+    <strong><code><a href="network.constants.html#constant.log-local2">LOG_LOCAL2</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local3">
+    <strong><code><a href="network.constants.html#constant.log-local3">LOG_LOCAL3</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local4">
+    <strong><code><a href="network.constants.html#constant.log-local4">LOG_LOCAL4</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local5">
+    <strong><code><a href="network.constants.html#constant.log-local5">LOG_LOCAL5</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local6">
+    <strong><code><a href="network.constants.html#constant.log-local6">LOG_LOCAL6</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-local7">
+    <strong><code><a href="network.constants.html#constant.log-local7">LOG_LOCAL7</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Reserved for local use.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.log-lpr">
+    <strong><code><a href="network.constants.html#constant.log-lpr">LOG_LPR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For messages from the line printer subsystem.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-mail">
+    <strong><code><a href="network.constants.html#constant.log-mail">LOG_MAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For messages from the mail subsystem.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-news">
+    <strong><code><a href="network.constants.html#constant.log-news">LOG_NEWS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For messages from the USENET news subsystem.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-syslog">
+    <strong><code><a href="network.constants.html#constant.log-syslog">LOG_SYSLOG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For messages generated internally by <strong class="command">syslogd</strong>.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-user">
+    <strong><code><a href="network.constants.html#constant.log-user">LOG_USER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For generic user-level messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-uucp">
+    <strong><code><a href="network.constants.html#constant.log-uucp">LOG_UUCP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     For messages from the UUCP subsystem.
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl>
+  <strong class="title">
+   Available <code class="parameter">priority</code> for
+   <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span>
+  </strong>
+
+  <p class="simpara">
+   The priority constants are listed from urgent, to debug messages.
+  </p>
+
+  
+   <dt id="constant.log-emerg">
+    <strong><code><a href="network.constants.html#constant.log-emerg">LOG_EMERG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Emergency, the system is unusable.
+     This corresponds to a panic condition.
+     Usually broadcast to all processes.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-alert">
+    <strong><code><a href="network.constants.html#constant.log-alert">LOG_ALERT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alert, immediate action is required.
+     For example, a corrupted system database.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-crit">
+    <strong><code><a href="network.constants.html#constant.log-crit">LOG_CRIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Critical, action is required.
+     For example, a hard device errors.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-err">
+    <strong><code><a href="network.constants.html#constant.log-err">LOG_ERR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Errors messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-warning">
+    <strong><code><a href="network.constants.html#constant.log-warning">LOG_WARNING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Warning messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-notice">
+    <strong><code><a href="network.constants.html#constant.log-notice">LOG_NOTICE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Notice messages, corresponds to conditions that are not error conditions,
+     but that may require special handling.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-info">
+    <strong><code><a href="network.constants.html#constant.log-info">LOG_INFO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Informational messages.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.log-debug">
+    <strong><code><a href="network.constants.html#constant.log-debug">LOG_DEBUG</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Debugging messages that contain information normally of use only when
+     debugging a program.
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl>
+  <strong class="title">
+   Available <code class="parameter">type</code>s for
+   <span class="function"><a href="function.dns-get-record.html" class="function">dns_get_record()</a></span>
+  </strong>
+
+
+  
+   <dt id="constant.dns-any">
+    <strong><code><a href="network.constants.html#constant.dns-any">DNS_ANY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Any Resource Record.
+     On most systems this returns all resource records,
+     however due to eccentricities in the performance of
+     <code class="literal">libresolv</code> between platforms this is not guaranteed.
+    </span>
+    <span class="simpara">
+     The slower <strong><code><a href="network.constants.html#constant.dns-all">DNS_ALL</a></code></strong> will collect all records more reliably.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-all">
+    <strong><code><a href="network.constants.html#constant.dns-all">DNS_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Iteratively query the name server for each available record type.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-a">
+    <strong><code><a href="network.constants.html#constant.dns-a">DNS_A</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     IPv4 Address Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-aaaa">
+    <strong><code><a href="network.constants.html#constant.dns-aaaa">DNS_AAAA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     IPv6 Address Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-a6">
+    <strong><code><a href="network.constants.html#constant.dns-a6">DNS_A6</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Defined as part of early IPv6, but downgraded to historic by
+     <a href="https://datatracker.ietf.org/doc/html/rfc6563" class="link external">&raquo;&nbsp;RFC 6563</a>.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-caa">
+    <strong><code><a href="network.constants.html#constant.dns-caa">DNS_CAA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Certification Authority Authorization Resource.
+     Available as of PHP 7.0.16 and 7.1.2.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Not available on Windows.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-cname">
+    <strong><code><a href="network.constants.html#constant.dns-cname">DNS_CNAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias (Canonical Name) Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-hinfo">
+    <strong><code><a href="network.constants.html#constant.dns-hinfo">DNS_HINFO</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Host Info Resource.
+     For more explanations and meanings of these values, visit IANA&#039;s page on
+     <a href="http://www.iana.org/assignments/operating-system-names" class="link external">&raquo;&nbsp;Operating System Names</a>.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-mx">
+    <strong><code><a href="network.constants.html#constant.dns-mx">DNS_MX</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Mail Exchanger Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-naptr">
+    <strong><code><a href="network.constants.html#constant.dns-naptr">DNS_NAPTR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Naming Authority Pointer.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-ns">
+    <strong><code><a href="network.constants.html#constant.dns-ns">DNS_NS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Authoritative Name Server Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-ptr">
+    <strong><code><a href="network.constants.html#constant.dns-ptr">DNS_PTR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Pointer Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-soa">
+    <strong><code><a href="network.constants.html#constant.dns-soa">DNS_SOA</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Start of Authority Resource.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-srv">
+    <strong><code><a href="network.constants.html#constant.dns-srv">DNS_SRV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Service locator.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.dns-txt">
+    <strong><code><a href="network.constants.html#constant.dns-txt">DNS_TXT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Text Resource.
+    </span>
+   </dd>
+  
+ </dl>
+
+</div>
+</div></div></body></html>

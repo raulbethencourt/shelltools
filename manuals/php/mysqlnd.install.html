@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mysqlnd.overview.html">« Overview</a></li>
+      <li style="float: right;"><a href="mysqlnd.config.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mysqlnd.html">Mysqlnd</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mysqlnd.install" class="chapter">
+
+  <h1 class="title">Installation</h1>
+
+
+  <p class="para">
+    <strong>Installation on Unix</strong>
+  </p>
+
+  <p class="para">
+    In order to use the MySQL Native Driver, PHP needs
+    to be built specifying that the MySQL database extensions are
+    compiled with MySQL Native Driver support. This is done through
+    configuration options prior to building the PHP source code.
+  </p>
+
+  <p class="para">
+    For example, to build the MySQL extension, <code class="literal">mysqli</code>
+    and PDO MYSQL using the MySQL Native Driver, the following command
+    would be given:
+  </p>
+
+<div class="example-contents">
+<div class="shellcode"><pre class="shellcode">./configure --with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+[other options]</pre>
+</div>
+</div>
+
+
+  <p class="para">
+    <strong>Installation on Windows</strong>
+  </p>
+
+  <p class="para">
+    In the official PHP Windows distributions, MySQL Native
+    Driver is enabled by default, so no additional configuration is
+    required to use it. All MySQL database extensions will use MySQL
+    Native Driver in this case.
+  </p>
+
+  <p class="para">
+    <strong>SHA-256 Authentication Plugin support</strong>
+  </p>
+
+  <p class="para">
+    The MySQL Native Driver requires the OpenSSL functionality of PHP to be loaded
+    and enabled to connect to MySQL through accounts that use the MySQL SHA-256
+    Authentication Plugin. For example, PHP could be configured using:
+  </p>
+
+<div class="example-contents">
+<div class="shellcode"><pre class="shellcode">./configure --with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-openssl
+[other options]</pre>
+</div>
+</div>
+
+
+ <p class="para">
+  In Autotools, the extended SSL support in <code class="literal">mysqlnd</code> is
+  enabled implicitly when building together with the <code class="literal">openssl</code>
+  extension using the <strong class="option configure">--with-openssl</strong> configure
+  option. When building without the <code class="literal">openssl</code> extension, the
+  <strong class="option configure">--with-mysqlnd-ssl</strong> configure option can be
+  used to enable extended SSL support explicitly.
+ </p>
+
+ <div class="simplesect">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>8.4.0</td>
+       <td>
+        The <strong class="option configure">--with-mysqlnd-ssl</strong> Autotools
+        configure option was added to enable the extended SSL support explicitly
+        when building without the <code class="literal">openssl</code> extension.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+</div>
+</div></div></body></html>

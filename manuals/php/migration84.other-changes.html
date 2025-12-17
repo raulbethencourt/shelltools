@@ -1,0 +1,777 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Other Changes</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.removed-extensions.html">« Removed Extensions</a></li>
+      <li style="float: right;"><a href="migration84.windows-support.html">Windows Support »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>Other Changes</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.other-changes" class="sect1">
+ <h2 class="title">Other Changes</h2>
+
+ <div class="sect2" id="migration84.other-changes.core">
+  <h3 class="title">Core changes</h3>
+
+  <div class="sect3" id="migration84.other-changes.core.closures">
+   <h4 class="title">Closures</h4>
+
+   <p class="simpara">
+    Closure names have been adjusted to include the parent function&#039;s name
+    and the line of definition to make them easier to distinguish, for example
+    within stack traces.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.core.fibers">
+   <h4 class="title">Fibers</h4>
+
+   <p class="simpara">
+    Fiber switching during destructor execution is now allowed. It was previously
+    blocked due to conflicts with garbage collection.
+   </p>
+
+   <p class="simpara">
+    Destructors may now be executed in a separate Fiber:
+   </p>
+
+   <p class="simpara">
+    When garbage collection is triggered in a Fiber,
+    destructors called by the GC are executed in a separate Fiber:
+    the gc_destructor_fiber.
+    If this Fiber suspends, a new one is created to execute the remaining
+    destructors.
+    The previous gc_destructor_fiber is not referenced anymore by the GC
+    and may be collected if it&#039;s not referenced anywhere else.
+    Objects whose destructor is suspended will not be collected until the
+    destructor returns or the <span class="classname"><a href="class.fiber.html" class="classname">Fiber</a></span> is collected.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.core.output">
+   <h4 class="title">Output Handlers</h4>
+
+   <p class="simpara">
+    Output handler status flags passed to the <code class="parameter">flags</code>
+    parameter of <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> are now cleared.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.output-add-rewrite-var.html" class="function">output_add_rewrite_var()</a></span> now uses
+    <a href="outcontrol.configuration.html#ini.url-rewriter.hosts" class="link"><code class="literal">url_rewriter.hosts</code></a>
+    instead of
+    <a href="session.configuration.html#ini.session.trans-sid-hosts" class="link"><code class="literal">session.trans_sid_hosts</code></a>
+    for selecting hosts that will be rewritten.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.other-changes.sapi">
+  <h3 class="title">Changes in SAPI Modules</h3>
+
+  <div class="sect3" id="migration84.other-changes.sapi.apache">
+   <h4 class="title">apache2handler</h4>
+
+   <p class="simpara">
+    Support for EOL Apache 2.0 and 2.2 has been removed.
+    Minimum required Apache version is now 2.4.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.sapi.cli">
+   <h4 class="title">CLI</h4>
+
+   <p class="simpara">
+    The builtin server looks for an index file recursively by traversing parent
+    directories in case the specified file cannot be located.
+    This process was previously skipped if the path looked like it was
+    referring to a file, i.e. if the last path component contained a period.
+    In that case, a 404 error was returned.
+    The behavior has been changed to look for an index file in all cases.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.sapi.fpm">
+   <h4 class="title">FPM</h4>
+
+   <p class="simpara">
+    Flushing headers without a body will now succeed.
+    
+   </p>
+
+   <p class="simpara">
+    Status page has a new field to display a memory peak.
+   </p>
+
+   <p class="simpara">
+    
+    The <var class="filename">/dev/poll</var> <code class="literal">events.mechanism</code>
+    setting for Solaris/Illumos had been retired.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.other-changes.functions">
+  <h3 class="title">Changed Functions</h3>
+
+  <div class="sect3" id="migration84.other-changes.functions.core">
+   <h4 class="title">Core</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span> and <span class="function"><a href="function.user-error.html" class="function">user_error()</a></span>
+    now have a return type of <span class="type"><a href="language.types.value.html" class="type true">true</a></span> instead of <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="simpara">
+    <span class="methodname"><a href="domdocument.registernodeclass.html" class="methodname">DOMDocument::registerNodeClass()</a></span>
+    now has a tentative return type of <span class="type"><a href="language.types.value.html" class="type true">true</a></span> instead of
+    <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+    It could only ever return <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> in practice.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.hash">
+   <h4 class="title">Hash</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.hash-update.html" class="function">hash_update()</a></span>
+    now has a tentative return type of <span class="type"><a href="language.types.value.html" class="type true">true</a></span> instead of
+    <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+    It could only ever return <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> in practice.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="simpara">
+    <strong><code>NumberFormatter::ROUND_TOWARD_ZERO</code></strong> and
+    <strong><code>NumberFormatter::ROUND_AWAY_FROM_ZERO</code></strong>
+    have been added as aliases for
+    <strong><code><a href="class.numberformatter.html#numberformatter.constants.round-down">NumberFormatter::ROUND_DOWN</a></code></strong> and
+    <strong><code><a href="class.numberformatter.html#numberformatter.constants.round-up">NumberFormatter::ROUND_UP</a></code></strong>
+    to be consistent with the new
+    <strong><code><a href="math.constants.html#constant.php-round-half-up">PHP_ROUND_<span class="replaceable">*</span></a></code></strong> modes.
+   </p>
+
+   <p class="simpara">
+    <span class="methodname"><a href="resourcebundle.get.html" class="methodname">ResourceBundle::get()</a></span>
+    
+    now has a tentative return type of <code class="literal">ResourceBundle|array|string|int|null</code>.
+   </p>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span> and <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span>
+    functions now always throw <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>s
+    if the <code class="parameter">domain</code> name is empty or too long.
+   </p>
+
+   <p class="simpara">
+    The <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span> and <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span>
+    functions now always throw <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span>
+    if the <code class="parameter">variant</code> parameter is not
+    <strong><code><a href="intl.constants.html#constant.intl-idna-variant-uts46">INTL_IDNA_VARIANT_UTS46</a></code></strong>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.libxml">
+   <h4 class="title">LibXML</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.libxml-set-streams-context.html" class="function">libxml_set_streams_context()</a></span> now immediately throws a
+    <span class="exceptionname"><a href="class.typeerror.html" class="exceptionname">TypeError</a></span> when a non-stream-context
+    resource is passed to the function,
+    instead of throwing later when the stream context is used.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="simpara">
+    The behavior of <span class="function"><a href="function.mb-strcut.html" class="function">mb_strcut()</a></span> is more consistent
+    now on invalid UTF-8 and UTF-16 strings.
+    There is no behavioural change for valid UTF-8 and UTF-16 strings.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.odbc">
+   <h4 class="title">ODBC</h4>
+
+   <p class="simpara">
+    The <code class="parameter">row</code> of
+    <span class="function"><a href="function.odbc-fetch-object.html" class="function">odbc_fetch_object()</a></span>,
+    <span class="function"><a href="function.odbc-fetch-array.html" class="function">odbc_fetch_array()</a></span>, and
+    <span class="function"><a href="function.odbc-fetch-into.html" class="function">odbc_fetch_into()</a></span> now have a default value of <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>,
+    consistent with <span class="function"><a href="function.odbc-fetch-row.html" class="function">odbc_fetch_row()</a></span>.
+    Previously, the default values were
+    <code class="literal">-1</code>,
+    <code class="literal">-1</code>,
+    and <code class="literal">0</code>,
+    respectively.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.openssl">
+   <h4 class="title">OpenSSL</h4>
+
+   <p class="simpara">
+    The <code class="parameter">extra_attributes</code> in
+    <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> sets the <abbr title="Certificate Signing Request">CSR</abbr>
+    attributes instead of subject DN, which incorrectly done previously.
+   </p>
+
+   <p class="simpara">
+    The <code class="parameter">dn</code> in
+    <span class="function"><a href="function.openssl-csr-new.html" class="function">openssl_csr_new()</a></span> allows setting an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+    of values for a single entry.
+   </p>
+
+   <p class="simpara">
+    New <code class="parameter">serial_hex</code> added to
+    <span class="function"><a href="function.openssl-csr-sign.html" class="function">openssl_csr_sign()</a></span> to allow setting serial numbers
+    in the hexadecimal format.
+   </p>
+
+   <p class="simpara">
+    Parsing ASN.1 UTCTime with <span class="function"><a href="function.openssl-x509-parse.html" class="function">openssl_x509_parse()</a></span>
+    fails if seconds are omitted for OpenSSL version below 3.2
+    (<code class="literal">-1</code> is returned for such fields).
+    OpenSSL version above 3.3 did not load such certificates already.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.pdo">
+   <h4 class="title">PDO</h4>
+
+   <p class="simpara">
+    It is now possible to fetch the value of the
+    <strong><code><a href="pdo.constants.html#pdo.constants.attr-stringify-fetches">PDO::ATTR_STRINGIFY_FETCHES</a></code></strong> attribute with
+    <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span>.
+   </p>
+
+   <p class="simpara">
+    A new <strong><code><a href="ref.pdo-pgsql.html#pdo.constants.pgsql-attr-result-memory-size">PDO::PGSQL_ATTR_RESULT_MEMORY_SIZE</a></code></strong>
+    has been added to retrieve the memory usage of query results with
+    <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span> for drivers that support it.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.pdo-firebird">
+   <h4 class="title">PDO_FIREBIRD</h4>
+
+   <p class="simpara">
+    It is now possible to fetch the value of the
+    
+    <strong><code>FB_ATTR_DATE_FORMAT</code></strong>,
+    <strong><code>FB_ATTR_TIME_FORMAT</code></strong>,
+    <strong><code>FB_ATTR_TIMESTAMP_FORMAT</code></strong>,
+    attributes with
+    
+    <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span>.
+   </p>
+
+   <p class="para">
+    Added new attributes to specify transaction isolation level and access mode.
+    Five constants relating to this functionality have been added:
+
+    <ul class="simplelist">
+     <li><strong><code>Pdo\Firebird::TRANSACTION_ISOLATION_LEVEL</code></strong></li>
+     <li><strong><code>Pdo\Firebird::READ_COMMITTED</code></strong></li>
+     <li><strong><code>Pdo\Firebird::REPEATABLE_READ</code></strong></li>
+     <li><strong><code>Pdo\Firebird::SERIALIZABLE</code></strong></li>
+     <li><strong><code>Pdo\Firebird::WRITABLE_TRANSACTION</code></strong></li>
+    </ul>
+   </p>
+
+   <p class="simpara">
+    When using persistent connections, there is now a liveliness check in the
+    constructor.
+   </p>
+
+   <p class="simpara">
+    The content that is built changes depending on the value of
+    <strong><code>FB_API_VER</code></strong> in
+    <var class="filename">ibase.h</var>.
+    A new static method <span class="methodname"><strong>Pdo\Firebird::getApiVersion()</strong></span>
+    can be used to obtain this information.
+    This information is also now referenced in <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>.
+   </p>
+
+   <p class="para">
+    Five new data types are now available:
+    <span class="simplelist"><code class="literal">INT128</code>, <code class="literal">DEC16</code>, <code class="literal">DEC34</code>, <code class="literal">TIMESTAMP_TZ</code>, <code class="literal">TIME_TZ</code></span>
+    .
+    These are available starting with Firebird 4.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.pdo-mysql">
+   <h4 class="title">PDO_MYSQL</h4>
+
+   <p class="simpara">
+    It is now possible to fetch the value of the
+    <strong><code><a href="pdo.constants.html#pdo.constants.attr-fetch-table-names">PDO::ATTR_FETCH_TABLE_NAMES</a></code></strong> attribute with
+    
+    <span class="methodname"><a href="pdo.getattribute.html" class="methodname">PDO::getAttribute()</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.pdo-pgsql">
+   <h4 class="title">PDO_PGSQL</h4>
+
+   <p class="simpara">
+    Support retrieving the memory usage of queries for
+    <strong><code><a href="ref.pdo-pgsql.html#pdo.constants.pgsql-attr-result-memory-size">PDO::PGSQL_ATTR_RESULT_MEMORY_SIZE</a></code></strong>.
+   </p>
+
+   <p class="simpara">
+    If the column is of type <code class="literal">FLOAT4OID</code> or
+    <code class="literal">FLOAT8OID</code> the value will now be returned as a
+    <span class="type"><a href="language.types.float.html" class="type float">float</a></span> instead of a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.pgsql">
+   <h4 class="title">PGSQL</h4>
+
+   <p class="simpara">
+    The <code class="parameter">conditions</code> parameter of
+    <span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span> is now optional and accepts an empty array.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.phar">
+   <h4 class="title">Phar</h4>
+
+   <p class="para">
+    The
+    <span class="simplelist"><span class="methodname"><a href="phar.setalias.html" class="methodname">Phar::setAlias()</a></span>, <span class="methodname"><a href="phar.setdefaultstub.html" class="methodname">Phar::setDefaultStub()</a></span></span>
+    methods now have a tentative return type of <span class="type"><a href="language.types.value.html" class="type true">true</a></span>
+    instead of <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.posix">
+   <h4 class="title">POSIX</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.posix-isatty.html" class="function">posix_isatty()</a></span> now sets the error number when the
+    file descriptor/stream argument is invalid.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.reflection">
+   <h4 class="title">Reflection</h4>
+
+   <p class="simpara">
+    <span class="methodname"><a href="reflectiongenerator.getfunction.html" class="methodname">ReflectionGenerator::getFunction()</a></span>
+    may now be called after the generator finished executing.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.sockets">
+   <h4 class="title">Sockets</h4>
+
+   <p class="simpara">
+    The <code class="parameter">backlog</code> parameter of
+    <span class="function"><a href="function.socket-create-listen.html" class="function">socket_create_listen()</a></span> now has a default value of
+    <strong><code><a href="sockets.constants.html#constant.somaxconn">SOMAXCONN</a></code></strong>.
+    Previously, it was <code class="literal">128</code>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.sodium">
+   <h4 class="title">Sodium</h4>
+
+   <p class="simpara">
+    The <span class="function"><strong>sodium_crypto_aead_aes256gcm_()</strong><span class="replaceable">*</span></span>
+    functions are now available on aarch64 CPUs with the ARM cryptographic
+    extensions.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.spl">
+   <h4 class="title">SPL</h4>
+
+   <p class="para">
+    The
+    <span class="simplelist"><span class="methodname"><a href="splpriorityqueue.insert.html" class="methodname">SplPriorityQueue::insert()</a></span>, <span class="methodname"><a href="splpriorityqueue.recoverfromcorruption.html" class="methodname">SplPriorityQueue::recoverFromCorruption()</a></span>, <span class="methodname"><a href="splheap.insert.html" class="methodname">SplHeap::insert()</a></span>, <span class="methodname"><a href="splheap.recoverfromcorruption.html" class="methodname">SplHeap::recoverFromCorruption()</a></span></span>
+    methods now have a tentative return type of <span class="type"><a href="language.types.value.html" class="type true">true</a></span>
+    instead of <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+   </p>
+
+   <p class="simpara">
+    <span class="classname"><a href="class.splobjectstorage.html" class="classname">SplObjectStorage</a></span> now implements
+    <span class="interfacename"><a href="class.seekableiterator.html" class="interfacename">SeekableIterator</a></span>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.functions.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="simpara">
+
+    The default <code class="literal">&#039;cost&#039;</code> value for the <strong><code><a href="password.constants.html#constant.password-bcrypt">PASSWORD_BCRYPT</a></code></strong>
+    hashing algorithm for <span class="function"><a href="function.password-hash.html" class="function">password_hash()</a></span> has been increased from
+    <code class="literal">10</code> to <code class="literal">12</code>.
+    
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.debug-zval-dump.html" class="function">debug_zval_dump()</a></span> now indicates whether an array is packed.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.long2ip.html" class="function">long2ip()</a></span> now has a return type of <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    
+    instead of <code class="literal">string|false</code>.
+   </p>
+
+   <p class="simpara">
+    
+    <span class="function"><a href="function.highlight-string.html" class="function">highlight_string()</a></span> now has a return type of
+    <span class="type">string|true</span> instead of <code class="literal">string|bool</code>.
+   </p>
+
+   <p class="simpara">
+    
+    <span class="function"><a href="function.print-r.html" class="function">print_r()</a></span> now has a return type of
+    <span class="type">string|true</span> instead of <code class="literal">string|bool</code>.
+   </p>
+
+   
+   <div class="sect4">
+    <h5 class="title">Rounding with <span class="function"><a href="function.round.html" class="function">round()</a></span></h5>
+
+    <p class="simpara">
+     The <code class="parameter">mode</code> parameter of the
+     <span class="function"><a href="function.round.html" class="function">round()</a></span> function has been widened to
+     
+     <code class="literal">RoundingMode|int</code>,
+     
+     accepting instances of a new <span class="classname"><strong class="classname">RoundingMode</strong></span> enum.
+     
+    </p>
+
+    <p class="para">
+     Four new modes have been added to the <span class="function"><a href="function.round.html" class="function">round()</a></span> function:
+     <span class="simplelist">RoundingMode::PositiveInfinity, RoundingMode::NegativeInfinity, RoundingMode::TowardsZero, RoundingMode::AwayFromZero</span>
+     
+    </p>
+
+    <p class="simpara">
+     The internal implementation for rounding to integers has been rewritten
+     to be easier to verify for correctness and to be easier to maintain.
+     Some rounding bugs have been fixed as a result of the rewrite.
+     For example previously rounding <code class="literal">0.49999999999999994</code>
+     to the nearest integer would have resulted in <code class="literal">1.0</code>
+     instead of the correct result <code class="literal">0.0</code>.
+     Additional inputs might also be affected and result in different outputs
+     compared to earlier PHP versions.
+    </p>
+
+    <p class="simpara">
+     Fixed a bug caused by &quot;pre-rounding&quot; of the <span class="function"><a href="function.round.html" class="function">round()</a></span> function.
+     Previously, using &quot;pre-rounding&quot; to treat a value like <code class="literal">0.285</code>
+     (actually <code class="literal">0.28499999999999998</code>) as a decimal number
+     and round it to <code class="literal">0.29</code>.
+     However, &quot;pre-rounding&quot; incorrectly rounds certain numbers,
+     so this fix removes &quot;pre-rounding&quot; and changes the way numbers are compared,
+     so that the values are correctly rounded as decimal numbers.
+    </p>
+
+    <p class="simpara">
+     The maximum precision that can be handled by <span class="function"><a href="function.round.html" class="function">round()</a></span>
+     has been extended by one digit.
+     For example, <code class="code">round(4503599627370495.5)</code> returned in
+     <code class="literal">4503599627370495.5</code>,
+     but now returns <code class="literal">4503599627370496</code>.
+    </p>
+
+   </div>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration84.other-changes.extensions">
+  <h3 class="title">Other Changes to Extensions</h3>
+
+  <div class="sect3" id="migration84.other-changes.extensions.curl">
+   <h4 class="title">cURL</h4>
+
+   <p class="simpara">
+    The minimum libcurl version required is now 7.61.0.
+   </p>
+
+   <p class="simpara">
+    The <strong><code><a href="curl.constants.html#constant.curlopt-dns-use-global-cache">CURLOPT_DNS_USE_GLOBAL_CACHE</a></code></strong> option no longer
+    has any effect, and is silently ignored.
+    This underlying feature was deprecated in libcurl 7.11.1,
+    and removed in libcurl 7.62.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.gmp">
+   <h4 class="title">GMP</h4>
+
+   
+   <p class="simpara">
+    Casting a <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object to <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> is now
+    possible instead of emitting a <strong><code><a href="errorfunc.constants.html#constant.e-recoverable-error">E_RECOVERABLE_ERROR</a></code></strong>.
+    The casting behaviour is overloaded such that a <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span>
+    object representing the value <code class="literal">0</code> is cast to <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.libxml">
+   <h4 class="title">LibXML</h4>
+
+   <p class="simpara">
+    The minimum libxml2 version required is now 2.9.4.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.intl">
+   <h4 class="title">Intl</h4>
+
+   <p class="simpara">
+    The behaviour of Intl class has been normalized to always throw
+    <span class="exceptionname"><a href="class.error.html" class="exceptionname">Error</a></span> exceptions when attempting to use
+    a non-initialized object, or when cloning fails.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="simpara">
+    Unicode data tables have been updated to Unicode 16.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.mysqlnd">
+   <h4 class="title">MySQLnd</h4>
+
+   <p class="simpara">
+    Support for the new VECTOR data type from MySQL 9.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.openssl">
+   <h4 class="title">OpenSSL</h4>
+
+   <p class="simpara">
+    The minimum OpenSSL version required is now 1.1.1.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.pdo-pgsql">
+   <h4 class="title">PDO_PGSQL</h4>
+
+   <p class="simpara">
+    The minimum libpq version required is now 10.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.pgsql">
+   <h4 class="title">PGSQL</h4>
+
+   <p class="simpara">
+    The minimum libpq version required is now 10.0.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.spl">
+   <h4 class="title">SPL</h4>
+
+   <p class="simpara">
+    Out of bounds accesses in <span class="classname"><a href="class.splfixedarray.html" class="classname">SplFixedArray</a></span> now throw
+    exceptions of type <span class="exceptionname"><a href="class.outofboundsexception.html" class="exceptionname">OutOfBoundsException</a></span>
+    instead of <span class="exceptionname"><a href="class.runtimeexception.html" class="exceptionname">RuntimeException</a></span>.
+    Because <span class="exceptionname"><a href="class.outofboundsexception.html" class="exceptionname">OutOfBoundsException</a></span> is a child
+    class of <span class="exceptionname"><a href="class.runtimeexception.html" class="exceptionname">RuntimeException</a></span> no behavioural
+    changes are exhibited when attempting to catch those exceptions.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.xsl">
+   <h4 class="title">XSL</h4>
+
+   <p class="simpara">
+    The typed properties <span class="property">XSLTProcessor::$cloneDocument</span>
+    and <span class="property">XSLTProcessor::$doXInclude</span> are now declared.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.extensions.zlib">
+   <h4 class="title">Zlib</h4>
+
+   <p class="simpara">
+    The minimum zlib version required is now 1.2.11.
+   </p>
+  </div>
+ </div>
+
+ <div class="sect2" id="migration84.other-changes.performance">
+  <h3 class="title">Performance</h3>
+
+  <div class="sect3" id="migration84.other-changes.performance.core">
+   <h4 class="title">Core</h4>
+
+   <p class="simpara">
+    Improved the performance of floating point number parsing and formatting in
+    ZTS builds under highly concurrent loads.
+    This affects the <span class="function"><a href="function.printf.html" class="function">printf()</a></span> family of functions as well
+    as serialization functions such as <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>,
+    or <span class="function"><a href="function.serialize.html" class="function">serialize()</a></span>.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> using only <code class="literal">%s</code> and
+    <code class="literal">%d</code> specifiers will be compiled into the equivalent
+    string interpolation, avoiding the overhead of a function call and
+    repeatedly parsing the format string.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.bcmath">
+   <h4 class="title">BCMath</h4>
+
+   <p class="simpara">
+    Improved performance of number conversions and operations.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.dom">
+   <h4 class="title">DOM</h4>
+
+   <p class="simpara">
+    The performance of <span class="methodname"><a href="domnode.c14n.html" class="methodname">DOMNode::C14N()</a></span> is greatly
+    improved for the case without an xpath query.
+    This can give a time improvement of easily two order of
+    magnitude for documents with tens of thousands of nodes.
+   </p>
+
+   <p class="simpara">
+    Improved performance and reduce memory consumption of XML serialization.
+   </p>
+
+   <p class="simpara">
+    Reduced memory usage of node classes.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.ftp">
+   <h4 class="title">FTP</h4>
+
+   <p class="simpara">
+    Improved the performance of FTP uploads up to a factor of 10x for large
+    uploads.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.hash">
+   <h4 class="title">Hash</h4>
+
+   <p class="simpara">
+    Added SSE2 and SHA-NI implementations of SHA-256.
+    This improves the performance on supported CPUs by ~1.3x (SSE2),
+    and 3x - 5x (SHA-NI).
+    Credit to Colin Percival / Tarsnap for this optimization.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.mbstring">
+   <h4 class="title">MBString</h4>
+
+   <p class="simpara">
+    <span class="function"><a href="function.mb-strcut.html" class="function">mb_strcut()</a></span> is much faster now for UTF-8
+    and UTF-16 strings.
+   </p>
+
+   <p class="simpara">
+    Looking up mbstring encoding names is much faster now.
+   </p>
+
+   <p class="simpara">
+    The performance of converting SJIS-win to Unicode is greatly improved.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.mysqlnd">
+   <h4 class="title">MySQLnd</h4>
+
+   <p class="simpara">
+    Improved the performance of MySQLnd quoting.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.pcre">
+   <h4 class="title">PCRE</h4>
+
+   <p class="simpara">
+    Improved the performance of named capture groups.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.random">
+   <h4 class="title">Random</h4>
+
+   <p class="simpara">
+    Improved the performance of <span class="classname"><a href="class.random-randomizer.html" class="classname">Random\Randomizer</a></span>,
+    with a specific focus on the
+    <span class="methodname"><a href="random-randomizer.getbytes.html" class="methodname">Random\Randomizer::getBytes()</a></span>,
+    and <span class="methodname"><a href="random-randomizer.getbytesfromstring.html" class="methodname">Random\Randomizer::getBytesFromString()</a></span> methods.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.simplexml">
+   <h4 class="title">SimpleXML</h4>
+
+   <p class="simpara">
+    Improved performance and reduce memory consumption of XML serialization.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration84.other-changes.performance.standard">
+   <h4 class="title">Standard</h4>
+
+   <p class="simpara">
+    The performance of <span class="function"><a href="function.strspn.html" class="function">strspn()</a></span> and
+    <span class="function"><a href="function.strcspn.html" class="function">strcspn()</a></span> is greatly improved.
+    They now run in linear time instead of being bounded by quadratic time.
+   </p>
+
+   <p class="simpara">
+    Improved the performance of <span class="function"><a href="function.strpbrk.html" class="function">strpbrk()</a></span>.
+   </p>
+
+   <p class="simpara">
+    <span class="function"><a href="function.get-browser.html" class="function">get_browser()</a></span> is much faster now,
+    up to 1.5x - 2.5x for some test cases.
+   </p>
+  </div>
+ </div>
+
+</div></div></div></body></html>

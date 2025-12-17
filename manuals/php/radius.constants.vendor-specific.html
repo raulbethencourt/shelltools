@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>RADIUS Vendor Specific Attribute Types</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="radius.constants.attributes.html">« RADIUS Attribute Types</a></li>
+      <li style="float: right;"><a href="radius.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="radius.constants.html">Predefined Constants</a></li>
+    <li>RADIUS Vendor Specific Attribute Types</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="radius.constants.vendor-specific" class="section">
+  <h2 class="title">RADIUS Vendor Specific Attribute Types</h2>
+
+  <p class="para">
+   <dl>
+    
+     <dt id="constant.radius-vendor-microsoft">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-vendor-microsoft">RADIUS_VENDOR_MICROSOFT</a></code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+     </dt>
+     <dd>
+      <p class="para">
+       Microsoft specific vendor attributes (<a href="https://datatracker.ietf.org/doc/html/rfc2548" class="link external">&raquo;&nbsp;RFC 2548</a>), one of:
+        <ul class="simplelist">
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-response">RADIUS_MICROSOFT_MS_CHAP_RESPONSE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-error">RADIUS_MICROSOFT_MS_CHAP_ERROR</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-pw-1">RADIUS_MICROSOFT_MS_CHAP_PW_1</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-pw-2">RADIUS_MICROSOFT_MS_CHAP_PW_2</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-lm-enc-pw">RADIUS_MICROSOFT_MS_CHAP_LM_ENC_PW</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-nt-enc-pw">RADIUS_MICROSOFT_MS_CHAP_NT_ENC_PW</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-encryption-policy">RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_POLICY</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-encryption-types">RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_TYPES</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-ras-vendor">RADIUS_MICROSOFT_MS_RAS_VENDOR</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-domain">RADIUS_MICROSOFT_MS_CHAP_DOMAIN</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-challenge">RADIUS_MICROSOFT_MS_CHAP_CHALLENGE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-mppe-keys">RADIUS_MICROSOFT_MS_CHAP_MPPE_KEYS</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-bap-usage">RADIUS_MICROSOFT_MS_BAP_USAGE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-link-utilization-threshold">RADIUS_MICROSOFT_MS_LINK_UTILIZATION_THRESHOLD</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-link-drop-time-limit">RADIUS_MICROSOFT_MS_LINK_DROP_TIME_LIMIT</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-send-key">RADIUS_MICROSOFT_MS_MPPE_SEND_KEY</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-recv-key">RADIUS_MICROSOFT_MS_MPPE_RECV_KEY</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-ras-version">RADIUS_MICROSOFT_MS_RAS_VERSION</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-old-arap-password">RADIUS_MICROSOFT_MS_OLD_ARAP_PASSWORD</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-new-arap-password">RADIUS_MICROSOFT_MS_NEW_ARAP_PASSWORD</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-arap-password-change-reason">RADIUS_MICROSOFT_MS_ARAP_PASSWORD_CHANGE_REASON</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-filter">RADIUS_MICROSOFT_MS_FILTER</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-acct-auth-type">RADIUS_MICROSOFT_MS_ACCT_AUTH_TYPE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-acct-eap-type">RADIUS_MICROSOFT_MS_ACCT_EAP_TYPE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-response">RADIUS_MICROSOFT_MS_CHAP2_RESPONSE</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-success">RADIUS_MICROSOFT_MS_CHAP2_SUCCESS</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-pw">RADIUS_MICROSOFT_MS_CHAP2_PW</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-primary-dns-server">RADIUS_MICROSOFT_MS_PRIMARY_DNS_SERVER</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-secondary-dns-server">RADIUS_MICROSOFT_MS_SECONDARY_DNS_SERVER</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-primary-nbns-server">RADIUS_MICROSOFT_MS_PRIMARY_NBNS_SERVER</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-secondary-nbns-server">RADIUS_MICROSOFT_MS_SECONDARY_NBNS_SERVER</a></code></strong></li>
+        <li><strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-arap-challenge">RADIUS_MICROSOFT_MS_ARAP_CHALLENGE</a></code></strong></li>
+       </ul>
+      </p>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-response">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-response">RADIUS_MICROSOFT_MS_CHAP_RESPONSE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-error">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-error">RADIUS_MICROSOFT_MS_CHAP_ERROR</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-pw-1">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-pw-1">RADIUS_MICROSOFT_MS_CHAP_PW_1</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-pw-2">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-pw-2">RADIUS_MICROSOFT_MS_CHAP_PW_2</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-lm-enc-pw">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-lm-enc-pw">RADIUS_MICROSOFT_MS_CHAP_LM_ENC_PW</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-nt-enc-pw">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-nt-enc-pw">RADIUS_MICROSOFT_MS_CHAP_NT_ENC_PW</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-mppe-encryption-policy">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-encryption-policy">RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_POLICY</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-mppe-encryption-types">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-encryption-types">RADIUS_MICROSOFT_MS_MPPE_ENCRYPTION_TYPES</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-ras-vendor">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-ras-vendor">RADIUS_MICROSOFT_MS_RAS_VENDOR</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-domain">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-domain">RADIUS_MICROSOFT_MS_CHAP_DOMAIN</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-challenge">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-challenge">RADIUS_MICROSOFT_MS_CHAP_CHALLENGE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap-mppe-keys">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap-mppe-keys">RADIUS_MICROSOFT_MS_CHAP_MPPE_KEYS</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-bap-usage">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-bap-usage">RADIUS_MICROSOFT_MS_BAP_USAGE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-link-utilization-threshold">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-link-utilization-threshold">RADIUS_MICROSOFT_MS_LINK_UTILIZATION_THRESHOLD</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-link-drop-time-limit">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-link-drop-time-limit">RADIUS_MICROSOFT_MS_LINK_DROP_TIME_LIMIT</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-mppe-send-key">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-send-key">RADIUS_MICROSOFT_MS_MPPE_SEND_KEY</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-mppe-recv-key">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-mppe-recv-key">RADIUS_MICROSOFT_MS_MPPE_RECV_KEY</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-ras-version">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-ras-version">RADIUS_MICROSOFT_MS_RAS_VERSION</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-old-arap-password">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-old-arap-password">RADIUS_MICROSOFT_MS_OLD_ARAP_PASSWORD</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-new-arap-password">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-new-arap-password">RADIUS_MICROSOFT_MS_NEW_ARAP_PASSWORD</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-arap-password-change-reason">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-arap-password-change-reason">RADIUS_MICROSOFT_MS_ARAP_PASSWORD_CHANGE_REASON</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-filter">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-filter">RADIUS_MICROSOFT_MS_FILTER</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-acct-auth-type">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-acct-auth-type">RADIUS_MICROSOFT_MS_ACCT_AUTH_TYPE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-acct-eap-type">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-acct-eap-type">RADIUS_MICROSOFT_MS_ACCT_EAP_TYPE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap2-response">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-response">RADIUS_MICROSOFT_MS_CHAP2_RESPONSE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap2-success">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-success">RADIUS_MICROSOFT_MS_CHAP2_SUCCESS</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-chap2-pw">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-chap2-pw">RADIUS_MICROSOFT_MS_CHAP2_PW</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-primary-dns-server">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-primary-dns-server">RADIUS_MICROSOFT_MS_PRIMARY_DNS_SERVER</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-secondary-dns-server">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-secondary-dns-server">RADIUS_MICROSOFT_MS_SECONDARY_DNS_SERVER</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-primary-nbns-server">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-primary-nbns-server">RADIUS_MICROSOFT_MS_PRIMARY_NBNS_SERVER</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-secondary-nbns-server">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-secondary-nbns-server">RADIUS_MICROSOFT_MS_SECONDARY_NBNS_SERVER</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+    
+     <dt id="constant.radius-microsoft-ms-arap-challenge">
+      <strong><code><a href="radius.constants.vendor-specific.html#constant.radius-microsoft-ms-arap-challenge">RADIUS_MICROSOFT_MS_ARAP_CHALLENGE</a></code></strong>
+     </dt>
+     <dd>
+      <span class="simpara">
+      </span>
+     </dd>
+    
+   </dl>
+  </p>
+ </div></div></div></body></html>

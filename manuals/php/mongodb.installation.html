@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Installation</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb.requirements.html">« Requirements</a></li>
+      <li style="float: right;"><a href="mongodb.configuration.html">Runtime Configuration »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.setup.html">Installing/Configuring</a></li>
+    <li>Installation</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb.installation" class="section">
+ <h2 class="title">Installation</h2>
+
+ <div class="section" id="mongodb.installation.pecl">
+  <h2 class="title">Installing the MongoDB PHP Extension with PECL</h2>
+
+  <p class="para">
+   Information for installing this PECL extension may be
+found in the manual chapter titled <a href="install.pecl.html" class="link">Installation
+of PECL extensions</a>. Additional information such as new releases,
+downloads, source files, maintainer information, and a CHANGELOG, can be
+located here: 
+   <a href="https://pecl.php.net/package/mongodb" class="link external">&raquo;&nbsp;https://pecl.php.net/package/mongodb</a>
+  </p>
+
+  <p class="para">
+   Linux, Unix, and macOS users may run the following command to install the
+   extension:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ sudo pecl install mongodb</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   On systems with multiple version of PHP installed (e.g. macOS default,
+   Homebrew, <a href="https://www.apachefriends.org/" class="link external">&raquo;&nbsp;XAMPP</a>), each version of PHP
+   will have its own <a href="install.pecl.html" class="link">pecl</a>
+   command and <var class="filename">php.ini</var> file(s). Additionally, each PHP environments (e.g.
+   CLI, web) may use separate <var class="filename">php.ini</var> files.
+  </p>
+
+  <p class="para">
+   As of extension version 1.17.0, PECL will prompt for various
+   <code class="literal">configure</code> options. To install the extension with default
+   options in a non-interactive script, empty string input may be piped to
+   <code class="literal">pecl install</code> using the <code class="literal">yes</code> command:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ yes &#039;&#039; | sudo pecl install mongodb</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   A complete list of supported <code class="literal">configure</code> options can be
+   found in the <code class="literal">package.xml</code> file included in the PECL
+   package. To install the extension with specific <code class="literal">configure</code>
+   options in a non-interactive script, the
+   <code class="literal">--configureoptions</code> option for
+   <code class="literal">pecl install</code> may be used:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ sudo pecl install --configureoptions=&#039;with-mongodb-system-libs=&quot;yes&quot; enable-mongodb-developer-flags=&quot;no&quot;&#039; mongodb</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   By default, installing the extension via PECL will use bundled versions of
+   <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a>,
+   <a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a>, and
+   <a href="https://github.com/mongodb/libmongocrypt" class="link external">&raquo;&nbsp;libmongocrypt</a> and attempt to
+   automatically configure them.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <span class="simpara">
+    If the build process fails to find an SSL library, check that the
+    development packages (e.g. <code class="literal">libssl-dev</code>) and
+    <a href="https://en.wikipedia.org/wiki/Pkg-config" class="link external">&raquo;&nbsp;pkg-config</a> are both
+    installed. If that does not resolve the problem, consider using the
+    <a href="mongodb.installation.html#mongodb.installation.manual" class="link">manual installation</a>
+    process.
+   </span>
+  </p></blockquote>
+
+  <p class="para">
+   Finally, add the following line to the <var class="filename">php.ini</var> file for each environment
+   that will need to use the extension:
+   <div class="example-contents">
+<div class="inicode"><pre class="inicode">extension=mongodb.so</pre>
+</div>
+   </div>
+
+  </p>
+ </div>
+
+ <div class="section" id="mongodb.installation.homebrew">
+  <h2 class="title">Installing the MongoDB PHP Extension on macOS with Homebrew</h2>
+
+  <p class="para">
+   <a href="https://brew.sh/2018/01/19/homebrew-1.5.0/" class="link external">&raquo;&nbsp;Homebrew 1.5.0</a>
+   deprecated the <a href="https://github.com/Homebrew/brew" class="link external">&raquo;&nbsp;Homebrew/php tap</a>
+   and removed formulae for individual PHP extensions. Going forward, macOS
+   users are advised to install the
+   <a href="https://formulae.brew.sh/formula/php" class="link external">&raquo;&nbsp;php</a> formula
+   and follow the standard
+   <a href="mongodb.installation.html#mongodb.installation.pecl" class="link">PECL installation instructions</a>
+   using the <a href="install.pecl.html" class="link">pecl</a> command provided by the
+   Homebrew PHP installation.
+  </p>
+ </div>
+
+ <div class="section" id="mongodb.installation.windows">
+  <h2 class="title">Installing the MongoDB PHP Extension on Windows</h2>
+
+  <p class="para">
+   Precompiled binaries are attached to the project&#039;s
+   <a href="https://github.com/mongodb/mongo-php-driver/releases/" class="link external">&raquo;&nbsp;Github releases</a>.
+   Archives are published for various combinations of PHP version, thread safety
+   (TS or NTS), and architecture (x86 or x64). Determining the correct archive
+   for the PHP environment and extract the <var class="filename">php_mongodb.dll</var>
+   file to the extension directory (&quot;ext&quot; by default).
+  </p>
+
+  <p class="para">
+   Add the following line to the <var class="filename">php.ini</var> file for each environment that will
+   need to use the extension:
+   <div class="example-contents">
+<div class="inicode"><pre class="inicode">extension=php_mongodb.dll</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   Failure to select the correct binary will result in an error when attempting
+   to load the extension DLL at runtime:
+   <div class="example-contents">
+<div class="txtcode"><pre class="txtcode">PHP Warning:  PHP Startup: Unable to load dynamic library &#039;mongodb&#039;</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   Ensure that the downloaded DLL corresponds to the following PHP runtime
+   properties:
+   <ul class="simplelist">
+    <li>PHP version (<strong><code><a href="reserved.constants.html#constant.php-version">PHP_VERSION</a></code></strong>)</li>
+    <li>Thread safety (<strong><code><a href="reserved.constants.html#constant.php-zts">PHP_ZTS</a></code></strong>)</li>
+    <li>Architecture (<strong><code><a href="reserved.constants.html#constant.php-int-size">PHP_INT_SIZE</a></code></strong>)</li>
+   </ul>
+  </p>
+
+  <p class="para">
+   In addition to the aforementioned constants, these properties can also be
+   inferred from <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>. If a system has multiple PHP
+   runtimes installed, double-check that the <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> output
+   is for the correct environment.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <strong>Additional DLL dependencies for Windows Users</strong><br />
+   <p class="para">
+    In order for this extension to work, there are
+<abbr title="Dynamic Link Library">DLL</abbr> files that must be available to the Windows
+system <var class="envar">PATH</var>. For information on how to do this, see the
+<abbr title="Frequently Asked Questions">FAQ</abbr> entitled &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">How do I add my PHP directory to the PATH
+on Windows</a>&quot;. Although copying DLL
+files from the PHP folder into the Windows system directory also works
+(because the system directory is by default in the system&#039;s
+<var class="envar">PATH</var>), this is not recommended.
+<em>This extension requires the following files to be in the
+<var class="envar">PATH</var>:</em> 
+    <var class="filename">libsasl.dll</var>
+   </p>
+  </p></blockquote>
+ </div>
+
+ <div class="section" id="mongodb.installation.manual">
+  <h2 class="title">Building the MongoDB PHP Driver from source</h2>
+
+  <p class="para">
+   For developers and users interested in the latest bugfixes, the extension
+   may be compiled from the latest source code on
+   <a href="https://github.com/mongodb/mongo-php-driver" class="link external">&raquo;&nbsp;Github</a>. Run the following
+   commands to clone and build the project:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ git clone https://github.com/mongodb/mongo-php-driver.git
+$ cd mongo-php-driver
+$ git submodule update --init
+$ phpize
+$ ./configure
+$ make all
+$ sudo make install</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   On systems with multiple version of PHP installed (e.g. macOS default,
+   Homebrew, <a href="https://www.apachefriends.org/" class="link external">&raquo;&nbsp;XAMPP</a>), each version of PHP
+   will have its own <a href="install.pecl.phpize.html" class="link">phpize</a>
+   command and <var class="filename">php.ini</var> file(s). Additionally, each PHP environments (e.g.
+   CLI, web) may use separate <var class="filename">php.ini</var> files.
+  </p>
+
+  <p class="para">
+   By default, the extension will use bundled versions of
+   <a href="https://github.com/mongodb/mongo-c-driver/tree/master/src/libbson" class="link external">&raquo;&nbsp;libbson</a>,
+   <a href="https://github.com/mongodb/mongo-c-driver" class="link external">&raquo;&nbsp;libmongoc</a>, and
+   <a href="https://github.com/mongodb/libmongocrypt" class="link external">&raquo;&nbsp;libmongocrypt</a> and
+   attempt to configure them automatically. If these libraries are already
+   installed as system libraries, the extension can utilize them by
+   specifying <code class="literal">--with-mongodb-system-libs=yes</code> as an option to
+   <code class="literal">configure</code>.
+  </p>
+
+  <p class="para">
+   For a complete list of <code class="literal">configure</code> options, run
+   <strong class="command">configure --help</strong>.
+  </p>
+
+  <p class="para">
+   When using bundled versions of libmongoc and libmongocrypt, the extension
+   will also attempt to select an SSL library according to the
+   <code class="literal">--with-mongodb-ssl</code> <code class="literal">configure</code> option.
+   As of extension version 1.17.0, OpenSSL is always preferred by default.
+   Previously, Secure Transport was the default on macOS and OpenSSL was the
+   default on all other platforms.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    If the build process fails to find an SSL library, check that the
+    development packages (e.g. <code class="literal">libssl-dev</code>) and
+    <a href="https://en.wikipedia.org/wiki/Pkg-config" class="link external">&raquo;&nbsp;pkg-config</a> are both
+    installed.
+   </p>
+
+   <p class="para">
+    When using Homebrew on macOS, it is common for a system to have multiple
+    versions of OpenSSL installed. To ensure that the desired version of OpenSSL
+    is selected, the <code class="literal">PKG_CONFIG_PATH</code> environment variable may
+    be used to control the search path for <code class="literal">pkg-config</code>.
+   </p>
+  </p></blockquote>
+
+  <p class="para">
+   The final build step, <strong class="command">make install</strong>, will report where
+   <var class="filename">mongodb.so</var> has been installed, similar to:
+   <div class="example-contents">
+<div class="txtcode"><pre class="txtcode">Installing shared extensions:     /usr/lib/php/extensions/debug-non-zts-20220829/</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   Ensure that the <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> option
+   in <var class="filename">php.ini</var> points to the directory where <var class="filename">mongodb.so</var>
+   was installed. The option may be queried by running:
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ php -i | grep extension_dir
+  extension_dir =&gt; /usr/lib/php/extensions/debug-non-zts-20220829 =&gt;
+                   /usr/lib/php/extensions/debug-non-zts-20220829</pre>
+</div>
+   </div>
+
+  </p>
+
+  <p class="para">
+   If the directories differ, either change
+   <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> in <var class="filename">php.ini</var> or
+   manually move <var class="filename">mongodb.so</var> to the correct directory.
+  </p>
+
+  <p class="para">
+   Finally, add the following line to the <var class="filename">php.ini</var> file for each environment
+   that will need to use the extension:
+   <div class="example-contents">
+<div class="inicode"><pre class="inicode">extension=mongodb.so</pre>
+</div>
+   </div>
+
+  </p>
+ </div>
+
+</div></div></div></body></html>

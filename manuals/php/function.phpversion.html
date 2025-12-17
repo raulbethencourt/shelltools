@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Gets the current PHP version</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.phpinfo.html">« phpinfo</a></li>
+      <li style="float: right;"><a href="function.putenv.html">putenv »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.info.html">PHP Options/Info Functions</a></li>
+    <li>Gets the current PHP version</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.phpversion" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">phpversion</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">phpversion</span> &mdash; <span class="dc-title">Gets the current PHP version</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.phpversion-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>phpversion</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$extension</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Returns a string containing the version of the currently running PHP
+   parser or extension.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.phpversion-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">extension</code></dt>
+     <dd>
+      <p class="para">
+       An optional extension name.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.phpversion-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the current PHP version as a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+   If a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> argument is provided for
+   <code class="parameter">extension</code> parameter, <span class="function"><strong>phpversion()</strong></span>
+   returns the version of that extension, or <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> if there is no version
+   information associated or the extension isn&#039;t enabled.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.phpversion-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.0.0</td>
+      <td>
+       <code class="parameter">extension</code> is nullable now.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.phpversion-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-616">
+    <p><strong>Example #1 <span class="function"><strong>phpversion()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">// Prints e.g. 'Current PHP version: 8.3.12'<br /></span><span style="color: #007700">echo </span><span style="color: #DD0000">'Current PHP version: ' </span><span style="color: #007700">. </span><span style="color: #0000BB">phpversion</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">// Prints e.g. '1.22.3' or nothing if the extension isn't enabled<br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">phpversion</span><span style="color: #007700">(</span><span style="color: #DD0000">'zip'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-617">
+    <p><strong>Example #2 <strong><code><a href="reserved.constants.html#constant.php-version-id">PHP_VERSION_ID</a></code></strong> example and usage</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/**<br /> * PHP_VERSION_ID is defined as a number, where the higher the number<br /> * is, the newer a PHP version is used. It's defined as used in the above<br /> * expression:<br /> *<br /> * $version_id = $major_version * 10000 + $minor_version * 100 + $release_version;<br /> *<br /> * Now with PHP_VERSION_ID we can check for features this PHP version<br /> * may have, this doesn't require to use version_compare() everytime<br /> * you check if the current PHP version may not support a feature.<br /> *<br /> * For example, we may here define the PHP_*_VERSION constants thats<br /> * not available in versions prior to 5.2.7<br /> */<br /><br /></span><span style="color: #007700">if (</span><span style="color: #0000BB">PHP_VERSION_ID </span><span style="color: #007700">&lt; </span><span style="color: #0000BB">50207</span><span style="color: #007700">) {<br />    </span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_MAJOR_VERSION'</span><span style="color: #007700">,   </span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />    </span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_MINOR_VERSION'</span><span style="color: #007700">,   </span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />    </span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_RELEASE_VERSION'</span><span style="color: #007700">, </span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /><br />    </span><span style="color: #FF8000">// and so on, ...<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.phpversion-notes">
+  <h3 class="title">Notes</h3>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    This information is also available in the predefined constant
+    <strong><code><a href="reserved.constants.html#constant.php-version">PHP_VERSION</a></code></strong>. More versioning information
+    is available using the <strong><code><a href="info.constants.html#constant.php-windows-version-major">PHP_<span class="replaceable">*</span>_VERSION</a></code></strong>
+    constants.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    Some extensions may define their own version number.
+    However, most bundled extension will use the PHP version as their version number.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.phpversion-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><a href="reserved.constants.html#reserved.constants.core" class="link">PHP_VERSION constants</a></li>
+    <li><span class="function"><a href="function.version-compare.html" class="function" rel="rdfs-seeAlso">version_compare()</a> - Compares two &quot;PHP-standardized&quot; version number strings</span></li>
+    <li><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Outputs information about PHP's configuration</span></li>
+    <li><span class="function"><a href="function.phpcredits.html" class="function" rel="rdfs-seeAlso">phpcredits()</a> - Prints out the credits for PHP</span></li>
+    <li><span class="function"><a href="function.zend-version.html" class="function" rel="rdfs-seeAlso">zend_version()</a> - Gets the version of the current Zend engine</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

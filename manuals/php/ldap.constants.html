@@ -1,0 +1,1189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="ldap.resources.html">« Resource Types</a></li>
+      <li style="float: right;"><a href="ldap.using.html">Using the PHP LDAP calls »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.ldap.html">LDAP</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="ldap.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+ <dl>
+  
+   <dt id="constant.ldap-deref-never">
+    <strong><code><a href="ldap.constants.html#constant.ldap-deref-never">LDAP_DEREF_NEVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias dereferencing rule - Never.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-deref-searching">
+    <strong><code><a href="ldap.constants.html#constant.ldap-deref-searching">LDAP_DEREF_SEARCHING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias dereferencing rule - Searching.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-deref-finding">
+    <strong><code><a href="ldap.constants.html#constant.ldap-deref-finding">LDAP_DEREF_FINDING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias dereferencing rule - Finding.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-deref-always">
+    <strong><code><a href="ldap.constants.html#constant.ldap-deref-always">LDAP_DEREF_ALWAYS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias dereferencing rule - Always.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-deref">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-deref">LDAP_OPT_DEREF</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies alternative rules for following aliases at the server.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-sizelimit">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-sizelimit">LDAP_OPT_SIZELIMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Specifies the maximum number of entries that can be
+     returned on a search operation.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      The actual size limit for operations is also bounded
+      by the server&#039;s configured maximum number of return entries.
+      The lesser of these two settings is the actual size limit.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-timelimit">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-timelimit">LDAP_OPT_TIMELIMIT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the number of seconds to wait for search results.
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      The actual time limit for operations is also bounded
+      by the server&#039;s configured maximum time.
+      The lesser of these two settings is the actual time limit.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-network-timeout">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-network-timeout">LDAP_OPT_NETWORK_TIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Option for <span class="function"><a href="function.ldap-set-option.html" class="function">ldap_set_option()</a></span> to allow setting network timeout.
+     (Available as of PHP 5.3.0)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-protocol-version">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-protocol-version">LDAP_OPT_PROTOCOL_VERSION</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the LDAP protocol to be used (V2 or V3).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-error-number">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-error-number">LDAP_OPT_ERROR_NUMBER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Latest session error number.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-referrals">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-referrals">LDAP_OPT_REFERRALS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies whether to automatically follow referrals returned
+     by the LDAP server.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-restart">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-restart">LDAP_OPT_RESTART</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Determines whether or not the connection should be implicitly restarted.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-host-name">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-host-name">LDAP_OPT_HOST_NAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sets/gets a space-separated of hosts when trying to connect.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-error-string">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-error-string">LDAP_OPT_ERROR_STRING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="ldap.constants.html#constant.ldap-opt-diagnostic-message">LDAP_OPT_DIAGNOSTIC_MESSAGE</a></code></strong>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-diagnostic-message">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-diagnostic-message">LDAP_OPT_DIAGNOSTIC_MESSAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Gets the latest session error message.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-matched-dn">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-matched-dn">LDAP_OPT_MATCHED_DN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sets/gets the matched DN associated with the connection.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-server-controls">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-server-controls">LDAP_OPT_SERVER_CONTROLS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies a default list of server controls to be sent with each request.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-client-controls">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-client-controls">LDAP_OPT_CLIENT_CONTROLS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies a default list of client controls to be processed with each request.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-debug-level">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-debug-level">LDAP_OPT_DEBUG_LEVEL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies a bitwise level for debug traces.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-keepalive-idle">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-keepalive-idle">LDAP_OPT_X_KEEPALIVE_IDLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the number of seconds a connection needs to remain idle before TCP starts sending keepalive probes.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-keepalive-probes">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-keepalive-probes">LDAP_OPT_X_KEEPALIVE_PROBES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the maximum number of keepalive probes TCP should send before dropping the connection.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-keepalive-interval">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-keepalive-interval">LDAP_OPT_X_KEEPALIVE_INTERVAL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the interval in seconds between individual keepalive probes.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-cacertdir">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-cacertdir">LDAP_OPT_X_TLS_CACERTDIR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the path of the directory containing CA certificates.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-cacertfile">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-cacertfile">LDAP_OPT_X_TLS_CACERTFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the full-path of the CA certificate file.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-certfile">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-certfile">LDAP_OPT_X_TLS_CERTFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the full-path of the certificate file.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-cipher-suite">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-cipher-suite">LDAP_OPT_X_TLS_CIPHER_SUITE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the allowed cipher suite.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-crlcheck">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crlcheck">LDAP_OPT_X_TLS_CRLCHECK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the CRL evaluation strategy. This must be one of: <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-none">LDAP_OPT_X_TLS_CRL_NONE</a></code></strong>,<strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-peer">LDAP_OPT_X_TLS_CRL_PEER</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-all">LDAP_OPT_X_TLS_CRL_ALL</a></code></strong>.
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      This option is only valid for OpenSSL.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-crlfile">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crlfile">LDAP_OPT_X_TLS_CRLFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the full-path of the CRL file.
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      This option is only valid for GnuTLS.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-dhfile">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-dhfile">LDAP_OPT_X_TLS_DHFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the full-path  of the file containing the parameters for Diffie-Hellman ephemeral key exchange.
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      This option is ignored by GnuTLS and Mozilla NSS.
+     </span>
+    </p></blockquote>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-keyfile">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-keyfile">LDAP_OPT_X_TLS_KEYFILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the full-path of the certificate key file.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-min">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-min">LDAP_OPT_X_TLS_PROTOCOL_MIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the minimum protocol version. This can be one of: <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-ssl2">LDAP_OPT_X_TLS_PROTOCOL_SSL2</a></code></strong>,<strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-ssl3">LDAP_OPT_X_TLS_PROTOCOL_SSL3</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-0">LDAP_OPT_X_TLS_PROTOCOL_TLS1_0</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-1">LDAP_OPT_X_TLS_PROTOCOL_TLS1_1</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-2">LDAP_OPT_X_TLS_PROTOCOL_TLS1_2</a></code></strong>
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-random-file">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-random-file">LDAP_OPT_X_TLS_RANDOM_FILE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sets/gets the random file when one of the system default ones are not available.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-require-cert">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-require-cert">LDAP_OPT_X_TLS_REQUIRE_CERT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies the certificate checking strategy. This must be one of: <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-never">LDAP_OPT_X_TLS_NEVER</a></code></strong>,<strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-hard">LDAP_OPT_X_TLS_HARD</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-demand">LDAP_OPT_X_TLS_DEMAND</a></code></strong>,
+<strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-allow">LDAP_OPT_X_TLS_ALLOW</a></code></strong>, <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-try">LDAP_OPT_X_TLS_TRY</a></code></strong>.
+     (Available as of PHP 7.0.0)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.gslc-ssl-no-auth">
+    <strong><code><a href="ldap.constants.html#constant.gslc-ssl-no-auth">GSLC_SSL_NO_AUTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     SSL Authentication Mode - No authentication required. (Only for Oracle LDAP)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.gslc-ssl-oneway-auth">
+    <strong><code><a href="ldap.constants.html#constant.gslc-ssl-oneway-auth">GSLC_SSL_ONEWAY_AUTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     SSL Authentication Mode - Only server authentication required. (Only for Oracle LDAP)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.gslc-ssl-twoway-auth">
+    <strong><code><a href="ldap.constants.html#constant.gslc-ssl-twoway-auth">GSLC_SSL_TWOWAY_AUTH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     SSL Authentication Mode - Both server and client authentication required. (Only for Oracle LDAP)
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-exop-start-tls">
+    <strong><code><a href="ldap.constants.html#constant.ldap-exop-start-tls">LDAP_EXOP_START_TLS</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Extended Operation constant - Start TLS (<a href="https://datatracker.ietf.org/doc/html/rfc4511" class="link external">&raquo;&nbsp;RFC 4511</a>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-exop-modify-passwd">
+    <strong><code><a href="ldap.constants.html#constant.ldap-exop-modify-passwd">LDAP_EXOP_MODIFY_PASSWD</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Extended Operation constant - Modify password (<a href="https://datatracker.ietf.org/doc/html/rfc3062" class="link external">&raquo;&nbsp;RFC 3062</a>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-exop-refresh">
+    <strong><code><a href="ldap.constants.html#constant.ldap-exop-refresh">LDAP_EXOP_REFRESH</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Extended Operation Constant - Refresh (<a href="https://datatracker.ietf.org/doc/html/rfc2589" class="link external">&raquo;&nbsp;RFC 2589</a>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-exop-who-am-i">
+    <strong><code><a href="ldap.constants.html#constant.ldap-exop-who-am-i">LDAP_EXOP_WHO_AM_I</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Extended Operation Constant - WHOAMI (<a href="https://datatracker.ietf.org/doc/html/rfc4532" class="link external">&raquo;&nbsp;RFC 4532</a>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-exop-turn">
+    <strong><code><a href="ldap.constants.html#constant.ldap-exop-turn">LDAP_EXOP_TURN</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Extended Operation Constant - Turn (<a href="https://datatracker.ietf.org/doc/html/rfc4531" class="link external">&raquo;&nbsp;RFC 4531</a>).
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-control-managedsait">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-managedsait">LDAP_CONTROL_MANAGEDSAIT</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Manage DSA IT (<a href="https://datatracker.ietf.org/doc/html/rfc3296" class="link external">&raquo;&nbsp;RFC 3296</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-proxy-authz">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-proxy-authz">LDAP_CONTROL_PROXY_AUTHZ</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Proxied Authorization (<a href="https://datatracker.ietf.org/doc/html/rfc4730" class="link external">&raquo;&nbsp;RFC 4370</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-subentries">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-subentries">LDAP_CONTROL_SUBENTRIES</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Subentries (<a href="https://datatracker.ietf.org/doc/html/rfc3672" class="link external">&raquo;&nbsp;RFC 3672</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-valuesreturnfilter">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-valuesreturnfilter">LDAP_CONTROL_VALUESRETURNFILTER</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Filter returned values (<a href="https://datatracker.ietf.org/doc/html/rfc3876" class="link external">&raquo;&nbsp;RFC 3876</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-assert">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-assert">LDAP_CONTROL_ASSERT</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Assertion (<a href="https://datatracker.ietf.org/doc/html/rfc45282" class="link external">&raquo;&nbsp;RFC 4528</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-pre-read">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-pre-read">LDAP_CONTROL_PRE_READ</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Pre read (<a href="https://datatracker.ietf.org/doc/html/rfc4527" class="link external">&raquo;&nbsp;RFC 4527</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-post-read">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-post-read">LDAP_CONTROL_POST_READ</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Post read (<a href="https://datatracker.ietf.org/doc/html/rfc4527" class="link external">&raquo;&nbsp;RFC 4527</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-sortrequest">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-sortrequest">LDAP_CONTROL_SORTREQUEST</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Sort request (<a href="https://datatracker.ietf.org/doc/html/rfc2891" class="link external">&raquo;&nbsp;RFC 2891</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-sortresponse">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-sortresponse">LDAP_CONTROL_SORTRESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Sort response (<a href="https://datatracker.ietf.org/doc/html/rfc2891" class="link external">&raquo;&nbsp;RFC 2891</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-pagedresults">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-pagedresults">LDAP_CONTROL_PAGEDRESULTS</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Paged results (<a href="https://datatracker.ietf.org/doc/html/rfc2696" class="link external">&raquo;&nbsp;RFC 2696</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-authzid-request">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-authzid-request">LDAP_CONTROL_AUTHZID_REQUEST</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Authorization Identity Request (<a href="https://datatracker.ietf.org/doc/html/rfc3829" class="link external">&raquo;&nbsp;RFC 3829</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-authzid-response">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-authzid-response">LDAP_CONTROL_AUTHZID_RESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Authorization Identity Response (<a href="https://datatracker.ietf.org/doc/html/rfc3829" class="link external">&raquo;&nbsp;RFC 3829</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-sync">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-sync">LDAP_CONTROL_SYNC</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Content Synchronization Operation (<a href="https://datatracker.ietf.org/doc/html/rfc4533" class="link external">&raquo;&nbsp;RFC 4533</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-sync-state">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-sync-state">LDAP_CONTROL_SYNC_STATE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Content Synchronization Operation State (<a href="https://datatracker.ietf.org/doc/html/rfc4533" class="link external">&raquo;&nbsp;RFC 4533</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-sync-done">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-sync-done">LDAP_CONTROL_SYNC_DONE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Content Synchronization Operation Done (<a href="https://datatracker.ietf.org/doc/html/rfc4533" class="link external">&raquo;&nbsp;RFC 4533</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-dontusecopy">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-dontusecopy">LDAP_CONTROL_DONTUSECOPY</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Don&#039;t Use Copy (<a href="https://datatracker.ietf.org/doc/html/rfc6171" class="link external">&raquo;&nbsp;RFC 6171</a>).
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-passwordpolicyrequest">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-passwordpolicyrequest">LDAP_CONTROL_PASSWORDPOLICYREQUEST</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Password Policy Request.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-passwordpolicyresponse">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-passwordpolicyresponse">LDAP_CONTROL_PASSWORDPOLICYRESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Password Policy Response.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-incremental-values">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-incremental-values">LDAP_CONTROL_X_INCREMENTAL_VALUES</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Incremental Values.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-domain-scope">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-domain-scope">LDAP_CONTROL_X_DOMAIN_SCOPE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Domain Scope.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-permissive-modify">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-permissive-modify">LDAP_CONTROL_X_PERMISSIVE_MODIFY</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Permissive Modify.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-search-options">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-search-options">LDAP_CONTROL_X_SEARCH_OPTIONS</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Search Options.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-tree-delete">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-tree-delete">LDAP_CONTROL_X_TREE_DELETE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Tree Delete.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-x-extended-dn">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-x-extended-dn">LDAP_CONTROL_X_EXTENDED_DN</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Active Directory Extended DN.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-vlvrequest">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-vlvrequest">LDAP_CONTROL_VLVREQUEST</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Virtual List View Request.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-control-vlvresponse">
+    <strong><code><a href="ldap.constants.html#constant.ldap-control-vlvresponse">LDAP_CONTROL_VLVRESPONSE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Control Constant - Virtual List View Response.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-escape-dn">
+    <strong><code><a href="ldap.constants.html#constant.ldap-escape-dn">LDAP_ESCAPE_DN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Escape a string for use in an LDAP DN.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-escape-filter">
+    <strong><code><a href="ldap.constants.html#constant.ldap-escape-filter">LDAP_ESCAPE_FILTER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Escape a string for use in an LDAP filter.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-modify-batch-attrib">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-attrib">LDAP_MODIFY_BATCH_ATTRIB</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The key of the modifications array containing the attributes:
+     <code class="literal">attrib</code>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-modify-batch-modtype">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-modtype">LDAP_MODIFY_BATCH_MODTYPE</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The key of the modifications array containing the type of modification:
+     <code class="literal">modtype</code>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-modify-batch-values">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-values">LDAP_MODIFY_BATCH_VALUES</a></code></strong>
+    (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The key of the modifications array containing the values:
+     <code class="literal">values</code>.
+    </span>
+   </dd>
+  
+
+   
+   <dt id="constant.ldap-modify-batch-add">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-add">LDAP_MODIFY_BATCH_ADD</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Add values to an attribute of an LDAP entry.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-modify-batch-remove">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-remove">LDAP_MODIFY_BATCH_REMOVE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Remove values from an attribute of an LDAP entry.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-modify-batch-remove-all">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-remove-all">LDAP_MODIFY_BATCH_REMOVE_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Remove all values from an attribute of an LDAP entry.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-modify-batch-replace">
+    <strong><code><a href="ldap.constants.html#constant.ldap-modify-batch-replace">LDAP_MODIFY_BATCH_REPLACE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Replace all current values of an LDAP entry attribute with the specified values.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-timeout">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-timeout">LDAP_OPT_TIMEOUT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Specifies a timeout (in seconds) after which calls to synchronous LDAP APIs
+     will abort if no response is received.
+     Also controls the timeout when communicating with the KDC in case of SASL bind.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-x-sasl-authcid">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-authcid">LDAP_OPT_X_SASL_AUTHCID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the SASL authentication identity.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-sasl-authzid">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-authzid">LDAP_OPT_X_SASL_AUTHZID</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the SASL authorization identity.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-sasl-mech">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-mech">LDAP_OPT_X_SASL_MECH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the SASL mechanism.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-sasl-nocanon">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-nocanon">LDAP_OPT_X_SASL_NOCANON</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Set/get the <code class="literal">NOCANON</code> flag.
+     When unset, the hostname is canonicalized.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-sasl-realm">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-realm">LDAP_OPT_X_SASL_REALM</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the SASL realm.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-sasl-username">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-sasl-username">LDAP_OPT_X_SASL_USERNAME</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the SASL username.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-x-tls-allow">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-allow">LDAP_OPT_X_TLS_ALLOW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The peer certificate is requested.
+     If no certificate is provided, the session proceeds normally.
+     If a bad certificate is provided,
+     it will be ignored and the session proceeds normally.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-demand">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-demand">LDAP_OPT_X_TLS_DEMAND</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The peer certificate is requested.
+     If no certificate is provided, or a bad certificate is provided,
+     the session is immediately terminated.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-hard">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-hard">LDAP_OPT_X_TLS_HARD</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-demand">LDAP_OPT_X_TLS_DEMAND</a></code></strong>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-never">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-never">LDAP_OPT_X_TLS_NEVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The peer certificate is not requested or checked.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-try">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-try">LDAP_OPT_X_TLS_TRY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The peer certificate is requested.
+     If no certificate is provided, the session proceeds normally.
+     If a bad certificate is provided, the session is immediately terminated.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-x-tls-crl-all">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-all">LDAP_OPT_X_TLS_CRL_ALL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Check the CRL for a whole certificate chain.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-crl-none">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-none">LDAP_OPT_X_TLS_CRL_NONE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No CRL checks are performed.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-crl-peer">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-crl-peer">LDAP_OPT_X_TLS_CRL_PEER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Check the CRL of the peer certificate.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-x-tls-package">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-package">LDAP_OPT_X_TLS_PACKAGE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Return the name of the underlying TLS implementation.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-ssl2">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-ssl2">LDAP_OPT_X_TLS_PROTOCOL_SSL2</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The SSL 2.0 protocol.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-ssl3">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-ssl3">LDAP_OPT_X_TLS_PROTOCOL_SSL3</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The SSL 3 protocol.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-tls1-0">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-0">LDAP_OPT_X_TLS_PROTOCOL_TLS1_0</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The TLS 1.0 protocol.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-tls1-1">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-1">LDAP_OPT_X_TLS_PROTOCOL_TLS1_1</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The TLS 1.1 protocol.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.ldap-opt-x-tls-protocol-tls1-2">
+    <strong><code><a href="ldap.constants.html#constant.ldap-opt-x-tls-protocol-tls1-2">LDAP_OPT_X_TLS_PROTOCOL_TLS1_2</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     The TLS 1.2 protocol.
+    </span>
+   </dd>
+  
+
+ </dl>
+</div>
+</div></div></body></html>

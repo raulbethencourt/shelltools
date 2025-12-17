@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Determine terminal device name</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.posix-times.html">« posix_times</a></li>
+      <li style="float: right;"><a href="function.posix-uname.html">posix_uname »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.posix.html">POSIX Functions</a></li>
+    <li>Determine terminal device name</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.posix-ttyname" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">posix_ttyname</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">posix_ttyname</span> &mdash; <span class="dc-title">Determine terminal device name</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.posix-ttyname-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>posix_ttyname</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>|<span class="type"><a href="language.types.integer.html" class="type int">int</a></span></span> <code class="parameter">$file_descriptor</code></span>): <span class="type"><span class="type"><a href="language.types.string.html" class="type string">string</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+
+  <p class="para rdfs-comment">
+   Returns a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> for the absolute path to the current
+   terminal device that is open on the file descriptor
+   <code class="parameter">file_descriptor</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.posix-ttyname-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+ <dt><code class="parameter">file_descriptor</code></dt>
+ <dd>
+  <p class="para">
+   The file descriptor, which is expected to be either a file
+   <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> or an <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>. An <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+   will be assumed to be a file descriptor that can be passed directly to
+   the underlying system call.
+  </p>
+ </dd>
+
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.posix-ttyname-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   On success, returns a <span class="type"><a href="language.types.string.html" class="type string">string</a></span> of the absolute path of the
+   <code class="parameter">file_descriptor</code>. On failure, returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.posix-ttyname-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   On invalid <code class="parameter">file_descriptor</code> integer values
+   an <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is raised.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.posix-ttyname-changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>8.3.0</td>
+      <td>
+       Type error <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong>s are now raised for integer
+       coercions following the usual PHP type coercion semantics.
+      </td>
+     </tr>
+
+     <tr>
+      <td>8.3.0</td>
+      <td>
+       On invalid <code class="parameter">file_descriptor</code> integer values
+       an <strong><code><a href="errorfunc.constants.html#constant.e-warning">E_WARNING</a></code></strong> is now raised.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.posix-ttyname-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.posix-isatty.html" class="function" rel="rdfs-seeAlso">posix_isatty()</a> - Determine if a file descriptor is an interactive terminal</span></li>
+    <li><span class="function"><a href="function.stream-isatty.html" class="function" rel="rdfs-seeAlso">stream_isatty()</a> - Check if a stream is a TTY</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

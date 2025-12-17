@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="datetime.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="datetime.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.datetime.html">Date/Time</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="datetime.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="para">
+  The <strong><code><a href="datetime.constants.html#constant.date-atom">DATE_<span class="replaceable">*</span></a></code></strong>
+  constants are defined and offer standard
+  date representations, which can be used along with the date format functions
+  (like <span class="function"><a href="function.date.html" class="function">date()</a></span>).
+ </p>
+
+ <dl>
+  <strong class="title">
+   Available <code class="parameter">returnFormat</code> for
+   <span class="function"><a href="function.date-sunrise.html" class="function">date_sunrise()</a></span> and
+   <span class="function"><a href="function.date-sunset.html" class="function">date_sunset()</a></span>
+  </strong>
+
+  <div class="warning"><strong class="warning">Warning</strong>
+   <p class="simpara">
+    These constants are deprecated as of PHP 8.4.0.
+    The corresponding <span class="function"><a href="function.date-sunrise.html" class="function">date_sunrise()</a></span> and
+    <span class="function"><a href="function.date-sunset.html" class="function">date_sunset()</a></span> functions are deprecated as of PHP 8.1.0.
+   </p>
+  </div>
+
+  
+   <dt id="constant.sunfuncs-ret-timestamp">
+    <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-timestamp">SUNFUNCS_RET_TIMESTAMP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Timestamp
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sunfuncs-ret-string">
+    <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-string">SUNFUNCS_RET_STRING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Hours:minutes (example: <code class="literal">08:02</code>)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.sunfuncs-ret-double">
+    <strong><code><a href="datetime.constants.html#constant.sunfuncs-ret-double">SUNFUNCS_RET_DOUBLE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Hours as floating point number (example <code class="literal">8.75</code>)
+    </span>
+   </dd>
+  
+ </dl>
+
+ <table class="doctable table">
+      <tr>
+       <th>Constants</th>
+       <th>Description</th>
+      </tr>
+  <strong class="title"><strong><code><a href="datetime.constants.html#constant.date-atom">DATE_<span class="replaceable">*</span></a></code></strong> constants</strong>
+  <tr>
+   <td id="constant.date-atom"><strong><code><a href="datetime.constants.html#constant.date-atom">DATE_ATOM</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     Atom (example: <code class="literal">2005-08-15T15:52:01+00:00</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-cookie"><strong><code><a href="datetime.constants.html#constant.date-cookie">DATE_COOKIE</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     HTTP Cookies (example: <code class="literal">Monday, 15-Aug-2005 15:52:01 UTC</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-iso8601"><strong><code><a href="datetime.constants.html#constant.date-iso8601">DATE_ISO8601</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     ISO-8601 (example: <code class="literal">2005-08-15T15:52:01+0000</code>)
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      This format is not compatible with ISO-8601, but is left this way for
+      backward compatibility reasons. Use
+      <strong><code><a href="datetime.constants.html#constant.date-iso8601-expanded">DATE_ISO8601_EXPANDED</a></code></strong>,
+      <strong><code><a href="datetime.constants.html#constant.date-atom">DATE_ATOM</a></code></strong> for compatibility with ISO-8601
+      instead (ref ISO8601:2004 section 4.3.3 clause d).
+     </span>
+    </p></blockquote>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-iso8601-expanded"><strong><code><a href="datetime.constants.html#constant.date-iso8601-expanded">DATE_ISO8601_EXPANDED</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     ISO-8601 Expanded (example: <code class="literal">+10191-07-26T08:59:52+01:00</code>)
+    </span>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      This format allows for year ranges outside of ISO-8601&#039;s normal range
+      of <code class="literal">0000</code>-<code class="literal">9999</code> by always
+      including a sign character. It also addresses that that timezone part
+      (<code class="literal">+01:00</code>) is compatible with ISO-8601.
+     </span>
+    </p></blockquote>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc822"><strong><code><a href="datetime.constants.html#constant.date-rfc822">DATE_RFC822</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 822 (example: <code class="literal">Mon, 15 Aug 05 15:52:01 +0000</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc850"><strong><code><a href="datetime.constants.html#constant.date-rfc850">DATE_RFC850</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 850 (example: <code class="literal">Monday, 15-Aug-05 15:52:01 UTC</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc1036"><strong><code><a href="datetime.constants.html#constant.date-rfc1036">DATE_RFC1036</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 1036 (example: <code class="literal">Mon, 15 Aug 05 15:52:01 +0000</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc1123"><strong><code><a href="datetime.constants.html#constant.date-rfc1123">DATE_RFC1123</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 1123 (example: <code class="literal">Mon, 15 Aug 2005 15:52:01 +0000</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+    <td id="constant.date-rfc7231"><strong><code><a href="datetime.constants.html#constant.date-rfc7231">DATE_RFC7231</a></code></strong></td>
+    <td>
+     <span class="simpara">
+      RFC 7231 (as of PHP 7.0.19 and 7.1.5)
+      (example: <code class="literal">Sat, 30 Apr 2016 17:52:13 GMT</code>)
+     </span>
+    </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc2822"><strong><code><a href="datetime.constants.html#constant.date-rfc2822">DATE_RFC2822</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 2822 (example: <code class="literal">Mon, 15 Aug 2005 15:52:01 +0000</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc3339"><strong><code><a href="datetime.constants.html#constant.date-rfc3339">DATE_RFC3339</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     Same as <strong><code><a href="datetime.constants.html#constant.date-atom">DATE_ATOM</a></code></strong>.
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rfc3339-extended"><strong><code><a href="datetime.constants.html#constant.date-rfc3339-extended">DATE_RFC3339_EXTENDED</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RFC 3339 EXTENDED format
+     (example: <code class="literal">2005-08-15T15:52:01.000+00:00</code>)
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-rss"><strong><code><a href="datetime.constants.html#constant.date-rss">DATE_RSS</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     RSS (example: <code class="literal">Mon, 15 Aug 2005 15:52:01 +0000</code>).
+     Alias of <strong><code><a href="datetime.constants.html#constant.date-rfc1123">DATE_RFC1123</a></code></strong>.
+    </span>
+   </td>
+  </tr>
+
+  <tr>
+   <td id="constant.date-w3c"><strong><code><a href="datetime.constants.html#constant.date-w3c">DATE_W3C</a></code></strong></td>
+   <td>
+    <span class="simpara">
+     World Wide Web Consortium (example: <code class="literal">2005-08-15T15:52:01+00:00</code>).
+     Alias of <strong><code><a href="datetime.constants.html#constant.date-rfc3339">DATE_RFC3339</a></code></strong>.
+    </span>
+   </td>
+  </tr>
+
+ </table>
+</div>
+</div></div></body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The MongoDB\BSON\Persistable interface</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="class.mongodb-bson-type.html">« MongoDB\BSON\Type</a></li>
+      <li style="float: right;"><a href="mongodb-bson-persistable.bsonserialize.html">MongoDB\BSON\Persistable::bsonSerialize »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="mongodb.bson.html">MongoDB\BSON</a></li>
+    <li>The MongoDB\BSON\Persistable interface</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.mongodb-bson-persistable" class="reference">
+
+ <h1 class="title">The MongoDB\BSON\Persistable interface</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(mongodb &gt;=1.0.0)</p>
+
+
+  <div class="section" id="mongodb-bson-persistable.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    Classes may implement this interface to take advantage of automatic ODM
+    (object document mapping) behavior in the extension. During serialization,
+    the extension will inject a <span class="property">__pclass</span> property
+    containing the PHP class name into the data returned by
+    <span class="function"><a href="mongodb-bson-serializable.bsonserialize.html" class="function">MongoDB\BSON\Serializable::bsonSerialize()</a></span>. During
+    unserialization, the same <span class="property">__pclass</span> property will then
+    be used to infer the PHP class (independent of any
+    <a href="mongodb.persistence.html#mongodb.persistence.typemaps" class="link">type map</a> configuration)
+    to be constructed before
+    <span class="function"><a href="mongodb-bson-unserializable.bsonunserialize.html" class="function">MongoDB\BSON\Unserializable::bsonUnserialize()</a></span> is
+    invoked. See <a href="mongodb.persistence.html" class="xref">Persisting Data</a> for additional
+    information.
+   </p>
+   <blockquote class="note"><p><strong class="note">Note</strong>: 
+    <span class="simpara">
+     Even if <span class="function"><a href="mongodb-bson-serializable.bsonserialize.html" class="function">MongoDB\BSON\Serializable::bsonSerialize()</a></span> would
+     return a sequential array, injection of the <span class="property">__pclass</span>
+     property will cause the object to be serialized as a BSON document.
+    </span>
+   </p></blockquote>
+  </div>
+
+
+  <div class="section" id="mongodb-bson-persistable.synopsis">
+   <h2 class="title">Interface synopsis</h2>
+
+
+   <div class="classsynopsis">
+    <span class="ooclass"><strong class="classname"></strong></span>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <span class="modifier">class</span> <strong class="classname">MongoDB\BSON\Persistable</strong>
+     </span>
+
+     <span class="oointerface"><span class="modifier">implements</span> 
+       <a href="class.mongodb-bson-unserializable.html" class="interfacename">MongoDB\BSON\Unserializable</a></span><span class="oointerface">,  <a href="class.mongodb-bson-serializable.html" class="interfacename">MongoDB\BSON\Serializable</a></span> {</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-persistable.bsonserialize.html" class="methodname">bsonSerialize</a></span>(): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="class.stdclass.html" class="type stdClass">stdClass</a></span>|<span class="type"><a href="class.mongodb-bson-document.html" class="type MongoDB\BSON\Document">MongoDB\BSON\Document</a></span></span></div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Inherited methods */</div>
+    <div class="methodsynopsis dc-description"><span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-serializable.bsonserialize.html" class="methodname">MongoDB\BSON\Serializable::bsonSerialize</a></span>(): <span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="class.stdclass.html" class="type stdClass">stdClass</a></span>|<span class="type"><a href="class.mongodb-bson-document.html" class="type MongoDB\BSON\Document">MongoDB\BSON\Document</a></span>|<span class="type"><a href="class.mongodb-bson-packedarray.html" class="type MongoDB\BSON\PackedArray">MongoDB\BSON\PackedArray</a></span></span></div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">abstract</span> <span class="modifier">public</span> <span class="methodname"><a href="mongodb-bson-unserializable.bsonunserialize.html" class="methodname">MongoDB\BSON\Unserializable::bsonUnserialize</a></span>(<span class="methodparam"><span class="type"><a href="language.types.array.html" class="type array">array</a></span> <code class="parameter">$data</code></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb-bson-persistable.bsonserialize.html">MongoDB\BSON\Persistable::bsonSerialize</a> — Provides an array or document to serialize as BSON</li></ul>
+</div>
+</div></div></body></html>

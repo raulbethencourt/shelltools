@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>php-config</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="install.pecl.phpize.html">« Compiling shared PECL extensions with phpize</a></li>
+      <li style="float: right;"><a href="install.pecl.static.html">Compiling PECL extensions statically into PHP »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="install.pecl.html">Installation of PECL extensions</a></li>
+    <li>php-config</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="install.pecl.php-config" class="sect1">
+  <h2 class="title">
+   <strong class="command">php-config</strong>
+  </h2>
+  
+  <p class="para">
+   <strong class="command">php-config</strong>
+   is a simple shell script for obtaining information about the installed PHP
+   configuration.
+  </p>
+  
+  <p class="para">
+   When the extensions are being compiled, if multiple PHP versions are
+   installed, the installation for which to build can be specified by using the
+   <strong class="option configure">--with-php-config</strong>
+   option during configuration, setting the path of the respective
+   <strong class="command">php-config</strong>
+   script.
+  </p>
+  
+  <p class="para">
+   The list of command line options provided by the
+   <strong class="command">php-config</strong>
+   script can be queried anytime by running
+   <strong class="command">php-config</strong>
+   with the <strong class="option unknown">-h</strong> switch:
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Usage: /usr/local/bin/php-config [OPTION]
+Options:
+  --prefix            [...]
+  --includes          [...]
+  --ldflags           [...]
+  --libs              [...]
+  --extension-dir     [...]
+  --include-dir       [...]
+  --php-binary        [...]
+  --php-sapis         [...]
+  --configure-options [...]
+  --version           [...]
+  --vernum            [...]
+</pre></div>
+   </div>
+  </p>
+  
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>Command line options</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Option</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>--prefix</td>
+       <td>Directory prefix where PHP is installed, e.g. /usr/local</td>
+      </tr>
+
+      <tr>
+       <td>--includes</td>
+       <td>
+        List of <code class="literal">-I</code> options with all include files
+       </td>
+      </tr>
+
+      <tr>
+       <td>--ldflags</td>
+       <td>
+        <code class="literal">LD</code>
+        flags which PHP was compiled with
+       </td>
+      </tr>
+
+      <tr>
+       <td>--libs</td>
+       <td>Extra libraries which PHP was compiled with</td>
+      </tr>
+
+      <tr>
+       <td>--extension-dir</td>
+       <td>Directory where extensions are searched by default</td>
+      </tr>
+
+      <tr>
+       <td>--include-dir</td>
+       <td>
+        Directory prefix where header files are installed by default
+       </td>
+      </tr>
+
+      <tr>
+       <td>--php-binary</td>
+       <td>Full path to php CLI or CGI binary</td>
+      </tr>
+
+      <tr>
+       <td>--php-sapis</td>
+       <td>Show all SAPI modules available</td>
+      </tr>
+
+      <tr>
+       <td>--configure-options</td>
+       <td>
+        Configure options to recreate configuration of current PHP installation
+       </td>
+      </tr>
+
+      <tr>
+       <td>--version</td>
+       <td>PHP version</td>
+      </tr>
+
+      <tr>
+       <td>--vernum</td>
+       <td>PHP version as integer</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div></div></div></body></html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Changelog</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.mysqli-set-opt.html">« mysqli::set_opt</a></li>
+      <li style="float: right;"><a href="book.mysql-xdevapi.html">Mysql_xdevapi »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mysqli.html">MySQLi</a></li>
+    <li>Changelog</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="changelog.mysqli" class="appendix">
+ <h1 class="title">Changelog</h1>
+
+ <p class="para">The following changes have been made to classes/functions/methods of this extension.</p>
+ <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>8.4.0</td><td><a href='mysqli.kill.html'>mysqli::kill</a></td><td>Both mysqli::kill and
+       mysqli_kill are now deprecated. Use the
+       KILL SQL command instead.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.ping.html'>mysqli::ping</a></td><td>Both mysqli::ping and
+       mysqli_ping are now deprecated.
+       The reconnect feature has not been available
+       as of PHP 8.2.0, making this function obsolete.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.refresh.html'>mysqli::refresh</a></td><td>Both mysqli::refresh and
+       mysqli_refresh are now deprecated.
+       Use FLUSH SQL commands instead.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.store-result.html'>mysqli::store_result</a></td><td>Passing the mode parameter is now deprecated.
+       The parameter has had no effect as of PHP 8.1.0.</td></tr></tbody><tbody class="gen-changelog v8-4-0"><tr><td>8.3.0</td><td><a href='mysqli-result.fetch-object.html'>mysqli_result::fetch_object</a></td><td>Now throws a ValueError exception when
+       the constructor_args is non-empty with the class not having constructor;
+       previously an Exception was thrown.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.poll.html'>mysqli::poll</a></td><td>Now throws a ValueError exception when neither
+        the read nor error arguments are passed.</td></tr></tbody><tbody class="gen-changelog v8-3-0"><tr><td>8.1.0</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>The default value is now MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT.
+       Previously, it was MYSQLI_REPORT_OFF.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-result.fetch-all.html'>mysqli_result::fetch_all</a></td><td>Now also available when linking against libmysqlclient.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.execute.html'>mysqli_stmt::execute</a></td><td>The optional params parameter has been added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.next-result.html'>mysqli_stmt::next_result</a></td><td>Now also available when linking against libmysqlclient.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.construct.html'>mysqli::__construct</a></td><td>mysqli::connect now returns true instead of null on success.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.get-client-info.html'>mysqli::$client_info</a></td><td>Calling mysqli_get_client_info with the
+       mysql argument has been deprecated.
+       This function never required a parameter, but incorrectly allowed it as
+       an optional parameter.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.get-client-info.html'>mysqli::$client_info</a></td><td>The object-oriented style mysqli::get_client_info
+       has been deprecated.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.init.html'>mysqli::init</a></td><td>The object-oriented style mysqli::init method
+       has been deprecated.
+       Replace calls to parent::init with
+       parent::__construct.</td></tr></tbody><tbody class="gen-changelog v8-1-0"><tr><td>8.0.0</td><td><a href='mysqli-result.fetch-object.html'>mysqli_result::fetch_object</a></td><td>constructor_args now accepts [] for constructors with 0 parameters;
+       previously an exception was thrown.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-result.field-seek.html'>mysqli_result::field_seek</a></td><td>This function now always returns true. Previously it returned false on failure.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.close.html'>mysqli_stmt::close</a></td><td>This function now always returns true. Previously it returned false on failure.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-stmt.construct.html'>mysqli_stmt::__construct</a></td><td>query is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.begin-transaction.html'>mysqli::begin_transaction</a></td><td>name is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.close.html'>mysqli::close</a></td><td>This function now always returns true. Previously it returned false on failure.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.commit.html'>mysqli::commit</a></td><td>name is now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.debug.html'>mysqli::debug</a></td><td>This function now always returns true. Previously it returned false on failure.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.rollback.html'>mysqli::rollback</a></td><td>name is now nullable.</td></tr></tbody><tbody class="gen-changelog v8-0-0"><tr><td>7.4.0</td><td><a href='mysqli.construct.html'>mysqli::__construct</a></td><td>All parameters are now nullable.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.real-connect.html'>mysqli::real_connect</a></td><td>All parameters are now nullable.</td></tr></tbody></table>
+</div>
+</div></div></body></html>

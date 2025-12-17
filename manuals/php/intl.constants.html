@@ -1,0 +1,1926 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="intl.configuration.html">« Runtime Configuration</a></li>
+      <li style="float: right;"><a href="intl.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.intl.html">intl</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="intl.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="para">
+  <dl>
+   
+    <dt id="constant.intl-icu-data-version">
+     <strong><code><a href="intl.constants.html#constant.intl-icu-data-version">INTL_ICU_DATA_VERSION</a></code></strong>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Data version in ICU4C.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.intl-icu-version">
+     <strong><code><a href="intl.constants.html#constant.intl-icu-version">INTL_ICU_VERSION</a></code></strong>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The current ICU library version as a dotted-decimal string.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.intl-max-locale-len">
+     <strong><code><a href="intl.constants.html#constant.intl-max-locale-len">INTL_MAX_LOCALE_LEN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Limit on locale length, set to 80 in PHP code. Locale names longer
+      than this limit will not be accepted.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-default">
+     <strong><code><a href="intl.constants.html#constant.idna-default">IDNA_DEFAULT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Prohibit processing of unassigned codepoints in the input for IDN
+      functions and do not check if the input conforms to domain name ASCII rules.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-allow-unassigned">
+     <strong><code><a href="intl.constants.html#constant.idna-allow-unassigned">IDNA_ALLOW_UNASSIGNED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Allow processing of unassigned codepoints in the input for IDN functions.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-use-std3-rules">
+     <strong><code><a href="intl.constants.html#constant.idna-use-std3-rules">IDNA_USE_STD3_RULES</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Check if the input for IDN functions conforms to domain name ASCII rules.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-check-bidi">
+     <strong><code><a href="intl.constants.html#constant.idna-check-bidi">IDNA_CHECK_BIDI</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Check whether the input conforms to the BiDi rules.
+      Ignored by the IDNA2003 implementation, which always performs this check.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-check-contextj">
+     <strong><code><a href="intl.constants.html#constant.idna-check-contextj">IDNA_CHECK_CONTEXTJ</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Check whether the input conforms to the CONTEXTJ rules.
+      Ignored by the IDNA2003 implementation, as this check is new in IDNA2008.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-nontransitional-to-ascii">
+     <strong><code><a href="intl.constants.html#constant.idna-nontransitional-to-ascii">IDNA_NONTRANSITIONAL_TO_ASCII</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Option for nontransitional processing in
+      <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span>. Transitional processing is activated
+      by default. This option is ignored by the IDNA2003 implementation.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-nontransitional-to-unicode">
+     <strong><code><a href="intl.constants.html#constant.idna-nontransitional-to-unicode">IDNA_NONTRANSITIONAL_TO_UNICODE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Option for nontransitional processing in
+      <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span>. Transitional processing is activated
+      by default. This option is ignored by the IDNA2003 implementation.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.intl-idna-variant-2003">
+     <strong><code><a href="intl.constants.html#constant.intl-idna-variant-2003">INTL_IDNA_VARIANT_2003</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Use IDNA 2003 algorithm in <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span> and
+      <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span>. This is the default.
+      This constant and using the default has been deprecated as of PHP 7.2.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.intl-idna-variant-uts46">
+     <strong><code><a href="intl.constants.html#constant.intl-idna-variant-uts46">INTL_IDNA_VARIANT_UTS46</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Use UTS #46 algorithm in <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span> and
+      <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span>.
+      Available as of ICU 4.6.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.grapheme-extr-count">
+     <strong><code><a href="intl.constants.html#constant.grapheme-extr-count">GRAPHEME_EXTR_COUNT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The number of default grapheme clusters to extract.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.grapheme-extr-maxbytes">
+     <strong><code><a href="intl.constants.html#constant.grapheme-extr-maxbytes">GRAPHEME_EXTR_MAXBYTES</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of bytes returned.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.grapheme-extr-maxchars">
+     <strong><code><a href="intl.constants.html#constant.grapheme-extr-maxchars">GRAPHEME_EXTR_MAXCHARS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The maximum number of UTF-8 characters returned.
+     </span>
+    </dd>
+   
+  </dl>
+  <dl id="constant.idna-errors">
+   <p class="para">
+    The following errors are part of a bitmask returned by the UTS #46 algorithm in
+    <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span> and <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span>.
+   </p>
+   
+    <dt id="constant.idna-error-empty-label">
+     <strong><code><a href="intl.constants.html#constant.idna-error-empty-label">IDNA_ERROR_EMPTY_LABEL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-label-too-long">
+     <strong><code><a href="intl.constants.html#constant.idna-error-label-too-long">IDNA_ERROR_LABEL_TOO_LONG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-domain-name-too-long">
+     <strong><code><a href="intl.constants.html#constant.idna-error-domain-name-too-long">IDNA_ERROR_DOMAIN_NAME_TOO_LONG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-leading-hyphen">
+     <strong><code><a href="intl.constants.html#constant.idna-error-leading-hyphen">IDNA_ERROR_LEADING_HYPHEN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-trailing-hyphen">
+     <strong><code><a href="intl.constants.html#constant.idna-error-trailing-hyphen">IDNA_ERROR_TRAILING_HYPHEN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-hyphen-3-4">
+     <strong><code><a href="intl.constants.html#constant.idna-error-hyphen-3-4">IDNA_ERROR_HYPHEN_3_4</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-leading-combining-mark">
+     <strong><code><a href="intl.constants.html#constant.idna-error-leading-combining-mark">IDNA_ERROR_LEADING_COMBINING_MARK</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-disallowed">
+     <strong><code><a href="intl.constants.html#constant.idna-error-disallowed">IDNA_ERROR_DISALLOWED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-punycode">
+     <strong><code><a href="intl.constants.html#constant.idna-error-punycode">IDNA_ERROR_PUNYCODE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-label-has-dot">
+     <strong><code><a href="intl.constants.html#constant.idna-error-label-has-dot">IDNA_ERROR_LABEL_HAS_DOT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-invalid-ace-label">
+     <strong><code><a href="intl.constants.html#constant.idna-error-invalid-ace-label">IDNA_ERROR_INVALID_ACE_LABEL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-bidi">
+     <strong><code><a href="intl.constants.html#constant.idna-error-bidi">IDNA_ERROR_BIDI</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.idna-error-contextj">
+     <strong><code><a href="intl.constants.html#constant.idna-error-contextj">IDNA_ERROR_CONTEXTJ</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.uloc-actual-locale">
+     <strong><code><a href="intl.constants.html#constant.uloc-actual-locale">ULOC_ACTUAL_LOCALE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The locale the data actually comes from.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.uloc-valid-locale">
+     <strong><code><a href="intl.constants.html#constant.uloc-valid-locale">ULOC_VALID_LOCALE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The most specific locale supported by ICU.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-ambiguous-alias-warning">
+     <strong><code><a href="intl.constants.html#constant.u-ambiguous-alias-warning">U_AMBIGUOUS_ALIAS_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      This converter alias can go to different converter implementations.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-bad-variable-definition">
+     <strong><code><a href="intl.constants.html#constant.u-bad-variable-definition">U_BAD_VARIABLE_DEFINITION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Missing <code class="literal">&#039;$&#039;</code> or duplicate variable name.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-assign-error">
+     <strong><code><a href="intl.constants.html#constant.u-brk-assign-error">U_BRK_ASSIGN_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Syntax error in RBBI rule assignment statement.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-brk-error-limit">U_BRK_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      This must always be the last value to indicate the limit for Break Iterator failures.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-error-start">
+     <strong><code><a href="intl.constants.html#constant.u-brk-error-start">U_BRK_ERROR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Start of codes indicating Break Iterator failures.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-hex-digits-expected">
+     <strong><code><a href="intl.constants.html#constant.u-brk-hex-digits-expected">U_BRK_HEX_DIGITS_EXPECTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Hex digits expected as part of a escaped char in a rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-init-error">
+     <strong><code><a href="intl.constants.html#constant.u-brk-init-error">U_BRK_INIT_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Initialization failure. Probable missing ICU Data.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-internal-error">
+     <strong><code><a href="intl.constants.html#constant.u-brk-internal-error">U_BRK_INTERNAL_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      An internal error (bug) was detected.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-malformed-rule-tag">
+     <strong><code><a href="intl.constants.html#constant.u-brk-malformed-rule-tag">U_BRK_MALFORMED_RULE_TAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The <code class="literal">{nnn}</code> tag on a rule is mal formed.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-mismatched-paren">
+     <strong><code><a href="intl.constants.html#constant.u-brk-mismatched-paren">U_BRK_MISMATCHED_PAREN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Mis-matched parentheses in an RBBI rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-new-line-in-quoted-string">
+     <strong><code><a href="intl.constants.html#constant.u-brk-new-line-in-quoted-string">U_BRK_NEW_LINE_IN_QUOTED_STRING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Missing closing quote in an RBBI rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-rule-empty-set">
+     <strong><code><a href="intl.constants.html#constant.u-brk-rule-empty-set">U_BRK_RULE_EMPTY_SET</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Rule contains an empty Unicode Set.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-rule-syntax">
+     <strong><code><a href="intl.constants.html#constant.u-brk-rule-syntax">U_BRK_RULE_SYNTAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Syntax error in RBBI rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-semicolon-expected">
+     <strong><code><a href="intl.constants.html#constant.u-brk-semicolon-expected">U_BRK_SEMICOLON_EXPECTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Missing <code class="literal">&#039;;&#039;</code> at the end of a RBBI rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-unclosed-set">
+     <strong><code><a href="intl.constants.html#constant.u-brk-unclosed-set">U_BRK_UNCLOSED_SET</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      UnicodeSet writing an RBBI rule missing a closing <code class="literal">&#039;]&#039;</code>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-undefined-variable">
+     <strong><code><a href="intl.constants.html#constant.u-brk-undefined-variable">U_BRK_UNDEFINED_VARIABLE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Use of an undefined <code class="code">$Variable</code> in an RBBI rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-unrecognized-option">
+     <strong><code><a href="intl.constants.html#constant.u-brk-unrecognized-option">U_BRK_UNRECOGNIZED_OPTION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Option in RBBI rules not recognized.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-brk-variable-redfinition">
+     <strong><code><a href="intl.constants.html#constant.u-brk-variable-redfinition">U_BRK_VARIABLE_REDFINITION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      RBBI rule variable redefined.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-buffer-overflow-error">
+     <strong><code><a href="intl.constants.html#constant.u-buffer-overflow-error">U_BUFFER_OVERFLOW_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A result would not fit in the supplied buffer.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-ce-not-found-error">
+     <strong><code><a href="intl.constants.html#constant.u-ce-not-found-error">U_CE_NOT_FOUND_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Currently used only while setting variable top, but can be used generally.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-collator-version-mismatch">
+     <strong><code><a href="intl.constants.html#constant.u-collator-version-mismatch">U_COLLATOR_VERSION_MISMATCH</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Collator version is not compatible with the base version.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-different-uca-version">
+     <strong><code><a href="intl.constants.html#constant.u-different-uca-version">U_DIFFERENT_UCA_VERSION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      ucol_open encountered a mismatch between UCA version and collator image version,
+      so the collator was constructed from rules. No impact to further function.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-enum-out-of-sync-error">
+     <strong><code><a href="intl.constants.html#constant.u-enum-out-of-sync-error">U_ENUM_OUT_OF_SYNC_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      <code class="code">UEnumeration</code> out of sync with underlying collection.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-error-limit">U_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Alias of <strong><code>U_PLUGIN_ERROR_LIMIT</code></strong>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-error-warning-limit">
+     <strong><code><a href="intl.constants.html#constant.u-error-warning-limit">U_ERROR_WARNING_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      This must always be the last warning value to indicate
+      the limit for UErrorCode warnings (last warning code +1).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-error-warning-start">
+     <strong><code><a href="intl.constants.html#constant.u-error-warning-start">U_ERROR_WARNING_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Start of information results (semantically successful).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-file-access-error">
+     <strong><code><a href="intl.constants.html#constant.u-file-access-error">U_FILE_ACCESS_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The requested file cannot be found.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-fmt-parse-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-fmt-parse-error-limit">U_FMT_PARSE_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The limit for format library errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-fmt-parse-error-start">
+     <strong><code><a href="intl.constants.html#constant.u-fmt-parse-error-start">U_FMT_PARSE_ERROR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Start of format library errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-ace-prefix-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-ace-prefix-error">U_IDNA_ACE_PREFIX_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-check-bidi-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-check-bidi-error">U_IDNA_CHECK_BIDI_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-domain-name-too-long-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-domain-name-too-long-error">U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-idna-error-limit">U_IDNA_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-error-start">
+     <strong><code><a href="intl.constants.html#constant.u-idna-error-start">U_IDNA_ERROR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-label-too-long-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-label-too-long-error">U_IDNA_LABEL_TOO_LONG_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-prohibited-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-prohibited-error">U_IDNA_PROHIBITED_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-std3-ascii-rules-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-std3-ascii-rules-error">U_IDNA_STD3_ASCII_RULES_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-unassigned-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-unassigned-error">U_IDNA_UNASSIGNED_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-verification-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-verification-error">U_IDNA_VERIFICATION_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-idna-zero-length-label-error">
+     <strong><code><a href="intl.constants.html#constant.u-idna-zero-length-label-error">U_IDNA_ZERO_LENGTH_LABEL_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-argument-error">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-argument-error">U_ILLEGAL_ARGUMENT_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Indicates an incorrect argument value.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-char-found">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-char-found">U_ILLEGAL_CHAR_FOUND</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Character conversion: Illegal input sequence.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-char-in-segment">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-char-in-segment">U_ILLEGAL_CHAR_IN_SEGMENT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-character">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-character">U_ILLEGAL_CHARACTER</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A special character is outside its allowed context.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-escape-sequence">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-escape-sequence">U_ILLEGAL_ESCAPE_SEQUENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      ISO-2022 illlegal escape sequence.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-illegal-pad-position">
+     <strong><code><a href="intl.constants.html#constant.u-illegal-pad-position">U_ILLEGAL_PAD_POSITION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Pad symbol misplaced in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-index-outofbounds-error">
+     <strong><code><a href="intl.constants.html#constant.u-index-outofbounds-error">U_INDEX_OUTOFBOUNDS_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Trying to access the index that is out of bounds.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-internal-program-error">
+     <strong><code><a href="intl.constants.html#constant.u-internal-program-error">U_INTERNAL_PROGRAM_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Indicates a bug in the library code.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-internal-transliterator-error">
+     <strong><code><a href="intl.constants.html#constant.u-internal-transliterator-error">U_INTERNAL_TRANSLITERATOR_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Internal transliterator system error.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-char-found">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-char-found">U_INVALID_CHAR_FOUND</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Character conversion: Unmappable input sequence. In other APIs: Invalid character.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-format-error">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-format-error">U_INVALID_FORMAT_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Data format is not what is expected.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-function">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-function">U_INVALID_FUNCTION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="literal">&#039;&amp;fn()&#039;</code> rule specifies an unknown transliterator.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-id">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-id">U_INVALID_ID</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="literal">&#039;::id&#039;</code> rule specifies an unknown transliterator.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-property-pattern">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-property-pattern">U_INVALID_PROPERTY_PATTERN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-rbt-syntax">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-rbt-syntax">U_INVALID_RBT_SYNTAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="literal">&#039;::id&#039;</code> rule was passed to the RuleBasedTransliterator parser.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-state-error">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-state-error">U_INVALID_STATE_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Requested operation can not be completed with ICU in its current state.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-table-file">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-table-file">U_INVALID_TABLE_FILE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Conversion table file not found.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invalid-table-format">
+     <strong><code><a href="intl.constants.html#constant.u-invalid-table-format">U_INVALID_TABLE_FORMAT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Conversion table file found, but corrupted.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-invariant-conversion-error">
+     <strong><code><a href="intl.constants.html#constant.u-invariant-conversion-error">U_INVARIANT_CONVERSION_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unable to convert a <code class="code">UChar*</code> string to <code class="code">char*</code>
+      with the invariant converter.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-exponential-pattern">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-exponential-pattern">U_MALFORMED_EXPONENTIAL_PATTERN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Grouping symbol in exponent pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-pragma">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-pragma">U_MALFORMED_PRAGMA</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="literal">&#039;use&#039;</code> pragma is invalid.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-rule">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-rule">U_MALFORMED_RULE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Elements of a rule are misplaced.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-set">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-set">U_MALFORMED_SET</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="code">UnicodeSet</code> pattern is invalid.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-symbol-reference">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-symbol-reference">U_MALFORMED_SYMBOL_REFERENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-unicode-escape">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-unicode-escape">U_MALFORMED_UNICODE_ESCAPE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A Unicode escape pattern is invalid.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-variable-definition">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-variable-definition">U_MALFORMED_VARIABLE_DEFINITION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A variable definition is invalid.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-malformed-variable-reference">
+     <strong><code><a href="intl.constants.html#constant.u-malformed-variable-reference">U_MALFORMED_VARIABLE_REFERENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A variable reference is invalid.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-memory-allocation-error">
+     <strong><code><a href="intl.constants.html#constant.u-memory-allocation-error">U_MEMORY_ALLOCATION_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Memory allocation error.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-message-parse-error">
+     <strong><code><a href="intl.constants.html#constant.u-message-parse-error">U_MESSAGE_PARSE_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unable to parse a message (message format).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-mismatched-segment-delimiters">
+     <strong><code><a href="intl.constants.html#constant.u-mismatched-segment-delimiters">U_MISMATCHED_SEGMENT_DELIMITERS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-misplaced-anchor-start">
+     <strong><code><a href="intl.constants.html#constant.u-misplaced-anchor-start">U_MISPLACED_ANCHOR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A start anchor appears at an illegal position.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-misplaced-compound-filter">
+     <strong><code><a href="intl.constants.html#constant.u-misplaced-compound-filter">U_MISPLACED_COMPOUND_FILTER</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A compound filter is in an invalid location.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-misplaced-cursor-offset">
+     <strong><code><a href="intl.constants.html#constant.u-misplaced-cursor-offset">U_MISPLACED_CURSOR_OFFSET</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A cursor offset occurs at an illegal position.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-misplaced-quantifier">
+     <strong><code><a href="intl.constants.html#constant.u-misplaced-quantifier">U_MISPLACED_QUANTIFIER</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A quantifier appears after a segment close delimiter.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-missing-operator">
+     <strong><code><a href="intl.constants.html#constant.u-missing-operator">U_MISSING_OPERATOR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A rule contains no operator.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-missing-resource-error">
+     <strong><code><a href="intl.constants.html#constant.u-missing-resource-error">U_MISSING_RESOURCE_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The requested resource cannot be found.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-missing-segment-close">
+     <strong><code><a href="intl.constants.html#constant.u-missing-segment-close">U_MISSING_SEGMENT_CLOSE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-ante-contexts">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-ante-contexts">U_MULTIPLE_ANTE_CONTEXTS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one ante context.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-compound-filters">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-compound-filters">U_MULTIPLE_COMPOUND_FILTERS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one compound filter.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-cursors">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-cursors">U_MULTIPLE_CURSORS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one cursor.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-decimal-separators">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-decimal-separators">U_MULTIPLE_DECIMAL_SEPARATORS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one decimal separator in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-decimal-seperators">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-decimal-seperators">U_MULTIPLE_DECIMAL_SEPERATORS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Alias of <strong><code><a href="intl.constants.html#constant.u-multiple-decimal-separators">U_MULTIPLE_DECIMAL_SEPARATORS</a></code></strong>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-exponential-symbols">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-exponential-symbols">U_MULTIPLE_EXPONENTIAL_SYMBOLS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one exponent symbol in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-pad-specifiers">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-pad-specifiers">U_MULTIPLE_PAD_SPECIFIERS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one pad symbol in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-percent-symbols">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-percent-symbols">U_MULTIPLE_PERCENT_SYMBOLS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one percent symbol in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-permill-symbols">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-permill-symbols">U_MULTIPLE_PERMILL_SYMBOLS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one permill symbol in number pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-multiple-post-contexts">
+     <strong><code><a href="intl.constants.html#constant.u-multiple-post-contexts">U_MULTIPLE_POST_CONTEXTS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      More than one post context.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-no-space-available">
+     <strong><code><a href="intl.constants.html#constant.u-no-space-available">U_NO_SPACE_AVAILABLE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      No space available for in-buffer expansion for Arabic shaping.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-no-write-permission">
+     <strong><code><a href="intl.constants.html#constant.u-no-write-permission">U_NO_WRITE_PERMISSION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Attempt to modify read-only or constant data.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-parse-error">
+     <strong><code><a href="intl.constants.html#constant.u-parse-error">U_PARSE_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Equivalent to Java <code class="code">ParseException</code>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-parse-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-parse-error-limit">U_PARSE_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The limit for Transliterator errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-parse-error-start">
+     <strong><code><a href="intl.constants.html#constant.u-parse-error-start">U_PARSE_ERROR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Start of Transliterator errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-pattern-syntax-error">
+     <strong><code><a href="intl.constants.html#constant.u-pattern-syntax-error">U_PATTERN_SYNTAX_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Syntax error in format pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-primary-too-long-error">
+     <strong><code><a href="intl.constants.html#constant.u-primary-too-long-error">U_PRIMARY_TOO_LONG_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      User tried to set variable top to a primary that is longer than two bytes.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-bad-escape-sequence">
+     <strong><code><a href="intl.constants.html#constant.u-regex-bad-escape-sequence">U_REGEX_BAD_ESCAPE_SEQUENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unrecognized backslash escape sequence in pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-bad-interval">
+     <strong><code><a href="intl.constants.html#constant.u-regex-bad-interval">U_REGEX_BAD_INTERVAL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Error in <code class="literal">{min,max}</code> interval.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-regex-error-limit">U_REGEX_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      This must always be the last value to indicate the limit for regexp errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-error-start">
+     <strong><code><a href="intl.constants.html#constant.u-regex-error-start">U_REGEX_ERROR_START</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Start of codes indicating Regexp failures.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-internal-error">
+     <strong><code><a href="intl.constants.html#constant.u-regex-internal-error">U_REGEX_INTERNAL_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      An internal error (bug) was detected.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-invalid-back-ref">
+     <strong><code><a href="intl.constants.html#constant.u-regex-invalid-back-ref">U_REGEX_INVALID_BACK_REF</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Back-reference to a non-existent capture group.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-invalid-flag">
+     <strong><code><a href="intl.constants.html#constant.u-regex-invalid-flag">U_REGEX_INVALID_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Invalid value for match mode flags.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-invalid-state">
+     <strong><code><a href="intl.constants.html#constant.u-regex-invalid-state">U_REGEX_INVALID_STATE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      <code class="code">RegexMatcher</code> in invalid state for requested operation.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-look-behind-limit">
+     <strong><code><a href="intl.constants.html#constant.u-regex-look-behind-limit">U_REGEX_LOOK_BEHIND_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Look-Behind pattern matches must have a bounded maximum length.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-max-lt-min">
+     <strong><code><a href="intl.constants.html#constant.u-regex-max-lt-min">U_REGEX_MAX_LT_MIN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      In <code class="literal">{min,max}</code>, max is less than min.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-mismatched-paren">
+     <strong><code><a href="intl.constants.html#constant.u-regex-mismatched-paren">U_REGEX_MISMATCHED_PAREN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Incorrectly nested parentheses in regexp pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-number-too-big">
+     <strong><code><a href="intl.constants.html#constant.u-regex-number-too-big">U_REGEX_NUMBER_TOO_BIG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Decimal number is too large.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-property-syntax">
+     <strong><code><a href="intl.constants.html#constant.u-regex-property-syntax">U_REGEX_PROPERTY_SYNTAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Incorrect Unicode property.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-rule-syntax">
+     <strong><code><a href="intl.constants.html#constant.u-regex-rule-syntax">U_REGEX_RULE_SYNTAX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Syntax error in regexp pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-set-contains-string">
+     <strong><code><a href="intl.constants.html#constant.u-regex-set-contains-string">U_REGEX_SET_CONTAINS_STRING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Regexps cannot have <code class="code">UnicodeSet</code>s containing strings.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-regex-unimplemented">
+     <strong><code><a href="intl.constants.html#constant.u-regex-unimplemented">U_REGEX_UNIMPLEMENTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Use of regexp feature that is not yet implemented.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-resource-type-mismatch">
+     <strong><code><a href="intl.constants.html#constant.u-resource-type-mismatch">U_RESOURCE_TYPE_MISMATCH</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      An operation is requested over a resource that does not support it.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-rule-mask-error">
+     <strong><code><a href="intl.constants.html#constant.u-rule-mask-error">U_RULE_MASK_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A rule is hidden by an earlier more general rule.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-safeclone-allocated-warning">
+     <strong><code><a href="intl.constants.html#constant.u-safeclone-allocated-warning">U_SAFECLONE_ALLOCATED_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A <code class="code">SafeClone</code> operation required allocating memory (informational only).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-sort-key-too-short-warning">
+     <strong><code><a href="intl.constants.html#constant.u-sort-key-too-short-warning">U_SORT_KEY_TOO_SHORT_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Number of levels requested in <code class="code">getBound</code> is higher
+      than the number of levels in the sort key.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-standard-error-limit">
+     <strong><code><a href="intl.constants.html#constant.u-standard-error-limit">U_STANDARD_ERROR_LIMIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      This must always be the last value to indicate the limit for standard errors.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-state-old-warning">
+     <strong><code><a href="intl.constants.html#constant.u-state-old-warning">U_STATE_OLD_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      ICU has to use compatibility layer to construct the service.
+      Expect performance/memory usage degradation.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-state-too-old-error">
+     <strong><code><a href="intl.constants.html#constant.u-state-too-old-error">U_STATE_TOO_OLD_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      ICU cannot construct a service from this state, as it is no longer supported.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-string-not-terminated-warning">
+     <strong><code><a href="intl.constants.html#constant.u-string-not-terminated-warning">U_STRING_NOT_TERMINATED_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      An output string could not be NUL-terminated because output <code class="code">length==destCapacity</code>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-stringprep-check-bidi-error">
+     <strong><code><a href="intl.constants.html#constant.u-stringprep-check-bidi-error">U_STRINGPREP_CHECK_BIDI_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Alias of <strong><code><a href="intl.constants.html#constant.u-idna-check-bidi-error">U_IDNA_CHECK_BIDI_ERROR</a></code></strong>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-stringprep-prohibited-error">
+     <strong><code><a href="intl.constants.html#constant.u-stringprep-prohibited-error">U_STRINGPREP_PROHIBITED_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Alias of <strong><code><a href="intl.constants.html#constant.u-idna-prohibited-error">U_IDNA_PROHIBITED_ERROR</a></code></strong>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-stringprep-unassigned-error">
+     <strong><code><a href="intl.constants.html#constant.u-stringprep-unassigned-error">U_STRINGPREP_UNASSIGNED_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Alias of <strong><code><a href="intl.constants.html#constant.u-idna-unassigned-error">U_IDNA_UNASSIGNED_ERROR</a></code></strong>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-too-many-aliases-error">
+     <strong><code><a href="intl.constants.html#constant.u-too-many-aliases-error">U_TOO_MANY_ALIASES_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      There are too many aliases in the path to the requested resource.
+      It is very possible that a circular alias definition has occured.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-trailing-backslash">
+     <strong><code><a href="intl.constants.html#constant.u-trailing-backslash">U_TRAILING_BACKSLASH</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A dangling backslash.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-truncated-char-found">
+     <strong><code><a href="intl.constants.html#constant.u-truncated-char-found">U_TRUNCATED_CHAR_FOUND</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Character conversion: Incomplete input sequence.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unclosed-segment">
+     <strong><code><a href="intl.constants.html#constant.u-unclosed-segment">U_UNCLOSED_SEGMENT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A closing <code class="literal">&#039;)&#039;</code> is missing.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-undefined-segment-reference">
+     <strong><code><a href="intl.constants.html#constant.u-undefined-segment-reference">U_UNDEFINED_SEGMENT_REFERENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A segment reference does not correspond to a defined segment.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-undefined-variable">
+     <strong><code><a href="intl.constants.html#constant.u-undefined-variable">U_UNDEFINED_VARIABLE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A variable reference does not correspond to a defined variable.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unexpected-token">
+     <strong><code><a href="intl.constants.html#constant.u-unexpected-token">U_UNEXPECTED_TOKEN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Syntax error in format pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unmatched-braces">
+     <strong><code><a href="intl.constants.html#constant.u-unmatched-braces">U_UNMATCHED_BRACES</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Braces do not match in message pattern.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unquoted-special">
+     <strong><code><a href="intl.constants.html#constant.u-unquoted-special">U_UNQUOTED_SPECIAL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A special character was not quoted or escaped.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unsupported-attribute">
+     <strong><code><a href="intl.constants.html#constant.u-unsupported-attribute">U_UNSUPPORTED_ATTRIBUTE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unsupported-error">
+     <strong><code><a href="intl.constants.html#constant.u-unsupported-error">U_UNSUPPORTED_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Requested operation not supported in current context.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unsupported-escape-sequence">
+     <strong><code><a href="intl.constants.html#constant.u-unsupported-escape-sequence">U_UNSUPPORTED_ESCAPE_SEQUENCE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      ISO-2022 unsupported escape sequence.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unsupported-property">
+     <strong><code><a href="intl.constants.html#constant.u-unsupported-property">U_UNSUPPORTED_PROPERTY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Unused as of ICU 2.4.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-unterminated-quote">
+     <strong><code><a href="intl.constants.html#constant.u-unterminated-quote">U_UNTERMINATED_QUOTE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A closing single quote is missing.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-useless-collator-error">
+     <strong><code><a href="intl.constants.html#constant.u-useless-collator-error">U_USELESS_COLLATOR_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Collator is options only and no base is specified.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-using-default-warning">
+     <strong><code><a href="intl.constants.html#constant.u-using-default-warning">U_USING_DEFAULT_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A resource bundle lookup returned a result from the root locale (not an error).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-using-fallback-warning">
+     <strong><code><a href="intl.constants.html#constant.u-using-fallback-warning">U_USING_FALLBACK_WARNING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A resource bundle lookup returned a fallback result (not an error).
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-variable-range-exhausted">
+     <strong><code><a href="intl.constants.html#constant.u-variable-range-exhausted">U_VARIABLE_RANGE_EXHAUSTED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Too many stand-ins generated for the given variable range.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-variable-range-overlap">
+     <strong><code><a href="intl.constants.html#constant.u-variable-range-overlap">U_VARIABLE_RANGE_OVERLAP</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The variable range overlaps characters used in rules.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.u-zero-error">
+     <strong><code><a href="intl.constants.html#constant.u-zero-error">U_ZERO_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      No error, no warning.
+     </span>
+    </dd>
+   
+  </dl>
+ </p>
+</div>
+</div></div></body></html>

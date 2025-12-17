@@ -1,0 +1,651 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The SQLite3 class</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="sqlite3.constants.html">« Predefined Constants</a></li>
+      <li style="float: right;"><a href="sqlite3.backup.html">SQLite3::backup »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.sqlite3.html">SQLite3</a></li>
+    <li>The SQLite3 class</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="class.sqlite3" class="reference">
+ <h1 class="title">The SQLite3 class</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PHP 8)</p>
+
+
+  <div class="section" id="sqlite3.intro">
+   <h2 class="title">Introduction</h2>
+   <p class="para">
+    A class that interfaces SQLite 3 databases.
+   </p>
+  </div>
+
+
+  <div class="section" id="sqlite3.synopsis">
+   <h2 class="title">Class synopsis</h2>
+
+
+   <div class="classsynopsis"><div class="classsynopsisinfo">
+    
+     <span class="modifier">class</span> <strong class="classname"><strong class="classname">SQLite3</strong></strong>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.ok"><var class="varname">OK</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.deny"><var class="varname">DENY</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.ignore"><var class="varname">IGNORE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-index"><var class="varname">CREATE_INDEX</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-table"><var class="varname">CREATE_TABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-temp-index"><var class="varname">CREATE_TEMP_INDEX</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-temp-table"><var class="varname">CREATE_TEMP_TABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-temp-trigger"><var class="varname">CREATE_TEMP_TRIGGER</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-temp-view"><var class="varname">CREATE_TEMP_VIEW</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-trigger"><var class="varname">CREATE_TRIGGER</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-view"><var class="varname">CREATE_VIEW</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.delete"><var class="varname">DELETE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-index"><var class="varname">DROP_INDEX</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-table"><var class="varname">DROP_TABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-temp-index"><var class="varname">DROP_TEMP_INDEX</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-temp-table"><var class="varname">DROP_TEMP_TABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-temp-trigger"><var class="varname">DROP_TEMP_TRIGGER</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-temp-view"><var class="varname">DROP_TEMP_VIEW</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-trigger"><var class="varname">DROP_TRIGGER</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-view"><var class="varname">DROP_VIEW</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.insert"><var class="varname">INSERT</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.pragma"><var class="varname">PRAGMA</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.read"><var class="varname">READ</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.select"><var class="varname">SELECT</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.transaction"><var class="varname">TRANSACTION</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.update"><var class="varname">UPDATE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.attach"><var class="varname">ATTACH</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.detach"><var class="varname">DETACH</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.alter-table"><var class="varname">ALTER_TABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.reindex"><var class="varname">REINDEX</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.analyze"><var class="varname">ANALYZE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.create-vtable"><var class="varname">CREATE_VTABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.drop-vtable"><var class="varname">DROP_VTABLE</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.function"><var class="varname">FUNCTION</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.savepoint"><var class="varname">SAVEPOINT</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.copy"><var class="varname">COPY</var></a></var>;</div>
+
+    <div class="fieldsynopsis"><span class="modifier">public</span>
+     <span class="modifier">const</span>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      <var class="fieldsynopsis_varname"><a href="class.sqlite3.html#sqlite3.constants.recursive"><var class="varname">RECURSIVE</var></a></var>;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><a href="sqlite3.construct.html" class="methodname">__construct</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flags</code><span class="initializer"> = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE</span></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$encryptionKey</code><span class="initializer"> = &quot;&quot;</span></span>)</div>
+
+    <div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.backup.html" class="methodname">backup</a></span>(<span class="methodparam"><span class="type"><a href="class.sqlite3.html" class="type SQLite3">SQLite3</a></span> <code class="parameter">$destination</code></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$sourceDatabase</code><span class="initializer"> = &quot;main&quot;</span></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$destinationDatabase</code><span class="initializer"> = &quot;main&quot;</span></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.busytimeout.html" class="methodname">busyTimeout</a></span>(<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$milliseconds</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.changes.html" class="methodname">changes</a></span>(): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.close.html" class="methodname">close</a></span>(): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.createaggregate.html" class="methodname">createAggregate</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$stepCallback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$finalCallback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$argCount</code><span class="initializer"> = -1</span></span><br>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.createcollation.html" class="methodname">createCollation</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.createfunction.html" class="methodname">createFunction</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$argCount</code><span class="initializer"> = -1</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span><br>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.enableexceptions.html" class="methodname">enableExceptions</a></span>(<span class="methodparam"><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> <code class="parameter">$enable</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong></span></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="sqlite3.escapestring.html" class="methodname">escapeString</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$string</code></span>): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.exec.html" class="methodname">exec</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$query</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.lasterrorcode.html" class="methodname">lastErrorCode</a></span>(): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.lasterrormsg.html" class="methodname">lastErrorMsg</a></span>(): <span class="type"><a href="language.types.string.html" class="type string">string</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.lastinsertrowid.html" class="methodname">lastInsertRowID</a></span>(): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.loadextension.html" class="methodname">loadExtension</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$name</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.open.html" class="methodname">open</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$filename</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flags</code><span class="initializer"> = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE</span></span>, <span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$encryptionKey</code><span class="initializer"> = &quot;&quot;</span></span>): <span class="type"><a href="language.types.void.html" class="type void">void</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.openblob.html" class="methodname">openBlob</a></span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$table</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$column</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$rowid</code></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$database</code><span class="initializer"> = &quot;main&quot;</span></span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$flags</code><span class="initializer"> = <strong><code><a href="sqlite3.constants.html#constant.sqlite3-open-readonly">SQLITE3_OPEN_READONLY</a></code></strong></span></span><br>): <span class="type"><span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.prepare.html" class="methodname">prepare</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$query</code></span>): <span class="type"><span class="type"><a href="class.sqlite3stmt.html" class="type SQLite3Stmt">SQLite3Stmt</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.query.html" class="methodname">query</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$query</code></span>): <span class="type"><span class="type"><a href="class.sqlite3result.html" class="type SQLite3Result">SQLite3Result</a></span>|<span class="type"><a href="language.types.value.html" class="type false">false</a></span></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.querysingle.html" class="methodname">querySingle</a></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$query</code></span>, <span class="methodparam"><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> <code class="parameter">$entireRow</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong></span></span>): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="methodname"><a href="sqlite3.setauthorizer.html" class="methodname">setAuthorizer</a></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span></span> <code class="parameter">$callback</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+<div class="methodsynopsis dc-description"><span class="modifier">public</span> <span class="modifier">static</span> <span class="methodname"><a href="sqlite3.version.html" class="methodname">version</a></span>(): <span class="type"><a href="language.types.array.html" class="type array">array</a></span></div>
+
+   }</div>
+
+
+  </div>
+
+
+  <div class="section" id="sqlite3.class.constants">
+   <h2 class="title">Predefined Constants</h2>
+   <dl>
+    
+     <dt id="sqlite3.constants.ok"><strong><code><a href="class.sqlite3.html#sqlite3.constants.ok">SQLite3::OK</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.deny"><strong><code><a href="class.sqlite3.html#sqlite3.constants.deny">SQLite3::DENY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.ignore"><strong><code><a href="class.sqlite3.html#sqlite3.constants.ignore">SQLite3::IGNORE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-index"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-index">SQLite3::CREATE_INDEX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-table"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-table">SQLite3::CREATE_TABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-temp-index"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-temp-index">SQLite3::CREATE_TEMP_INDEX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-temp-table"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-temp-table">SQLite3::CREATE_TEMP_TABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-temp-trigger"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-temp-trigger">SQLite3::CREATE_TEMP_TRIGGER</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-temp-view"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-temp-view">SQLite3::CREATE_TEMP_VIEW</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-trigger"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-trigger">SQLite3::CREATE_TRIGGER</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-view"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-view">SQLite3::CREATE_VIEW</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.delete"><strong><code><a href="class.sqlite3.html#sqlite3.constants.delete">SQLite3::DELETE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-index"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-index">SQLite3::DROP_INDEX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-table"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-table">SQLite3::DROP_TABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-temp-index"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-temp-index">SQLite3::DROP_TEMP_INDEX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-temp-table"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-temp-table">SQLite3::DROP_TEMP_TABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-temp-trigger"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-temp-trigger">SQLite3::DROP_TEMP_TRIGGER</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-temp-view"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-temp-view">SQLite3::DROP_TEMP_VIEW</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-trigger"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-trigger">SQLite3::DROP_TRIGGER</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-view"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-view">SQLite3::DROP_VIEW</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.insert"><strong><code><a href="class.sqlite3.html#sqlite3.constants.insert">SQLite3::INSERT</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.pragma"><strong><code><a href="class.sqlite3.html#sqlite3.constants.pragma">SQLite3::PRAGMA</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.read"><strong><code><a href="class.sqlite3.html#sqlite3.constants.read">SQLite3::READ</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.select"><strong><code><a href="class.sqlite3.html#sqlite3.constants.select">SQLite3::SELECT</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.transaction"><strong><code><a href="class.sqlite3.html#sqlite3.constants.transaction">SQLite3::TRANSACTION</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.update"><strong><code><a href="class.sqlite3.html#sqlite3.constants.update">SQLite3::UPDATE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.attach"><strong><code><a href="class.sqlite3.html#sqlite3.constants.attach">SQLite3::ATTACH</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.detach"><strong><code><a href="class.sqlite3.html#sqlite3.constants.detach">SQLite3::DETACH</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.alter-table"><strong><code><a href="class.sqlite3.html#sqlite3.constants.alter-table">SQLite3::ALTER_TABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.reindex"><strong><code><a href="class.sqlite3.html#sqlite3.constants.reindex">SQLite3::REINDEX</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.analyze"><strong><code><a href="class.sqlite3.html#sqlite3.constants.analyze">SQLite3::ANALYZE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.create-vtable"><strong><code><a href="class.sqlite3.html#sqlite3.constants.create-vtable">SQLite3::CREATE_VTABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.drop-vtable"><strong><code><a href="class.sqlite3.html#sqlite3.constants.drop-vtable">SQLite3::DROP_VTABLE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.function"><strong><code><a href="class.sqlite3.html#sqlite3.constants.function">SQLite3::FUNCTION</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.savepoint"><strong><code><a href="class.sqlite3.html#sqlite3.constants.savepoint">SQLite3::SAVEPOINT</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.copy"><strong><code><a href="class.sqlite3.html#sqlite3.constants.copy">SQLite3::COPY</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+
+    
+     <dt id="sqlite3.constants.recursive"><strong><code><a href="class.sqlite3.html#sqlite3.constants.recursive">SQLite3::RECURSIVE</a></code></strong></dt>
+     <dd>
+      <p class="para"/>
+     </dd>
+    
+   </dl>
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="sqlite3.backup.html">SQLite3::backup</a> — Backup one database to another database</li><li><a href="sqlite3.busytimeout.html">SQLite3::busyTimeout</a> — Sets the busy connection handler</li><li><a href="sqlite3.changes.html">SQLite3::changes</a> — Returns the number of database rows that were changed (or inserted or
+   deleted) by the most recent SQL statement</li><li><a href="sqlite3.close.html">SQLite3::close</a> — Closes the database connection</li><li><a href="sqlite3.construct.html">SQLite3::__construct</a> — Instantiates an SQLite3 object and opens an SQLite 3 database</li><li><a href="sqlite3.createaggregate.html">SQLite3::createAggregate</a> — Registers a PHP function for use as an SQL aggregate function</li><li><a href="sqlite3.createcollation.html">SQLite3::createCollation</a> — Registers a PHP function for use as an SQL collating function</li><li><a href="sqlite3.createfunction.html">SQLite3::createFunction</a> — Registers a PHP function for use as an SQL scalar function</li><li><a href="sqlite3.enableexceptions.html">SQLite3::enableExceptions</a> — Enable throwing exceptions</li><li><a href="sqlite3.escapestring.html">SQLite3::escapeString</a> — Returns a string that has been properly escaped</li><li><a href="sqlite3.exec.html">SQLite3::exec</a> — Executes a result-less query against a given database</li><li><a href="sqlite3.lasterrorcode.html">SQLite3::lastErrorCode</a> — Returns the numeric result code of the most recent failed SQLite request</li><li><a href="sqlite3.lasterrormsg.html">SQLite3::lastErrorMsg</a> — Returns English text describing the most recent failed SQLite request</li><li><a href="sqlite3.lastinsertrowid.html">SQLite3::lastInsertRowID</a> — Returns the row ID of the most recent INSERT into the database</li><li><a href="sqlite3.loadextension.html">SQLite3::loadExtension</a> — Attempts to load an SQLite extension library</li><li><a href="sqlite3.open.html">SQLite3::open</a> — Opens an SQLite database</li><li><a href="sqlite3.openblob.html">SQLite3::openBlob</a> — Opens a stream resource to read a BLOB</li><li><a href="sqlite3.prepare.html">SQLite3::prepare</a> — Prepares an SQL statement for execution</li><li><a href="sqlite3.query.html">SQLite3::query</a> — Executes an SQL query</li><li><a href="sqlite3.querysingle.html">SQLite3::querySingle</a> — Executes a query and returns a single result</li><li><a href="sqlite3.setauthorizer.html">SQLite3::setAuthorizer</a> — Configures a callback to be used as an authorizer to limit what a statement can do</li><li><a href="sqlite3.version.html">SQLite3::version</a> — Returns the SQLite3 library version as a string constant and as a number</li></ul>
+</div>
+</div></div></body></html>

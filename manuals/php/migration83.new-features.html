@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Features</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration83.html">« Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+      <li style="float: right;"><a href="migration83.new-classes.html">New Classes and Interfaces »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration83.html">Migrating from PHP 8.2.x to PHP 8.3.x</a></li>
+    <li>New Features</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration83.new-features" class="sect1">
+ <h2 class="title">New Features</h2>
+
+ <div class="sect2" id="migration83.new-features.core">
+  <h3 class="title">PHP Core</h3>
+
+  <div class="sect3" id="migration83.new-features.core.readonly-modifier-improvements">
+   <h4 class="title">Readonly Amendments</h4>
+
+   <p class="para">
+    Anonymous classes may now be marked as readonly.
+   </p>
+
+   <p class="para">
+    Readonly properties can now be reinitialized during cloning.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.typed-class-constants">
+   <h4 class="title">Typed Class Constants</h4>
+
+   <p class="para">
+    Class, interface, trait, and enum constants now support type declarations.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.closures-created-from-magic-methods">
+   <h4 class="title">Closures created from magic methods</h4>
+
+   <p class="para">
+    Closures created from magic methods can now accept named arguments.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.final-modifier-method-from-trait">
+   <h4 class="title">The final modifier with a method from a trait</h4>
+
+   <p class="para">
+    The final modifier may now be used when using a method from a trait.
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.override-attribute">
+   <h4 class="title">Override Attribute</h4>
+
+   <p class="para">
+    Added the #[\Override] attribute to check that a method exists in a parent
+    class or implemented interface.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.fetch-class-constant-dynamically-syntax">
+   <h4 class="title">Fetch class constant dynamically syntax</h4>
+
+   <p class="para">
+    Class constants can now be accessed dynamically using the
+    <code class="code">C::{$name}</code> syntax.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.static-variable-initializers">
+   <h4 class="title">Static variable Initializers</h4>
+
+   <p class="para">
+    Static variable initializers can now contain arbitrary expressions.
+    
+   </p>
+  </div>
+
+  <div class="sect3" id="migration83.new-features.core.fallback-value-syntax-for-php-ini">
+   <h4 class="title">Fallback value syntax for ini variables</h4>
+
+   <p class="para">
+    php.ini now supports fallback/default value syntax.
+    
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*<br />On /path/to/user.ini contains the following settings:<br /><br />listen = localhost:${DRUPAL_FPM_PORT:-9000}<br />*/<br /><br /></span><span style="color: #0000BB">$user_ini </span><span style="color: #007700">= </span><span style="color: #0000BB">parse_ini_file</span><span style="color: #007700">(</span><span style="color: #DD0000">'/path/to/user.ini'</span><span style="color: #007700">);<br />echo </span><span style="color: #0000BB">$user_ini</span><span style="color: #007700">[</span><span style="color: #DD0000">'listen'</span><span style="color: #007700">]; </span><span style="color: #FF8000">// localhost:9000</span></span></code></div>
+     </div>
+
+    </div>
+
+   </p>
+  </div>
+
+ </div>
+
+ <div class="sect2" id="migration83.new-features.cli">
+  <h3 class="title">CLI</h3>
+
+  <p class="para">
+   It is now possible to lint multiple files.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.new-features.dom">
+  <h3 class="title">DOM</h3>
+
+  <p class="para">
+   Added properties <span class="property">DOMElement::$className</span>
+   and <span class="property">DOMElement::$id</span>.
+   These are not binary-safe at the moment because of underlying limitations
+   of libxml2.
+   This means that the property values will be cut off at a NUL byte.
+  </p>
+
+  <p class="para">
+   Added properties <span class="property">DOMNode::$isConnected</span>
+   and <span class="property">DOMNameSpaceNode::$isConnected</span>.
+  </p>
+
+  <p class="para">
+   Added properties <span class="property">DOMNode::$parentElement</span>
+   and <span class="property">DOMNameSpaceNode::$parentElement</span>.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.new-features.ffi">
+  <h3 class="title">FFI</h3>
+
+  <p class="para">
+   It is now possible to assign <span class="classname"><a href="class.ffi-cdata.html" class="classname">FFI\CData</a></span> to other FFI\CData.
+   Meaning CData can now be assigned to structs and fields.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.new-features.opcache">
+  <h3 class="title">Opcache</h3>
+
+  <p class="para">
+   <code class="code">opcache_get_status()[&#039;scripts&#039;][n][&#039;revalidate&#039;]</code> now contains
+   a Unix timestamp of when the next revalidation of the scripts timestamp is
+   due, dictated by the
+   <a href="opcache.configuration.html#ini.opcache.revalidate-freq" class="link">opcache.revalidate_freq</a>
+   INI directive.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.new-features.posix">
+  <h3 class="title">POSIX</h3>
+
+  <p class="para">
+   <span class="function"><a href="function.posix-getrlimit.html" class="function">posix_getrlimit()</a></span> now takes an optional
+   <code class="parameter">$resource</code> parameter to allow fetching a single resource limit.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.posix-isatty.html" class="function">posix_isatty()</a></span> now raises type warnings for integers
+   following the usual ZPP semantics.
+  </p>
+
+  <p class="para">
+   <span class="function"><a href="function.posix-ttyname.html" class="function">posix_ttyname()</a></span> now raises type warnings for integers
+   following the usual ZPP semantics and value warnings for invalid file
+   descriptor integers.
+  </p>
+ </div>
+
+ <div class="sect2" id="migration83.new-features.streams">
+  <h3 class="title">Streams</h3>
+
+  <p class="para">
+   Streams can now emit the <strong><code><a href="stream.constants.html#constant.stream-notify-completed">STREAM_NOTIFY_COMPLETED</a></code></strong>
+   notification. This was previously not implemented.
+  </p>
+ </div>
+
+</div></div></div></body></html>

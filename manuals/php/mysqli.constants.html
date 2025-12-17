@@ -1,0 +1,1290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mysqli.persistconns.html">« The mysqli Extension and Persistent Connections</a></li>
+      <li style="float: right;"><a href="mysqli.notes.html">Notes »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.mysqli.html">MySQLi</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mysqli.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+  <dl>
+   
+    <dt id="constant.mysqli-read-default-group">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-read-default-group">MYSQLI_READ_DEFAULT_GROUP</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Read options from the named group from <var class="filename">my.cnf</var>
+      or the file specified with <strong><code><a href="mysqli.constants.html#constant.mysqli-read-default-file">MYSQLI_READ_DEFAULT_FILE</a></code></strong>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-read-default-file">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-read-default-file">MYSQLI_READ_DEFAULT_FILE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Read options from the named option file instead of from <var class="filename">my.cnf</var>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-can-handle-expired-passwords">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-can-handle-expired-passwords">MYSQLI_OPT_CAN_HANDLE_EXPIRED_PASSWORDS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Indicates to the server that the client can handle sandbox mode
+      for expired passwords.
+      Can be used with <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-load-data-local-dir">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-load-data-local-dir">MYSQLI_OPT_LOAD_DATA_LOCAL_DIR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      If enabled, this option specifies the directory
+      from which client-side <code class="literal">LOCAL</code> data loading is permitted
+      in <code class="literal">LOAD DATA LOCAL</code> statements.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-connect-timeout">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-connect-timeout">MYSQLI_OPT_CONNECT_TIMEOUT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Connect timeout in seconds.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-read-timeout">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-read-timeout">MYSQLI_OPT_READ_TIMEOUT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Command execution result timeout in seconds. Available as of PHP 7.2.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-local-infile">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-local-infile">MYSQLI_OPT_LOCAL_INFILE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Enables command <code class="literal">LOAD LOCAL INFILE</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-int-and-float-native">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-int-and-float-native">MYSQLI_OPT_INT_AND_FLOAT_NATIVE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Convert integer and float columns back to PHP numbers. Only valid for mysqlnd.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-net-cmd-buffer-size">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-net-cmd-buffer-size">MYSQLI_OPT_NET_CMD_BUFFER_SIZE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      The size of the internal command/network buffer. Only valid for mysqlnd.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-net-read-buffer-size">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-net-read-buffer-size">MYSQLI_OPT_NET_READ_BUFFER_SIZE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Maximum read chunk size in bytes when reading the body of a MySQL command packet.
+      Only valid for mysqlnd.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-opt-ssl-verify-server-cert">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-opt-ssl-verify-server-cert">MYSQLI_OPT_SSL_VERIFY_SERVER_CERT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-init-command">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-init-command">MYSQLI_INIT_COMMAND</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Command to execute when connecting to MySQL server. Will automatically be re-executed when reconnecting.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-can-handle-expired-passwords">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-can-handle-expired-passwords">MYSQLI_CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Indicates to the server that the client can handle sandbox mode
+      for expired passwords.
+      Can be used with <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-found-rows">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-found-rows">MYSQLI_CLIENT_FOUND_ROWS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Return number of matched rows, not the number of affected rows.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-ssl-verify-server-cert">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-ssl-verify-server-cert">MYSQLI_CLIENT_SSL_VERIFY_SERVER_CERT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Verify server certificate.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-ssl">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-ssl">MYSQLI_CLIENT_SSL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Use SSL (encrypted protocol). This option should not be set by application programs;
+      it is set internally in the MySQL client library.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-compress">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-compress">MYSQLI_CLIENT_COMPRESS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Use compression protocol.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-interactive">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-interactive">MYSQLI_CLIENT_INTERACTIVE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Allow <code class="literal">interactive_timeout</code> seconds
+      (instead of <code class="literal">wait_timeout</code> seconds) of inactivity before
+      closing the connection.  The client&#039;s session
+      <code class="literal">wait_timeout</code> variable will be set to
+      the value of the session <code class="literal">interactive_timeout</code> variable.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-ignore-space">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-ignore-space">MYSQLI_CLIENT_IGNORE_SPACE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Allow spaces after function names. Makes all functions names reserved words.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-no-schema">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-no-schema">MYSQLI_CLIENT_NO_SCHEMA</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Don&#039;t allow the <code class="literal">db_name.tbl_name.col_name</code> syntax.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-multi-queries"><strong><code><a href="mysqli.constants.html#constant.mysqli-client-multi-queries">MYSQLI_CLIENT_MULTI_QUERIES</a></code></strong></dt>
+    <dd>
+     <p class="para">
+      Allows multiple semicolon-delimited queries in a single <span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span> call.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-store-result">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-store-result">MYSQLI_STORE_RESULT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      For using buffered result sets. It has a value of <code class="literal">0</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-store-result-copy-data">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-store-result-copy-data">MYSQLI_STORE_RESULT_COPY_DATA</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      As of PHP 8.1, this constant no longer has any effect.
+      Before PHP 8.1, this constant is used to copy results
+      from the internal <code class="literal">mysqlnd</code> buffer
+      into the PHP variables fetched.
+      By default, <code class="literal">mysqlnd</code> will use a reference logic
+      to avoid copying and duplicating results held in memory.
+      For certain result sets, for example, result sets with many small rows,
+      the copy approach can reduce the overall memory usage
+      because PHP variables holding results may be released earlier.
+      Available with <code class="literal">mysqlnd</code> only.
+      Deprecated as of PHP 8.4.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-use-result">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-use-result">MYSQLI_USE_RESULT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      For using unbuffered result sets. It has a value of <code class="literal">1</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-assoc">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-assoc">MYSQLI_ASSOC</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Columns are returned into the array having the fieldname as the array index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-num">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-num">MYSQLI_NUM</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Columns are returned into the array having an enumerated index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-both">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-both">MYSQLI_BOTH</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Columns are returned into the array having both a numerical index and the fieldname as the associative index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-not-null-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-not-null-flag">MYSQLI_NOT_NULL_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Indicates that a field is defined as <code class="literal">NOT NULL</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-pri-key-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-pri-key-flag">MYSQLI_PRI_KEY_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is part of a primary index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-unique-key-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-unique-key-flag">MYSQLI_UNIQUE_KEY_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is part of a unique index.
+     </p>
+    </dd>
+   
+
+   
+    <dt id="constant.mysqli-multiple-key-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-multiple-key-flag">MYSQLI_MULTIPLE_KEY_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is part of an index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-blob-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-blob-flag">MYSQLI_BLOB_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">BLOB</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-unsigned-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-unsigned-flag">MYSQLI_UNSIGNED_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">UNSIGNED</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-zerofill-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-zerofill-flag">MYSQLI_ZEROFILL_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">ZEROFILL</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-auto-increment-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-auto-increment-flag">MYSQLI_AUTO_INCREMENT_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">AUTO_INCREMENT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-timestamp-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-timestamp-flag">MYSQLI_TIMESTAMP_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TIMESTAMP</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-set-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-set-flag">MYSQLI_SET_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">SET</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-num-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-num-flag">MYSQLI_NUM_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">NUMERIC</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-part-key-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-part-key-flag">MYSQLI_PART_KEY_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is part of an multi-index.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-group-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-group-flag">MYSQLI_GROUP_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is part of <code class="literal">GROUP BY</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-no-default-value-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-no-default-value-flag">MYSQLI_NO_DEFAULT_VALUE_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      A column has no <code class="literal">DEFAULT</code> clause in its definition.
+      This does not apply to <code class="literal">NULL</code>
+      or to <code class="literal">AUTO_INCREMENT</code> columns
+      because such columns have a default value of <code class="literal">NULL</code>
+      and an implied default value respectively.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-decimal">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-decimal">MYSQLI_TYPE_DECIMAL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DECIMAL</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-newdecimal">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-newdecimal">MYSQLI_TYPE_NEWDECIMAL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Precision math <code class="literal">DECIMAL</code> or <code class="literal">NUMERIC</code> field.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-bit">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-bit">MYSQLI_TYPE_BIT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">BIT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-tiny">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-tiny">MYSQLI_TYPE_TINY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TINYINT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-short">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-short">MYSQLI_TYPE_SHORT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">SMALLINT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-long">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-long">MYSQLI_TYPE_LONG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">INT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-float">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-float">MYSQLI_TYPE_FLOAT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">FLOAT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-double">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-double">MYSQLI_TYPE_DOUBLE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DOUBLE</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-null">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-null">MYSQLI_TYPE_NULL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DEFAULT NULL</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-timestamp">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-timestamp">MYSQLI_TYPE_TIMESTAMP</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TIMESTAMP</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-longlong">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-longlong">MYSQLI_TYPE_LONGLONG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">BIGINT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-int24">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-int24">MYSQLI_TYPE_INT24</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">MEDIUMINT</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-date">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-date">MYSQLI_TYPE_DATE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DATE</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-time">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-time">MYSQLI_TYPE_TIME</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TIME</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-datetime">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-datetime">MYSQLI_TYPE_DATETIME</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DATETIME</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-year">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-year">MYSQLI_TYPE_YEAR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">YEAR</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-newdate">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-newdate">MYSQLI_TYPE_NEWDATE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">DATE</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-interval">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-interval">MYSQLI_TYPE_INTERVAL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Alias of <strong><code><a href="mysqli.constants.html#constant.mysqli-type-enum">MYSQLI_TYPE_ENUM</a></code></strong>. Removed as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-enum">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-enum">MYSQLI_TYPE_ENUM</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">ENUM</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-set">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-set">MYSQLI_TYPE_SET</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">SET</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-tiny-blob">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-tiny-blob">MYSQLI_TYPE_TINY_BLOB</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TINYBLOB</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-medium-blob">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-medium-blob">MYSQLI_TYPE_MEDIUM_BLOB</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">MEDIUMBLOB</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-long-blob">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-long-blob">MYSQLI_TYPE_LONG_BLOB</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">LONGBLOB</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-blob">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-blob">MYSQLI_TYPE_BLOB</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">BLOB</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-var-string">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-var-string">MYSQLI_TYPE_VAR_STRING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">VARCHAR</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-string">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-string">MYSQLI_TYPE_STRING</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">CHAR</code> or <code class="literal">BINARY</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-char">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-char">MYSQLI_TYPE_CHAR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">TINYINT</code>.
+      For <code class="literal">CHAR</code>, see <code class="literal">MYSQLI_TYPE_STRING</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-geometry">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-geometry">MYSQLI_TYPE_GEOMETRY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">GEOMETRY</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-json">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-json">MYSQLI_TYPE_JSON</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">JSON</code>.
+      Only valid for mysqlnd and MySQL 5.7.8 and up.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-type-vector">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-type-vector">MYSQLI_TYPE_VECTOR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">VECTOR</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-need-data"><strong><code><a href="mysqli.constants.html#constant.mysqli-need-data">MYSQLI_NEED_DATA</a></code></strong></dt>
+    <dd>
+     <p class="para">
+      More data available for bind variable.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-enum-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-enum-flag">MYSQLI_ENUM_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     Field is defined as <code class="literal">ENUM</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-binary-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-binary-flag">MYSQLI_BINARY_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Field is defined as <code class="literal">BINARY</code>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-cursor-type-for-update">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-for-update">MYSQLI_CURSOR_TYPE_FOR_UPDATE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Removed as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-cursor-type-no-cursor">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-no-cursor">MYSQLI_CURSOR_TYPE_NO_CURSOR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-cursor-type-read-only">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-read-only">MYSQLI_CURSOR_TYPE_READ_ONLY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-cursor-type-scrollable">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-cursor-type-scrollable">MYSQLI_CURSOR_TYPE_SCROLLABLE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Removed as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-stmt-attr-cursor-type">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-stmt-attr-cursor-type">MYSQLI_STMT_ATTR_CURSOR_TYPE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-stmt-attr-prefetch-rows">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-stmt-attr-prefetch-rows">MYSQLI_STMT_ATTR_PREFETCH_ROWS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Removed as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-stmt-attr-update-max-length">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-stmt-attr-update-max-length">MYSQLI_STMT_ATTR_UPDATE_MAX_LENGTH</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-set-charset-name">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-set-charset-name">MYSQLI_SET_CHARSET_NAME</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-report-index">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-report-index">MYSQLI_REPORT_INDEX</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Report if no index or bad index was used in a query.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-report-error">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-report-error">MYSQLI_REPORT_ERROR</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Report errors from mysqli function calls.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-report-strict">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-report-strict">MYSQLI_REPORT_STRICT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Throw a <code class="literal">mysqli_sql_exception</code> for errors instead of warnings.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-report-all">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-report-all">MYSQLI_REPORT_ALL</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Set all options on (report all).
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-report-off">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-report-off">MYSQLI_REPORT_OFF</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Turns reporting off.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-debug-trace-enabled">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-debug-trace-enabled">MYSQLI_DEBUG_TRACE_ENABLED</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Is set to 1 if <span class="function"><a href="mysqli.debug.html" class="function">mysqli_debug()</a></span> functionality is enabled.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-server-public-key">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-server-public-key">MYSQLI_SERVER_PUBLIC_KEY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-grant">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-grant">MYSQLI_REFRESH_GRANT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Refreshes the grant tables.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-log">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-log">MYSQLI_REFRESH_LOG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Flushes the logs, like executing the
+      <code class="literal">FLUSH LOGS</code> <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-tables">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-tables">MYSQLI_REFRESH_TABLES</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Flushes the table cache, like executing the
+      <code class="literal">FLUSH TABLES</code> <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-hosts">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-hosts">MYSQLI_REFRESH_HOSTS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Flushes the host cache, like executing the
+      <code class="literal">FLUSH HOSTS</code> <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-replica">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-replica">MYSQLI_REFRESH_REPLICA</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Alias of <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-slave">MYSQLI_REFRESH_SLAVE</a></code></strong> constant.
+      Available as of PHP 8.1.0. Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-status">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-status">MYSQLI_REFRESH_STATUS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Reset the status variables, like executing the
+      <code class="literal">FLUSH STATUS</code> <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-threads">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-threads">MYSQLI_REFRESH_THREADS</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Flushes the thread cache.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-slave">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-slave">MYSQLI_REFRESH_SLAVE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      On a slave replication server: resets the master server information, and
+      restarts the slave. Like executing the <code class="literal">RESET SLAVE</code>
+      <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-master">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-master">MYSQLI_REFRESH_MASTER</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      On a master replication server: removes the binary log files listed in the
+      binary log index, and truncates the index file. Like executing the
+      <code class="literal">RESET MASTER</code> <abbr>SQL</abbr> statement.
+      Deprecated as of PHP 8.4.0.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-refresh-backup-log">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-refresh-backup-log">MYSQLI_REFRESH_BACKUP_LOG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      Closes and reopens the backup log files.
+      Deprecated as of PHP 8.4.0.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-cor-and-chain">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-cor-and-chain">MYSQLI_TRANS_COR_AND_CHAIN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Appends &quot;AND CHAIN&quot; to <span class="function"><a href="mysqli.commit.html" class="function">mysqli_commit()</a></span> or
+      <span class="function"><a href="mysqli.rollback.html" class="function">mysqli_rollback()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-cor-and-no-chain">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-cor-and-no-chain">MYSQLI_TRANS_COR_AND_NO_CHAIN</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Appends &quot;AND NO CHAIN&quot; to <span class="function"><a href="mysqli.commit.html" class="function">mysqli_commit()</a></span> or
+      <span class="function"><a href="mysqli.rollback.html" class="function">mysqli_rollback()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-cor-release">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-cor-release">MYSQLI_TRANS_COR_RELEASE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Appends &quot;RELEASE&quot; to <span class="function"><a href="mysqli.commit.html" class="function">mysqli_commit()</a></span> or
+      <span class="function"><a href="mysqli.rollback.html" class="function">mysqli_rollback()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-cor-no-release">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-cor-no-release">MYSQLI_TRANS_COR_NO_RELEASE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Appends &quot;NO RELEASE&quot; to <span class="function"><a href="mysqli.commit.html" class="function">mysqli_commit()</a></span> or
+      <span class="function"><a href="mysqli.rollback.html" class="function">mysqli_rollback()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-start-read-only">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-start-read-only">MYSQLI_TRANS_START_READ_ONLY</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Start the transaction as &quot;START TRANSACTION READ ONLY&quot; with
+      <span class="function"><a href="mysqli.begin-transaction.html" class="function">mysqli_begin_transaction()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-start-read-write">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-start-read-write">MYSQLI_TRANS_START_READ_WRITE</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Start the transaction as &quot;START TRANSACTION READ WRITE&quot; with
+      <span class="function"><a href="mysqli.begin-transaction.html" class="function">mysqli_begin_transaction()</a></span>.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-trans-start-with-consistent-snapshot">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-trans-start-with-consistent-snapshot">MYSQLI_TRANS_START_WITH_CONSISTENT_SNAPSHOT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Start the transaction as &quot;START TRANSACTION WITH CONSISTENT SNAPSHOT&quot;.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-client-ssl-dont-verify-server-cert">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-client-ssl-dont-verify-server-cert">MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Requires MySQL 5.6.5 and up.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-is-mariadb">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-is-mariadb">MYSQLI_IS_MARIADB</a></code></strong>
+     (<span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>)
+    </dt>
+    <dd>
+     <p class="para">
+      Whether the mysqli extension has been built against a MariaDB client library.
+      Available as of PHP 8.1.2.
+     </p>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-async">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-async">MYSQLI_ASYNC</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      The query is performed asynchronously and no result set is immediately returned.
+      Available with <code class="literal">mysqlnd</code> only.
+     </span>
+    </dd>
+   
+   
+    <dt id="constant.mysqli-on-update-now-flag">
+     <strong><code><a href="mysqli.constants.html#constant.mysqli-on-update-now-flag">MYSQLI_ON_UPDATE_NOW_FLAG</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+    </dt>
+    <dd>
+     <span class="simpara">
+      If a field is updated it will get the current time value.
+     </span>
+    </dd>
+   
+  </dl>
+</div>
+</div></div></body></html>

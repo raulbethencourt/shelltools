@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Get a uniformly selected integer</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.gmp-random-bits.html">« gmp_random_bits</a></li>
+      <li style="float: right;"><a href="function.gmp-random-seed.html">gmp_random_seed »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.gmp.html">GMP Functions</a></li>
+    <li>Get a uniformly selected integer</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.gmp-random-range" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gmp_random_range</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.3, PHP 7, PHP 8)</p><p class="refpurpose"><span class="refname">gmp_random_range</span> &mdash; <span class="dc-title">Get a uniformly selected integer</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gmp-random-range-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>gmp_random_range</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$min</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span>|<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>|<span class="type"><a href="language.types.string.html" class="type string">string</a></span></span> <code class="parameter">$max</code></span>): <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span></div>
+
+  <p class="para rdfs-comment">
+   Generate a random number. The number will be between
+   <code class="parameter">min</code> and <code class="parameter">max</code>.
+  </p>
+  <p class="para">
+   <code class="parameter">min</code> and <code class="parameter">max</code> can both be negative,
+   but <code class="parameter">min</code> must always be less than <code class="parameter">max</code>.
+  </p>
+  <div class="caution"><strong class="caution">Caution</strong>
+ <p class="para">
+  This function does not generate cryptographically secure values, and <em>must not</em>
+  be used for cryptographic purposes, or purposes that require returned values to be unguessable.
+ </p>
+ <p class="para">
+  If cryptographically secure randomness is required, the <span class="classname"><a href="class.random-randomizer.html" class="classname">Random\Randomizer</a></span> may be
+  used with the <span class="classname"><a href="class.random-engine-secure.html" class="classname">Random\Engine\Secure</a></span> engine. For simple use cases, the <span class="function"><a href="function.random-int.html" class="function">random_int()</a></span>
+  and <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> functions provide a convenient and secure <abbr title="Application Programming Interface">API</abbr> that is backed by
+  the operating system’s <abbr title="Cryptographically Secure PseudoRandom Number Generator">CSPRNG</abbr>.
+ </p>
+</div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gmp-random-range-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">min</code></dt>
+     <dd>
+      <p class="para">
+       A GMP number representing the lower bound for the random number
+      </p>
+     </dd>
+    
+    
+     <dt><code class="parameter">max</code></dt>
+     <dd>
+      <p class="para">
+       A GMP number representing the upper bound for the random number
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gmp-random-range-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns a <span class="classname"><a href="class.gmp.html" class="classname">GMP</a></span> object which contains
+   a uniformly selected integer from the closed interval
+   [<code class="parameter">min</code>, <code class="parameter">max</code>]. Both
+   <code class="parameter">min</code> and <code class="parameter">max</code> are
+   possible return values.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-function.gmp-random-range-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   If <code class="parameter">max</code> is less than <code class="parameter">min</code>,
+   a <span class="exceptionname"><a href="class.valueerror.html" class="exceptionname">ValueError</a></span> will be thrown.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gmp-random-range-examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example" id="example-3218">
+    <p><strong>Example #1 <span class="function"><strong>gmp_random_range()</strong></span> example</strong></p>
+    <div class="example-contents">
+     <div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$rand1 </span><span style="color: #007700">= </span><span style="color: #0000BB">gmp_random_range</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">, </span><span style="color: #0000BB">100</span><span style="color: #007700">);    </span><span style="color: #FF8000">// random number between 0 and 100<br /></span><span style="color: #0000BB">$rand2 </span><span style="color: #007700">= </span><span style="color: #0000BB">gmp_random_range</span><span style="color: #007700">(-</span><span style="color: #0000BB">100</span><span style="color: #007700">, -</span><span style="color: #0000BB">10</span><span style="color: #007700">); </span><span style="color: #FF8000">// random number between -100 and -10<br /><br /></span><span style="color: #007700">echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$rand1</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo </span><span style="color: #0000BB">gmp_strval</span><span style="color: #007700">(</span><span style="color: #0000BB">$rand2</span><span style="color: #007700">) . </span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">42
+-67</pre>
+</div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+</div></div></div></body></html>

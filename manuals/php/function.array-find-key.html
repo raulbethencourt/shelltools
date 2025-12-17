@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Returns the key of the first element satisfying a callback function</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.array-find.html">« array_find</a></li>
+      <li style="float: right;"><a href="function.array-flip.html">array_flip »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.array.html">Array Functions</a></li>
+    <li>Returns the key of the first element satisfying a callback function</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.array-find-key" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">array_find_key</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.4.0)</p><p class="refpurpose"><span class="refname">array_find_key</span> &mdash; <span class="dc-title">Returns the key of the first element satisfying a callback function</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.array-find-key-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>array_find_key</strong></span>(<span class="methodparam"><span class="type"><a href="language.types.array.html" class="type array">array</a></span> <code class="parameter">$array</code></span>, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+
+  <p class="simpara">
+   <span class="function"><strong>array_find_key()</strong></span> returns the key of the first element of an
+   <span class="type"><a href="language.types.array.html" class="type array">array</a></span> for which the given <code class="parameter">callback</code> returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>.
+   If no matching element is found the function returns <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.array-find-key-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">array</code></dt>
+    <dd>
+     <span class="simpara">
+      The <span class="type"><a href="language.types.array.html" class="type array">array</a></span> that should be searched.
+     </span>
+    </dd>
+   
+   
+    <dt><code class="parameter">callback</code></dt>
+    <dd>
+     <p class="para">
+      The callback function to call to check each element, which must be
+      <div class="methodsynopsis dc-description"><span class="methodname"><span class="replaceable">callback</span></span>(<span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>, <span class="methodparam"><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span> <code class="parameter">$key</code></span>): <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></div>
+
+      If this function returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>, the key is returned from
+      <span class="function"><strong>array_find_key()</strong></span> and the callback will not be called
+      for further elements.
+     </p>
+    </dd>
+   
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.array-find-key-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="simpara">
+   The function returns the key of the first element for which the
+   <code class="parameter">callback</code> returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>. If no matching element is
+   found the function returns <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.array-find-key-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="example-5086">
+   <p><strong>Example #1 <span class="function"><strong>array_find_key()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$array </span><span style="color: #007700">= [<br />    </span><span style="color: #DD0000">'a' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'dog'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'b' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'c' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'cow'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'d' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'duck'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'e' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'goose'</span><span style="color: #007700">,<br />    </span><span style="color: #DD0000">'f' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'elephant'<br /></span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">// Find the first animal with a name longer than 4 characters.<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_find_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, function (</span><span style="color: #0000BB">string $value</span><span style="color: #007700">) {<br />    return </span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">) &gt; </span><span style="color: #0000BB">4</span><span style="color: #007700">;<br />}));<br /><br /></span><span style="color: #FF8000">// Find the first animal whose name begins with f.<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_find_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, function (</span><span style="color: #0000BB">string $value</span><span style="color: #007700">) {<br />    return </span><span style="color: #0000BB">str_starts_with</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #DD0000">'f'</span><span style="color: #007700">);<br />}));<br /><br /></span><span style="color: #FF8000">// Find the first animal where the array key is the first symbol of the animal.<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_find_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, function (</span><span style="color: #0000BB">string $value</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">) {<br />   return </span><span style="color: #0000BB">$value</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">] === </span><span style="color: #0000BB">$key</span><span style="color: #007700">;<br />}));<br /><br /></span><span style="color: #FF8000">// Find the first animal where the array key matching a RegEx.<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_find_key</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">, function (</span><span style="color: #0000BB">$value</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">) {<br />   return </span><span style="color: #0000BB">preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/^([a-f])$/'</span><span style="color: #007700">, </span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br />}));<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+   <div class="example-contents"><p>The above example will output:</p></div>
+   <div class="example-contents screen">
+<div class="examplescode"><pre class="examplescode">string(1) &quot;e&quot;
+NULL
+string(1) &quot;c&quot;
+string(1) &quot;a&quot;</pre>
+</div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.array-find-key-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="function"><a href="function.array-find.html" class="function" rel="rdfs-seeAlso">array_find()</a> - Returns the first element satisfying a callback function</span></li>
+   <li><span class="function"><a href="function.array-all.html" class="function" rel="rdfs-seeAlso">array_all()</a> - Checks if all array elements satisfy a callback function</span></li>
+   <li><span class="function"><a href="function.array-any.html" class="function" rel="rdfs-seeAlso">array_any()</a> - Checks if at least one array element satisfies a callback function</span></li>
+   <li><span class="function"><a href="function.array-filter.html" class="function" rel="rdfs-seeAlso">array_filter()</a> - Filters elements of an array using a callback function</span></li>
+   <li><span class="function"><a href="function.array-reduce.html" class="function" rel="rdfs-seeAlso">array_reduce()</a> - Iteratively reduce the array to a single value using a callback function</span></li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

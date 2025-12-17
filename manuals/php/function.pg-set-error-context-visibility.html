@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Determines the visibility of the context's error messages returned by pg_last_error
+   and pg_result_error</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="function.pg-set-client-encoding.html">« pg_set_client_encoding</a></li>
+      <li style="float: right;"><a href="function.pg-set-error-verbosity.html">pg_set_error_verbosity »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="ref.pgsql.html">PostgreSQL Functions</a></li>
+    <li>Determines the visibility of the context's error messages returned by pg_last_error
+   and pg_result_error</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="function.pg-set-error-context-visibility" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">pg_set_error_context_visibility</h1>
+  <p class="verinfo">(PHP 8 &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">pg_set_error_context_visibility</span> &mdash; <span class="dc-title">
+   Determines the visibility of the context&#039;s error messages returned by <span class="function"><a href="function.pg-last-error.html" class="function">pg_last_error()</a></span>
+   and <span class="function"><a href="function.pg-result-error.html" class="function">pg_result_error()</a></span>
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.pg-set-error-context-visibility-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="methodname"><strong>pg_set_error_context_visibility</strong></span>(<span class="methodparam"><span class="type"><a href="class.pgsql-connection.html" class="type PgSql\Connection">PgSql\Connection</a></span> <code class="parameter">$connection</code></span>, <span class="methodparam"><span class="type"><a href="language.types.integer.html" class="type int">int</a></span> <code class="parameter">$visibility</code></span>): <span class="type"><a href="language.types.integer.html" class="type int">int</a></span></div>
+
+  <p class="para rdfs-comment">
+   Determines the visibility of the context&#039;s error messages returned by <span class="function"><a href="function.pg-last-error.html" class="function">pg_last_error()</a></span>
+   and <span class="function"><a href="function.pg-result-error.html" class="function">pg_result_error()</a></span>
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.pg-set-error-context-visibility-parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+    
+     <dt><code class="parameter">connection</code></dt>
+     <dd>
+      <p class="para">An <span class="classname"><a href="class.pgsql-connection.html" class="classname">PgSql\Connection</a></span> instance.</p>
+     </dd>
+    
+    
+     <dt><code class="parameter">visibility</code></dt>
+     <dd>
+      <p class="para">
+       The required visibility: <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-never">PGSQL_SHOW_CONTEXT_NEVER</a></code></strong>,
+       <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-errors">PGSQL_SHOW_CONTEXT_ERRORS</a></code></strong>
+       or <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-always">PGSQL_SHOW_CONTEXT_ALWAYS</a></code></strong>.
+      </p>
+     </dd>
+    
+   </dl>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.pg-set-error-context-visibility-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   The previous visibility level: <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-never">PGSQL_SHOW_CONTEXT_NEVER</a></code></strong>,
+   <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-errors">PGSQL_SHOW_CONTEXT_ERRORS</a></code></strong>
+   or <strong><code><a href="pgsql.constants.html#constant.pgsql-show-context-always">PGSQL_SHOW_CONTEXT_ALWAYS</a></code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.pg-set-error-context-visibility-examples">
+  <h3 class="title">Examples</h3>
+  <div class="example" id="function.pg-set-error-context-visibility.example.basic">
+   <p><strong>Example #1 <span class="function"><strong>pg_set_error_context_visibility()</strong></span> example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />  $dbconn </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">) or die(</span><span style="color: #DD0000">"Could not connect"</span><span style="color: #007700">);<br /><br />  if (!</span><span style="color: #0000BB">pg_connection_busy</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">)) {<br />      </span><span style="color: #0000BB">pg_send_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">, </span><span style="color: #DD0000">"select * from doesnotexist;"</span><span style="color: #007700">);<br />  }<br /><br />  </span><span style="color: #0000BB">pg_set_error_context_visibility</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">, </span><span style="color: #0000BB">PGSQL_SHOW_CONTEXT_ALWAYS</span><span style="color: #007700">);<br />  </span><span style="color: #0000BB">$res1 </span><span style="color: #007700">= </span><span style="color: #0000BB">pg_get_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbconn</span><span style="color: #007700">);<br />  echo </span><span style="color: #0000BB">pg_result_error</span><span style="color: #007700">(</span><span style="color: #0000BB">$res1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.pg-set-error-context-visibility-seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li><span class="function"><a href="function.pg-last-error.html" class="function" rel="rdfs-seeAlso">pg_last_error()</a> - Get the last error message string of a connection</span></li>
+    <li><span class="function"><a href="function.pg-result-error.html" class="function" rel="rdfs-seeAlso">pg_result_error()</a> - Get error message associated with result</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div></div></div></body></html>

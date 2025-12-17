@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>New Functions</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="migration84.new-classes.html">« New Classes, Enums, and Interfaces</a></li>
+      <li style="float: right;"><a href="migration84.constants.html">New Global Constants »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="migration84.html">Migrating from PHP 8.3.x to PHP 8.4.x</a></li>
+    <li>New Functions</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="migration84.new-functions" class="sect1">
+ <h2 class="title">New Functions</h2>
+
+ <div class="sect2" id="migration84.new-functions.core">
+  <h3 class="title">Core</h3>
+
+  <ul class="simplelist">
+   
+   <li><span class="function"><a href="function.request-parse-body.html" class="function">request_parse_body()</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.bcmath">
+  <h3 class="title">BCMath</h3>
+
+  <ul class="simplelist">
+   
+   
+   <li><span class="function"><a href="function.bcceil.html" class="function">bcceil()</a></span></li>
+   <li><span class="function"><a href="function.bcdivmod.html" class="function">bcdivmod()</a></span></li>
+   <li><span class="function"><a href="function.bcfloor.html" class="function">bcfloor()</a></span></li>
+   <li><span class="function"><a href="function.bcround.html" class="function">bcround()</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.date">
+  <h3 class="title">Date</h3>
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><strong>DateTime::createFromTimestamp()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>DateTime::getMicrosecond()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>DateTime::setMicrosecond()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>DateTimeImmutable::createFromTimestamp()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>DateTimeImmutable::getMicrosecond()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>DateTimeImmutable::setMicrosecond()</strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.dom">
+  <h3 class="title">DOM</h3>
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="domnode.comparedocumentposition.html" class="methodname">DOMNode::compareDocumentPosition()</a></span>
+   </li>
+   
+   <li>
+    <span class="methodname"><strong>DOMXPath::registerPhpFunctionNS()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="domxpath.quote.html" class="methodname">DOMXPath::quote()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="domnode.comparedocumentposition.html" class="methodname">DOMNode::compareDocumentPosition()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.hash">
+  <h3 class="title">Hash</h3>
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><strong>HashContext::__debugInfo()</strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.intl">
+  <h3 class="title">Intl</h3>
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><strong>IntlDateFormatter::getIanaID()</strong></span>
+   </li>
+   <li><span class="function"><strong>intltz_get_iana_id()</strong></span></li>
+   <li>
+    <span class="methodname"><strong>IntlDateFormatter::parseToCalendar()</strong></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>SpoofChecker::setAllowedChars()</strong></span>
+   </li>
+   
+   <li><span class="function"><a href="function.grapheme-str-split.html" class="function">grapheme_str_split()</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.mbstring">
+  <h3 class="title">MBString</h3>
+
+  <ul class="simplelist">
+   
+   <li><span class="function"><a href="function.mb-trim.html" class="function">mb_trim()</a></span></li>
+   <li><span class="function"><a href="function.mb-ltrim.html" class="function">mb_ltrim()</a></span></li>
+   <li><span class="function"><a href="function.mb-rtrim.html" class="function">mb_rtrim()</a></span></li>
+   
+   <li><span class="function"><a href="function.mb-ucfirst.html" class="function">mb_ucfirst()</a></span></li>
+   <li><span class="function"><a href="function.mb-lcfirst.html" class="function">mb_lcfirst()</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.opcache">
+  <h3 class="title">Opcache</h3>
+  <ul class="simplelist">
+   <li><span class="function"><strong>opcache_jit_blacklist()</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.pcntl">
+  <h3 class="title">PCNTL</h3>
+
+  <ul class="simplelist">
+   <li><span class="function"><strong>pcntl_getcpu()</strong></span></li>
+   <li><span class="function"><strong>pcntl_getcpuaffinity()</strong></span></li>
+   <li><span class="function"><strong>pcntl_getqos_class()</strong></span></li>
+   <li><span class="function"><strong>pcntl_setns()</strong></span></li>
+   <li><span class="function"><a href="function.pcntl-waitid.html" class="function">pcntl_waitid()</a></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.pdo-pgsql">
+  <h3 class="title">PDO_PGSQL</h3>
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><strong>Pdo\Pgsql::setNoticeCallback()</strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.pgsql">
+  <h3 class="title">PGSQL</h3>
+
+  <ul class="simplelist">
+   <li><span class="function"><strong>pg_change_password()</strong></span></li>
+   <li><span class="function"><strong>pg_jit()</strong></span></li>
+   <li><span class="function"><strong>pg_put_copy_data()</strong></span></li>
+   <li><span class="function"><strong>pg_put_copy_end()</strong></span></li>
+   <li><span class="function"><a href="function.pg-result-memory-size.html" class="function">pg_result_memory_size()</a></span></li>
+   <li><span class="function"><a href="function.pg-set-chunked-rows-size.html" class="function">pg_set_chunked_rows_size()</a></span></li>
+   <li><span class="function"><strong>pg_socket_poll()</strong></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.reflection">
+  <h3 class="title">Reflection</h3>
+
+  <p class="para">
+   
+   
+   The following methods relate to the new lazy object feature:
+   <ul class="simplelist">
+    <li>
+     <span class="methodname"><a href="reflectionclass.newlazyghost.html" class="methodname">ReflectionClass::newLazyGhost()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.newlazyproxy.html" class="methodname">ReflectionClass::newLazyProxy()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.resetaslazyghost.html" class="methodname">ReflectionClass::resetAsLazyGhost()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.resetaslazyproxy.html" class="methodname">ReflectionClass::resetAsLazyProxy()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.isuninitializedlazyobject.html" class="methodname">ReflectionClass::isUninitializedLazyObject()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.initializelazyobject.html" class="methodname">ReflectionClass::initializeLazyObject()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.marklazyobjectasinitialized.html" class="methodname">ReflectionClass::markLazyObjectAsInitialized()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionclass.getlazyinitializer.html" class="methodname">ReflectionClass::getLazyInitializer()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionproperty.skiplazyinitialization.html" class="methodname">ReflectionProperty::skipLazyInitialization()</a></span>
+    </li>
+    <li>
+     <span class="methodname"><a href="reflectionproperty.setrawvaluewithoutlazyinitialization.html" class="methodname">ReflectionProperty::setRawValueWithoutLazyInitialization()</a></span>
+    </li>
+   </ul>
+  </p>
+
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="reflectionclassconstant.isdeprecated.html" class="methodname">ReflectionClassConstant::isDeprecated()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="reflectiongenerator.isclosed.html" class="methodname">ReflectionGenerator::isClosed()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><strong>ReflectionProperty::isDynamic()</strong></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.sodium">
+  <h3 class="title">Sodium</h3>
+
+  <ul class="simplelist">
+   <li><span class="function"><strong>sodium_crypto_aead_aegis128l_()</strong><span class="replaceable">*</span></span></li>
+   <li><span class="function"><strong>sodium_crypto_aead_aegis256l_()</strong><span class="replaceable">*</span></span></li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.spl">
+  <h3 class="title">SPL</h3>
+
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="splobjectstorage.seek.html" class="methodname">SplObjectStorage::seek()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.soap">
+  <h3 class="title">SOAP</h3>
+
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="soapserver.getlastresponse.html" class="methodname">SoapServer::__getLastResponse()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.standard">
+  <h3 class="title">Standard</h3>
+
+  <ul class="simplelist">
+   <li><span class="function"><a href="function.http-get-last-response-headers.html" class="function">http_get_last_response_headers()</a></span></li>
+   <li><span class="function"><a href="function.http-clear-last-response-headers.html" class="function">http_clear_last_response_headers()</a></span></li>
+   
+   <li><span class="function"><a href="function.fpow.html" class="function">fpow()</a></span></li>
+   
+   <li><span class="function"><a href="function.array-all.html" class="function">array_all()</a></span></li>
+   <li><span class="function"><a href="function.array-any.html" class="function">array_any()</a></span></li>
+   <li><span class="function"><a href="function.array-find.html" class="function">array_find()</a></span></li>
+   <li><span class="function"><a href="function.array-find-key.html" class="function">array_find_key()</a></span></li>
+   
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.tidy">
+  <h3 class="title">Tidy</h3>
+
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="tidynode.getnextsibling.html" class="methodname">tidyNode::getNextSibling()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="tidynode.getprevioussibling.html" class="methodname">tidyNode::getPreviousSibling()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.xmlreader">
+  <h3 class="title">XMLReader</h3>
+
+  
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="xmlreader.fromstream.html" class="methodname">XMLReader::fromStream()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="xmlreader.fromuri.html" class="methodname">XMLReader::fromUri()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="xmlreader.fromstring.html" class="methodname">XMLReader::fromString()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.xmlwriter">
+  <h3 class="title">XMLWriter</h3>
+
+  
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><a href="xmlwriter.tostream.html" class="methodname">XMLWriter::toStream()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="xmlwriter.touri.html" class="methodname">XMLWriter::toUri()</a></span>
+   </li>
+   <li>
+    <span class="methodname"><a href="xmlwriter.tomemory.html" class="methodname">XMLWriter::toMemory()</a></span>
+   </li>
+  </ul>
+ </div>
+
+ <div class="sect2" id="migration84.new-functions.xsl">
+  <h3 class="title">XSL</h3>
+
+  
+  <ul class="simplelist">
+   <li>
+    <span class="methodname"><strong>XSLTProcessor::registerPhpFunctionNS()</strong></span>
+   </li>
+  </ul>
+ </div>
+
+</div></div></div></body></html>

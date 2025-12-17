@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Encrypts a match or aggregate expression</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="mongodb-driver-clientencryption.encrypt.html">« MongoDB\Driver\ClientEncryption::encrypt</a></li>
+      <li style="float: right;"><a href="mongodb-driver-clientencryption.getkey.html">MongoDB\Driver\ClientEncryption::getKey »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="class.mongodb-driver-clientencryption.html">MongoDB\Driver\ClientEncryption</a></li>
+    <li>Encrypts a match or aggregate expression</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="mongodb-driver-clientencryption.encryptexpression" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoDB\Driver\ClientEncryption::encryptExpression</h1>
+  <p class="verinfo">(mongodb &gt;=1.16.0)</p><p class="refpurpose"><span class="refname">MongoDB\Driver\ClientEncryption::encryptExpression</span> &mdash; <span class="dc-title">Encrypts a match or aggregate expression</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongodb-driver-clientencryption.encryptexpression-description">
+  <h3 class="title">Description</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="methodname"><strong>MongoDB\Driver\ClientEncryption::encryptExpression</strong></span>(<span class="methodparam"><span class="type"><span class="type"><a href="language.types.array.html" class="type array">array</a></span>|<span class="type"><a href="language.types.object.html" class="type object">object</a></span></span> <code class="parameter">$expr</code></span>, <span class="methodparam"><span class="type"><span class="type"><a href="language.types.null.html" class="type null">?</a></span><span class="type"><a href="language.types.array.html" class="type array">array</a></span></span> <code class="parameter">$options</code><span class="initializer"> = <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong></span></span>): <span class="type"><a href="language.types.object.html" class="type object">object</a></span></div>
+
+  <p class="para rdfs-comment">
+   Encrypts a match or aggregate expression to query a range index.
+  </p>
+  <p class="para">To query with a range encrypted payload, the <span class="classname"><a href="class.mongodb-driver-manager.html" class="classname">MongoDB\Driver\Manager</a></span> must be configured with the <code class="literal">&quot;autoEncryption&quot;</code> driver option. The <code class="literal">&quot;bypassQueryAnalysis&quot;</code> auto encryption option may be <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong>. The <code class="literal">&quot;bypassAutoEncryption&quot;</code> auto encryption option must be <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong>.</p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">The extension does not yet support range queries for Decimal128 BSON field types.</p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongodb-driver-clientencryption.encryptexpression-parameters">
+  <h3 class="title">Parameters</h3>
+  <dl>
+   
+    <dt><code class="parameter">expr</code></dt>
+    <dd>
+     <p class="para">
+      The match or aggregate expression to be encrypted. Expressions must use at
+      least one of the <code class="literal">$gt</code>, <code class="literal">$gte</code>,
+      <code class="literal">$lt</code>, or <code class="literal">$lte</code> operators. A top-level
+      <code class="literal">$and</code> operator is required, even if only a single
+      comparison operator is used.
+     </p>
+     <p class="para">
+      An example of a supported match expression (applies to queries and the
+      <code class="literal">$match</code> aggregation stage) is as follows:
+     </p>
+     <div class="example-contents">
+<div class="textcode"><pre class="textcode">[
+    &#039;$and&#039; =&gt; [
+        [ &#039;&lt;field&gt;&#039; =&gt; [ &#039;$gt&#039;  =&gt; &#039;&lt;value1&gt;&#039; ] ],
+        [ &#039;&lt;field&gt;&#039; =&gt; [ &#039;$lte&#039; =&gt; &#039;&lt;value2&gt;&#039; ] ],
+    ],
+]</pre>
+</div>
+     </div>
+
+     <p class="para">
+      An example of a supported aggregate expression is as follows:
+     </p>
+     <div class="example-contents">
+<div class="textcode"><pre class="textcode">[
+    &#039;$and&#039; =&gt; [
+        [ &#039;$gte&#039; =&gt; [ &#039;&lt;fieldPath&gt;&#039;, &#039;&lt;value1&gt;&#039; ] ],
+        [ &#039;$lt&#039;  =&gt; [ &#039;&lt;fieldPath&gt;&#039;, &#039;&lt;value2&gt;&#039; ] ],
+    ],
+]</pre>
+</div>
+     </div>
+
+    </dd>
+   
+   
+   
+    <dt><code class="parameter">options</code></dt>
+    <dd>
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>Encryption options</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Description</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td>algorithm</td>
+          <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+          <td>
+           <p class="para">
+            The encryption algorithm to be used. This option is required.
+            Specify one of the following
+            <a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants" class="link">ClientEncryption constants</a>:
+           </p>
+           <ul class="simplelist">
+            <li><strong><code>MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_DETERMINISTIC</code></strong></li>
+            <li><strong><code>MongoDB\Driver\ClientEncryption::AEAD_AES_256_CBC_HMAC_SHA_512_RANDOM</code></strong></li>
+            <li><strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-indexed">MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</a></code></strong></li>
+            <li><strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-unindexed">MongoDB\Driver\ClientEncryption::ALGORITHM_UNINDEXED</a></code></strong></li>
+            <li><strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-range">MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE</a></code></strong></li>
+           </ul>
+          </td>
+         </tr>
+
+         <tr>
+          <td>contentionFactor</td>
+          <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+          <td>
+           <p class="para">
+            The contention factor for evaluating queries with indexed, encrypted
+            payloads.
+           </p>
+           <p class="para">
+            This option only applies and may only be specified when
+            <code class="literal">algorithm</code> is
+            <strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-indexed">MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</a></code></strong>
+            or
+            <strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-range">MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE</a></code></strong>.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>keyAltName</td>
+          <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+          <td>
+           <p class="para">
+            Identifies a key vault collection document by
+            <code class="literal">keyAltName</code>. This option is mutually exclusive
+            with <code class="literal">keyId</code> and exactly one is required.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>keyId</td>
+          <td><span class="classname"><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></span></td>
+          <td>
+           <p class="para">
+            Identifies a data key by <code class="literal">_id</code>. The value is a UUID
+            (binary subtype 4). This option is mutually exclusive with
+            <code class="literal">keyAltName</code> and exactly one is required.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>queryType</td>
+          <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+          <td>
+           <p class="para">
+            The query type for evaluating queries with indexed, encrypted
+            payloads. Specify one of the following
+            <a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants" class="link">ClientEncryption constants</a>:
+           </p>
+           <ul class="simplelist">
+            <li><strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.query-type-equality">MongoDB\Driver\ClientEncryption::QUERY_TYPE_EQUALITY</a></code></strong></li>
+            <li><strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.query-type-range">MongoDB\Driver\ClientEncryption::QUERY_TYPE_RANGE</a></code></strong></li>
+           </ul>
+           <p class="para">
+            This option only applies and may only be specified when
+            <code class="literal">algorithm</code> is
+            <strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-indexed">MongoDB\Driver\ClientEncryption::ALGORITHM_INDEXED</a></code></strong>
+            or <strong><code><a href="class.mongodb-driver-clientencryption.html#mongodb-driver-clientencryption.constants.algorithm-range">MongoDB\Driver\ClientEncryption::ALGORITHM_RANGE</a></code></strong>.
+           </p>
+          </td>
+         </tr>
+
+         <tr>
+          <td>rangeOpts</td>
+          <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+          <td>
+           <p class="para">
+            Index options for a queryable encryption field supporting &quot;range&quot;
+            queries. The options below must match the values set in the
+            <code class="literal">encryptedFields</code> of the target collection. For
+            double and decimal128 BSON field types, <code class="literal">min</code>,
+            <code class="literal">max</code>, and <code class="literal">precision</code> must all be
+            set, or all be unset.
+           </p>
+           <p class="para">
+            <table class="doctable table">
+             <caption><strong>Range index options</strong></caption>
+             
+              <thead>
+               <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Description</th>
+               </tr>
+
+              </thead>
+
+              <tbody class="tbody">
+               <tr>
+                <td>min</td>
+                <td><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></td>
+                <td>
+                 Required if <code class="literal">precision</code> is set. The minimum
+                 BSON value of the range.
+                </td>
+               </tr>
+
+               <tr>
+                <td>max</td>
+                <td><span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></td>
+                <td>
+                 Required if <code class="literal">precision</code> is set. The maximum
+                 BSON value of the range.
+                </td>
+               </tr>
+
+               <tr>
+                <td>sparsity</td>
+                <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+                <td>Optional. Positive 64-bit integer.</td>
+               </tr>
+
+               <tr>
+                <td>precision</td>
+                <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+                <td>
+                 Optional. Positive 32-bit integer specifying precision to use
+                 for explicit encryption. May only be set for double or
+                 decimal128 BSON field types.
+                </td>
+               </tr>
+
+               <tr>
+                <td>trimFactor</td>
+                <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+                <td>Optional. Positive 32-bit integer.</td>
+               </tr>
+
+              </tbody>
+             
+            </table>
+
+           </p>
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </p>
+    </dd>
+   
+
+  </dl>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongodb-driver-clientencryption.encryptexpression-returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns the encrypted expression as an object.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongodb-driver-clientencryption.encryptexpression-errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <ul class="simplelist">
+   <li>Throws <span class="classname"><a href="class.mongodb-driver-exception-invalidargumentexception.html" class="classname">MongoDB\Driver\Exception\InvalidArgumentException</a></span> on argument parsing errors.</li>
+   <li>Throws <span class="classname"><a href="class.mongodb-driver-exception-encryptionexception.html" class="classname">MongoDB\Driver\Exception\EncryptionException</a></span> if an error occurs while encrypting the expression</li>
+  </ul>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mongodb-driver-clientencryption.encryptexpression-changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>PECL mongodb 1.20.0</td>
+       <td>
+        Added the <code class="literal">&quot;trimFactor&quot;</code> range option. The
+        <code class="literal">&quot;sparsity&quot;</code> range option is now optional.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongodb-driver-clientencryption.encryptexpression-seealso">
+  <h3 class="title">See Also</h3>
+  <ul class="simplelist">
+   <li><span class="function"><a href="mongodb-driver-manager.construct.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\Manager::__construct()</a> - Create new MongoDB Manager</span></li>
+   <li><span class="function"><a href="mongodb-driver-clientencryption.encrypt.html" class="function" rel="rdfs-seeAlso">MongoDB\Driver\ClientEncryption::encrypt()</a> - Encrypt a value</span></li>
+  </ul>
+ </div>
+
+
+</div></div></div></body></html>

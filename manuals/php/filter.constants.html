@@ -1,0 +1,1205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Predefined Constants</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="filter.filters.flags.html">« Filter flags</a></li>
+      <li style="float: right;"><a href="filter.examples.html">Examples »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="book.filter.html">Filter</a></li>
+    <li>Predefined Constants</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="filter.constants" class="appendix">
+ <h1 class="title">Predefined Constants</h1>
+
+ <p class="simpara">
+The constants below are defined by this extension, and
+will only be available when the extension has either
+been compiled into PHP or dynamically loaded at runtime.
+</p>
+
+ <dl>
+  <strong class="title">Input Constants</strong>
+  <p class="simpara">
+   These constants are used by
+   <span class="function"><a href="function.filter-input.html" class="function">filter_input()</a></span> and
+   <span class="function"><a href="function.filter-input-array.html" class="function">filter_input_array()</a></span>.
+  </p>
+  
+   <dt id="constant.input-post">
+    <strong><code><a href="filter.constants.html#constant.input-post">INPUT_POST</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.post.html" class="link">POST</a> variables.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-get">
+    <strong><code><a href="filter.constants.html#constant.input-get">INPUT_GET</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.get.html" class="link">GET</a> variables.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-cookie">
+    <strong><code><a href="filter.constants.html#constant.input-cookie">INPUT_COOKIE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.cookies.html" class="link">COOKIE</a> variables.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-env">
+    <strong><code><a href="filter.constants.html#constant.input-env">INPUT_ENV</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.environment.html" class="link">ENV</a> variables.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-server">
+    <strong><code><a href="filter.constants.html#constant.input-server">INPUT_SERVER</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.server.html" class="link">SERVER</a> variables.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-session">
+    <strong><code><a href="filter.constants.html#constant.input-session">INPUT_SESSION</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.session.html" class="link">SESSION</a> variables.
+     (Removed as of PHP 8.0.0; was not implemented previously)
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.input-request">
+    <strong><code><a href="filter.constants.html#constant.input-request">INPUT_REQUEST</a></code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     <a href="reserved.variables.request.html" class="link">REQUEST</a> variables.
+     (Removed as of PHP 8.0.0; was not implemented previously)
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl id="filter.constants.flags.generic">
+  <strong class="title">Generic Filter Flags</strong>
+  
+   <dt id="constant.filter-flag-none">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-none">FILTER_FLAG_NONE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     No flags.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-require-scalar">
+    <strong><code><a href="filter.constants.html#constant.filter-require-scalar">FILTER_REQUIRE_SCALAR</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Flag used to require the input of the filter to be a scalar.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-require-array">
+    <strong><code><a href="filter.constants.html#constant.filter-require-array">FILTER_REQUIRE_ARRAY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Flag used to require the input of the filter to be an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-force-array">
+    <strong><code><a href="filter.constants.html#constant.filter-force-array">FILTER_FORCE_ARRAY</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This flags wraps scalar inputs into a one element <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+     for filters which operate on arrays.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-null-on-failure">
+    <strong><code><a href="filter.constants.html#constant.filter-null-on-failure">FILTER_NULL_ON_FAILURE</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Use <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> instead of <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> on failure.
+    </span>
+    <span class="simpara">
+     Usable with any validation
+     <strong><code><a href="filter.constants.html#constant.filter-validate-bool">FILTER_VALIDATE_<span class="replaceable">*</span></a></code></strong>
+     filter.
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl id="filter.constants.flags.sanitization">
+  <strong class="title">Sanitization Filter Flags</strong>
+  
+   <dt id="constant.filter-flag-strip-low">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-strip-low">FILTER_FLAG_STRIP_LOW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Strip characters with ASCII value less than 32.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-strip-high">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-strip-high">FILTER_FLAG_STRIP_HIGH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Strip characters with ASCII value greater than 127.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-strip-backtick">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-strip-backtick">FILTER_FLAG_STRIP_BACKTICK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Strips backtick (<code class="literal">`</code>) characters.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-encode-low">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-encode-low">FILTER_FLAG_ENCODE_LOW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Encode characters with ASCII value less than 32.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-encode-high">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-encode-high">FILTER_FLAG_ENCODE_HIGH</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Encode characters with ASCII value greater than 127.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-encode-amp">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-encode-amp">FILTER_FLAG_ENCODE_AMP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Encode <code class="literal">&amp;</code>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-no-encode-quotes">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-no-encode-quotes">FILTER_FLAG_NO_ENCODE_QUOTES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Singe and double quotes (<code class="literal">&#039;</code> and <code class="literal">&quot;</code>)
+     will not be encoded.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-flag-empty-string-null">
+    <strong><code><a href="filter.constants.html#constant.filter-flag-empty-string-null">FILTER_FLAG_EMPTY_STRING_NULL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     
+     If sanitizing a string results in an empty string,
+     convert the value to <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong>
+    </span>
+   </dd>
+  
+ </dl>
+
+ <dl id="filter.constants.validation">
+  <strong class="title">Validation Filters</strong>
+
+  
+   <dt id="constant.filter-validate-bool">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-bool">FILTER_VALIDATE_BOOL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Returns <strong><code><a href="reserved.constants.html#constant.true">true</a></code></strong> for <code class="literal">&quot;1&quot;</code>,
+     <code class="literal">&quot;true&quot;</code>,
+     <code class="literal">&quot;on&quot;</code>,
+     and <code class="literal">&quot;yes&quot;</code>.
+    </span>
+    <span class="simpara">
+     Returns <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> for <code class="literal">&quot;0&quot;</code>,
+     <code class="literal">&quot;false&quot;</code>,
+     <code class="literal">&quot;off&quot;</code>,
+     <code class="literal">&quot;no&quot;</code>, and
+     <code class="literal">&quot;&quot;</code>.
+    </span>
+    <span class="simpara">
+     The return value for non-boolean values depends on the
+     <strong><code><a href="filter.constants.html#constant.filter-null-on-failure">FILTER_NULL_ON_FAILURE</a></code></strong>.
+     If it is set, <strong><code><a href="reserved.constants.html#constant.null">null</a></code></strong> is returned, otherwise <strong><code><a href="reserved.constants.html#constant.false">false</a></code></strong> is returned.
+    </span>
+    <dl id="filter.constants.validation.bool.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+    <span class="simpara">
+     Available as of PHP 8.0.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-boolean">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-boolean">FILTER_VALIDATE_BOOLEAN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="filter.constants.html#constant.filter-validate-bool">FILTER_VALIDATE_BOOL</a></code></strong>.
+     The alias was available prior to the introduction of its canonical
+     name in PHP 8.0.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-int">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-int">FILTER_VALIDATE_INT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the value is an integer,
+     on success it is converted to type <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.
+    </span>
+
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      String values are trimmed using <span class="function"><a href="function.trim.html" class="function">trim()</a></span>
+      before validation.
+     </span>
+    </p></blockquote>
+
+    <dl id="filter.constants.validation.int.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">min_range</code></dt>
+      <dd>
+       <span class="simpara">
+        Value is only valid if it is greater than or equal to the provided value.
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">max_range</code></dt>
+      <dd>
+       <span class="simpara">
+        Value is only valid if it is less than or equal to the provided value.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.int.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-allow-octal">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-octal">FILTER_FLAG_ALLOW_OCTAL</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        
+        Allow integers in octal notation
+        (<code class="literal">0[0-7]+</code>).
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-allow-hex">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-hex">FILTER_FLAG_ALLOW_HEX</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Allow integers in hexadecimal notation
+        (<code class="literal">0x[0-9a-fA-F]+</code>).
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-float">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-float">FILTER_VALIDATE_FLOAT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the value is a float,
+     on success it is converted to type <span class="type"><a href="language.types.float.html" class="type float">float</a></span>.
+    </span>
+
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      String values are trimmed using <span class="function"><a href="function.trim.html" class="function">trim()</a></span>
+      before validation.
+     </span>
+    </p></blockquote>
+
+    <dl id="filter.constants.validation.float.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">decimal</code></dt>
+      <dd>
+       <span class="simpara">
+        
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">min_range</code></dt>
+      <dd>
+       <span class="simpara">
+        Value is only valid if it is greater than or equal to the provided value.
+        Available as of PHP 7.4.0.
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">max_range</code></dt>
+      <dd>
+       <span class="simpara">
+        Value is only valid if it is less than or equal to the provided value.
+        Available as of PHP 7.4.0.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.float.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt>
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-thousand">FILTER_FLAG_ALLOW_THOUSAND</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Accept commas (<code class="literal">,</code>),
+        which usually represent the thousand separator.
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+  
+   <dt id="constant.filter-validate-regexp">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-regexp">FILTER_VALIDATE_REGEXP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates value against the regular expression provided by the
+     <code class="literal">regexp</code> option.
+    </span>
+
+    <dl id="filter.constants.validation.regex.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+     
+      <dt><code class="literal">regexp</code></dt>
+      <dd>
+       <span class="simpara">
+        <a href="book.pcre.html" class="link">Perl-compatible</a> regular expression.
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-url">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-url">FILTER_VALIDATE_URL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the <abbr title="Uniform Resource Locator">URL</abbr> name is valid according to
+     <a href="https://datatracker.ietf.org/doc/html/rfc2396" class="link external">&raquo;&nbsp;RFC 2396</a>.
+    </span>
+    <dl id="filter.constants.validation.url.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.url.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-scheme-required">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-scheme-required">FILTER_FLAG_SCHEME_REQUIRED</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a scheme part.
+       </span>
+       <div class="warning"><strong class="warning">Warning</strong>
+        <p class="simpara">
+         <em>DEPRECATED</em> as of PHP 7.3.0 and
+         <em>REMOVED</em> as of PHP 8.0.0.
+         This is because it is always implied by the
+         <strong><code><a href="filter.constants.html#constant.filter-validate-url">FILTER_VALIDATE_URL</a></code></strong> filter.
+        </p>
+       </div>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-host-required">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-host-required">FILTER_FLAG_HOST_REQUIRED</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a host part.
+       </span>
+       <div class="warning"><strong class="warning">Warning</strong>
+        <p class="simpara">
+         <em>DEPRECATED</em> as of PHP 7.3.0 and
+         <em>REMOVED</em> as of PHP 8.0.0.
+         This is because it is always implied by the
+         <strong><code><a href="filter.constants.html#constant.filter-validate-url">FILTER_VALIDATE_URL</a></code></strong> filter.
+        </p>
+       </div>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-path-required">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-path-required">FILTER_FLAG_PATH_REQUIRED</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a path part.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-query-required">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-query-required">FILTER_FLAG_QUERY_REQUIRED</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Requires the <abbr title="Uniform Resource Locator">URL</abbr> to contain a query part.
+       </span>
+      </dd>
+     
+    </dl>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      A valid <abbr title="Uniform Resource Locator">URL</abbr> may not specify the
+      <abbr title="Hypertext Transfer Protocol">HTTP</abbr> protocol (<code class="literal">http://</code>).
+      Therefore, further validation may be required to determine if the
+      <abbr title="Uniform Resource Locator">URL</abbr> uses an expected protocol,
+      e.g. <code class="literal">ssh://</code> or <code class="literal">mailto:</code>.
+     </p>
+    </div>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      This filter only works on <abbr title="American Standard Code for Information Interchange">ASCII</abbr> <abbr title="Uniform Resource Locator">URL</abbr>s.
+      This means that Internationalized Domain Names (IDN) will always be rejected.
+     </p>
+    </div>
+   </dd>
+  
+  
+   <dt id="constant.filter-validate-domain">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-domain">FILTER_VALIDATE_DOMAIN</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the domain name is valid according to
+     <a href="https://datatracker.ietf.org/doc/html/rfc952" class="link external">&raquo;&nbsp;RFC 952</a>,
+     <a href="https://datatracker.ietf.org/doc/html/rfc1034" class="link external">&raquo;&nbsp;RFC 1034</a>,
+     <a href="https://datatracker.ietf.org/doc/html/rfc1035" class="link external">&raquo;&nbsp;RFC 1035</a>,
+     <a href="https://datatracker.ietf.org/doc/html/rfc1034" class="link external">&raquo;&nbsp;RFC 1123</a>,
+     <a href="https://datatracker.ietf.org/doc/html/rfc1034" class="link external">&raquo;&nbsp;RFC 2732</a>,
+     and
+     <a href="https://datatracker.ietf.org/doc/html/rfc2181" class="link external">&raquo;&nbsp;RFC 2181</a>.
+    </span>
+    <dl id="filter.constants.validation.domain.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.domain.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-hostname">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-hostname">FILTER_FLAG_HOSTNAME</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Require hostnames to start with an alphanumeric character and contain
+        only alphanumerics or hyphens.
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+  
+   <dt id="constant.filter-validate-email">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-email">FILTER_VALIDATE_EMAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the value is a &quot;valid&quot; e-mail address.
+    </span>
+
+    <span class="simpara">
+     The validation is performed against the <code class="literal">addr-spec</code>
+     syntax in
+     <a href="https://datatracker.ietf.org/doc/html/rfc822" class="link external">&raquo;&nbsp;RFC 822</a>.
+     However, comments, whitespace folding, and dotless domain names
+     are not supported, and thus will be rejected.
+    </span>
+
+    <dl id="filter.constants.validation.email.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.email.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-email-unicode">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-email-unicode">FILTER_FLAG_EMAIL_UNICODE</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Accepts Unicode characters in the local part.
+        Available as of PHP 7.1.0.
+       </span>
+      </dd>
+     
+    </dl>
+
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Email validation is complex and the only true way to confirm an email
+      is valid and exists is to send an email to the address.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-ip">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-ip">FILTER_VALIDATE_IP</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     Validates value as IP address.
+    </p>
+    <dl id="filter.constants.validation.ip.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+    <dl id="filter.constants.validation.ip.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-ipv4">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-ipv4">FILTER_FLAG_IPV4</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Allow IPv4 address.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-ipv6">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-ipv6">FILTER_FLAG_IPV6</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Allow IPv6 address.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-no-res-range">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-no-res-range">FILTER_FLAG_NO_RES_RANGE</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Deny reserved addresses.
+       </span>
+       <span class="simpara">
+        These are the ranges that are marked as
+        <code class="literal">Reserved-By-Protocol</code> in
+        <a href="https://datatracker.ietf.org/doc/html/rfc6890" class="link external">&raquo;&nbsp;RFC 6890</a>.
+       </span>
+       <p class="para">
+        Which for IPv4 corresponds to the following ranges:
+        <span class="simplelist"><code class="literal">0.0.0.0/8</code>, <code class="literal">169.254.0.0/16</code>, <code class="literal">127.0.0.0/8</code>, <code class="literal">240.0.0.0/4</code></span>.
+       </p>
+       <p class="para">
+        And for IPv6 corresponds to the following ranges:
+        <span class="simplelist"><code class="literal">::1/128</code>, <code class="literal">::/128</code>, <code class="literal">::FFFF:0:0/96</code>, <code class="literal">FE80::/10</code></span>.
+       </p>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-no-priv-range">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-no-priv-range">FILTER_FLAG_NO_PRIV_RANGE</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Deny private addresses.
+       </span>
+       <p class="para">
+        These are IPv4 addresses which are in the following ranges:
+        <span class="simplelist"><code class="literal">10.0.0.0/8</code>, <code class="literal">172.16.0.0/12</code>, <code class="literal">192.168.0.0/16</code></span>.
+       </p>
+       <span class="simpara">
+        These are IPv6 addresses starting with
+        <code class="literal">FD</code> or <code class="literal">FC</code>.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-global-range">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-global-range">FILTER_FLAG_GLOBAL_RANGE</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Only allow global addresses.
+        These can be found in
+        <a href="https://datatracker.ietf.org/doc/html/rfc6890" class="link external">&raquo;&nbsp;RFC 6890</a>
+        where the <code class="literal">Global</code> attribute is <code class="literal">True</code>.
+        Available as of PHP 8.2.0.
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-validate-mac">
+    <strong><code><a href="filter.constants.html#constant.filter-validate-mac">FILTER_VALIDATE_MAC</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Validates whether the value is a MAC address.
+    </span>
+
+    <dl id="filter.constants.validation.mac.options">
+     <strong class="title">Available options</strong>
+     
+      <dt><code class="literal">default</code></dt>
+      <dd>
+       <span class="simpara">
+        Value to return in case the filter fails.
+       </span>
+      </dd>
+     
+    </dl>
+   </dd>
+  
+ </dl>
+
+ <dl id="filter.constants.sanitization">
+  <strong class="title">Sanitizing Filters</strong>
+  
+   <dt id="constant.filter-unsafe-raw">
+    <strong><code><a href="filter.constants.html#constant.filter-unsafe-raw">FILTER_UNSAFE_RAW</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This filter does nothing.
+    </span>
+    <span class="simpara">
+     However, it can strip or encode special characters if used together with
+     the <strong><code><a href="filter.constants.html#constant.filter-flag-strip-low">FILTER_FLAG_STRIP_<span class="replaceable">*</span></a></code></strong>
+     and <strong><code><a href="filter.constants.html#constant.filter-flag-encode-low">FILTER_FLAG_ENCODE_<span class="replaceable">*</span></a></code></strong>
+     filter sanitization flags.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-default">
+    <strong><code><a href="filter.constants.html#constant.filter-default">FILTER_DEFAULT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="filter.constants.html#constant.filter-unsafe-raw">FILTER_UNSAFE_RAW</a></code></strong>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-string">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-string">FILTER_SANITIZE_STRING</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This filter strips tags and HTML-encodes double and single quotes.
+    </span>
+    <span class="simpara">
+     Optionally it can strip or encode specified characters if used together with
+     the <strong><code><a href="filter.constants.html#constant.filter-flag-strip-low">FILTER_FLAG_STRIP_<span class="replaceable">*</span></a></code></strong>
+     and <strong><code><a href="filter.constants.html#constant.filter-flag-encode-low">FILTER_FLAG_ENCODE_<span class="replaceable">*</span></a></code></strong>
+     filter sanitization flags.
+    </span>
+    <span class="simpara">
+     The behaviour of encoding quotes can be disabled by using the
+     <strong><code><a href="filter.constants.html#constant.filter-flag-no-encode-quotes">FILTER_FLAG_NO_ENCODE_QUOTES</a></code></strong> filter flag.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      <em>Deprecated</em> as of PHP 8.1.0,
+      use <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> instead.
+     </p>
+    </div>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      The way this filter strips tags is not equivalent to
+      <span class="function"><a href="function.strip-tags.html" class="function">strip_tags()</a></span>.
+     </p>
+    </div>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-stripped">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-stripped">FILTER_SANITIZE_STRIPPED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="filter.constants.html#constant.filter-sanitize-string">FILTER_SANITIZE_STRING</a></code></strong>.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      <em>Deprecated</em> as of PHP 8.1.0,
+      use <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> instead.
+     </p>
+    </div>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-encoded">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-encoded">FILTER_SANITIZE_ENCODED</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This filter URL-encodes a string.
+    </span>
+    <span class="simpara">
+     Optionally it can strip or encode specified characters if used together with
+     the <strong><code><a href="filter.constants.html#constant.filter-flag-strip-low">FILTER_FLAG_STRIP_<span class="replaceable">*</span></a></code></strong>
+     and <strong><code><a href="filter.constants.html#constant.filter-flag-encode-low">FILTER_FLAG_ENCODE_<span class="replaceable">*</span></a></code></strong>
+     filter sanitization flags.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-special-chars">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-special-chars">FILTER_SANITIZE_SPECIAL_CHARS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <p class="para">
+     This filter HTML-encodes
+     <span class="simplelist"><code class="literal">&#039;</code>, <code class="literal">&quot;</code>, <code class="literal">&lt;</code>, <code class="literal">&gt;</code>, <code class="literal">&amp;</code></span>
+     and characters with an ASCII value less than 32.
+    </p>
+    <span class="simpara">
+     Optionally it can strip specified characters if used together with
+     the <strong><code><a href="filter.constants.html#constant.filter-flag-strip-low">FILTER_FLAG_STRIP_<span class="replaceable">*</span></a></code></strong>
+     filter sanitization flags, and it can encode characters with ASCII value
+     greater than 127 using <strong><code><a href="filter.constants.html#constant.filter-flag-encode-high">FILTER_FLAG_ENCODE_HIGH</a></code></strong>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-full-special-chars">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-full-special-chars">FILTER_SANITIZE_FULL_SPECIAL_CHARS</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This filter is equivalent to calling <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>
+     with <strong><code><a href="string.constants.html#constant.ent-quotes">ENT_QUOTES</a></code></strong> set.
+    </span>
+    <span class="simpara">
+     The behaviour of encoding quotes can be disabled by using the
+     <strong><code><a href="filter.constants.html#constant.filter-flag-no-encode-quotes">FILTER_FLAG_NO_ENCODE_QUOTES</a></code></strong> filter flag.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Like <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>, this filter is aware of the
+      <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> INI setting.
+      If a sequence of bytes is detected that makes up an invalid character
+      in the current character set then the entire string is rejected
+      resulting in a empty string being returned.
+     </p>
+    </div>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-email">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-email">FILTER_SANITIZE_EMAIL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sanitize the string by remove all characters except
+     latin letters (<code class="literal">[a-zA-Z]</code>),
+     digits (<code class="literal">[0-9]</code>),
+     and the special characters
+     <code class="literal">!#$%&amp;&#039;*+-=?^_`{|}~@.[]</code>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-url">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-url">FILTER_SANITIZE_URL</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sanitize the string by remove all characters except
+     latin letters (<code class="literal">[a-zA-Z]</code>),
+     digits (<code class="literal">[0-9]</code>),
+     and the special characters
+     <code class="literal">$-_.+!*&#039;(),{}|\\^~[]`&lt;&gt;#%&quot;;/?:@&amp;=</code>.
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-number-int">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-number-int">FILTER_SANITIZE_NUMBER_INT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sanitize the string by remove all characters except digits
+     (<code class="literal">[0-9]</code>), plus sign (<code class="literal">+</code>),
+     and minus sign (<code class="literal">-</code>).
+    </span>
+   </dd>
+  
+  
+   <dt id="constant.filter-sanitize-number-float">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-number-float">FILTER_SANITIZE_NUMBER_FLOAT</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Sanitize the string by remove all characters except digits
+     (<code class="literal">[0-9]</code>), plus sign (<code class="literal">+</code>),
+     and minus sign (<code class="literal">-</code>).
+    </span>
+
+    <dl id="filter.constants.sanitization.float.flags">
+     <strong class="title">Optional Flags</strong>
+     
+      <dt id="constant.filter-flag-allow-fraction">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-fraction">FILTER_FLAG_ALLOW_FRACTION</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Accept dot (<code class="literal">.</code>) character,
+        which usually represents the separator between the integer and
+        fractional parts.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-allow-thousand">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-thousand">FILTER_FLAG_ALLOW_THOUSAND</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Accept commas (<code class="literal">,</code>) character,
+        which usually represents the thousand separator.
+       </span>
+      </dd>
+     
+     
+      <dt id="constant.filter-flag-allow-scientific">
+       <strong><code><a href="filter.constants.html#constant.filter-flag-allow-scientific">FILTER_FLAG_ALLOW_SCIENTIFIC</a></code></strong>
+       (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+      </dt>
+      <dd>
+       <span class="simpara">
+        Accept numbers in scientific notation by allowing the
+        <code class="literal">e</code> and <code class="literal">E</code> characters.
+       </span>
+      </dd>
+     
+    </dl>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      If the <strong><code><a href="filter.constants.html#constant.filter-flag-allow-fraction">FILTER_FLAG_ALLOW_FRACTION</a></code></strong> flag is not used,
+      then the decimal separator is removed, altering the value received.
+     </p>
+     <div class="informalexample">
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br />$number </span><span style="color: #007700">= </span><span style="color: #DD0000">'12.34'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">filter_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">, </span><span style="color: #0000BB">FILTER_SANITIZE_NUMBER_FLOAT</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">filter_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$number</span><span style="color: #007700">, </span><span style="color: #0000BB">FILTER_SANITIZE_NUMBER_FLOAT</span><span style="color: #007700">, </span><span style="color: #0000BB">FILTER_FLAG_ALLOW_FRACTION</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+      </div>
+
+      <p class="para">The above example will output:</p>
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+string(4) &quot;1234&quot;
+string(5) &quot;12.34&quot;
+</pre></div>
+      </div>
+     </div>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-sanitize-add-slashes">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-add-slashes">FILTER_SANITIZE_ADD_SLASHES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Apply <span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span> to the input.
+     Available as of PHP 7.3.0.
+    </span>
+   </dd>
+  
+
+  
+   <dt id="constant.filter-sanitize-magic-quotes">
+    <strong><code><a href="filter.constants.html#constant.filter-sanitize-magic-quotes">FILTER_SANITIZE_MAGIC_QUOTES</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     Alias of <strong><code><a href="filter.constants.html#constant.filter-sanitize-add-slashes">FILTER_SANITIZE_ADD_SLASHES</a></code></strong>.
+    </span>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      <em>DEPRECATED</em> as of PHP 7.3.0 and
+      <em>REMOVED</em> as of PHP 8.0.0.
+     </p>
+    </div>
+   </dd>
+  
+ </dl>
+
+ <dl>
+  <strong class="title">User Defined Filter</strong>
+  
+   <dt id="constant.filter-callback">
+    <strong><code><a href="filter.constants.html#constant.filter-callback">FILTER_CALLBACK</a></code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+   <dd>
+    <span class="simpara">
+     This filter delegates the filtering to a user defined function.
+     The <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> is passed via the
+     <code class="parameter">options</code> parameter as the value associated to
+     the <code class="literal">&#039;options&#039;</code> key.
+    </span>
+    <p class="para">
+     The callback should have the following signature:
+     <div class="methodsynopsis dc-description">
+      <span class="methodname"><span class="replaceable">callback</span></span>(<span class="methodparam"><span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">$value</code></span>): <span class="type"><a href="language.types.mixed.html" class="type mixed">mixed</a></span></div>
+
+     <dl>
+      
+       <dt><code class="parameter">value</code></dt>
+       <dd>
+        <span class="simpara">
+         The value that is being filtered.
+        </span>
+       </dd>
+      
+     </dl>
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <span class="simpara">
+      The value returned by the callback will be the value returned by
+      the invoked filter function.
+     </span>
+    </p></blockquote>
+    <div class="example" id="example-5229">
+     <p><strong>Example #1 
+      Example of using <strong><code><a href="filter.constants.html#constant.filter-callback">FILTER_CALLBACK</a></code></strong> to validate
+      a login name
+     </strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function </span><span style="color: #0000BB">validate_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">): ?</span><span style="color: #0000BB">string<br /></span><span style="color: #007700">{<br />    if (</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">) &gt;= </span><span style="color: #0000BB">5 </span><span style="color: #007700">&amp;&amp; </span><span style="color: #0000BB">ctype_alnum</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)) {<br />        return </span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br />    }<br />    return </span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$login </span><span style="color: #007700">= </span><span style="color: #DD0000">"val1dL0gin"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$filtered_login </span><span style="color: #007700">= </span><span style="color: #0000BB">filter_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$login</span><span style="color: #007700">, </span><span style="color: #0000BB">FILTER_CALLBACK</span><span style="color: #007700">, [</span><span style="color: #DD0000">'options' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'validate_login'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$filtered_login</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$login </span><span style="color: #007700">= </span><span style="color: #DD0000">"f&amp;ke login"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$filtered_login </span><span style="color: #007700">= </span><span style="color: #0000BB">filter_var</span><span style="color: #007700">(</span><span style="color: #0000BB">$login</span><span style="color: #007700">, </span><span style="color: #0000BB">FILTER_CALLBACK</span><span style="color: #007700">, [</span><span style="color: #DD0000">'options' </span><span style="color: #007700">=&gt; </span><span style="color: #DD0000">'validate_login'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$filtered_login</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span></span></code></div>
+     </div>
+
+     <div class="example-contents"><p>The above example will output:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+string(10) &quot;val1dL0gin&quot;
+NULL
+</pre></div>
+     </div>
+    </div>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      This filter cannot be used with any other filter flags, e.g.
+      <strong><code><a href="filter.constants.html#constant.filter-null-on-failure">FILTER_NULL_ON_FAILURE</a></code></strong>.
+     </p>
+    </div>
+   </dd>
+  
+ </dl>
+</div>
+</div></div></body></html>
