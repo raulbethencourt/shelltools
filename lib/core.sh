@@ -1,4 +1,5 @@
 #!/bin/bash
+# Core utility functions for shell toolbox
 
 # Error Handling
 error_exit() {
@@ -16,6 +17,12 @@ error_usage() {
 }
 
 # Logging
+## Logging Configuration
+export __TOOLBOX_LOG_PREFIX="" # Prefix for log messages
+export __TOOLBOX_LOG_OUTPUT="" # File path for log output (empty means stdout)
+export __TOOLBOX_LOG_LEVEL=0   # Minimum log level to output (0-9, higher = more verbose)
+
+## Logging Functions
 toolbox_log() {
   # Logs messages at a specified level, outputting to file and/or stdout based on config.
   # Args: $1=level (int), $2+=message parts
@@ -45,9 +52,9 @@ toolbox_log() {
 redirect_to_log() {
   # Sets logging configuration variables; returns success if output file is set.
   # Args: $1=prefix (opt), $2=output_file (opt), $3=level (opt)
-  export __TOOLBOX_LOG_PREFIX="${1:-""}"
-  export __TOOLBOX_LOG_OUTPUT="${2:-""}"
-  export __TOOLBOX_LOG_LEVEL="${3:-0}"
+  export __TOOLBOX_LOG_PREFIX="${1:-$__TOOLBOX_LOG_PREFIX}"
+  export __TOOLBOX_LOG_OUTPUT="${2:-$__TOOLBOX_LOG_OUTPUT}"
+  export __TOOLBOX_LOG_LEVEL="${3:-$__TOOLBOX_LOG_LEVEL}"
 
   [ -n "$__TOOLBOX_LOG_OUTPUT" ] && return 0 || return 1
 }
@@ -100,8 +107,8 @@ not() {
   # Inverts a binary value (0 becomes 1, 1 becomes 0).
   # Args: $1=value (0 or 1)
   # Returns: inverted value, exits on invalid input
-  [ $1 -eq 0 ] && echo 1 && return 0
-  [ $1 -eq 1 ] && echo 0 && return 1
+  [ "$1" -eq 0 ] && echo 1 && return 0
+  [ "$1" -eq 1 ] && echo 0 && return 1
   error_exit "not() function can only be used with 0 or 1 as parameter" 2
 }
 
@@ -109,14 +116,14 @@ is_default() {
   # Checks if a variable is set to its default value (based on _is_default flag).
   # Args: $1=var_name (without _is_default suffix)
   # Returns: 0 if default, 1 otherwise
-  return [ "$(eval "echo \$${1}_is_default")" -eq 1 ]
+  [ "$(eval "echo \$${1}_is_default")" -eq 1 ] && return 0 || return 1
 }
 
 is_empty() {
   # Checks if a string is empty.
   # Args: $1=string
   # Returns: 0 (echo 1) if empty, 1 (echo 0) if not
-  [ -z $1 ] && echo 1 && return 0
+  [ -z "$1" ] && echo 1 && return 0
   echo 0 && return 1
 }
 
@@ -145,12 +152,12 @@ print_env() {
   }
 
   for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
-    varname=$(positional_print_varname $idx)
+    varname=$(positional_print_varname "$idx")
     value=$(eval "echo \${$varname}")
     echo "$varname='$value'"
   done
 
   for idx in "${toolbox_IDXES[@]}"; do
-    echo "$(option_print_varname $idx)"="$(option_print_value $idx)"
+    echo "$(option_print_varname "$idx")"="$(option_print_value "$idx")"
   done
 }

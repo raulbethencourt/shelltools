@@ -1,21 +1,6 @@
 #!/bin/bash
 
-# Function to sanitize filenames for safe usage as part of file paths
-sanitize_filename() {
-  local filename="$1"
-  # Replace problematic characters with underscores
-  echo "${filename//[^a-zA-Z0-9._-]/_}"
-}
 
-# Function to ensure output directory exists
-ensure_output_dir() {
-  [[ ! -d "$OUTPUT_DIR" ]] && {
-    mkdir -p "$OUTPUT_DIR" || {
-      error_exit "Could not create output directory: $OUTPUT_DIR" 2
-    }
-  }
-  return 0
-}
 
 initANSI() {
   # Foreground colors
@@ -49,12 +34,8 @@ initANSI() {
 
   reset=$(tput sgr0)
 }
-normalize() {
-  # Return string with first char uppercase, next two lowercase.
-  firstPart="$(/bin/echo -n "$1" | cut -c1 | tr '[:lower:]' '[:upper:]')"
-  secondPart="$(echo "$1" | cut -c2-3 | tr '[:upper:]' '[:lower:]')"
-  echo "$firstPart$secondPart"
-}
+initANSI
+
 error_exit() {
   echo "${redf}Error:${reset} $1" >&2 && exit "${2:-1}"
 }

@@ -5,33 +5,13 @@
 # ${MYVAR%%pattern}    # delete longest match of pattern from the end
 
 # Add library
-[ -f "$SHELLTOOLSPATH"/lib/.library ] && source "$SHELLTOOLSPATH"/lib/.library
-[ -f "$SHELLTOOLSPATH"/lib/core.sh ] && source "$SHELLTOOLSPATH"/lib/core.sh
+source "$SHELLTOOLSPATH"/lib/.library
+source "$SHELLTOOLSPATH"/lib/core.sh
 
 TB_EXAMPLES_TXT=()
 
-export __TOOLBOX_LOG_PREFIX=""
-export __TOOLBOX_LOG_OUTPUT=""
-export __TOOLBOX_LOG_LEVEL=0
-
 echo() {
   toolbox_log "0" "$@" || builtin echo "$@"
-}
-
-redirect_to_log() {
-  export __TOOLBOX_LOG_PREFIX="${1:-$__TOOLBOX_LOG_PREFIX}"
-  export __TOOLBOX_LOG_OUTPUT="${2:-$__TOOLBOX_LOG_OUTPUT}"
-  export __TOOLBOX_LOG_LEVEL="${3:-$__TOOLBOX_LOG_LEVEL}"
-
-  [ -n "$__TOOLBOX_LOG_OUTPUT" ] && return 0 || return 1
-}
-
-set_log_category() {
-  redirect_to_log "$1" "$__TOOLBOX_LOG_OUTPUT"
-}
-
-make_unique() {
-  echo "$@" | awk '!a[$0]++'
 }
 
 templatize() {
@@ -144,6 +124,8 @@ toolbox_print_usage() {
   nameLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
   descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
 
+  # TODO: only show it if has content
+  #   add colors
   printf "${marginText}${vertChar}\033[1mPARAMETERS\033[0m            \n"
 
   for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
@@ -566,57 +548,6 @@ _parse_options_impl() {
       value=$(eval "echo \${$varname}")
       [ -z "$value" ] && toolbox_print_usage 2 1 "Positional argument ${toolbox_POSITIONAL_NAME[$idx]} value is missing" >&2 && exit 5
     fi
-  done
-}
-
-not() {
-  [ $1 -eq 0 ] && echo 1 && return 0
-  [ $1 -eq 1 ] && echo 0 && return 1
-  echo "not() function can only be used with 0 or 1 as parameter" >&2
-  exit 67
-}
-
-is_default() {
-  return [ "$(eval "echo \$${1}_is_default")" -eq 1 ]
-}
-
-is_empty() {
-  [ -z $1 ] && echo 1 && return 0
-  echo 0
-  return 1
-}
-
-or_condition() {
-  while [ -n "$1" ]; do
-    [ "$1" -ne 0 ] && {
-      echo 1
-      return 0
-    }
-    shift
-  done
-
-  echo 0
-  return 1
-}
-
-print_env() {
-  level=${1:-1}
-
-  if [ $level -gt 1 ]; then
-    for src in "${toolbox_SOURCED[@]}"; do
-      echo "Sourced from $src :"
-      cat "$src"
-    done
-  fi
-
-  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
-    varname=$(positional_print_varname $idx)
-    value=$(eval "echo \${$varname}")
-    echo "$varname='$value'"
-  done
-
-  for idx in "${toolbox_IDXES[@]}"; do
-    echo "$(option_print_varname $idx)"="$(option_print_value $idx)"
   done
 }
 
