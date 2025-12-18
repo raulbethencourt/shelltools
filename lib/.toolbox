@@ -7,6 +7,7 @@
 # Add library
 source "$SHELLTOOLSPATH"/lib/.library
 source "$SHELLTOOLSPATH"/lib/core.sh
+source "$SHELLTOOLSPATH"/lib/validation.sh
 
 TB_EXAMPLES_TXT=()
 
