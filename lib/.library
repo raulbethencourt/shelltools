@@ -255,13 +255,14 @@ echon() {
     echo "$*" | tr -d '\n'
   fi
 }
+
 getFileWithFzf() {
   file="$1"
   [ ! -f "$file" ] && [ ! -d "$file" ] && error_exit "$file is not a proper file or directory." 2
 
   FD=$(find "$file" -mindepth 1 -maxdepth 1 ! -name '.*')
 
-  dir=$(
+  directory=$(
     echo "$FD" |
       sed -n '1p' |
       xargs -I {} dirname {}
@@ -271,18 +272,15 @@ getFileWithFzf() {
       xargs -I {} basename {} 2>/dev/null |
       fzf --bind=tab:up --bind=btab:down --bind=ctrl-g:first
   ) || exit 1
-  [ -d "$dir/$file" ] && getFileWithFzf "$dir/$file/"
+  [ -d "$directory/$file" ] && getFileWithFzf "$directory/$file/" || echo "$directory/$file"
 }
-getEnvFileFromPath() {
-  envDir="$1"
-  [ -z "$envDir" ] && {
-    echo "You must specify env directory." >&2 && exit 1
-  }
-  envFile=$(find "$envDir" -name ".env*")
-  parentDir=$(dirname "$envDir")
 
-  [ "$envDir" == "$HOME" ] && {
-    echo "You don't have any env file in your path." >&2 && exit 1
-  }
-  [ -z "$envFile" ] && getEnvFileFromPath "$parentDir"
+getEnvFileFromPath() {
+  envdir="$1"
+  [ -z "$envdir" ] && error_exit "You must specify env directory."
+  envfile=$(find "$envdir" -name ".env*")
+  parentdir=$(dirname "$envdir")
+
+  [ "$envdir" == "$HOME" ] && error_exit "You don't have any env file in your path."
+  [ -z "$envfile" ] && getEnvFileFromPath "$parentdir" || echo "$envfile"
 }

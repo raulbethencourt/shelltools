@@ -1,47 +1,18 @@
 #!/bin/bash
 
-# shellcheck disable=SC1091
-. "$SCRIPTSPATH/library.sh" && initANSI # Get colors.
+# Initialize library
+source "$SHELLTOOLSPATH"/lib/.toolbox
 
-help=1
-restdir=""
-envFile=""
-endpointFile=""
-
-while getopts "hvd:e:f:" opt; do
-  # shellcheck disable=SC2220
-  case "$opt" in
-  h) help=0 ;;
-  v) verbose="-v" ;;
-  d) restdir="$OPTARG" ;;
-  e) envFile="$OPTARG" ;;
-  f) endpointFile="$OPTARG" ;;
-  *)
-    error_exit "Invalid option: -${OPTARG}" 2
-    ;;
-  esac
-done
-shift $((OPTIND - 1))
-
-case "$help" in
-0)
-  cat <<EOF >&2
-${purplef}Usage:${reset} $0 [OPTION]...
-Launch curl queries from a files using fzf for selection.
-
-  -h  show this help and quit
-  -d  the rest directorie (default=\$HOME/tools/scripts/rest)
-  -e  the env file to use (default=\$HOME/tools/scripts/rest/.env)
-  -f  the endpoint file to use (default=\$HOME/tools/scripts/rest/endpoint.sh)
-      If you use this the rest directory has not use.
-
-${purplef}Examples:${reset}
-  ${greenf}fcurl${reset}
-  ${greenf}fcurl -d /home/rabeta/tools/scripts/rest -e /home/rabeta/rest/.env
-EOF
-  exit 1
-  ;;
-esac
+parse_options 0 FCURL_ \
+  "--usage: Show downloaded manuals.\n \
+${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]..." \
+  "--directory:d=|default=$SHELLTOOLSPATH/restapi/:The rest directorie." \
+  "--env-file:e=|default=$SHELLTOOLSPATH/restapi/.env:The env file to use." \
+  "--file:f=|default="":The endpoint file to use. If you use this the rest directory has not use." \
+  "--examples:    ${greenf}fcurl${reset}\n \
+        ${greenf}fcurl${reset} -d /home/rabeta/tools/scripts/rest -e /home/rabeta/rest/.env" \
+  -- "$@"
+shift "$((TBOPTIND))"
 
 # =================
 # BEGIN MAIN SCRIPT
@@ -52,36 +23,35 @@ ftmp=$(mktemp) || error_exit "Failed to create temporary file" 2
 trap 'rm -f "${ftmp}"' EXIT
 
 # Use default rest queries directory if not declared
-restdir=${restdir:-"$HOME/tools/scripts/rest"}
-[ -d "$restdir" ] || error_exit "$restdir directory not found." 2
+[[ -d "$FCURL_DIRECTORY" ]] || error_exit "$FCURL_DIRECTORY directory not found." 2
 
 # Search endpoint if not passed as option
-if [ -z "$endpointFile" ]; then
+if [ -z "$FCURL_FILE" ]; then
   # Make a selection from the list of manuals with fzf
-  getFileWithFzf "$restdir"
-  endpointFile="$dir/$file"
+  FCURL_FILE="$(getFileWithFzf "$FCURL_DIRECTORY")"
 else
-  [ ! -f "$endpointFile" ] && error_exit "$endpointFile file not found."
-  dir=$(dirname "$endpointFile")
+  [ ! -f "$FCURL_FILE" ] && error_exit "$FCURL_FILE file not found."
 fi
+FCURL_DIRECTORY=$(dirname "$FCURL_FILE")
 
 # Use temporary file to do variables parsing
-cat "$endpointFile" >"$ftmp"
+cat "$FCURL_FILE" >"$ftmp"
 
 # Search env file in directory path
-[ -z "$envFile" ] && getEnvFileFromPath "$dir"
-[ ! -f "$envFile" ] && error_exit "Environment file $envFile not found."
+envfile=$(getEnvFileFromPath "$FCURL_DIRECTORY")
+[ ! -f "$envfile" ] && error_exit "Environment file $envfile not found."
+[ -z "$envfile" ] && envfile="$FCURL_ENV_FILE"
 
 # Replace constants values
 while IFS= read -r line; do
-  echo "$line" | grep -F "#" &>/dev/null || [ -z "$line" ] && continue
+  [[ "$line" =~ ^[[:space:]]*# ]] || [[ -z "$line" ]] && continue
   const=$(echo "$line" | awk -F '=' '{print $1}')
   ! grep "$const" "$ftmp" &>/dev/null && continue
   value=$(echo "$line" | awk -F '=' '{print $2}')
 
   safe_value=$(printf '%s\n' "$value" | sed 's/[\/&]/\\&/g')
   sed -i "s|{{$const}}|$safe_value|g" "$ftmp"
-done <"$envFile"
+done <"$envfile"
 
 # shellcheck disable=SC1090
 source "$ftmp"
