@@ -2,15 +2,26 @@
 # Core utility functions for shell toolbox
 
 # Error Handling
+echo_error() {
+  # Prints an error message to stderr
+  # shellcheck disable=SC2154
+  echo "${redf}Error:${reset} $1" >&2
+}
 error_exit() {
   # Prints an error message to stderr and exits with a specified code (default 1).
-  echo "Error: $1" >&2
+  echo_error "$1"
   exit "${2:-1}"
+}
+
+return_error() {
+  # Prints an error message to stderr and returns with a specified code 1.
+  echo_error "$1"
+  return 1
 }
 
 error_usage() {
   # Prints an error message to stderr, attempts to call usage(), and exits if usage fails.
-  echo "Error: $1" >&2
+  echo_error "$1"
   usage || {
     error_exit "Function usage don't fund it" 1
   }
