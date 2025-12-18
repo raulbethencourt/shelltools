@@ -1,22 +1,21 @@
 #!/bin/bash
 
-# Add library
-[ -f "$SHELLTOOLSPATH"/.toolbox ] && source "$SHELLTOOLSPATH"/.toolbox
-initANSI # Get colors.
+# Initialize library
+source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 JSQL_ \
   "--usage: Recover data from mysql table and transform it to json array. \
 \n The database and the table are obligatory.\n \
-E.g ${TOOLBOX_CMD} [OPTION]... [DATABASE]... [TABLE]... [FIELDS]..." \
+${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]... [DATABASE]... [TABLE]... [FIELDS]..." \
   "--server:s=:Make ssh query to remote server." \
   "--db:d=:Use this database to do the search." \
   "--table:t=:Use this table to do the search. Is completely necesary to have use a db to do the search." \
   "--fields:f=:The fields to search into the table. Is completely necesary to have a db and table to do the search." \
   "--where:w=|default=1:put here any where condition that will be added. The where is a string used as provided in an sql select. If defined the command will test that there is at least one matching record." \
   "--limit:l=|default=50:query results limit." \
-  "--examples:    jsql -L some_login_path\n \
-        jsql -L some_login_path -d some_db\n \
-        jsql -s f1 -L some_login_path -l 2 -f \"field1 field2\" -d some_db -t some_table | jq" \
+  "--examples:    ${greenf}jsql${reset} -L some_login_path\n \
+        ${greenf}jsql${reset} -L some_login_path -d some_db\n \
+        ${greenf}jsql${reset} -s f1 -L some_login_path -l 2 -f \"field1 field2\" -d some_db -t some_table | jq" \
   -- "$@"
 shift "$((TBOPTIND))"
 
