@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Initialize library
-[ -f "$SHELLTOOLSPATH"/lib/.toolbox ] && source "$SHELLTOOLSPATH"/lib/.toolbox
-initANSI # Get colors.
+source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 FMAN_ \
   "--usage: Show downloaded manuals.\n \
