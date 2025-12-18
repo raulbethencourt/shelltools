@@ -193,7 +193,7 @@ done
 check_api_token
 
 # Ensure output directory exists
-ensure_output_dir
+ensure_output_dir $OUTPUT_DIR
 
 # Construct find command based on arguments
 find_cmd="find \"$search_path\" -type"
