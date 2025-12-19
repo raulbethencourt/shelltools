@@ -4,9 +4,7 @@
 source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 JSQL_ \
-  "--usage: Recover data from mysql table and transform it to json array. \
-\n The database and the table are obligatory.\n \
-${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]... [DATABASE]... [TABLE]... [FIELDS]..." \
+  "--usage: Recover data from mysql table and transform it to json array." \
   "--server:s=:Make ssh query to remote server." \
   "--db:d=:Use this database to do the search." \
   "--table:t=:Use this table to do the search. Is completely necesary to have use a db to do the search." \

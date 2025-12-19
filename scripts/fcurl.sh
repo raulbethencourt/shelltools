@@ -4,8 +4,7 @@
 source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 FCURL_ \
-  "--usage: Show downloaded manuals.\n \
-${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]..." \
+  "--usage: Make curl request using saved endpoints." \
   "--directory:d=|default=$SHELLTOOLSPATH/restapi/:The rest directorie." \
   "--env-file:e=|default=$SHELLTOOLSPATH/restapi/.env:The env file to use." \
   "--file:f=|default="":The endpoint file to use. If you use this the rest directory has not use." \
