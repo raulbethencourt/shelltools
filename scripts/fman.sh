@@ -24,10 +24,10 @@ getFileWithFzf "$FMAN_DIRECTORY"
 suffix=$(echo "$file" | grep -oP '[^\.]*$')
 
 case "$suffix" in
-"md") glow -p "$dir/$file" ;;
-"html") lynx "$dir/$file" ;;
-"json") jq "$dir/$file" | less -R ;;
-"pdf") pdftotext "$dir/$file" - | ccze -A | less -R ;;
+"md") glow -p "$FMAN_DIRECTORY/$file" ;;
+"html") lynx "$FMAN_DIRECTORY/$file" ;;
+"json") jq "$FMAN_DIRECTORY/$file" | less -R ;;
+"pdf") pdftotext "$FMAN_DIRECTORY/$file" - | ccze -A | less -R ;;
 *) error_exit "File type not handeled." 1 ;;
 esac
 
