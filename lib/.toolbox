@@ -5,11 +5,12 @@
 # ${MYVAR%%pattern}    # delete longest match of pattern from the end
 
 # Add library
-source "$SHELLTOOLSPATH"/lib/.library
+source "$SHELLTOOLSPATH"/lib/ui.sh
+initANSI # Initialize the color vars
 source "$SHELLTOOLSPATH"/lib/core.sh
+source "$SHELLTOOLSPATH"/lib/options.sh
 source "$SHELLTOOLSPATH"/lib/validation.sh
-
-TB_EXAMPLES_TXT=()
+source "$SHELLTOOLSPATH"/lib/.library
 
 echo() {
   toolbox_log "0" "$@" || builtin echo "$@"
@@ -81,139 +82,17 @@ printcn() {
   done
 }
 
-toolbox_print_usage() {
-  printLevel="${1:-1}"
-  isError="${2:-0}"
-  shift 2
-  horzChar=" "
-  vertChar=" "
-  displayWidth=$(echo $(/usr/bin/tput cols))
-  displayWidth=$((displayWidth / 2 * 2))
-
-  leftMargin=5
-  tabSize=3
-  marginText=$(printcn " " $leftMargin)
-  tabText=$(printcn " " $tabSize)
-  innerWidth=$((displayWidth - 2 - leftMargin * 2))
-  centeredMargin=$((innerWidth / 2))
-  shortSpan=2
-  longSpan=$((displayWidth - 80))
-  optSpan=$((shortSpan + 2))
-  descrLeftMargin=$((optSpan + tabSize + 1))
-  descrLeftMarginText=$(printcn " " $descrLeftMargin)
-  descrSpan=$((innerWidth - descrLeftMargin - 1 - 4))
-
-  for line in "$@"; do
-    [ -n "$line" ] && echo "$line"
-    shift
-  done
-
-  [ "$isError" -gt 0 ] && echo "While executing command :" && echo "    $CURRENT_COMMAND" && echo ""s
-
-  # NOTE: Print usage
-  [ "$isError" -gt 0 ] && echo "Usage : $(basename $0) $MAIN_COMMAND" "$(print_all_options)" "$(print_all_positional)"
-  [ -n "$TB_USAGE_TXT" ] && echo -e "$TB_USAGE_TXT" | sed 's/_ABCBA_/ /g' | sed 's/\\n/\n/g'
-
-  [ "$printLevel" -lt 2 ] && return
-
-  echo ""
-
-  printf "${marginText}${vertChar}"
-  printcn "${horzChar}" ${innerWidth}
-  printf "${vertChar}\n"
-
-  nameLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-
-  # TODO: only show it if has content
-  #   add colors
-  printf "${marginText}${vertChar}\033[1mPARAMETERS\033[0m            \n"
-
-  for idx in "${toolbox_POSITIONAL_IDXES[@]}"; do
-    d="${toolbox_POSITIONAL_NAME[$idx]}"
-    printf "$nameLineFormat" "$d" ""
-    d=$(echo "${toolbox_POSITIONAL_DESCR[$idx]}")
-    printf "$descrLineFormat" "" "$d"
-    echo ""
-  done
-
-  echo ""
-
-  printf "${marginText}${vertChar}\033[1mOPTIONS\033[0m            "
-  printcn "${horzChar}" $((centeredMargin - 19))
-  printf "${vertChar}\n${marginText}${vertChar}"
-  printcn "${horzChar}" ${innerWidth}
-  printf "${vertChar}\n"
-
-  optLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  overflowLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  overflowNextLineFormat="${marginText}${vertChar}${descrLeftMarginText}    %s ${vertChar}\n"
-
-  for idx in "${toolbox_IDXES[@]}"; do
-    d=$(echo "${toolbox_DESCRS[$idx]}" | sed 's/_ABCBA_/ /g')
-    s1=${toolbox_SHORTS[$idx]}
-    s=${s1%\=}
-    if [ "$s1" != "$s" ]; then
-      value=$(print_option_values "${toolbox_LONGS[$idx]}" "" 1)
-      value="=${value} (default=${toolbox_DEFAULT[$idx]/EMPTY_VALUE//})"
-    else
-      value=""
-    fi
-
-    fullDescrLen=${#d}
-    optTxt="${toolbox_LONGS[$idx]}$value"
-    [ "$s" != "-" ] && optTxt="${s}, $optTxt"
-    if [ $fullDescrLen -gt $descrSpan ]; then
-      printf "$overflowLineFormat" "$optTxt" ""
-      printf "$overflowNextLineFormat" "${d:0:${descrSpan}}"
-      currentDescrStart=$descrSpan
-      while [ $currentDescrStart -lt $fullDescrLen ]; do
-        printf "$overflowNextLineFormat" "${d:$((currentDescrStart)):${descrSpan}}"
-        currentDescrStart=$((currentDescrStart + descrSpan))
-      done
-    else
-      printf "$optLineFormat" "$optTxt" ""
-      printf "$descrLineFormat" "" "$d"
-    fi
-    echo ""
-  done
-
-  printf "$lineFormat" ""
-  printf "$lineFormat" "-?" "" "Display this help and exits"
-
-  printf "${marginText}${vertChar}" && printcn "${horzChar}" ${innerWidth} && printf "${vertChar}\n"
-
-  # NOTE: Print examples
-  if [ "${#TB_EXAMPLES_TXT[@]}" -gt 0 ]; then
-    printf "${marginText}${vertChar}\033[1mEXAMPLES\033[0m            "
-    printcn "${horzChar}" $((centeredMargin - 19))
-    printf "${vertChar}\n${marginText}${vertChar}"
-    printcn "${horzChar}" ${innerWidth}
-    printf "${vertChar}\n"
-    # TODO: continue to make multi lines
-    for exmple in "${TB_EXAMPLES_TXT[@]}"; do
-      echo -e "${marginText}$exmple" | sed 's/_ABCBA_/ /g' | sed 's/\\n/\n/g'
-      echo ""
-    done
-  fi
-}
 
 def_options() {
+  local sections=("usage" "examples" "requirements")
   toolbox_IDXDEF="${toolbox_IDXDEF:-0}"
+  allready_parsed=1
 
   prefix=$1
   shift
 
   for arg in "$@"; do
-    if [ "${arg:0:8}" = "--usage:" ]; then
-      TB_USAGE_TXT="${arg#*:}"
-      continue
-    fi
-    if [ "${arg:0:11}" = "--examples:" ]; then
-      TB_EXAMPLES_TXT+=("${arg#*:}")
-      continue
-    fi
+    create_section_constants "$arg" "${sections[@]}" && continue
 
     currentIdx="$toolbox_IDXDEF"
     toolbox_IDXES=(${toolbox_IDXES[@]} $toolbox_IDXDEF)
@@ -647,31 +526,6 @@ option_increment_value() {
   value=$(option_print_value $idx)
   value=$((value + 1))
   option_set_value "$idx" "$value"
-}
-
-print_progress() {
-  BAR_FULLSIZE=${3:-18}
-  BAR_FULLSIZE=$((BAR_FULLSIZE - 8))
-  current=$1
-  full=$2
-
-  percent=$((current * 100 / full))
-  barLength=$((current * BAR_FULLSIZE / full))
-  TB_SPIN_PROGRESS=${TB_SPIN_PROGRESS:-1}
-  sp="/-\|"
-  prefix="\r"
-  suffix=""
-  spinner="${sp:TB_SPIN_PROGRESS++%${#sp}:1}"
-  percentFormat=""
-  if [ $percent -ge 100 ]; then
-    suffix="\n"
-    spinner=""
-  elif [ $percent -lt 10 ]; then
-    percentFormat="2"
-  fi
-  bar=$(printf "%${barLength}.s" " " | sed "s/ /=/g")
-  barEmpty=$(printf "%$((BAR_FULLSIZE - barLength)).s" " ")
-  printf "${prefix}[%s%s> %s %${percentFormat}d%%${suffix}" "$bar" "$barEmpty" "$spinner" "$percent"
 }
 
 __threads_create_pool() {
