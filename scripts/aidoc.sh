@@ -1,43 +1,28 @@
 #!/bin/bash
 
-# shellcheck disable=SC1091
-. "$SCRIPTSPATH"/library.sh && initANSI # Get colors.
+# Initialize library
+source "$SHELLTOOLSPATH"/lib/.toolbox
 
-# Exit on error, undefined variables, and propagate pipe failures
-set -euo pipefail
+parse_options 0 AIDOC_ \
+  "--usage: Read php files and create functional documentation.\n \
+${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]... [SEARCH_PATH]" \
+  "--type:t=|default=f:Search for files (f) or directories (d)." \
+  "--name:n=:Find files/dirs matching pattern." \
+  "--output:o=|default=$HOME/vaults/functional_doc:Find files/dirs matching pattern." \
+  "--batch-size:b=|default=3:Find files/dirs matching pattern." \
+  "--examples:    ${greenf}aidoc${reset} -t f -n \"*.php\" -o ~/docs ./src" \
+  "--requirements:- Set GITHUB_TOKEN environment variable with your GitHub personal access token\n \
+        - Your token needs appropriate permissions for GitHub Models API access" \
+  -- "$@"
+shift "$((TBOPTIND))"
 
 # Configuration
 API_ENDPOINT="https://models.github.ai/inference/chat/completions"
-API_TOKEN="${GITHUB_TOKEN:-}"
-DEFAULT_OUTPUT_DIR="/home/rabeta/vaults/functional_doc"
-OUTPUT_DIR="${DEFAULT_OUTPUT_DIR}"
-MAX_FILES_PER_BATCH=3
-
-# Function to display usage instructions
-usage() {
-  cat <<EOF >&2
-Usage: $(basename "$0") [options] <search_path>
-
-Options:
-  -t, --type <f|d>      Search for files (f) or directories (d)
-  -n, --name <pattern>  Find files/dirs matching pattern
-  -o, --output <dir>    Output directory for markdown files (default: ${DEFAULT_OUTPUT_DIR})
-  -b, --batch-size <n>  Number of files to process in a single context (default: ${MAX_FILES_PER_BATCH})
-  -h, --help            Display this help message
-
-Example:
-  $(basename "$0") -t f -n "*.php" -o ~/docs ./src
-
-Requirements:
-  - Set GITHUB_TOKEN environment variable with your GitHub personal access token
-    - Your token needs appropriate permissions for GitHub Models API access
-EOF
-  exit 1
-}
+GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 
 # Function to check if GitHub API token is available
 check_api_token() {
-  [[ -z "$API_TOKEN" ]] && {
+  [[ -z "$GITHUB_TOKEN" ]] && {
     error_exit "GITHUB_TOKEN environment variable is not set.\n" \
       "Please set it with: export GITHUB_TOKEN='your-github-token-here'" 1
   }
@@ -103,7 +88,7 @@ process_file_batch() {
 
   local response
   response=$(curl -s -X POST "$API_ENDPOINT" \
-    -H "Authorization: Bearer $API_TOKEN" \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
     -H "Accept: application/vnd.github+json" \
     -H "X-GitHub-Api-Version: 2022-11-28" \
     -H "Content-Type: application/json" \
@@ -117,7 +102,7 @@ process_file_batch() {
   explanation=$(echo "$response" | jq -r '.choices[0].message.content // "No explanation available"')
 
   # Create markdown file with formatted content
-  local output_path="${OUTPUT_DIR}/${output_filename}"
+  local output_path="${AIDOC_OUTPUT}/${output_filename}"
 
   {
     echo "# Functional Documentation"
@@ -159,7 +144,7 @@ while [[ $# -gt 0 ]]; do
     shift 2
     ;;
   -o | --output)
-    OUTPUT_DIR="$2"
+    AIDOC_OUTPUT="$2"
     shift 2
     ;;
   -b | --batch-size)
@@ -193,7 +178,7 @@ done
 check_api_token
 
 # Ensure output directory exists
-ensure_output_dir $OUTPUT_DIR
+ensure_output_dir $AIDOC_OUTPUT
 
 # Construct find command based on arguments
 find_cmd="find \"$search_path\" -type"
@@ -228,4 +213,4 @@ else
   done
 fi
 
-echo "Processing complete. Documentation saved to ${OUTPUT_DIR}"
+echo "Processing complete. Documentation saved to ${AIDOC_OUTPUT}"
