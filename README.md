@@ -189,4 +189,3 @@ See LICENSE file for details.
 ## 🤝 Acknowledgments
 
 - Inspired by "Wicked Cool Shell Scripts" by Dale Dougherty & Arnold Robbins
-- Built upon community contributions and personal scripting experience
