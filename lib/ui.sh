@@ -54,7 +54,7 @@ print_progress() {
   bar=$(printf "%${barLength}.s" " " | sed "s/ //g")
   barEmpty=$(printf "%$((BAR_FULLSIZE - barLength)).s" " ")
 
-  printf "${prefix}${greenf}%s%s %s${reset} %${percentFormat}d%%${suffix}" "$bar" "$barEmpty" "$spinner" "$percent"
+  printf "${prefix}${GREENF}%s%s %s${RESET} %${percentFormat}d%%${suffix}" "$bar" "$barEmpty" "$spinner" "$percent"
 }
 
 printcn() {
@@ -68,7 +68,7 @@ printcn() {
 }
 
 print_usage_section_header() {
-  printf "${marginText}${vertChar}${whitef}%s${reset}            \n" "$1"
+  printf "${marginText}${vertChar}${WHITEF}%s${RESET}            \n" "$1"
   printcn "$horzChar" "$innerWidth"
   printf "%s\n" "$vertChar"
 }

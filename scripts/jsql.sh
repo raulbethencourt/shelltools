@@ -11,9 +11,9 @@ parse_options 0 JSQL_ \
   "--fields:f=:The fields to search into the table. Is completely necesary to have a db and table to do the search." \
   "--where:w=|default=1:put here any where condition that will be added. The where is a string used as provided in an sql select. If defined the command will test that there is at least one matching record." \
   "--limit:l=|default=50:query results limit." \
-  "--examples:    ${greenf}jsql${reset} -L some_login_path\n \
-        ${greenf}jsql${reset} -L some_login_path -d some_db\n \
-        ${greenf}jsql${reset} -s f1 -L some_login_path -l 2 -f \"field1 field2\" -d some_db -t some_table | jq" \
+  "--examples:    ${GREENF}jsql${RESET} -L some_login_path\n \
+        ${GREENF}jsql${RESET} -L some_login_path -d some_db\n \
+        ${GREENF}jsql${RESET} -s f1 -L some_login_path -l 2 -f \"field1 field2\" -d some_db -t some_table | jq" \
   -- "$@"
 shift "$((TBOPTIND))"
 

@@ -10,8 +10,8 @@ ${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]... [SEARCH_PATH
   "--name:n=:Find files/dirs matching pattern." \
   "--output:o=|default=$HOME/vaults/functional_doc:Find files/dirs matching pattern." \
   "--batch-size:b=|default=3:Find files/dirs matching pattern." \
-  "--examples:    ${greenf}aidoc${reset} -t f -n \"*.php\" -o ~/docs ./src" \
-  "--requirements:- Set GITHUB_TOKEN environment variable with your GitHub personal access token\n \
+  "--examples:    ${GREENF}aidoc${RESET} -t f -n \"*.php\" -o ~/docs ./src" \
+  "--requirements:    - Set GITHUB_TOKEN environment variable with your GitHub personal access token\n \
         - Your token needs appropriate permissions for GitHub Models API access" \
   -- "$@"
 shift "$((TBOPTIND))"

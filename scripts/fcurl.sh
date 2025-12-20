@@ -8,8 +8,8 @@ parse_options 0 FCURL_ \
   "--directory:d=|default=$SHELLTOOLSPATH/restapi/:The rest directorie." \
   "--env-file:e=|default=$SHELLTOOLSPATH/restapi/.env:The env file to use." \
   "--file:f=|default="":The endpoint file to use. If you use this the rest directory has not use." \
-  "--examples:    ${greenf}fcurl${reset}\n \
-        ${greenf}fcurl${reset} -d /home/rabeta/tools/scripts/rest -e /home/rabeta/rest/.env" \
+  "--examples:    ${GREENF}fcurl${RESET}\n \
+        ${GREENF}fcurl${RESET} -d /home/rabeta/tools/scripts/rest -e /home/rabeta/rest/.env" \
   -- "$@"
 shift "$((TBOPTIND))"
 

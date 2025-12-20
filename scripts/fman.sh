@@ -6,8 +6,8 @@ source "$SHELLTOOLSPATH"/lib/.toolbox
 parse_options 0 FMAN_ \
   "--usage: Show downloaded manuals." \
   "--directory:d=|default=$SHELLTOOLSPATH/manuals/:The manuals directory." \
-  "--examples:    ${greenf}fman${reset}\n \
-        ${greenf}fman${reset} -d ~/manuals" \
+  "--examples:    ${GREENF}fman${RESET}\n \
+        ${GREENF}fman${RESET} -d ~/manuals" \
   -- "$@"
 shift "$((TBOPTIND))"
 
