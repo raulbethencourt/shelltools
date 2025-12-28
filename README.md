@@ -38,22 +38,22 @@ Core executable tools and utilities:
 - **agenda** - Manage personal agendas and reminders
 - **calc** - Command-line calculator
 - **cht** - Query cheat.sh for programming help
-- **convertatemp** - Temperature conversion utility
 - **diskhogs** - Find disk space hogs
 - **fman** - Fast manual page lookup
 - **formatdir** - Directory formatting tools
-- **loancalc** - Loan calculator
 - **remember** - Note-taking utility
 - And many more...
 
 ### lib/
 
-Shared library files and utilities:
+Shared library files and utilities (modular framework):
 
 - **core.sh** - Core functions (error handling, logging)
-- **.library** - Extended utility functions (file sanitization, ANSI colors, directory
-management)
-- **.toolbox** - Additional toolbox functions
+- **ui.sh** - UI utilities (ANSI color constants, progress indicators, section printing)
+- **options.sh** - Option parsing and metadata handling
+- **validation.sh** - Input validation functions
+- **.library** - Legacy extended utility functions (being deprecated)
+- **.toolbox** - Toolbox loader and core functions
 
 ### scripts/
 
@@ -135,13 +135,13 @@ cht
 #### Using Library Functions
 
 ```bash
-#!/bin/bash 
+#!/bin/bash
 source "lib/.toolbox"
 
-# Use ANSI colors 
-initANSI echo "${greenf}Success!${reset}"
+# Use ANSI colors (constants, no init needed)
+echo "${GREENF}Success!${RESET}"
 
-# Sanitize filenames 
+# Sanitize filenames
 safe_name=$(sanitize_filename "file with spaces.txt")
 ```
 
