@@ -1,12 +1,6 @@
 #!/bin/bash
-# ${MYVAR#pattern}     # delete shortest match of pattern from the beginning
-# ${MYVAR##pattern}    # delete longest match of pattern from the beginning
-# ${MYVAR%pattern}     # delete shortest match of pattern from the end
-# ${MYVAR%%pattern}    # delete longest match of pattern from the end
 
-# Add library
 source "$SHELLTOOLSPATH"/lib/ui.sh
-initANSI # Initialize the color vars
 source "$SHELLTOOLSPATH"/lib/core.sh
 source "$SHELLTOOLSPATH"/lib/options.sh
 source "$SHELLTOOLSPATH"/lib/validation.sh

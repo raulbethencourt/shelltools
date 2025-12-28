@@ -3,9 +3,9 @@
 
 # Integer Validation
 validint() {
-   # Description: Validates an integer, checking for digits only, and optional min/max range.
-   # Args: $1=number (string), $2=min (opt, integer), $3=max (opt, integer)
-   # Returns: 0 on success, exits with error on failure
+  # Description: Validates an integer, checking for digits only, and optional min/max range.
+  # Args: $1=number (string), $2=min (opt, integer), $3=max (opt, integer)
+  # Returns: 0 on success, exits with error on failure
 
   number="$1"
   min="$2"
@@ -106,17 +106,17 @@ isLeapYear() {
 
 # String Validation
 validAlphaNum() {
-   # Description: Validates if a string contains only alphanumeric characters.
-   # Args: $1=string
-   # Returns: 0 if valid (alphanumeric only), 1 if invalid
+  # Description: Validates if a string contains only alphanumeric characters.
+  # Args: $1=string
+  # Returns: 0 if valid (alphanumeric only), 1 if invalid
   validchars=${1//[^[:alnum:]]/}
   [ "$validchars" = "$1" ] && return 0 || return 1
 }
 
 monthNumToName() {
-   # Description: Converts a month number (1-12) to its abbreviated name.
-   # Args: $1=month_number (integer, 1-12)
-   # Returns: Month name (e.g., "Jan") on stdout, 0 on success, exits on error
+  # Description: Converts a month number (1-12) to its abbreviated name.
+  # Args: $1=month_number (integer, 1-12)
+  # Returns: Month name (e.g., "Jan") on stdout, 0 on success, exits on error
   case "$1" in
   1) month="Jan" ;; 2) month="Feb" ;;
   3) month="Mar" ;; 4) month="Apr" ;;
@@ -131,10 +131,10 @@ monthNumToName() {
 
 # Formatting
 nicenumber() {
-   # Description: Formats a number with thousand separators and optional decimal output.
-   # Args: $1=number (string), $2=output_flag (opt, non-empty to echo result)
-   # Returns: Formatted number on stdout if $2 set, else sets nicenum var
-   separator=${1//[[:digit:]]/}
+  # Description: Formats a number with thousand separators and optional decimal output.
+  # Args: $1=number (string), $2=output_flag (opt, non-empty to echo result)
+  # Returns: Formatted number on stdout if $2 set, else sets nicenum var
+  separator=${1//[[:digit:]]/}
   [ -n "$separator" ] && [ "$separator" != "$DD" ] &&
     error_exit "$0 : Unknown decimal separator $separator encountered."
 

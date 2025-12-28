@@ -4,8 +4,7 @@
 source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 AIDOC_ \
-  "--usage: Read php files and create functional documentation.\n \
-${purplef}E.g${reset} ${greenf}$(basename "$0")${reset} [OPTION]... [SEARCH_PATH]" \
+  "--usage: Read php files and create functional documentation." \
   "--type:t=|default=f:Search for files (f) or directories (d)." \
   "--name:n=:Find files/dirs matching pattern." \
   "--output:o=|default=$HOME/vaults/functional_doc:Find files/dirs matching pattern." \
