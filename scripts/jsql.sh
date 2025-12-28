@@ -5,6 +5,7 @@ source "$SHELLTOOLSPATH"/lib/.toolbox
 
 parse_options 0 JSQL_ \
   "--usage: Recover data from mysql table and transform it to json array." \
+  "--login-path:L=|default=devserver:Mysql login-path." \
   "--server:s=:Make ssh query to remote server." \
   "--db:d=:Use this database to do the search." \
   "--table:t=:Use this table to do the search. Is completely necesary to have use a db to do the search." \
@@ -29,6 +30,12 @@ shift "$((TBOPTIND))"
 [[ -n "$JSQL_FIELDS" ]] && {
   [[ "$JSQL_FIELDS" =~ ^[a-zA-Z0-9_,[:space:]*-]+$ ]] || print_usage
 }
+# Validate login path (only alphanumeric, underscore and hyphen allowed)
+login_path_param=""
+[[ -n "$JSQL_LOGIN_PATH" ]] && {
+  [[ "$JSQL_LOGIN_PATH" =~ ^[a-zA-Z0-9_-]+$ ]] || print_usage
+  login_path_param="--login-path=$JSQL_LOGIN_PATH"
+}
 
 # Validate that we have all data we need for different queries
 [[ -n "$JSQL_TABLE" ]] && [[ -z "$JSQL_DB" ]] && error_exit "You need to specify a database to do the search."
@@ -52,7 +59,7 @@ if [ -n "$JSQL_TABLE" ]; then
   # Create the select query base in given fields or discribe query
   if [ -z "$JSQL_FIELDS" ] || [ "$JSQL_FIELDS" = "*" ]; then
     # We create the query and we add ssh cmd si a server is given
-    mysqlQueryDescribe="$mysql --login-path=$LOGIN_PATH --max_allowed_packet=100M \
+    mysqlQueryDescribe="$mysql $login_path_param --max_allowed_packet=100M \
     --connect-timeout=10 -NLse 'use $JSQL_DB;describe $JSQL_TABLE;'"
 
     [ "$VERBOSE" -gt 1 ] && printf '%s\n%s\n' "MySQL Describe Query :" "$mysqlQueryDescribe"
@@ -107,7 +114,7 @@ fi
 
 [ "$VERBOSE" -gt 1 ] && printf '%s\n%s\n' "MySQL Query :" "$query"
 
-mysqlCmd="$mysql --login-path=$LOGIN_PATH --max_allowed_packet=100M --connect-timeout=10 -NLs"
+mysqlCmd="$mysql $login_path_param --max_allowed_packet=100M --connect-timeout=10 -NLs"
 
 # We create the query and we add ssh cmd si a server is given
 if [ -n "$JSQL_SERVER" ]; then
