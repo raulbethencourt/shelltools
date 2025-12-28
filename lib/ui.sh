@@ -139,7 +139,7 @@ print_options_section() {
     printf "\n"
   done
 
-  printf "${marginText}${vertChar}${tabText}%s\n" "-??"
+  printf "${marginText}${vertChar}${tabText}%s\n" "-h, --help"
   printf "$descrLineFormat" "" "Display this help and exits"
 }
 

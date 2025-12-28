@@ -339,8 +339,8 @@ _parse_options_impl() {
         echo "Invalid input ($arg)" >&2
         exit 17
       fi
-    elif [ "$arg" = '-?' ]; then
-      printUsage=$((printUsage + 1))
+    elif [ "$arg" = '-h' ] || [ "$arg" = '--help' ]; then
+      printUsage=$((printUsage + 2))
     else
       found=0
 
