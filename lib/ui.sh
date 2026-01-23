@@ -1,6 +1,8 @@
 #!/bin/bash
+# UI utility functions for shell toolbox (colors, progress, usage printing)
 
-# ANSI Escape Sequences - Computed once at source time
+# ANSI Color Constants
+# shellcheck disable=SC2034,SC2155
 readonly BLACKF="$(tput setaf 0)"
 readonly REDF="$(tput setaf 1)"
 readonly GREENF="$(tput setaf 2)"
@@ -29,7 +31,11 @@ readonly INVER="$(tput rev)"
 
 readonly RESET="$(tput sgr0)"
 
+# Progress Display
 print_progress() {
+  # Displays a progress bar with percentage and spinner.
+  # Args: $1=current (int), $2=full (int), $3=bar_size (opt, default 28)
+  # Returns: prints progress bar to stdout
   BAR_FULLSIZE=${3:-28}
   BAR_FULLSIZE=$((BAR_FULLSIZE - 8))
   current=$1
@@ -57,23 +63,33 @@ print_progress() {
   printf "${prefix}${GREENF}%s%s %s${RESET} %${percentFormat}d%%${suffix}" "$bar" "$barEmpty" "$spinner" "$percent"
 }
 
+# Text Utilities
 printcn() {
-  # prints $2 times the $1 character
+  # Prints a character a specified number of times.
+  # Args: $1=character (opt, default '?'), $2=count (opt, default 1)
+  # Returns: prints repeated character to stdout
   c=${1:-\?}
-  l=${2:-1}
+  count=${2:-1}
 
-  for ((i = 0; i < l; i++)); do
+  for ((i = 0; i < count; i++)); do
     printf "%s" "$c"
   done
 }
 
+# Usage Printing
 print_usage_section_header() {
+  # Prints a formatted header for a usage section (e.g., OPTIONS).
+  # Args: $1=section_title
+  # Returns: prints header to stdout (assumes marginText, vertChar, horzChar, innerWidth set)
   printf "${marginText}${vertChar}${WHITEF}%s${RESET}            \n" "$1"
   printcn "$horzChar" "$innerWidth"
   printf "%s\n" "$vertChar"
 }
 
 print_standard_section() {
+  # Prints a standard usage section (e.g., EXAMPLES) if data exists.
+  # Args: $1=section_title, $2=marginText, $3=vertChar, $4=horzChar, $5=innerWidth
+  # Returns: prints section to stdout if TB_${title}_TXT array has elements
   title="$1"
   marginText="$2"
   vertChar="$3"
@@ -91,7 +107,7 @@ print_standard_section() {
 
     # Loop over array dynamically
     local i=0
-    while [ $i -lt "$array_length" ]; do
+    while [ "$i" -lt "$array_length" ]; do
       local text
       # shellcheck disable=SC1087
       eval "text=\${$section_var[$i]}"
@@ -103,12 +119,10 @@ print_standard_section() {
 }
 
 print_options_section() {
+  # Prints the OPTIONS section with formatted option descriptions.
+  # Args: none (assumes global toolbox arrays set)
+  # Returns: prints options section to stdout
   print_usage_section_header "OPTIONS"
-
-  optLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  descrLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  overflowLineFormat="${marginText}${vertChar}${tabText}%${optSpan}s    %s ${vertChar}\n"
-  overflowNextLineFormat="${marginText}${vertChar}${descrLeftMarginText}   %s ${vertChar}\n"
 
   for idx in "${toolbox_IDXES[@]}"; do
     d=$(echo "${toolbox_DESCRS[$idx]}" | sed 's/_ABCBA_/ /g')
@@ -124,26 +138,29 @@ print_options_section() {
     fullDescrLen=${#d}
     optTxt="${toolbox_LONGS[$idx]}$value"
     [ "$s" != "-" ] && optTxt="${s}, $optTxt"
-    if [ $fullDescrLen -gt $descrSpan ]; then
-      printf "$overflowLineFormat" "$optTxt" ""
-      printf "$overflowNextLineFormat" "${d:0:${descrSpan}}"
+    if [ "$fullDescrLen" -gt "$descrSpan" ]; then
+      printf '%s%s%s%*s    %s %s\n' "$marginText" "$vertChar" "$tabText" "$optSpan" "$optTxt" "" "$vertChar"
+      printf '%s%s%s   %s %s\n' "$marginText" "$vertChar" "$descrLeftMarginText" "${d:0:${descrSpan}}" "$vertChar"
       currentDescrStart=$descrSpan
-      while [ $currentDescrStart -lt $fullDescrLen ]; do
-        printf "$overflowNextLineFormat" "${d:$((currentDescrStart)):${descrSpan}}"
+      while [ "$currentDescrStart" -lt "$fullDescrLen" ]; do
+        printf '%s%s%s   %s %s\n' "$marginText" "$vertChar" "$descrLeftMarginText" "${d:$((currentDescrStart)):${descrSpan}}" "$vertChar"
         currentDescrStart=$((currentDescrStart + descrSpan))
       done
     else
-      printf "$optLineFormat" "$optTxt" ""
-      printf "$descrLineFormat" "" "$d"
+      printf '%s%s%s%*s    %s %s\n' "$marginText" "$vertChar" "$tabText" "$optSpan" "$optTxt" "" "$vertChar"
+      printf '%s%s%s%*s    %s %s\n' "$marginText" "$vertChar" "$tabText" "$optSpan" "" "$d" "$vertChar"
     fi
     printf "\n"
   done
 
   printf "${marginText}${vertChar}${tabText}%s\n" "-h, --help"
-  printf "$descrLineFormat" "" "Display this help and exits"
+  printf '%s%s%s%*s    %s %s\n' "$marginText" "$vertChar" "$tabText" "$optSpan" "" "Display this help and exits" "$vertChar"
 }
 
 toolbox_print_usage() {
+  # Prints formatted usage information for a toolbox script.
+  # Args: $1=printLevel (opt, default 1), $2=isError (opt, default 0), $@=custom_header_lines
+  # Returns: prints usage to stdout
   printLevel="${1:-1}"
   isError="${2:-0}"
   shift 2
@@ -169,11 +186,13 @@ toolbox_print_usage() {
   done
 
   [ "$isError" -gt 0 ] && {
-    echo "While executing command :" && echo "    $CURRENT_COMMAND" && echo ""s
+    echo "While executing command :" && echo "    $CURRENT_COMMAND" && echo ""
     echo "Usage : $(basename "$0") $MAIN_COMMAND" "$(print_all_options)" "$(print_all_positional)"
   }
 
   [ -n "$TB_USAGE_TXT" ] && echo -e "$TB_USAGE_TXT" | sed 's/_ABCBA_/ /g; s/\\n/\n/g'
+
+  printf "\n"
 
   [ "$printLevel" -lt 2 ] && return
 
