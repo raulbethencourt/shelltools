@@ -30,6 +30,18 @@
 
 ## Miscellaneous
 
+### Transform png into pdf
+
+```bash
+magick pablo_23012026.png pablo_23012026.pdf
+```
+
+### Compress pdf file to make it smaller
+
+```bash
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=pablo_23012026_compressed.pdf pablo_23012026.pdf
+```
+
 ### Find not staged files with git status
 
 ```bash
