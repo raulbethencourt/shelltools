@@ -27,7 +27,7 @@ trap 'rm -f "${ftmp}"' EXIT
 # Search endpoint if not passed as option
 if [ -z "$FCURL_FILE" ]; then
   # Make a selection from the list of manuals with fzf
-  FCURL_FILE="$(getFileWithFzf "$FCURL_DIRECTORY")"
+  FCURL_FILE="$(get_file_with_fzf "$FCURL_DIRECTORY")"
 else
   [ ! -f "$FCURL_FILE" ] && error_exit "$FCURL_FILE file not found."
 fi
@@ -37,7 +37,7 @@ FCURL_DIRECTORY=$(dirname "$FCURL_FILE")
 cat "$FCURL_FILE" >"$ftmp"
 
 # Search env file in directory path
-envfile=$(getEnvFileFromPath "$FCURL_DIRECTORY")
+envfile=$(get_env_file_from_path "$FCURL_DIRECTORY")
 [ ! -f "$envfile" ] && error_exit "Environment file $envfile not found."
 [ -z "$envfile" ] && envfile="$FCURL_ENV_FILE"
 

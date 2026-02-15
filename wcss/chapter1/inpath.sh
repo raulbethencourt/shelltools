@@ -21,7 +21,7 @@ in_path() {
   return $result
 }
 
-checkForCmdInPath() {
+check_for_cmd_in_path() {
   cmd=$1
 
   [ -n "$cmd" ] && {
@@ -37,7 +37,7 @@ checkForCmdInPath() {
 [ "${BASH_SOURCE[*]}" = "$0" ] && {
   [ $# -ne 1 ] && echo "Usage: $0 command" >&2 && exit 1
 
-  checkForCmdInPath "$1"
+  check_for_cmd_in_path "$1"
   case $? in
   0) echo "$1 found in PATH" ;;
   1) echo "$1 not found or not executable" ;;

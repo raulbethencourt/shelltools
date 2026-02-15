@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 in_path() {
   # Given a command and the PATH, tries to find the command. Returns 0 if
   #   found and executable; 1 if not. Note that this temporarily modifies
@@ -18,7 +17,11 @@ in_path() {
   IFS=$oldIFS
   return $result
 }
-checkForCmdInPath() {
+
+check_for_cmd_in_path() {
+  # Checks if a command exists in PATH or is an executable file.
+  # Args: $1=command
+  # Returns: 0 if found/executable, 1 if not executable, 2 if not in PATH
   cmd=$1
 
   [ -n "$cmd" ] && {
@@ -29,15 +32,21 @@ checkForCmdInPath() {
     fi
   }
 }
-echon() {
-  if checkForCmdInPath printf; then
+
+echo_n() {
+  # Prints arguments without a trailing newline.
+  # Args: $@=strings to print
+  if check_for_cmd_in_path printf; then
     printf "%s" "$*"
   else
     echo "$*" | tr -d '\n'
   fi
 }
 
-getFileWithFzf() {
+get_file_with_fzf() {
+  # Interactively selects a file or directory using fzf.
+  # Args: $1=path to file or directory
+  # Returns: path to selected file/directory, exits on error
   file="$1"
   [ ! -f "$file" ] && [ ! -d "$file" ] && error_exit "$file is not a proper file or directory." 2
 
@@ -48,20 +57,25 @@ getFileWithFzf() {
       sed -n '1p' |
       xargs -I {} dirname {}
   )
+
   file=$(
     echo "$FD" |
       xargs -I {} basename {} 2>/dev/null |
       fzf --bind=tab:up --bind=btab:down --bind=ctrl-g:first
   ) || exit 1
-  [ -d "$directory/$file" ] && getFileWithFzf "$directory/$file/" || echo "$directory/$file"
+
+  [ -d "$directory/$file" ] && get_file_with_fzf "$directory/$file/" || echo "$directory/$file"
 }
 
-getEnvFileFromPath() {
+get_env_file_from_path() {
+  # Recursively searches up the directory tree for .env files.
+  # Args: $1=starting directory path
+  # Returns: path to .env file found, exits if none found or reaches HOME
   envdir="$1"
   [ -z "$envdir" ] && error_exit "You must specify env directory."
   envfile=$(find "$envdir" -name ".env*")
   parentdir=$(dirname "$envdir")
 
   [ "$envdir" == "$HOME" ] && error_exit "You don't have any env file in your path."
-  [ -z "$envfile" ] && getEnvFileFromPath "$parentdir" || echo "$envfile"
+  [ -z "$envfile" ] && get_env_file_from_path "$parentdir" || echo "$envfile"
 }

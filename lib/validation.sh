@@ -67,7 +67,7 @@ validfloat() {
 }
 
 # Date/Time Validation
-exceedDaysInMonth() {
+exceed_days_in_month() {
   # Description: Checks if a day number exceeds the maximum days in the given month.
   # Args: $1=month_name (string, e.g., "Jan"), $2=day (integer)
   # Returns: 0 if day is valid (<= max days), 1 if invalid
@@ -88,7 +88,7 @@ exceedDaysInMonth() {
   [ "$2" -lt 1 ] || [ "$2" -gt "$days" ] && return 1 || return 0
 }
 
-isLeapYear() {
+is_leap_year() {
   # Description: Determines if a year is a leap year using standard rules.
   # Args: $1=year (integer)
   # Returns: 0 if leap year, 1 if not
@@ -105,7 +105,7 @@ isLeapYear() {
 }
 
 # String Validation
-validAlphaNum() {
+valid_alpha_num() {
   # Description: Validates if a string contains only alphanumeric characters.
   # Args: $1=string
   # Returns: 0 if valid (alphanumeric only), 1 if invalid
@@ -113,7 +113,7 @@ validAlphaNum() {
   [ "$validchars" = "$1" ] && return 0 || return 1
 }
 
-monthNumToName() {
+month_num_to_name() {
   # Description: Converts a month number (1-12) to its abbreviated name.
   # Args: $1=month_number (integer, 1-12)
   # Returns: Month name (e.g., "Jan") on stdout, 0 on success, exits on error

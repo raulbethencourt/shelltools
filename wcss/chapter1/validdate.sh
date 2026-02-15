@@ -4,7 +4,7 @@
 
 normdate="normdate.sh"
 
-exceedDaysInMonth() {
+exceed_days_in_month() {
     # Given a month name and day number in that month, this function will
     #   return 0 if the specified day value is less than or equal to the
     #   max days in the month; 1 otherwise.
@@ -25,7 +25,7 @@ exceedDaysInMonth() {
     [ "$2" -lt 1 ] || [ "$2" -gt "$days" ] && return 1 || return 0 # The number is valid day.
 }
 
-isLeapYear() {
+is_leap_year() {
     # This function returns 0 if the specified year is a leap year;
     #   1 otherwise.
     #
@@ -69,9 +69,9 @@ isLeapYear() {
 
     # Now that we have a normalized date, let's check whether the
     #   day value is legal and valid (e.g., not Jan 36).
-    ! exceedDaysInMonth "$month" "$2" && {
+    ! exceed_days_in_month "$month" "$2" && {
         if [ "$month" = "Feb" ] && [ "$2" -eq 29 ]; then
-            ! isLeapYear "$3" && {
+            ! is_leap_year "$3" && {
                 echo "$0: $3 is not a leap year, so Feb doesn't have 29 days." >&2 && exit 1
             }
         else

@@ -18,7 +18,7 @@ while ! validint "$answer" 1 2; do
 done
 
 # Is the command that checks what's in the path working ?
-if ! checkForCmdInPath "echo"; then
+if ! check_for_cmd_in_path "echo"; then
   echo "Nope, can't find the echo command."
 else
   echo "The echo command is in the PATH."
@@ -36,7 +36,7 @@ while ! validint "$year" 1 9999; do
 done
 
 # Now test whether it is indeed a leap year.
-if isLeapYear "$year"; then
+if is_leap_year "$year"; then
   echo "${greenf}You're right! $year is a leap year.${reset}"
 else
   echo "${redf}Nope, that's not a leap year.${reset}"

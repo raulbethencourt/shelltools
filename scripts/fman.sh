@@ -18,7 +18,7 @@ shift "$((TBOPTIND))"
 [ ! -d "$FMAN_DIRECTORY" ] && error_exit "Manual directory not found it." 1
 
 # Make a selection from the list of manuals with fzf
-getFileWithFzf "$FMAN_DIRECTORY"
+get_file_with_fzf "$FMAN_DIRECTORY"
 
 suffix=$(echo "$file" | grep -oP '[^\.]*$')
 

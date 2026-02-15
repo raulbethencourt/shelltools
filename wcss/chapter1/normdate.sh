@@ -4,7 +4,7 @@
 #   first letter capitalized. A helper function for Script #7, valid-date,
 #   Exits with 0 if no error.
 
-monthNumToName() {
+month_num_to_name() {
   # Set the 'month' variable to the appropriate value,
   case "$1" in
   1) month="Jan" ;; 2) month="Feb" ;;
@@ -27,7 +27,7 @@ monthNumToName() {
   [ "$3" -le 999 ] && echo "$0: expected 4-digit year value." >&2 && exit 1
 
   # Is the month input format a number?
-  [ -z $(echo "$1" | sed 's/[[:digit:]]//g') ] && monthNumToName "$1" || {
+  [ -z $(echo "$1" | sed 's/[[:digit:]]//g') ] && month_num_to_name "$1" || {
     # Normalize to first 3 letters, first upper- and then lowercase.
     month="$(echo $1 | cut -c1 | tr '[:lower:]' '[:upper:]')"
     month="$month$(echo "$1" | cut -c2-3 | tr '[:upper:]' '[:lower:]')"

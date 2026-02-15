@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# validAlphaNum--Ensures that input consists only of alphabetical and whitespace
+# valid_alpha_num--Ensures that input consists only of alphabetical and whitespace
 #   and numeric characters
 
 # Validate arg: returns 0 if all upper+lower+digits; 1 otherwise
-validAlphaNum() {
+valid_alpha_num() {
   # Remove all unacceptable chars and whitespace.
   validchars=${1//[^[:alnum:]]/}
 
@@ -16,7 +16,7 @@ validAlphaNum() {
   read -r input
 
   # Input validation
-  ! validAlphaNum "$input" && {
+  ! valid_alpha_num "$input" && {
     echo "Please enter only letters and numbers." >&2 && exit 1
   } || echo "Input is valid."
 
