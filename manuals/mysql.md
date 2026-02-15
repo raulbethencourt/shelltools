@@ -62,7 +62,7 @@ ALTER TABLE products CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 ## Mysqldump for update db
 
 ```sql
-mysqldump --login-path=$login_path --add-drop-table $database > $file.sql
+mysqldump --login-path=$login_path --set-gtid-purged=OFF --add-drop-table $database > $file.sql
 ```
 
 ## Mysqldump for specific table
