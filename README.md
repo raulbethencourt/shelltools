@@ -111,25 +111,23 @@ Scripts for interacting with various REST APIs:
 2. Add to your PATH (optional):
 
    ```bash
-   export PATH="$PATH:$(pwd)/bin"
-   ```
+   export PATH="$PATH:$(pwd)/bin" ```
 
 3. Source the library in your scripts:
 
    ```bash
-   source "$(pwd)/lib/.toolbox" 
-   ```
+   source "$(pwd)/lib/.toolbox" ```
 
 ### Usage Examples
 
 #### Using Core Tools
 
 ```bash
-# Calculate expressions 
+# Calculate expressions
 calc "2 + 3 * 4"
 
-# Get programming help 
-cht
+# Get programming help
+cht 
 ```
 
 #### Using Library Functions
@@ -148,7 +146,7 @@ safe_name=$(sanitize_filename "file with spaces.txt")
 #### AI Documentation Generation
 
 ```bash
-# Generate documentation for PHP files 
+# Generate documentation for PHP files
 export GITHUB_TOKEN="your-token-here" aidoc.sh -n "*.php" ./src
 ```
 
