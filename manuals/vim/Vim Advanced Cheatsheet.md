@@ -37,6 +37,12 @@ Table of contents
 :g/^[  ]*$/d
 ```
 
+- Capitalize the first character of every word
+
+```vim
+:s/\<./\u&/g
+```
+
 ### Search in current buffer
 
 `:set hlsearch` `:set nohlsearch` to toggle search highlighting
