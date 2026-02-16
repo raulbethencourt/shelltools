@@ -5,7 +5,7 @@
 echo_error() {
   # Prints an error message to stderr
   # shellcheck disable=SC2154
-  echo "${redf}Error:${reset} $1" >&2
+  echo "${REDF}Error:${RESET} $1" >&2
 }
 error_exit() {
   # Prints an error message to stderr and exits with a specified code (default 1).
@@ -74,6 +74,14 @@ set_log_category() {
   # Sets the log prefix/category while keeping other logging config unchanged.
   # Args: $1=category/prefix
   redirect_to_log "$1" "$__TOOLBOX_LOG_OUTPUT"
+}
+
+# Output Override
+echo() {
+  # Overrides the built-in echo command to add logging capabilities.
+  # All echo calls are first sent to toolbox_log(), and if logging fails,
+  # falls back to the built-in echo.
+  toolbox_log "0" "$@" || builtin echo "$@"
 }
 
 # File System Utilities
