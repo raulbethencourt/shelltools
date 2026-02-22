@@ -18,15 +18,15 @@ shift "$((TBOPTIND))"
 [ ! -d "$FMAN_DIRECTORY" ] && error_exit "Manual directory not found it." 1
 
 # Make a selection from the list of manuals with fzf
-get_file_with_fzf "$FMAN_DIRECTORY"
+file=$(get_file_with_fzf "$FMAN_DIRECTORY")
 
 suffix=$(echo "$file" | grep -oP '[^\.]*$')
 
 case "$suffix" in
-"md") glow -p "$FMAN_DIRECTORY/$file" ;;
-"html") lynx "$FMAN_DIRECTORY/$file" ;;
-"json") jq "$FMAN_DIRECTORY/$file" | less -R ;;
-"pdf") pdftotext "$FMAN_DIRECTORY/$file" - | ccze -A | less -R ;;
+"md") glow -p "$file" ;;
+"html") lynx "$file" ;;
+"json") jq "$file" | less -R ;;
+"pdf") pdftotext "$file" - | ccze -A | less -R ;;
 *) error_exit "File type not handeled." 1 ;;
 esac
 
