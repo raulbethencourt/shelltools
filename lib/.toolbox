@@ -1,6 +1,21 @@
 #!/bin/bash
+# Main loader for the shelltools framework
+#
+# This file serves as the entry point for the shelltools library.
+# It sources all module files in the correct dependency order.
+#
+# Usage: source "$SHELLTOOLSPATH"/lib/.toolbox
+#
+# Module loading order (dependencies must be loaded first):
+# 1. core.sh       - Core utilities, error handling, logging
+# 2. file.sh       - File operations, path utilities, command lookup 
+# 3. options.sh    - Command-line option parsing
+# 4. ui.sh         - User interface, colors, progress bars
+# 5. utils.sh      - Miscellaneous utilities (threading, templating)
+# 6. validation.sh - Input validation functions
 
 source "$SHELLTOOLSPATH"/lib/core.sh
+source "$SHELLTOOLSPATH"/lib/file.sh
 source "$SHELLTOOLSPATH"/lib/options.sh
 source "$SHELLTOOLSPATH"/lib/ui.sh
 source "$SHELLTOOLSPATH"/lib/utils.sh
