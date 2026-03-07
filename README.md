@@ -167,6 +167,22 @@ Run shellcheck on scripts:
 shellcheck *.sh scripts/*.sh bin/* lib/* 
 ```
 
+Run BATS tests:
+
+```bash
+# Initialize git submodules (first time only)
+git submodule update --init --recursive
+
+# Run all tests
+test/bats/bin/bats test/
+
+# Run specific test file
+test/bats/bin/bats test/lib/test_core.bats
+
+# Run with verbose output
+test/bats/bin/bats --verbose-run test/
+```
+
 ### Contributing
 
 1. Follow the established code style
