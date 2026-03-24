@@ -65,7 +65,14 @@ get_file_with_fzf() {
   file=$(
     echo "$FD" |
       xargs -I {} basename {} 2>/dev/null |
-      fzf --bind=tab:up --bind=btab:down --bind=ctrl-g:first
+      fzf --bind=tab:up --bind=btab:down --bind=ctrl-g:first \
+        --prompt '󰀘  ' --info=hidden \
+        --color 'prompt:#ea6962' \
+        --color 'border:#414b50' \
+        --color 'preview-border:#414b50' \
+        --color 'list-border:#414b50' \
+        --color 'input-border:#414b50' \
+        --color 'header-border:#414b50'
   ) || exit 1
 
   [ -d "$directory/$file" ] &&
