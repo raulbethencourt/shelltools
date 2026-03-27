@@ -1,15 +1,23 @@
-#!/bin/sh
+#!/bin/bash
+# shellcheck disable=SC2015
+
+# Initialize library
+source "$SHELLTOOLSPATH"/lib/.toolbox
 
 searchr=$(
   tldr --list |
     sed 's/,/\n/g' |
-    fzf-tmux -p 80%,60% -i --bind=tab:up --bind=btab:down \
-      --bind=ctrl-g:first \
-      --preview "tldr -t ocean {1} " --preview-window=right,70%
+    fzf --tmux center,80%,70% -i --bind=tab:up --bind=btab:down \
+      --padding 0 --margin 0 \
+      --bind=ctrl-g:first --style full \
+      --bind=ctrl-d:preview-half-page-down --bind=ctrl-u:preview-half-page-up \
+      --prompt '󰀘  ' --info=hidden \
+      --preview "tldr -t ocean {1} " --preview-window=right,70% \
+      --preview-window 'right,55%' \
+      --color 'prompt:#ea6962' \
+      --color 'border:#414b50'
 )
 
-if [ -n "$searchr" ]; then
+[ -n "$searchr" ] && {
   tldr "$searchr" && exit 0
-else
-  echo "Nothing found" >&2 && exit 1
-fi
+} || error_exit "Nothing found"

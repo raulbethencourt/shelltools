@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2029
 
 # Initialize library
 source "$SHELLTOOLSPATH"/lib/.toolbox
