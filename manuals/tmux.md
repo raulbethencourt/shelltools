@@ -54,6 +54,56 @@ TMUX cheat sheets
 * `Prefix }` - move the current pane right (see [tmux-pain-control](#tmux_plugins_tmux-pain-control_swapping-panes))
 * `:setw synchronize-panes` - toggle panes synchronization
 
+## Move a tmux pane to an existing window
+
+### From Inside tmux (Key Binding)
+
+1. Move current pane to another window:
+
+```tmux
+Ctrl+b :join-pane -t :2 # This moves the current pane to window 2.
+```
+
+1. Move a specific pane from another window to current window:
+
+```tmux
+Ctrl+b :join-pane -s :1.0 # This brings pane 0 from window 1 to your current window.
+```
+
+### Command Line Syntax
+
+```bash
+# Move pane 0 from window 1 to window 2
+tmux join-pane -s 1.0 -t 2
+
+# With session names
+tmux join-pane -s mysession:1.0 -t mysession:2
+
+# Move and specify position
+tmux join-pane -h -s 1.0 -t 2  # horizontal split
+tmux join-pane -v -s 1.0 -t 2  # vertical split
+```
+
+### Interactive Method
+
+1. Mark the pane you want to move:
+
+```tmux
+Ctrl+b m # marks the current pane
+```
+
+1. Switch to the target window:
+
+```tmux
+Ctrl+b 2    # go to window 2
+```
+
+1. Join the marked pane:
+
+```tmux
+Ctrl+b :join-pane
+```
+
 ## Copy mode (vi mode)
 
 * `Prefix [` - start copy mode

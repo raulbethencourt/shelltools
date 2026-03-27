@@ -19,7 +19,13 @@ shift "$((TBOPTIND))"
 test=$(
   find "$BNS_TOOLS"/tests -type f -name '*.curl' -print0 |
     xargs -0I {} basename {} |
-    fzf
+    fzf --layout reverse --height 70% --style minimal -i \
+      --bind=tab:down --bind=btab:up --bind=ctrl-g:first \
+      --padding 0 --margin 1 \
+      --prompt '󰀘  ' --info=hidden \
+      --header ' ' \
+      --color 'prompt:#ea6962' \
+      --color 'border:#414b50'
 )
 [ -z "$test" ] && exit 1 # Exit if we don't chose a test
 
@@ -30,7 +36,7 @@ cat <<EOL
 ----------------------
 To relaunch this test:
 ----------------------
-bns test -v --continue-on-fail ${url:-} --curl "$BNS_TOOLS"/tests/$test
+${GREENF}bns test${RESET} -v --continue-on-fail ${url:-} --curl "$BNS_TOOLS"/tests/$test
 EOL
 
 exit 0
