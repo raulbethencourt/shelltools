@@ -8,6 +8,12 @@
 * Windows         */Program Files/MySQL/MySQL *version*/bin*
 * Xampp           */xampp/mysql/bin*
 
+## Find all views in database
+
+```sql
+SHOW FULL TABLES WHERE TABLE_TYPE = 'VIEW';
+```
+
 ## Drop view
 
 ```sql
@@ -144,6 +150,22 @@ WHERE NOT EXISTS (
   SELECT * FROM cities_stores
   WHERE cities_stores.store_type = stores.store_type
 );
+```
+
+## Find column in database by name
+
+```sql
+SELECT
+   TABLE_SCHEMA,
+   TABLE_NAME,
+   COLUMN_NAME,
+   DATA_TYPE,
+   COLUMN_TYPE,
+   IS_NULLABLE,
+   COLUMN_KEY
+FROM information_schema.COLUMNS
+WHERE COLUMN_NAME like '%advr%'
+ORDER BY TABLE_NAME;
 ```
 
 ## Find duplicate values in one column
