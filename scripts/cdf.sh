@@ -10,6 +10,7 @@ searchr=$(
       --preview 'eza -lA --changed --color=always --icons=always {}' \
       --bind=ctrl-g:first --style full \
       --bind=ctrl-d:preview-half-page-down --bind=ctrl-u:preview-half-page-up \
+      --padding 0 --margin 0 \
       --prompt '󰀘  ' --info=hidden \
       --color 'prompt:#ea6962' \
       --color 'border:#414b50'
